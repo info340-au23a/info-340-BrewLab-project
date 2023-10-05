@@ -13,3 +13,4 @@ Ideas/Features:
 - Types of cofee 
     - How they're made 
 - Quiz 
+- People can submit their own version of the coffee drink
