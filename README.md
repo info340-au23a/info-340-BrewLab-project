@@ -1,7 +1,7 @@
 # INFO 340 Project
 
 This repository contains code for an interactive information web app, created for the _Client-Side Web Development_ course at the UW iSchool.
-Group members: Grace Suyama, Athena Le, ...
+Group members: Grace Suyama, Athena Le, Kayla Doan, Hannah Yi
 
 Problem/Data Domain
 Question of interest: "What's your coffee of the day?"
