@@ -17,8 +17,11 @@ body {
 
 p {
     font-family:'Aleo Light', Georgia;
-    max-width: 50%;
     font-size: 20px;
+}
+
+.halfscreen {
+    max-width: 50%;
 }
 
 section {
