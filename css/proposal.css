@@ -1,6 +1,14 @@
-h1 {
-    text-align: center;
+h1, h2 {
+    text-align: left;
     font-family:'Playfair Display', 'TAN Mon Cheri';
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h1 {
+    font-size: 40px;
 }
 
 body {
@@ -8,5 +16,13 @@ body {
 }
 
 p {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family:'Aleo Light', Georgia;
+    max-width: 50%;
+    font-size: 20px;
 }
+
+section {
+    margin: .5rem 0;
+    padding: .5rem;
+}
+
