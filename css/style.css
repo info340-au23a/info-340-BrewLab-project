@@ -1,0 +1,31 @@
+h1, h2 {
+    text-align: left;
+    font-family:'Poppins', sans-serif;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+body {
+    background-color: #E7E1D9;
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family:'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+section {
+    margin: .5rem 0;
+    padding: .5rem;
+}
+
+.questions, .options {
+    text-align: center;
+}
