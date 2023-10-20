@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 h1, h2 {
     text-align: left;
     font-family:'Poppins', sans-serif;
@@ -28,4 +32,19 @@ section {
 
 .questions, .options {
     text-align: center;
+}
+
+/* Reference: https://stackoverflow.com/questions/43259704/css-how-to-center-align-a-list-element-with-left-aligned-text#:~:text=I%20would%20suggest%20adding%20text,from%20the%20parent%2C%20as%20desired. */
+ul {
+    display: inline-block;
+    text-align: left;
+    padding: 0.5em 0;
+}
+
+.options {
+    font-size: 20px;
+}
+
+footer {
+    display: block;
 }
