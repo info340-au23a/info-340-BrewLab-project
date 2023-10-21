@@ -38,11 +38,35 @@ section {
 ul {
     display: inline-block;
     text-align: left;
-    padding: 0.5em 0;
+    /* padding: 0.5em 0; */
+}
+
+li {
+    margin: 0.5em;
 }
 
 .options {
     font-size: 20px;
+}
+
+li:nth-child(1):hover {
+    color: peru;
+}
+
+li:nth-child(2):hover {
+    color: peru;
+}
+
+li:nth-child(3):hover {
+    color: peru;
+}
+
+li:nth-child(4):hover {
+    color: peru;
+}
+
+li:nth-child(5):hover {
+    color: peru;
 }
 
 .buttons {
@@ -51,9 +75,13 @@ ul {
     justify-content: space-evenly;
 }
 
-/* .buttons:hover div:nth-child(1) {
+.next:hover {
     text-decoration: underline;
-} */
+}
+
+.previous:hover {
+    text-decoration: underline;
+}
 
 footer {
     display: block;
