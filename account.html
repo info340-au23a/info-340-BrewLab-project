@@ -9,17 +9,21 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Aleo:wght@300;400&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&family=Poppins&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/proposal.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <header>
     <nav> 
+      <div id="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
+      <div id="pages">
         <ul>
-            <li>
-
-            </li>
+          <li> Home </li>
+          <li> Quiz </li>
+          <li> Coffee Tracker </li>
+          <li> Profile </li>
         </ul>
+      </div>
     </nav>
     <div> 
         
@@ -27,6 +31,37 @@
   </header>
 
   <main>
+    <div class="flex-container">
+      <img class="profile-picture" src="img/profile-picture.jpg" alt="profile picture">
+    </div>
+    <div>
+      <p> First Name, Last Name </p>
+      <p> Username </p>
+      <p> Joined date xx/xxxx</p>
+    </div>
+
+    <div class="flex-container">
+      <div class="posts">
+        <h3> Posts </h3>
+        <ul>
+          <li> White Chocolate Mocha </li>
+          <li> Pumpkin Spice Latte </li>
+        </ul>
+      </div>
+      <div class="saved-drinks">
+        <h3> Saved </h3>
+        <ul>
+          <li> Candy Frappauccio </li>
+          <li> Espresso Martini </li>
+        </ul>
+        <div class="tried-drinks">
+          <h4> Tasted </h4>
+          <ul> 
+            <li> idk what you've tried yet </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
   </main>    
 </body>
