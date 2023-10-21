@@ -49,7 +49,14 @@ li {
     font-size: 20px;
 }
 
-li:nth-child(1):hover {
+.options li {
+    display: flex;
+    background-color: peru;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* li:nth-child(1):hover {
     color: peru;
 }
 
@@ -67,7 +74,7 @@ li:nth-child(4):hover {
 
 li:nth-child(5):hover {
     color: peru;
-}
+} */
 
 .buttons {
     display: flex;
