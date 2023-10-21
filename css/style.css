@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    text-align: left;
+    font-family:'Poppins', sans-serif;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+body {
+    background-color: #E7E1D9;
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family:'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+section {
+    margin: .5rem 0;
+    padding: .5rem;
+}
+
+.questions, .options {
+    text-align: center;
+}
+
+/* Reference: https://stackoverflow.com/questions/43259704/css-how-to-center-align-a-list-element-with-left-aligned-text#:~:text=I%20would%20suggest%20adding%20text,from%20the%20parent%2C%20as%20desired. */
+ul {
+    display: inline-block;
+    text-align: left;
+    /* padding: 0.5em 0; */
+}
+
+li {
+    margin: 0.5em;
+}
+
+.options {
+    font-size: 20px;
+}
+
+li:nth-child(1):hover {
+    color: peru;
+}
+
+li:nth-child(2):hover {
+    color: peru;
+}
+
+li:nth-child(3):hover {
+    color: peru;
+}
+
+li:nth-child(4):hover {
+    color: peru;
+}
+
+li:nth-child(5):hover {
+    color: peru;
+}
+
+.buttons {
+    display: flex;
+    /* text-align: center; */
+    justify-content: space-evenly;
+}
+
+.next:hover {
+    text-decoration: underline;
+}
+
+.previous:hover {
+    text-decoration: underline;
+}
+
+footer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0
+}
+
+footer p {
+    font-size: 12px;
+}
