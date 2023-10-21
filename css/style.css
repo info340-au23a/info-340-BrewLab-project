@@ -35,7 +35,7 @@ section {
 }
 
 /* Reference: https://stackoverflow.com/questions/43259704/css-how-to-center-align-a-list-element-with-left-aligned-text#:~:text=I%20would%20suggest%20adding%20text,from%20the%20parent%2C%20as%20desired. */
-ul {
+div {
     display: inline-block;
     text-align: left;
     /* padding: 0.5em 0; */
@@ -49,7 +49,7 @@ li {
     font-size: 20px;
 }
 
-.options li {
+.options p {
     display: flex;
     background-color: peru;
     border-radius: 4px;
