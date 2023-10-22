@@ -14,16 +14,54 @@
 
 <body>
   <header>
-    <h1>My Coffee Tracker</h1>
+    <h1>Log Your Caffeine</h1>
   </header>
 
   <main>
     <!-- drop-down menu reference https://www.freecodecamp.org/news/html-drop-down-menu-how-to-add-a-drop-down-list-with-the-select-element/ -->
 
+<!-- navigation bar 2 -->
+
+<div name="navbar2"> 
+  <div name="box1"> 
+    Manual Input
+  </div>
+  <div name="box1">
+    Your Frequent Drinks
+  </div>
+  <div name="box1">
+    Favorites
+  </div>
+  <div name="box1">
+    Caffeine Log
+  </div>
+</div>
+
+<div style="width: 100%; height: 100%; justify-content: flex-start; align-items: flex-start; gap: 142px; display: inline-flex">
+  <div style="width: 275px; height: 87px; position: relative">
+      <div style="width: 275px; height: 87px; left: 0px; top: 0px; position: absolute; background: #A86846; border-radius: 16px"></div>
+      <div style="width: 147px; height: 49.90px; left: 64px; top: 19.19px; position: absolute; text-align: center; color: #EFE3C8; font-size: 22px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Manual Input</div>
+  </div>
+  <div style="width: 300px; height: 87px; position: relative">
+      <div style="width: 300px; height: 87px; left: 0px; top: 0px; position: absolute; background: #38232A; border-radius: 16px"></div>
+      <div style="width: 229px; height: 49.50px; left: 35px; top: 19.50px; position: absolute; text-align: center; color: #EFE3C8; font-size: 22px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Your Frequent Drinks</div>
+  </div>
+  <div style="width: 189px; height: 87px; position: relative">
+      <div style="width: 189px; height: 87px; left: 0px; top: 0px; position: absolute; background: #38232A; border-radius: 16px"></div>
+      <div style="width: 101px; height: 49.50px; left: 44px; top: 19.50px; position: absolute; text-align: center; color: #EFE3C8; font-size: 22px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Favorites</div>
+  </div>
+  <div style="width: 242px; height: 87px; position: relative">
+      <div style="width: 242px; height: 87px; left: 0px; top: 0px; position: absolute; background: #38232A; border-radius: 16px"></div>
+      <div style="width: 139px; height: 49.50px; left: 51px; top: 19.50px; position: absolute; text-align: center; color: #EFE3C8; font-size: 22px; font-family: Poppins; font-weight: 500; word-wrap: break-word">Caffeine Log</div>
+  </div>
+</div>
+
   <!-- dropdown menus -->
+
   <p>
-    <label for="coffee-type">Coffee Type</label>
-    <select name="coffee-type" id="coffee-type">
+    <label for="coffee-type">Coffee Drink Type</label>
+    <select class="form-select form-select-lg mb-3" aria-label="Default select" name="coffee-type" id="coffee-type">
+      <option selected>Pick coffee drink type</option>
       <option value="espresso">Espresso</option>
       <option value="macchiato">Macchiato</option>
       <option value="cappucino">Cappucino</option>
@@ -43,7 +81,7 @@
 
   <p>
     <label for="volume">Volume</label>
-    <select name="volume" id="volume">
+    <select class="form-select form-select-lg mb-3" aria-label="Default select" name="volume" id="volume">
       <option value="xsmall">extra small: 4 oz.</option>
       <option value="small">small: 6 oz.</option>
       <option value="medium">medium: 8 oz.</option>
@@ -55,7 +93,7 @@
 
   <p>
     <label for="milk">Type of Milk</label>
-    <select name="milk" id="milk">
+    <select class="form-select form-select-lg mb-3" aria-label="Default select" name="milk" id="milk">
       <option value="whole">Whole</option>
       <option value="soy">Soy</option>
       <option value="hazelnut">Hazelnut</option>
@@ -70,7 +108,7 @@
 
   <p>
     <label for="volume-milk">Volume of Milk</label>
-    <select name="volume-milk" id="volume-milk">
+    <select class="form-select form-select-lg mb-3" aria-label="Default select" name="volume-milk" id="volume-milk">
       <option value="xsmall">extra small: 4 oz.</option>
       <option value="small">small: 6 oz.</option>
       <option value="medium">medium: 8 oz.</option>
@@ -82,7 +120,7 @@
 
   <p>
     <label for="foam-volume">Volume of Foam</label>
-    <select name="foam-volume" id="foam-volume">
+    <select class="form-select form-select-lg mb-3" aria-label="Default select" name="foam-volume" id="foam-volume">
       <option value="small">30mL</option>
       <option value="medium">60mL</option>
       <option value="large">120mL</option>
@@ -97,7 +135,7 @@
 
   <p>
     <label for="sweet">Sweetness Level</label>
-    <select name="sweet" id="sweet">
+    <select class="form-select form-select-lg mb-3" aria-label="Default select" name="sweet" id="sweet">
       <option value="zero">0% - no sugar</option>
       <option value="25">25% - 1/4 sugar</option>
       <option value="50">50% - 1/2 sugar</option>
