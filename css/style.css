@@ -30,8 +30,30 @@ section {
     padding: .5rem;
 }
 
-.questions, .options {
+.quiz-page {
+    background-color: #86C1CF;
+}
+
+.quiz-header {
+    display: inline-flex;
+}
+
+.quiz-header h1 {
+    font-family: 'Rosarivo', serif;
+}
+
+.quiz-nav a {
+    /* display: inline-flex;
+    justify-content: space-evenly; */
+    font-size: 15px;
+}
+
+.question, .options {
     text-align: center;
+}
+
+.question p {
+    font-family: 'Rosarivo', serif;
 }
 
 /* Reference: https://stackoverflow.com/questions/43259704/css-how-to-center-align-a-list-element-with-left-aligned-text#:~:text=I%20would%20suggest%20adding%20text,from%20the%20parent%2C%20as%20desired. */
@@ -41,40 +63,18 @@ div {
     /* padding: 0.5em 0; */
 }
 
-li {
-    margin: 0.5em;
-}
-
-.options {
-    font-size: 20px;
-}
-
 .options p {
     display: flex;
-    background-color: peru;
-    border-radius: 4px;
-    text-align: center;
+    background-color: #38232A;
+    border-radius: 6px;
+    padding: .5rem 8rem;
+    color: white;
 }
 
-/* li:nth-child(1):hover {
-    color: peru;
+.options p:hover {
+    background-color: #EFE3C8;
+    color: black;
 }
-
-li:nth-child(2):hover {
-    color: peru;
-}
-
-li:nth-child(3):hover {
-    color: peru;
-}
-
-li:nth-child(4):hover {
-    color: peru;
-}
-
-li:nth-child(5):hover {
-    color: peru;
-} */
 
 .buttons {
     display: flex;
@@ -82,22 +82,15 @@ li:nth-child(5):hover {
     justify-content: space-evenly;
 }
 
-.next:hover {
-    text-decoration: underline;
-}
-
-.previous:hover {
-    text-decoration: underline;
-}
-
-footer {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    left: 0
+.next:hover, .previous:hover {
+    color: white;
 }
 
 footer p {
+    /* display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0; */
     font-size: 12px;
 }
 
