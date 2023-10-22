@@ -47,6 +47,11 @@ section {
     font-size: 15px;
 }
 
+.quiz-link {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 .quiz-header h1 {
     font-family: 'Rosarivo', serif;
 }
@@ -57,6 +62,10 @@ section {
 
 .question p:first-child {
     font-family: 'Rosarivo', serif;
+}
+
+.question p:last-child {
+    font-size: 26px;
 }
 
 /* Reference: https://stackoverflow.com/questions/43259704/css-how-to-center-align-a-list-element-with-left-aligned-text#:~:text=I%20would%20suggest%20adding%20text,from%20the%20parent%2C%20as%20desired. */
