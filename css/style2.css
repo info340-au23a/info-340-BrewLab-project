@@ -313,7 +313,7 @@ footer p {
 
 .custom-drinks img {
     max-width: 250px;
-    margin-top: 70px;
+    margin: 70px 10px 0;
     border-radius: 11%;
 }
 
