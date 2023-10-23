@@ -503,6 +503,14 @@ nav a {
         inset 0 4px 8px hsla(32, 46% 95% .4);
 }
 
+/* HOME-Order section */
+#section1 {
+    height: 700px;
+    background: var(--cappuccino);
+    display: inline-block;
+    width: 100%;
+}
+
 /* BREAKPOINTS */
 /* S devices */
 @media screen and (max-width: 300px) {
