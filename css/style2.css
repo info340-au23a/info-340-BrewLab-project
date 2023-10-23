@@ -185,6 +185,10 @@ img {
     z-index: var(--z-fixed);
 }
 
+.heading {
+    text-align: center;
+}
+
 .nav {
     position: relative;
     height: var(--header-height);
