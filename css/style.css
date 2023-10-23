@@ -175,3 +175,7 @@ div.border h2 {
     word-wrap: break-word;
     margin-bottom: 0;
 }
+
+#select {
+    background: #38232A;
+}
