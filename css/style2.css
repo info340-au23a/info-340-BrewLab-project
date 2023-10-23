@@ -309,6 +309,8 @@ footer p {
 
 .custom-drinks img {
     max-width: 250px;
+    margin-top: 70px;
+    border-radius: 11%;
 }
 
 /* tracker */
