@@ -295,6 +295,16 @@ footer p {
     color: var(--espresso-brown);
 }
 
+.custom-drinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.custom-drinks img {
+    max-width: 250px;
+}
+
 /* tracker */
 .navbar2 {
     width: 90%;
