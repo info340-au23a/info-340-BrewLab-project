@@ -45,7 +45,7 @@ section {
     text-decoration: none;
 }
 
-.quiz-link {
+.quiz-nav .quiz-link {
     text-decoration: underline;
     font-weight: bold;
 }
