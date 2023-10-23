@@ -14,115 +14,146 @@
 
 <body>
   <header class="header" id="header">
-    <nav class="nav container">
-      <a href="#" class="nav__logo">
-        <i class="ri-cup-line"></i> Coffee
-      </a>
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav container">
+          <a href="#" class="nav__logo">
+              <i class="ri-cup-line"></i> Coffee
+          </a>
 
-      <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="#" class="nav__link">Home</a>
-          </li>
+          <div class="nav__menu" id="nav-menu">
+              <ul class="nav__list">
+                  <li class="nav__item">
+                      <a href="main.html" class="nav__link">Home</a>
+                  </li>
 
-          <li class="nav__item">
-            <a href="#" class="nav__link">Custom Orders</a>
-          </li>
+                  <li class="nav__item">
+                      <a href="orders.html" class="nav__link">Custom Orders</a>
+                  </li>
 
-          <li class="nav__item">
-            <a href="#" class="nav__link">Tracker</a>
-          </li>
+                  <li class="nav__item">
+                      <a href="tracker.html" class="nav__link">Tracker</a>
+                  </li>
 
-          <li class="nav__item">
-            <a href="#" class="nav__link">Quiz</a>
-          </li>
-        </ul>
+                  <li class="nav__item">
+                      <a href="quiz.html" class="nav__link">Quiz</a>
+                  </li>
+              </ul>
 
-        <a href="#" class="nav__button">Login</a>
+              <a href="account.html" class="nav__button">Account</a>
 
-        <div class="'nav__close" id="nav-close">
-          <i class="ri-close-line"></i>
-        </div>
-      </div>
+              <div class="'nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+              </div>
+          </div>
 
-      <div class="'toggle" id="nav-toggle">
-        <i class="ri-menu-line"></i>
-      </div>
-    </nav>
-    <div>
-      <h1> Log Your Caffeine </h1>
-    </div>
-  </header>
+          <div class="'toggle" id="nav-toggle">
+              <i class="ri-menu-line"></i>
+          </div>
+      </nav>
 
   <main>
-    <!-- drop-down menu reference https://www.freecodecamp.org/news/html-drop-down-menu-how-to-add-a-drop-down-list-with-the-select-element/ -->
-
-    <!-- 1 nav style -->
-    <div class="navbar2">
-      <div class="row justify-content-center">
-        <!-- 2 bar style -->
-        <div class="col">
-          <!-- 3 border -->
-          <div class="border">
-            <!-- 4 font style -->
-            <h2>Manual Input</h2>
-          </div>
+    <div class="inputs d-flex flex-column">
+      <div class="d-inline-flex p-2">
+        <div>
+          <p class="tracker">Coffee Drink Type</p>
         </div>
-
-        <div class="col">
-          <!-- 3 border -->
-          <div class="border">
-            <!-- 4 font style -->
-            <h2>Your Frequent Drinks</h2>
-          </div>
-        </div>
-
-        <div class="col">
-          <!-- 3 border -->
-          <div class="border">
-            <!-- 4 font style -->
-            <h2>Favorites</h2>
-          </div>
-        </div>
-
-        <div class="col">
-          <!-- 3 border -->
-          <div class="border">
-            <!-- 4 font style -->
-            <h2>Caffeine Log</h2>
-          </div>
+        <div>
+          <select class="form-select form-select-lg" aria-label="Default select">
+            <option selected>Pick coffee drink type</option>
+            <option value="espresso">Espresso</option>
+            <option value="macchiato">Macchiato</option>
+            <option value="cappucino">Cappucino</option>
+            <option value="mocha">Mocha</option>
+            <option value="flat-white">Flat White</option>
+            <option value="americano">Americano</option>
+            <option value="latte">Latte</option>
+            <option value="custom">Custom</option>
+          </select>
         </div>
       </div>
 
-      <!-- <div class="bar">
-        <div class="border">
-          <h2>Your Frequent Drinks</h2>
-        </div>
+      <div class="d-inline-flex p-2">
+        <p class="tracker">Temperature</p>
+        <button class="temp" type="button">Hot</button>
+        <button class="temp" type="button">Iced</button>
       </div>
 
-      <div class="bar">
-        <div class="border">
-          <h2>Favorites</h2>
-        </div>
+      <div class="d-inline-flex p-2">
+        <p class="tracker">Volume</p>
+        <select class="form-select form-select-lg" aria-label="Default select" name="volume" id="volume">
+          <option value="xsmall">extra small: 4 oz.</option>
+          <option value="small">small: 6 oz.</option>
+          <option value="medium">medium: 8 oz.</option>
+          <option value="large">large: 16 oz.</option>
+          <option value="xlarge">extra large: 24 oz.</option>
+          <option value="xxlarge">2x large: 32oz.</option>
+        </select>
       </div>
 
-      <div class="bar">
-        <div class="border">
-          <h2>Caffeine Log</h2>
-        </div>
-      </div> -->
+      <div class="d-inline-flex p-2">
+        <p class="tracker">Type of Milk</p>
+        <select name="milk" id="milk">
+          <option value="whole">Whole</option>
+          <option value="soy">Soy</option>
+          <option value="hazelnut">Hazelnut</option>
+          <option value="almond">Almond</option>
+          <option value="coconut">Coconut</option>
+          <option value="oat">Oat</option>
+          <option value="goat">Goat</option>
+          <option value="skimmed">Skimmed</option>
+          <option value="skimmed">None</option>
+        </select>
+      </div>
+
+      <div class="d-inline-flex p-2">
+        <p class="tracker">Volume of Milk</p>
+        <select class="form-select form-select-lg mb-3" aria-label="Default select" name="volume-milk" id="volume-milk">
+          <option value="xsmall">extra small: 4 oz.</option>
+          <option value="small">small: 6 oz.</option>
+          <option value="medium">medium: 8 oz.</option>
+          <option value="large">large: 16 oz.</option>
+          <option value="xlarge">extra large: 24 oz.</option>
+          <option value="xxlarge">2x large: 32oz.</option>
+        </select>
+      </div>
+
+      <div class="d-inline-flex p-2">
+        <p class="tracker">Volume of Foam</p>
+        <select class="form-select form-select-lg mb-3" aria-label="Default select" name="foam-volume" id="foam-volume">
+          <option value="small">30mL</option>
+          <option value="medium">60mL</option>
+          <option value="large">120mL</option>
+        </select>
+      </div>
+
+      <div class="d-inline-flex p-2">
+        <p class="tracker">Drink Type</p>
+        <button class="drink-type" type="button">Decaf</button>
+        <button class="drink-type" type="button">Caffeinated</button>
+      </div>
+
+      <div class="d-inline-flex p-2">
+        <p class="tracker">Sweetness Level</p>
+        <select class="form-select form-select-lg mb-3" aria-label="Default select" name="sweet" id="sweet">
+          <option value="zero">0% - no sugar</option>
+          <option value="25">25% - 1/4 sugar</option>
+          <option value="50">50% - 1/2 sugar</option>
+          <option value="75">75% - less sugar</option>
+          <option value="100">100% - normal sugar</option>
+          <option value="150">150% - more sugar</option>
+        </select>
       </div>
     </div>
 
-    <!-- dropdown menus
-    <div class="inputs d-flex flex-column">
+    <!-- dropdown menus -->
+    <!-- <div class="inputs d-flex flex-column">
       <div class="d-inline-flex p-2">
         <div>
           <h3>Coffee Drink Type</h3>
         </div>
         <div>
-          <select class="form-select form-select-lg mb-3" aria-label="Default select" name="coffee-type"
-            id="coffee-type">
+          <select class="form-select form-select-lg mb-3" aria-label="Default select">
             <option selected>Pick coffee drink type</option>
             <option value="espresso">Espresso</option>
             <option value="macchiato">Macchiato</option>
@@ -207,13 +238,11 @@
           <option value="150">150% - more sugar</option>
         </select>
       </div>
-
-    </div>
+    </div> -->
 
     <div>
       <button type="button" class="btn btn-primary">Log Drink</button>
-    </div> -->
-
+    </div>
   </main>
   <script src="js/main.js"></script>
 </body>

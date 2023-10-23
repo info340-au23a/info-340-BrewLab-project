@@ -811,3 +811,15 @@ nav a {
     --color-hover: var(--light-hover);
     --color-txt: var(--light-text);
 }
+
+.inputs {
+    margin: auto;
+    width: 75%;
+    padding: 10%;
+}
+
+div p.tracker {
+    padding-right: 30px;
+    font-size: 20px;
+    color: var(--creamy-latte);
+}
