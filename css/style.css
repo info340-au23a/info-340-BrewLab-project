@@ -2,10 +2,11 @@
     box-sizing: border-box;
 }
 
-h1, h2 {
+h1,
+h2 {
     text-align: left;
     color: #38232A;
-    font-family:'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 h2 {
@@ -22,7 +23,7 @@ body {
 }
 
 p {
-    font-family:'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
 }
 
@@ -36,18 +37,7 @@ section {
 }
 
 .quiz-nav {
-    position: absolute;
-    right: 0;
-}
-
-.quiz-nav a {
-    font-size: 15px;
-    text-decoration: none;
-}
-
-.quiz-nav .quiz-link {
-    text-decoration: underline;
-    font-weight: bold;
+    display: none;
 }
 
 .quiz-header h1 {
@@ -60,10 +50,6 @@ section {
 
 .question p:first-child {
     font-family: 'Rosarivo', serif;
-}
-
-.question p:last-child {
-    font-size: 26px;
 }
 
 /* Reference: https://stackoverflow.com/questions/43259704/css-how-to-center-align-a-list-element-with-left-aligned-text#:~:text=I%20would%20suggest%20adding%20text,from%20the%20parent%2C%20as%20desired. */
@@ -104,6 +90,28 @@ footer p {
     font-size: 12px;
 }
 
+@media (min-width: 576px) {
+    .quiz-nav {
+        display: flex;
+        position: absolute;
+        right: 0;
+     }
+    
+    .quiz-nav a {
+        font-size: 15px;
+        text-decoration: none;
+     }
+
+    .quiz-nav .quiz-link {
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    .question p:last-child {
+        font-size: 26px;
+    }
+}
+
 img.profile-picture {
     max-width: 200px;
     max-height: 200px;
@@ -136,12 +144,12 @@ nav a {
 }
 
 .navbar2 .bar .border {
-    width: 275px; 
-    height: 87px; 
-    left: 0px; 
-    top: 0px; 
-    position: absolute; 
-    background: #A86846; 
+    width: 275px;
+    height: 87px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #A86846;
     border-radius: 16px
 }
 
@@ -149,11 +157,11 @@ nav a {
     padding-bottom: .25rem;
     padding-top: .5rem;
     font-size: .75rem;
-    position: absolute; 
-    text-align: center; 
-    color: #EFE3C8; 
-    font-size: 22px; 
-    font-family: Poppins; 
-    font-weight: 500; 
+    position: absolute;
+    text-align: center;
+    color: #EFE3C8;
+    font-size: 22px;
+    font-family: Poppins;
+    font-weight: 500;
     word-wrap: break-word
 }
