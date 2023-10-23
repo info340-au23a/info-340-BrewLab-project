@@ -247,11 +247,21 @@ img.profile-picture {
     max-width: 200px;
     max-height: 200px;
     border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .flex-container {
     display: block;
+    padding-top: 100px;
+    justify-content: center;
 }
+
+.profile-content {
+    flex-grow: 1;
+}
+
+
 
 nav a {
     color: var(--espresso-brown);
