@@ -3,13 +3,11 @@
     --header-height: 3.5rem;
   
     /*Color*/
-    --first-color: #38232A;
-    --first-color-alt: hsl(42, 55%, 86%);
-    --second-color: #A86846;
-    --second-color-alt: #C7A27A;
-    --title-color: #F8F2EB;
-    --text-color: #EFE3C8;
-    --body-color: #38232A;
+    --espresso-brown: #38232A;
+    --cappuccino: #A86846;
+    --caramel: #C7A27A;
+    --milk-foam: #F8F2EB;
+    --creamy-latte: #EFE3C8;
   
     /*Font and typography*/
     --body-font: "Poppins", sans-serif;
@@ -259,6 +257,7 @@ nav a {
     margin-right: .5em;
 }
 
+/* tracker */
 .navbar2 {
     width: 90%;
     justify-content: start;
@@ -281,7 +280,7 @@ div.border {
     top: 20%;
     box-sizing: border-box;
     position: absolute;
-    background: #A86846;
+    background: var(--cappuccino);
     border-radius: 16px;
 }
 
