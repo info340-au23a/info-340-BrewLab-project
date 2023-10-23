@@ -2,8 +2,7 @@
     box-sizing: border-box;
 }
 
-h1,
-h2 {
+h1, h2 {
     text-align: left;
     color: #38232A;
     font-family: 'Poppins', sans-serif;
@@ -36,8 +35,14 @@ section {
     background-color: #86C1CF;
 }
 
-.quiz-nav {
+.displayed-nav {
     display: none;
+}
+
+.dropdown-nav {
+    display: flex;
+    position: absolute;
+    right: 0;
 }
 
 .quiz-header h1 {
@@ -91,16 +96,20 @@ footer p {
 }
 
 @media (min-width: 576px) {
-    .quiz-nav {
+    .displayed-nav {
         display: flex;
         position: absolute;
         right: 0;
-     }
+    }
+
+    .dropdown-nav {
+        display: none;
+    }
     
     .quiz-nav a {
         font-size: 15px;
         text-decoration: none;
-     }
+    }
 
     .quiz-nav .quiz-link {
         text-decoration: underline;
