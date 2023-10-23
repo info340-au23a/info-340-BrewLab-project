@@ -103,7 +103,9 @@ img {
 
 .main {
     overflow: hidden;
-    /* For animation */
+    background: url('img/bgvector.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;  
 }
 
 .section {
@@ -181,6 +183,10 @@ img {
     left: 0;
     background-color: var(--espresso-brown);
     z-index: var(--z-fixed);
+}
+
+.heading {
+    text-align: center;
 }
 
 .nav {
@@ -386,8 +392,6 @@ img.profile-picture {
     flex-grow: 1;
 }
 
-
-
 nav a {
     color: var(--espresso-brown);
     margin-right: .5em;
@@ -464,11 +468,21 @@ nav a {
 }
 
 .home-text h1 {
-    font-size: 3.4rem;
     color: var(--milk-foam);
     font-family: var(--title-font);
+    font-size: 3.4rem;
     letter-spacing: 1px;
 }
+
+.main .home-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: var(--milk-foam);
+    z-index: 1;
+  }
 
 .home-btn {
     display: inline-block;
