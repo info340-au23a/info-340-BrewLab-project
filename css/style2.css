@@ -175,6 +175,10 @@ section {
     text-align: center;
 }
 
+.question {
+    color: white;
+}
+
 .question p:first-child {
     font-family: var(--title-font);
 }
@@ -215,6 +219,7 @@ footer p {
     bottom: 0;
     left: 0; */
     font-size: 12px;
+    color: white;
 }
 
 @media (min-width: 576px) {
