@@ -42,6 +42,7 @@ section {
 
 .quiz-nav a {
     font-size: 15px;
+    text-decoration: none;
 }
 
 .quiz-link {
