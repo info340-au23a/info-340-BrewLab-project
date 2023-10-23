@@ -8,8 +8,10 @@
     --caramel: #C7A27A;
     --milk-foam: #F8F2EB;
     --creamy-latte: #EFE3C8;
+    --mint: #86C1CF;
   
     /*Font and typography*/
+    --title-font: "Rosarivo", sans-serif;
     --body-font: "Poppins", sans-serif;
     --biggest-font-size: 2rem;
     --normal-font-size: .938rem;
@@ -46,14 +48,13 @@
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
-    background-color: var(--body-color);
-    color: var(--text-color);
+    background-color: var(--espresso-brown);
+    color: var(--creamy-latte);
   }
 
   h1, h2 {
     text-align: left;
-    color: #38232A;
-    font-family: 'Poppins', sans-serif;
+    color: var(--espresso-brown);
 }
 
 /* h1 {
@@ -102,7 +103,7 @@ section {
   }
 
   .home__title {
-      font-family: "Rosarivo", sans-serif;
+    font-family: var(--title-font);
   }
   
   /* HEADER & NAV */
@@ -111,7 +112,7 @@ section {
       width: 100%;
       top: 0;
       left: 0;
-      background-color: var(--first-color);
+      background-color: var(--espresso-brown);
       z-index: var(--z-fixed);
   }
   
@@ -132,7 +133,7 @@ section {
   }
   
   .nav__logo {
-      color: var(--text-color);
+      color: var(--creamy-latte);
       column-gap: .5rem;
       font-weight: var(--font-semi-bold);
   }
@@ -144,7 +145,7 @@ section {
   
   .nav__toggle, 
   .nav__close {
-      background-color: var(--first-color-alt);
+      background-color: var(--espresso-brown);
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
@@ -153,7 +154,7 @@ section {
   }
   
   .quiz-page {
-    background-color: #86C1CF;
+    background-color: var(--mint);
 }
 
 .displayed-nav {
@@ -167,7 +168,7 @@ section {
 }
 
 .quiz-header h1 {
-    font-family: 'Rosarivo', serif;
+    font-family: var(--title-font);
 }
 
 .question, .options {
@@ -175,7 +176,7 @@ section {
 }
 
 .question p:first-child {
-    font-family: 'Rosarivo', serif;
+    font-family: var(--title-font);
 }
 
 /* Reference: https://stackoverflow.com/questions/43259704/css-how-to-center-align-a-list-element-with-left-aligned-text#:~:text=I%20would%20suggest%20adding%20text,from%20the%20parent%2C%20as%20desired. */
@@ -187,15 +188,15 @@ div {
 
 .options p {
     display: flex;
-    background-color: #38232A;
+    background-color: var(--espresso-brown);
     border-radius: 6px;
     padding: .5rem 4rem;
     color: white;
 }
 
 .options p:hover {
-    background-color: #EFE3C8;
-    color: black;
+    background-color: var(--creamy-latte);
+    color: var(--espresso-brown);
 }
 
 .buttons {
@@ -253,7 +254,7 @@ img.profile-picture {
 }
 
 nav a {
-    color: black;
+    color: var(--espresso-brown);
     margin-right: .5em;
 }
 
@@ -307,7 +308,7 @@ div.border h2 {
           position: fixed;
           top: 0;
           right: -100%;
-          background-color: var(--body-color);
+          background-color: var(--espresso-brown);
           width: 80%;
           height: 100%;
           box-shadow: 0 0 16px hsla(32, 48%, 95% .2);
@@ -326,7 +327,7 @@ div.border h2 {
   }
   
   .nav__link {
-      color: var(--text-color);
+      color: var(--creamy-latte);
       font-weight: var(--font-semi-bold);
       transition: color .4s;
   }
@@ -338,11 +339,11 @@ div.border h2 {
   .nav__button {
       display: inline-block;
       width: max-content;
-      background-color: var(--body-color);
-      border: 2px solid var(--text-color);
+      background-color: var(--espresso-brown);
+      border: 2px solid var(--creamy-latte);
       padding: 1rem 3rem;
       border-radius: 4rem;
-      color: var(--title-color);
+      color: var(--milk-foam);
       font-weight: var(--font-semi-bold);
   }
   .nav__close {
@@ -371,18 +372,18 @@ div.border h2 {
   }
   .home-text h1 {
     font-size: 3.4rem;
-    color: var(--title-color);
-    font-family: "Rosarivo", sans-serif;
+    color: var(--milk-foam);
+    font-family: var(--title-font);
     letter-spacing: 1px;
   }
   .home-btn {
     display: inline-block;
     background: linear-gradient(180deg,
-                var(--text-color),
-                var(--second-color-alt));
+                var(--creamy-latte),
+                var(--caramel));
     padding: 1rem 3rem;
     border-radius: 4rem;
-    color: var(--body-color);
+    color: var(--espresso-brown);
     font-weight: var(--font-semi-bold);
     box-shadow: 0 8px 32px hsla(340, 23%, 18% .3),
                 inset 0 4px 8px hsla(32, 46% 95% .4);
