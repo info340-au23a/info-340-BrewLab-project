@@ -262,17 +262,79 @@ img.profile-picture {
     margin-left: auto;
 }
 
-.flex-container {
+.block-container {
     display: block;
     padding-top: 100px;
     justify-content: center;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.account-data h2 {
+    color: #EFE3C8;
+}
+
+.account-data {
+    padding: 40px
+}
+
+.post-cards div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.post-cards div div img {
+    border-radius: 10px 10px 0 0;
+    height: 225px;
+  }
+
+.post-cards div div {
+    flex: 0 0 250px;
+    background-color: white;
+    margin: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.16),
+      0 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+
+.posts-title {
+    text-decoration: underline;
+}
+
+.block-container .flex-box{
+    justify-content: center;
+    padding-top: 25px;
 }
 
 .profile-content {
     flex-grow: 1;
 }
 
+.post-cards p {
+    color: #38232A;
+}
 
+.profile-content h2 {
+    color: #EFE3C8;
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding-top: 100px;
+}
 
 nav a {
     color: var(--espresso-brown);
