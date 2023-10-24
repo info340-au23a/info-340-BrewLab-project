@@ -576,8 +576,9 @@ nav a {
 
 .inputs {
     margin: auto;
-    width: 75%;
-    padding: 10%;
+    width: auto;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .groupcards {
@@ -657,6 +658,14 @@ div p.tracker {
         row-gap: 2.5rem;
         transition: right .4s;
     }
+    
+    .t-navi {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: right .4s;
+    }
 }
 
 /* BREAKPOINTS */
@@ -664,6 +673,13 @@ div p.tracker {
 @media screen and (max-width: 300px) {
     .container {
         margin-inline: 1rem;
+    }
+    .t-navi {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: right .4s;
     }
 }
 
