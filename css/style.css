@@ -339,43 +339,6 @@ footer p {
     border-radius: 11%;
 }
 
-/* tracker */
-.navbar2 {
-    width: 90%;
-    align-items: center;
-    gap: 100px;
-    display: inline-flex;
-    padding: 20px;
-}
-
-.navbar2 .bar {
-    width: 50%;
-    height: 50%;
-    margin: 100px;
-}
-
-div.border {
-    width: 275px;
-    height: 80px;
-    left: 20%;
-    top: 20%;
-    box-sizing: border-box;
-    background: var(--cappuccino);
-    border-radius: 16px;
-}
-
-div.border h2 {
-    line-height: 1.2;
-    padding: 1.5rem;
-    text-align: center;
-    color: var(--creamy-latte);
-    font-size: 22px;
-    font-family: Poppins;
-    font-weight: 500;
-    word-wrap: break-word;
-    margin-bottom: 0;
-}
-
 /* profile page */
 img.profile-picture {
     max-width: 200px;
@@ -574,6 +537,7 @@ nav a {
     width: 100%;
 } */
 
+/* Tracker page */
 .inputs {
     margin: auto;
     width: auto;
@@ -581,7 +545,7 @@ nav a {
     padding-right: 10%;
 }
 
-.groupcards {
+.groupcards .dropdown .tracker-navi {
     margin-top: 80px;
     max-width: 70%;
     margin-left: auto;
@@ -590,20 +554,6 @@ nav a {
 
 .cal {
     margin-top: 100px;
-    max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.dropdown {
-    margin-top: 80px;
-    max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tracker-navi {
-    margin-top: 80px;
     max-width: 70%;
     margin-left: auto;
     margin-right: auto;
