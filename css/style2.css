@@ -205,6 +205,7 @@ img {
 .orders {
     background-color: var(--cappuccino);
 } 
+
 .nav {
     position: relative;
     height: var(--header-height);
@@ -242,11 +243,12 @@ img {
     cursor: pointer;
 }
 
+/* Quiz Page */
 .quiz-page {
     background-color: var(--mint);
 }
 
-.displayed-nav {
+/* .displayed-nav {
     display: none;
 }
 
@@ -254,7 +256,7 @@ img {
     display: flex;
     position: absolute;
     right: 0;
-}
+} */
 
 .quiz-header {
     font-family: var(--title-font);
@@ -262,6 +264,7 @@ img {
     margin-top: 60px;
 }
 
+/* Question and answers */
 .question, .options {
     text-align: center;
 }
@@ -303,10 +306,10 @@ div {
     color: var(--espresso-brown);
 }
 
-.next:hover,
+/* .next:hover,
 .previous:hover {
     color: white;
-}
+} */
 
 footer p {
     display: block;
@@ -317,6 +320,7 @@ footer p {
     color: #EFE3C8;
 }
 
+/* Custom Orders Page */
 .custom-orders {
     font-family: var(--title-font);
     color: var(--caramel);
@@ -812,8 +816,9 @@ div p.tracker {
     color: var(--creamy-latte);
 }
 
+/* Quiz Page for bigger screens */
 @media (min-width: 576px) {
-    .displayed-nav {
+    /* .displayed-nav {
         display: flex;
         position: absolute;
         right: 0;
@@ -821,7 +826,7 @@ div p.tracker {
 
     .dropdown-nav {
         display: none;
-    }
+    } */
 
     .quiz-nav a {
         font-size: 15px;
