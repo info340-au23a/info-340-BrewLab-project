@@ -396,6 +396,7 @@ div.border h2 {
     }
 }
 
+/* profile page */
 img.profile-picture {
     max-width: 200px;
     max-height: 200px;
@@ -406,8 +407,9 @@ img.profile-picture {
 
 .block-container {
     display: block;
-    padding-top: 100px;
+    padding-top: 50px;
     justify-content: center;
+    text-align: center;
 }
 
 .flex-box {
@@ -422,7 +424,11 @@ img.profile-picture {
 }
 
 .account-data {
-    padding: 40px
+    padding: 20px
+}
+
+.account-data p {
+    text-align: center;
 }
 
 .post-cards div {
@@ -446,14 +452,13 @@ img.profile-picture {
       0 1px 3px rgba(0, 0, 0, 0.23);
 }
 
-
 .posts-title {
     text-decoration: underline;
 }
 
 .block-container .flex-box{
     justify-content: center;
-    padding-top: 25px;
+    padding: 25px;
 }
 
 .profile-content {
@@ -467,7 +472,7 @@ img.profile-picture {
 .profile-content h2 {
     color: #EFE3C8;
     text-align: center;
-    padding: 20px;
+    padding-top: 20px;
 }
 
 footer {
