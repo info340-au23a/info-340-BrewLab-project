@@ -199,7 +199,6 @@ img {
 .heading h1 {
     text-align: center;
     font-family: var(--title-font);
-    color: var(--creamy-latte);
 }
 
 .orders {
@@ -491,7 +490,7 @@ nav a {
 
 .main .home-text {
     position: absolute;
-    top: 30%;
+    top: 13%;
     left: 40%;
     transform: translate(-50%, -50%);
     text-align: left;
@@ -524,18 +523,20 @@ nav a {
     display: inline-block;
     width: 100%;
 }
-/* #section3 {
+#section3 {
     height: 700px;
-    background: var(--cappuccino);
+    background: var(--creamy-latte);
+    color: var(--espresso-brown);
     display: inline-block;
     width: 100%;
-} */
-/* #section4 {
+}
+#section4 {
     height: 700px;
-    background: var(--cappuccino);
+    background: var(--mint);
+    color: var(--espresso-brown);
     display: inline-block;
     width: 100%;
-} */
+} 
 
 /* Tracker page */
 .inputs {
@@ -687,3 +688,4 @@ div p.tracker {
         --small-font-size: .875rem;
     }
 }
+
