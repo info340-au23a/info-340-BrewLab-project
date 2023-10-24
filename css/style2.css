@@ -305,6 +305,12 @@ footer p {
     color: #EFE3C8;
 }
 
+.custom-orders {
+    font-family: var(--title-font);
+    color: var(--caramel);
+    margin-top: 60px;
+}
+
 .custom-drinks {
     display: flex;
     flex-wrap: wrap;
