@@ -134,12 +134,14 @@ img {
 /* Buttons */
 .primary-button {
     border-radius: 48px;
+    padding: .5rem 1rem;
     background-color: var(--espresso-brown);
     color: var(--milk-foam);
 }
 
 .secondary-button {
     border-radius: 48px;
+    padding: .5rem 1rem;
     background-color: var(--cappuccino);
     color: var(--milk-foam);
 }
@@ -147,24 +149,28 @@ img {
 .tertiary-button {
     border-radius: 48px;
     border: 4px solid;
+    padding: .5rem 1rem;
     border-color: var(--espresso-brown);
     color: var(--milk-foam);
 }
 
 .primary-button:hover {
     border-radius: 48px;
+    padding: .5rem 1rem;
     background-color: var(--espresso-brown);
     color: var(--milk-foam);
 }
 
 .secondary-button:hover {
     border-radius: 48px;
+    padding: .5rem 1rem;
     background-color: var(--cappuccino);
     color: var(--milk-foam);
 }
 
 .tertiary-button:hover {
     border-radius: 48px;
+    padding: .5rem 1rem;
     background-color: var(--espresso-brown);
     color: var(--milk-foam);
 }
@@ -319,6 +325,12 @@ footer p {
     left: 0;
     font-size: 12px;
     color: #EFE3C8;
+}
+
+.custom-orders {
+    font-family: var(--title-font);
+    color: var(--caramel);
+    margin-top: 60px;
 }
 
 .custom-drinks {
@@ -599,6 +611,18 @@ nav a {
     display: inline-block;
     width: 100%;
 }
+/* #section3 {
+    height: 700px;
+    background: var(--cappuccino);
+    display: inline-block;
+    width: 100%;
+} */
+/* #section4 {
+    height: 700px;
+    background: var(--cappuccino);
+    display: inline-block;
+    width: 100%;
+} */
 
 /* BREAKPOINTS */
 /* S devices */
