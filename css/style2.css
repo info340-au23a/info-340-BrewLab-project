@@ -57,16 +57,6 @@
     --z-fixed: 100;
 }
 
-/* Responsive typography */
-@media screen and (min-width: 1152px) {
-    :root {
-        --biggest-font-size: 4rem;
-        --h3-font-size: 1.125rem;
-        --normal-font-size: 1rem;
-        --small-font-size: .875rem;
-    }
-}
-
 /* BASE */
 * {
     box-sizing: border-box;
@@ -382,32 +372,6 @@ div.border h2 {
     margin-bottom: 0;
 }
 
-@media (min-width: 576px) {
-    .displayed-nav {
-        display: flex;
-        position: absolute;
-        right: 0;
-    }
-
-    .dropdown-nav {
-        display: none;
-    }
-
-    .quiz-nav a {
-        font-size: 15px;
-        text-decoration: none;
-    }
-
-    .quiz-nav .quiz-link {
-        text-decoration: underline;
-        font-weight: bold;
-    }
-
-    .question p:last-child {
-        font-size: 26px;
-    }
-}
-
 /* profile page */
 img.profile-picture {
     max-width: 200px;
@@ -497,24 +461,6 @@ footer {
 nav a {
     color: var(--espresso-brown);
     margin-right: .5em;
-}
-
-/* Navigation for mobile devices */
-@media screen and (max-width: 1023px) {
-    .nav__menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        background-color: var(--espresso-brown);
-        width: 80%;
-        height: 100%;
-        box-shadow: 0 0 16px hsla(32, 48%, 95% .2);
-        padding: 6rem 3rem;
-        display: flex;
-        flex-direction: column;
-        row-gap: 2.5rem;
-        transition: right .4s;
-    }
 }
 
 .nav__list {
@@ -623,59 +569,6 @@ nav a {
     display: inline-block;
     width: 100%;
 } */
-
-/* BREAKPOINTS */
-/* S devices */
-@media screen and (max-width: 300px) {
-    .container {
-        margin-inline: 1rem;
-    }
-}
-
-/* M devices */
-@media screen and (min-width: 576px) {
-    .nav__menu {
-        width: 60%;
-    }
-}
-
-@media screen and (min-width: 767px) {
-    .home {
-        display: grid;
-        place-content: center;
-    }
-}
-
-/* LG devices */
-@media screen and (min-width: 1023px) {
-    .nav {
-        height: calc(car(--header-height) + 2rem);
-    }
-
-    .nav__toggle,
-    .nav__close {
-        display: none;
-    }
-
-    .nav__menu {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        column-gap: 4.5rem;
-    }
-
-    .nav__list {
-        margin-left: auto;
-        flex-direction: row;
-        column-gap: 4.5rem;
-    }
-
-    @media screen and (min-width: 1152px) {
-        .container {
-            margin-inline: auto;
-        }
-    }
-}
 
 /* calendar */
 .calendar {
@@ -917,4 +810,111 @@ div p.tracker {
     padding-right: 30px;
     font-size: 20px;
     color: var(--creamy-latte);
+}
+
+@media (min-width: 576px) {
+    .displayed-nav {
+        display: flex;
+        position: absolute;
+        right: 0;
+    }
+
+    .dropdown-nav {
+        display: none;
+    }
+
+    .quiz-nav a {
+        font-size: 15px;
+        text-decoration: none;
+    }
+
+    .quiz-nav .quiz-link {
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    .question p:last-child {
+        font-size: 26px;
+    }
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1023px) {
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: var(--espresso-brown);
+        width: 80%;
+        height: 100%;
+        box-shadow: 0 0 16px hsla(32, 48%, 95% .2);
+        padding: 6rem 3rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.5rem;
+        transition: right .4s;
+    }
+}
+
+/* BREAKPOINTS */
+/* S devices */
+@media screen and (max-width: 300px) {
+    .container {
+        margin-inline: 1rem;
+    }
+}
+
+/* M devices */
+@media screen and (min-width: 576px) {
+    .nav__menu {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .home {
+        display: grid;
+        place-content: center;
+    }
+}
+
+/* LG devices */
+@media screen and (min-width: 1023px) {
+    .nav {
+        height: calc(car(--header-height) + 2rem);
+    }
+
+    .nav__toggle,
+    .nav__close {
+        display: none;
+    }
+
+    .nav__menu {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        column-gap: 4.5rem;
+    }
+
+    .nav__list {
+        margin-left: auto;
+        flex-direction: row;
+        column-gap: 4.5rem;
+    }
+
+    @media screen and (min-width: 1152px) {
+        .container {
+            margin-inline: auto;
+        }
+    }
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1152px) {
+    :root {
+        --biggest-font-size: 4rem;
+        --h3-font-size: 1.125rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+    }
 }
