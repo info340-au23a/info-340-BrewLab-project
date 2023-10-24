@@ -305,12 +305,6 @@ footer p {
     color: #EFE3C8;
 }
 
-.custom-orders {
-    font-family: var(--title-font);
-    color: var(--caramel);
-    margin-top: 60px;
-}
-
 .custom-drinks {
     display: flex;
     flex-wrap: wrap;
@@ -406,7 +400,6 @@ img.profile-picture {
     align-items: center;
     height: 100%;
 }
-
 
 .account-data h2 {
     color: #EFE3C8;
