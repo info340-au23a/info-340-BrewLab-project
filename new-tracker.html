@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="tracker">
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
@@ -50,24 +50,18 @@
         </nav>
     </header>
 
-    <!-- second section for tracker navigations -->
-    <!-- needs div and section: here, you want display: inline in css -->
-    <!-- remember to limit the use of position and float properties -->
-    <!-- flexbox: element that allows you to flexibly customize the layout of its children -- an element is made into a flexbox by giving it the flexbox css property -->
-    <!-- i guess you can use display: inline-flex here -->
-
-    <!-- flexbox: how its children are positioned
-        child elements: how much space they should take up -->
-    <!-- flexbox can contain other flexboses inside of it, a child of a flexbox can itself be a flexbox (specifying how its children are positioed -- flexbox can only INFLUENCE its children (not its grandchildren) -->
+    <h1 class="trackHeader">Log Your Caffeine</h1>
     
     <!-- secondary navigation bar for tracker pages -->
     <!-- should i even have navigation pages for the tracker? -->
-    <ul class="tracker-navi">
-        <div class="t-button"><li class="content-navi"><a href="new-tracker.html">Track Your Coffee</a></li></div>
-        <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker2.html">Your Frequent Drinks</a></li></div>
-        <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker3.html">Favorited Drinks</a></li></div>
-        <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker4.html">Caffeine Logs</a></li></div>
-    </ul>
+    <div class="tracker-navi">
+        <ul>
+            <div class="t-button"><li class="content-navi"><a href="new-tracker.html">Track Your Coffee</a></li></div>
+            <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker2.html">Your Frequent Drinks</a></li></div>
+            <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker3.html">Favorited Drinks</a></li></div>
+            <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker4.html">Caffeine Logs</a></li></div>
+        </ul>
+    </div>
 
 
   </main>
