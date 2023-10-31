@@ -549,12 +549,13 @@ nav a {
 
 .tracker {
     background-color: var(--creamy-latte);
+    color: var(--espresso-brown);
 }
 
 .trackHeader {
     margin-top: 100px;
     margin-left: 90px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     color: var(--espresso-brown);
 }
 
@@ -565,10 +566,9 @@ nav a {
     border: 2px solid #dec8b0;
     background-color: #dec8b0;
     padding: 5px;
-    margin: auto;
+    margin-left: 90px;
+    margin-right: 90px;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .t-button {
@@ -577,14 +577,23 @@ nav a {
     margin: 10px;
 }
 
-t-button:selection {
-    background-color: var(--cappuccino)
+.t-button:selection {
+    background-color: var(--cappuccino);
 }
 
 .content-navi {
     padding: 25px;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.content-navi:hover {
+    background-color: var(--cappuccino);
+    border-radius: 12px;
+}
+
+.content-navi:selection {
+    background-color: var(--cappuccino);
 }
 
 .text-navi {
@@ -598,10 +607,32 @@ t-button:selection {
     margin-right: auto;
 }
 
-div p.tracker {
-    padding-right: 30px;
+p.tracker {
     font-size: 20px;
-    color: var(--creamy-latte);
+    color: var(--espresso-brown);
+}
+
+/* Tracker page - logging coffee */
+.logging {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 90px;
+}
+
+div.tracker {
+    display: grid;
+    grid-row: auto;
+    padding-bottom: 20px;
+}
+
+p.tracker {
+    padding-bottom: 2px;
+}
+
+p.explanation {
+    font-style: italic;
+    font-size: 14px;
+    padding-bottom: 5px;
 }
 
 /* Quiz Page for bigger screens */
