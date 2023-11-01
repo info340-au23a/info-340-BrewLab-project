@@ -78,13 +78,24 @@ body {
 
 h1,h2 {
     font-family: var(--title-font);
-    text-align: left;
+    font-size: 2.5rem;    
+    text-align: center;
     color: var(--espresso-brown);
 }
 
 section {
     margin: .5rem 0;
     padding: .5rem;
+}
+
+.orders h1 {
+    text-align: center;
+    width: 100%;
+    color: var(--creamy-latte);
+}
+
+.tracker h1 {
+    text-align: center;
 }
 
 ul {
@@ -111,7 +122,7 @@ img {
     overflow: hidden;
     background: url('img/bgvector.png') no-repeat center center fixed;
     background-size: cover;
-    position: relative;  
+    position: relative; 
 }
 
 .section {
@@ -198,7 +209,7 @@ img {
 }
 
 .heading h1 {
-    text-align: center;
+    /* text-align: center; */
     font-family: var(--title-font);
 }
 
@@ -483,6 +494,7 @@ nav a {
 }
 
 .home-text h1 {
+    text-align: left;
     color: var(--milk-foam);
     font-family: var(--title-font);
     font-size: 3.4rem;
@@ -538,6 +550,28 @@ nav a {
     display: inline-block;
     width: 100%;
 } 
+
+/* HOME Quiz Section */
+.quiz {
+    width: 100%;
+    min-height: 100vh;
+    background: url(..img/yellowcup.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.quiz-text h1 {
+    color: var(--espresso-brown);
+    font-family: var(--title-font);
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    text-align: left;
+}
 
 /* Tracker page */
 .inputs {
