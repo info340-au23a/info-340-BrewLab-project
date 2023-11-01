@@ -675,6 +675,10 @@ p.explanation {
     padding-bottom: 5px;
 }
 
+.t-cup {
+    
+}
+
 /* Quiz Page for bigger screens */
 @media (min-width: 576px) {
     /* .displayed-nav {
