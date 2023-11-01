@@ -322,13 +322,17 @@ div {
     color: white;
 } */
 
-footer p {
+footer {
     display: block;
     position: absolute;
     bottom: 0;
     left: 0;
     font-size: 12px;
     color: #EFE3C8;
+}
+
+.dark-footer {
+    color: var(--espresso-brown)
 }
 
 /* Custom Orders Page */
