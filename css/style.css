@@ -560,14 +560,16 @@ nav a {
 }
 
 .tracker-navi {
-    display: inline-flex;
-    justify-content: center;
     border-radius: 24px;
     border: 2px solid #dec8b0;
     background-color: #dec8b0;
     padding: 5px;
     margin-left: 90px;
-    margin-right: 90px;
+}
+
+.tracker-buttons {
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -694,12 +696,9 @@ p.explanation {
     .container {
         margin-inline: 1rem;
     }
-    .t-navi {
-        width: 80%;
-        height: 100%;
+    .tracker-navi {
         display: flex;
         flex-direction: column;
-        transition: right .4s;
     }
 }
 
