@@ -6,75 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>INFO340 AU23 G7 Tracker</title>
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&family=Poppins&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="tracker">
     <!-- Header -->
     <header class="header">
-      <nav class="nav container">
-          <a href="#" class="nav__logo">
-              <i class="ri-cup-line"></i> BrewLab
-          </a>
-  
-          <div class="nav__menu" id="nav-menu">
-              <ul class="nav__list">
-                  <li class="nav__item">
-                      <a href="index.html" class="nav__link">Home</a>
-                  </li>
-  
-                  <li class="nav__item">
-                      <a href="orders.html" class="nav__link">Custom Orders</a>
-                  </li>
-  
-                  <li class="nav__item">
-                      <a href="tracker.html" class="nav__link">Tracker</a>
-                  </li>
-  
-                  <li class="nav__item">
-                      <a href="quiz.html" class="nav__link">Quiz</a>
-                  </li>
-              </ul>
-  
-              <a href="account.html" class="nav__button">Account</a>
-  
-              <div class="'nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
-              </div>
-          </div>
-  
-          <div class="'toggle" id="nav-toggle">
-              <i class="ri-menu-line"></i>
-          </div>
-      </nav>
-      </header>
-      <section class="tracker-navi"> 
-        <div class="t-navi">
-            <a class="secondary-button" href="tracker.html">Log Your Drink</a>
-        </div>
-        <div class="t-navi">
-            <a class="secondary-button" href="tracker2.html">Frequent Drinks</a>
-        </div>
-        <div class="t-navi"> 
-            <a class="secondary-button" href="tracker3.html">Favorite Drinks</a>
-        </div>
-        <div class="t-navi"> 
-            <a class="secondary-button" href="tracker4.html">Caffeine Logs</a>
-        </div>
-    </section>
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <i class="ri-cup-line"></i> BrewLab
+            </a>
+    
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+    
+                    <li class="nav__item">
+                        <a href="orders.html" class="nav__link">Custom Orders</a>
+                    </li>
+    
+                    <li class="nav__item">
+                        <a href="tracker.html" class="nav__link">Tracker</a>
+                    </li>
+    
+                    <li class="nav__item">
+                        <a href="quiz.html" class="nav__link">Quiz</a>
+                    </li>
+                </ul>
+    
+                <a href="account.html" class="nav__button">Account</a>
+    
+                <div class="'nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+    
+            <div class="'toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
 
-  <main>
-    <div class="inputs d-flex flex-column">
-      <div class="d-inline-flex p-2">
-        <div>
-          <p class="tracker">Coffee Drink Type</p>
+    <main>
+    <h1 class="trackHeader">Log Your Caffeine</h1>
+    
+    <!-- secondary navigation bar for tracker pages -->
+    <div class="tracker-nav"> 
+            <div class = "tracker-buttons">
+                <div class="t-button"><li class="content-navi"><a href="tracker.html">Track Coffee</a></li></div>
+                <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker2.html">Frequent Drinks</a></li></div>
+                <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker3.html">Favorited Drinks</a></li></div>
+                <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker4.html">Caffeine Logs</a></li></div>
+            </div>
+    </div>
+    
+    <!-- container -->
+    <div class="logging"> 
+        <!-- drink type -->
+        <div class="tracker"> 
+            <label for="name">Name of Drink</label>
+            <input id="name" type="text" />
         </div>
-        <div>
-          <select class="form-select form-select-lg" aria-label="Default select">
-            <option selected>Pick coffee drink type</option>
+        <div class="tracker">
+            <label for="tracker">Choose the type of coffee you're drinking</label>
+            <select>
             <option value="espresso">Espresso</option>
             <option value="macchiato">Macchiato</option>
             <option value="cappucino">Cappucino</option>
@@ -83,83 +81,107 @@
             <option value="americano">Americano</option>
             <option value="latte">Latte</option>
             <option value="custom">Custom</option>
-          </select>
+            </select>
         </div>
-      </div>
 
-      <div class="d-inline-flex p-2">
-        <p class="tracker">Temperature</p>
-        <button class="temp" type="button">Hot</button>
-        <button class="temp" type="button">Iced</button>
-      </div>
+        <!-- temperature of drink -->
+        <div class="tracker"">
+            <label class="tracker">Temperature</label>
+            <div>
+                <input type="radio" id="hot" name="hot" value="hot" />
+                <label for="hot">Hot</label>
+            </div>
+            <div> 
+                <input type="radio" id="iced" name="iced" value="iced" />
+                <label for="iced">Iced</label>
+            </div>
+        </div>
 
-      <div class="d-inline-flex p-2">
-        <p class="tracker">Volume</p>
-        <select class="form-select form-select-lg" aria-label="Default select" name="volume" id="volume">
-          <option value="xsmall">extra small: 4 oz.</option>
-          <option value="small">small: 6 oz.</option>
-          <option value="medium">medium: 8 oz.</option>
-          <option value="large">large: 16 oz.</option>
-          <option value="xlarge">extra large: 24 oz.</option>
-          <option value="xxlarge">2x large: 32oz.</option>
-        </select>
-      </div>
+        <!-- volume of drink -->
+        <div class="tracker">
+            <label class="explanation">Amount of coffee you made</label>
+            <select>
+            <option value="xsmall">extra small: 4 oz.</option>
+            <option value="small">small: 6 oz.</option>
+            <option value="medium">medium: 8 oz.</option>
+            <option value="large">large: 16 oz.</option>
+            <option value="xlarge">extra large: 24 oz.</option>
+            <option value="xxlarge">2x large: 32oz.</option>
+            </select>
+        </div>
 
-      <div class="d-inline-flex p-2">
-        <p class="tracker">Type of Milk</p>
-        <select name="milk" id="milk">
-          <option value="whole">Whole</option>
-          <option value="soy">Soy</option>
-          <option value="hazelnut">Hazelnut</option>
-          <option value="almond">Almond</option>
-          <option value="coconut">Coconut</option>
-          <option value="oat">Oat</option>
-          <option value="goat">Goat</option>
-          <option value="skimmed">Skimmed</option>
-          <option value="skimmed">None</option>
-        </select>
-      </div>
+        <!-- type of milk -->
+        <div class="tracker">
+            <label class="explanation">Choose the type of milk you used</label>
+            <select name="milk">
+              <option value="whole">Whole</option>
+              <option value="soy">Soy</option>
+              <option value="hazelnut">Hazelnut</option>
+              <option value="almond">Almond</option>
+              <option value="coconut">Coconut</option>
+              <option value="oat">Oat</option>
+              <option value="goat">Goat</option>
+              <option value="skimmed">Skimmed</option>
+              <option value="skimmed">None</option>
+            </select>
+        </div>
+        
+        <!-- volume of milk -->
+        <div class="tracker">
+            <label class="explanation">Amount of milk you added</label>
+            <select>
+              <option value="xsmall">extra small: 4 oz.</option>
+              <option value="small">small: 6 oz.</option>
+              <option value="medium">medium: 8 oz.</option>
+              <option value="large">large: 16 oz.</option>
+              <option value="xlarge">extra large: 24 oz.</option>
+              <option value="xxlarge">2x large: 32oz.</option>
+            </select>
+        </div>
 
-      <div class="d-inline-flex p-2">
-        <p class="tracker">Volume of Milk</p>
-        <select class="form-select form-select-lg mb-3" aria-label="Default select" name="volume-milk" id="volume-milk">
-          <option value="xsmall">extra small: 4 oz.</option>
-          <option value="small">small: 6 oz.</option>
-          <option value="medium">medium: 8 oz.</option>
-          <option value="large">large: 16 oz.</option>
-          <option value="xlarge">extra large: 24 oz.</option>
-          <option value="xxlarge">2x large: 32oz.</option>
-        </select>
-      </div>
+        <!-- volume of foam -->
+        <div class="tracker">
+            <label class="explanation">Amount of foam you added</label>
+            <select>
+              <option value="small">30mL</option>
+              <option value="medium">60mL</option>
+              <option value="large">120mL</option>
+            </select>
+        </div>
 
-      <div class="d-inline-flex p-2">
-        <p class="tracker">Volume of Foam</p>
-        <select class="form-select form-select-lg mb-3" aria-label="Default select" name="foam-volume" id="foam-volume">
-          <option value="small">30mL</option>
-          <option value="medium">60mL</option>
-          <option value="large">120mL</option>
-        </select>
-      </div>
+        <!-- drink type -->
+        <div class="tracker">
+            <label class="explanation">Type of Coffee</label>
+            <div>
+                <input type="radio" id="decaf" name="decaf" value="decaf" />
+                <label for="decaf">Hot</label>
+            </div>
+            <div> 
+                <input type="radio" id="decaf" name="decaf" value="decaf" />
+                <label for="decaf">Iced</label>
+            </div>
+        </div>
 
-      <div class="d-inline-flex p-2">
-        <p class="tracker">Drink Type</p>
-        <button class="drink-type" type="button">Decaf</button>
-        <button class="drink-type" type="button">Caffeinated</button>
-      </div>
+        <!-- sweetness level -->
+        <div class="tracker">
+            <label class="explanation">Amount of sweetness level</label>
+            <select>
+              <option value="zero">0% - no sugar</option>
+              <option value="25">25% - 1/4 sugar</option>
+              <option value="50">50% - 1/2 sugar</option>
+              <option value="75">75% - less sugar</option>
+              <option value="100">100% - normal sugar</option>
+              <option value="150">150% - more sugar</option>
+            </select>
+        </div>
+        <div class="button">
+            <button class="secondary-button">Log Drink</button>
+        </div>
 
-      <div class="d-inline-flex p-2">
-        <p class="tracker">Sweetness Level</p>
-        <select class="form-select form-select-lg mb-3" aria-label="Default select" name="sweet" id="sweet">
-          <option value="zero">0% - no sugar</option>
-          <option value="25">25% - 1/4 sugar</option>
-          <option value="50">50% - 1/2 sugar</option>
-          <option value="75">75% - less sugar</option>
-          <option value="100">100% - normal sugar</option>
-          <option value="150">150% - more sugar</option>
-        </select>
-      </div>
-      <button class="secondary-button">Log Drink</button>
     </div>
+
+    <img class="cup" src="img/yellowcup.png" alt="cartoon cup with coffee">
+
   </main>
   <footer>
     <h6>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</h6>

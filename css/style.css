@@ -559,24 +559,25 @@ nav a {
     color: var(--espresso-brown);
 }
 
-.tracker-navi {
-    border-radius: 24px;
-    border: 2px solid #dec8b0;
-    background-color: #dec8b0;
-    padding: 5px;
+div.tracker-nav{
+    display: flex;
     margin-left: 90px;
+    margin-right: 90px;
 }
 
 .tracker-buttons {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .t-button {
     background-color: var(--espresso-brown);
     border-radius: 12px;
-    margin: 10px;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .t-button:selection {
@@ -619,6 +620,9 @@ p.tracker {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 90px;
+    margin-right: 90px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 div.tracker {
