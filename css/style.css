@@ -89,13 +89,9 @@ section {
 }
 
 .orders h1 {
-    text-align: center;
+    justify-content: center;
     width: 100%;
     color: var(--creamy-latte);
-}
-
-.tracker h1 {
-    text-align: center;
 }
 
 ul {
@@ -529,25 +525,25 @@ nav a {
 }
 
 /* HOME-Order section */
-#section1 {
+.section1 {
     height: 700px;
     display: inline-block;
     width: 100%;
 }
-#section2 {
+.section2 {
     height: 700px;
     background: var(--cappuccino);
     display: inline-block;
     width: 100%;
 }
-#section3 {
+.section3 {
     height: 700px;
     background: var(--creamy-latte);
     color: var(--espresso-brown);
     display: inline-block;
     width: 100%;
 }
-#section4 {
+.section4 {
     height: 700px;
     background: var(--mint);
     color: var(--espresso-brown);
