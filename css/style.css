@@ -322,17 +322,13 @@ div {
     color: white;
 } */
 
-footer {
+footer p {
     display: block;
     position: absolute;
     bottom: 0;
     left: 0;
     font-size: 12px;
     color: #EFE3C8;
-}
-
-.dark-footer {
-    color: var(--espresso-brown)
 }
 
 /* Custom Orders Page */
@@ -598,9 +594,10 @@ nav a {
 }
 
 div.tracker-nav{
-    display: flex;
     margin-left: 90px;
     margin-right: 90px;
+    display: grid;
+    grid-row: auto;
 }
 
 .tracker-buttons {
@@ -654,13 +651,16 @@ p.tracker {
 }
 
 /* Tracker page - logging coffee */
-.logging {
+div.logging {
+    display: grid;
+    grid-row: auto;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 90px;
     margin-right: 90px;
     padding: 20px;
     box-sizing: border-box;
+    justify-content: center;
 }
 
 div.tracker {
@@ -679,8 +679,21 @@ p.explanation {
     padding-bottom: 5px;
 }
 
-.t-cup {
-    
+div.uploadImg {
+    display: grid;
+    grid-row: auto;
+    justify-content: center;
+    margin: 90px;
+}
+
+img.t-cup {
+    display: flex;
+    justify-content: center;
+    margin-left: 90px;
+    width: 30%;
+    height: 30%;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 /* Quiz Page for bigger screens */
