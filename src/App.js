@@ -1,4 +1,7 @@
-<App>
+import React from 'react';
 
-  
-</App>
+// export function App(props) {
+
+// }
+
+<App></App>
