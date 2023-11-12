@@ -1,5 +1,10 @@
 import React from 'react';
 
+// For options, possibly make an array of objects that has key of answer number (like answer1) and then the value will have the answer (like Light)
+// The question can possibly be the first thing in the prop as the id (like id="What generally is your favorite coffee roast?")
+// [{questionNum=1, id="What generally is your favorite coffee roast?", ...}]
+// Reference senators.json and dogs.json in problem 7 for ideas
+
 function QuizQuestion(props) {
     const questionNum = props.questionNum;
     const question = props.question;
@@ -8,7 +13,7 @@ function QuizQuestion(props) {
     //     return transformed;
     // });
     return (
-        <section class="question">
+        <section className="question">
             {/* <p>Question #/##</p> */}
             {/* <p>What generally is your favorite coffee roast?</p> */}
             <p>Question {questionNum}/##</p>
@@ -20,7 +25,7 @@ function QuizQuestion(props) {
 function QuizOption(props) {
 
     return (
-        <section class="options">
+        <section className="options">
             <div>
                 <p>Light</p>
                 <p>Medium</p>
@@ -34,17 +39,17 @@ function QuizOption(props) {
 
 function QuizButton(props) {
     return (
-        <section class="buttons">
-            <div class="primary-button">Previous</div>
-            <div class="primary-button">Next</div>
+        <section className="buttons">
+            <div className="primary-button">Previous</div>
+            <div className="primary-button">Next</div>
         </section>
     );
 }
 
-// maybe make its own component
+// maybe make its own component? Footers can all be the same generally except for quiz (due to color)
 function QuizFooter(props) {
     return (
-        <footer class="dark-footer">
+        <footer className="dark-footer">
             <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
         </footer>
     );
