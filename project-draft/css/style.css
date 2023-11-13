@@ -747,6 +747,14 @@ img.t-cup {
         flex-direction: column;
         transition: right .4s;
     }
+
+    div.tracker-nav {
+        display: grid;
+        margin: 2rem auto;
+        align-items: center;
+        columns: 2 100px;
+    }
+
 }
 
 /* BREAKPOINTS */
@@ -755,10 +763,7 @@ img.t-cup {
     .container {
         margin-inline: 1rem;
     }
-    .tracker-navi {
-        display: flex;
-        flex-direction: column;
-    }
+
 }
 
 /* M devices */
