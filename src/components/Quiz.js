@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // For options, possibly make an array of objects that has key of answer number (like answer1) and then the value will have the answer (like Light)
 // The question can possibly be the first thing in the prop as the id (like id="What generally is your favorite coffee roast?")
 // [{questionNum=1, id="What generally is your favorite coffee roast?", ...}]
 // Reference senators.json and dogs.json in problem 7 for ideas
 
+const qAndA = [{question: "What generally is your favorite coffee roast", }];
+const [questionNum, setQuestionNum] = useState[1];
+
+const handleClick = (event) => {
+    setQuestionNum(questionNum + 1);
+}
+
 function QuizQuestion(props) {
-    const questionNum = props.questionNum;
     const question = props.question;
     // const pQuestionElement = question.map(() => {
     //     const transformed = <p></p>;
@@ -41,7 +47,7 @@ function QuizButton(props) {
     return (
         <section className="buttons">
             <div className="primary-button">Previous</div>
-            <div className="primary-button">Next</div>
+            <div className="primary-button" onClick={handleClick}>Next</div>
         </section>
     );
 }
