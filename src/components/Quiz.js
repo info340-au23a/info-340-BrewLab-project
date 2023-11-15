@@ -5,7 +5,14 @@ import React, { useState } from 'react';
 // [{questionNum=1, id="What generally is your favorite coffee roast?", ...}]
 // Reference senators.json and dogs.json in problem 7 for ideas
 
-const qAndA = [{question: "What generally is your favorite coffee roast", }];
+const answers = [{one: "Light", two: "Medium", three: "Medium-dark", four: "Dark", five: "No preference"}];
+const pAnswerArray = answers.map((answer) => {
+    const transformed = <p key={answer}>{answer}</p>;
+    return transformed;
+});
+
+const qAndA = [{question: "What generally is your favorite coffee roast", answers: {answers}}];
+
 const [questionNum, setQuestionNum] = useState[1];
 
 const handleClick = (event) => {
@@ -33,11 +40,7 @@ function QuizOption(props) {
     return (
         <section className="options">
             <div>
-                <p>Light</p>
-                <p>Medium</p>
-                <p>Medium-dark</p>
-                <p>Dark</p>
-                <p>No preference</p>
+                {pAnswerArray};
             </div>
         </section>
     );
