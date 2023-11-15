@@ -594,10 +594,11 @@ nav a {
 }
 
 div.tracker-nav{
-    margin-left: 90px;
-    margin-right: 90px;
-    display: grid;
-    grid-row: auto;
+    /* margin-left: 90px; */
+    /* display: grid;
+    grid-row: auto; */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .tracker-buttons {
@@ -605,6 +606,7 @@ div.tracker-nav{
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-grow: 1;
 }
 
 .t-button {
@@ -686,14 +688,15 @@ div.uploadImg {
     margin: 90px;
 }
 
-img.t-cup {
-    display: flex;
-    justify-content: center;
-    margin-left: 90px;
-    width: 30%;
-    height: 30%;
+.t-cup {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 300px;
     padding-bottom: 20px;
     padding-top: 20px;
+   
 }
 
 /* Quiz Page for bigger screens */
