@@ -345,9 +345,11 @@ footer p {
 }
 
 .card img {
-    max-width: 250px;
+    width: 250px;
+    height: 250px;
     margin: 70px 10px 0;
     border-radius: 11%;
+    justify-content: center;
 }
 
 /* profile page */
@@ -371,6 +373,14 @@ img.profile-picture {
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+.custom-drinks .card {
+    background-color: #201520;
+    margin: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.16),
+      0 1px 3px rgba(0, 0, 0, 0.23);
 }
 
 .account-data h2 {
