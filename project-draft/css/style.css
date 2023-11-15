@@ -583,6 +583,21 @@ nav a {
     text-align: left;
 }
 
+.quiz-btn {
+    display: inline-block;
+    background: linear-gradient(180deg,
+            var(--espresso-brown),
+            var(--espresso-brown));
+    padding: 1rem 3rem;
+    border-radius: 4rem;
+    color: var(--creamy-latte);
+    font-weight: var(--font-semi-bold);
+    box-shadow: 0 8px 32px hsla(340, 23%, 18% .3),
+        inset 0 4px 8px hsla(32, 46% 95% .4);
+}
+
+
+
 /* Tracker page */
 .inputs {
     margin: auto;
