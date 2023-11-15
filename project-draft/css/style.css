@@ -581,6 +581,20 @@ nav a {
     padding-right: 10%;
 }
 
+.tag {
+    display: inline-block;
+    background-color: var(--c-titan-white);
+    color: var(--c-indigo);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5em 0.75em;
+    line-height: 1;
+    border-radius: 6px;
+    & + * {
+        margin-top: 1rem;
+    }
+}
+
 .tracker {
     background-color: var(--creamy-latte);
     color: var(--espresso-brown);
