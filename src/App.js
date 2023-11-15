@@ -1,7 +1,13 @@
 import React from 'react';
 
-// export function App(props) {
+import { NavigationBar } from './Navigation.js';
+import { Footer } from './Footer.js';
 
-// }
-
-<App></App>
+export default function App(props) {
+    return (
+        <div>
+            <NavigationBar />
+            <Footer />
+        </div>
+    )
+}

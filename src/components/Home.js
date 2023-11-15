@@ -1,13 +1,5 @@
 import React from 'react';
 
-import { NavigationBar } from './Navigation.js';
-import { Footer } from './Footer.js';
+// IMPORT INDEX.HTML from PROJECT DRAFTS!!
 
-export default function App(props) {
-    return (
-        <div>
-            <NavigationBar />
-            <Footer />
-        </div>
-    )
-}
+
