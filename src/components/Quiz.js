@@ -40,11 +40,16 @@ const questionsAndAnswers = [
     ]},
     {question: "What milk do you use?",
     answers: [
-        "Regular (Whole, skim, 2%, etc.",
+        "Regular (Whole, skim, 2%, etc.)",
         "Soy",
         "Oat",
-        
-    ]}
+        "Almond",
+        "Coconut",
+        "Hazelnut",
+        "Goat",
+        "I like it black"
+    ]},
+    {question: "Do you like your coffee hot or cold?"}
 ];
 
 const [questionNum, setQuestionNum] = useState(1);
