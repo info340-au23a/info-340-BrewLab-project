@@ -49,7 +49,12 @@ const questionsAndAnswers = [
         "Goat",
         "I like it black"
     ]},
-    {question: "Do you like your coffee hot or cold?"}
+    {question: "Do you like your coffee hot or cold?",
+    answers: [
+        "Hot",
+        "Cold",
+        "Doesn't matter to me"
+    ]}
 ];
 
 const [questionNum, setQuestionNum] = useState(1);
