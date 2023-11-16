@@ -5,15 +5,49 @@ import React, { useState } from 'react';
 // [{questionNum=1, id="What generally is your favorite coffee roast?", ...}]
 // Reference senators.json and dogs.json in problem 7 for ideas
 
-const answers = [{one: "Light", two: "Medium", three: "Medium-dark", four: "Dark", five: "No preference"}];
-const pAnswerArray = answers.map((answer) => {
-    const transformed = <p key={answer}>{answer}</p>;
-    return transformed;
-});
+// const questionsAndAnswers = [
+//     {question: "a question", 
+//     answers: [
+//         "answer1", 
+//         "answer2",
+//         "answer3"]
+//     },
+//     {question: "another question",
+//     answers: [
+//         "answer1",
+//         "answer2",
+//         "answer3"
+//     ]
+//     }
+// ];
 
-const qAndA = [{question: "What generally is your favorite coffee roast", answers: {answers}}];
+// const answers = [{one: "Light", two: "Medium", three: "Medium-dark", four: "Dark", five: "No preference"}];
+// const pAnswerArray = answers.map((answer) => {
+//     const transformed = <p key={answer}>{answer}</p>;
+//     return transformed;
+// });
 
-const [questionNum, setQuestionNum] = useState[1];
+// const qAndA = [{question: "What generally is your favorite coffee roast", answers: {answers}}];
+
+const questionsAndAnswers = [
+    {question: "What generally is your favorite coffee roast?",
+    answers: [
+        "Light",
+        "Medium",
+        "Medium-dark",
+        "Dark",
+        "No preference"
+    ]},
+    {question: "What milk do you use?",
+    answers: [
+        "Regular (Whole, skim, 2%, etc.",
+        "Soy",
+        "Oat",
+        
+    ]}
+];
+
+const [questionNum, setQuestionNum] = useState(1);
 
 const handleClick = (event) => {
     setQuestionNum(questionNum + 1);
