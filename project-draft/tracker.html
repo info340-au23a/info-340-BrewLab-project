@@ -72,8 +72,9 @@
         <!-- drink type -->
         <div class="tracker"> 
             <label for="name">Name of Drink</label>
-            <input id="name" type="text" />
+            <input type="text" />
         </div>
+
         <div class="tracker">
             <label for="tracker">Choose the type of coffee you're drinking</label>
             <select>
@@ -92,11 +93,11 @@
         <div class="tracker"">
             <label class="tracker">Temperature</label>
             <div>
-                <input type="radio" id="hot" name="hot" value="hot" />
+                <input type="radio" name="hot" value="hot" />
                 <label for="hot">Hot</label>
             </div>
             <div> 
-                <input type="radio" id="iced" name="iced" value="iced" />
+                <input type="radio" name="iced" value="iced" />
                 <label for="iced">Iced</label>
             </div>
         </div>
@@ -153,19 +154,6 @@
             </select>
         </div>
 
-        <!-- drink type -->
-        <div class="tracker">
-            <label class="explanation">Type of Coffee</label>
-            <div>
-                <input type="radio" id="decaf" name="decaf" value="decaf" />
-                <label for="decaf">Hot</label>
-            </div>
-            <div> 
-                <input type="radio" id="decaf" name="decaf" value="decaf" />
-                <label for="decaf">Iced</label>
-            </div>
-        </div>
-
         <!-- sweetness level -->
         <div class="tracker">
             <label class="explanation">Amount of sweetness level</label>
@@ -179,10 +167,22 @@
             </select>
         </div>
 
+        <!-- syrup -->
+        <div class="tracker">
+            <label class="explanation">Syrup You Used</label>
+            <input type="text" />
+        </div>
+
+        <!-- pumps of syrup -->
+        <div class="tracker">
+            <label class="explanation">Pumps of Syrup</label>
+            <input type="text" />
+        </div>
+
         <div class="uploadImg"> 
             <label for="photo">Add Photo of Your Drink</label>
             <div> 
-                <input type="file" id="photo" name="photo" accept="image/*">
+                <input type="file" name="photo" accept="image/*">
             </div>
         </div>
 
