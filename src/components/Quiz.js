@@ -59,12 +59,27 @@ const questionsAndAnswers = [
 
 const [questionNum, setQuestionNum] = useState(1);
 
-const handleClick = (event) => {
+const handleClickNext = (event) => {
     setQuestionNum(questionNum + 1);
 }
 
+const handleClickPrev = (event) => {
+    setQuestionNum(questionNum - 1);
+}
+
+export function Quiz(props) {
+    return (
+        <div>
+            <QuizQuestion question={questionsAndAnswers.question} />
+            <QuizOption options={questionsAndAnswers.answers} />
+            <QuizButton/>
+            <QuizFooter/>
+        </div>
+    );
+}
+
 function QuizQuestion(props) {
-    const question = props.question;
+    const question = props.question; // might need to map
     // const pQuestionElement = question.map(() => {
     //     const transformed = <p></p>;
     //     return transformed;
@@ -80,11 +95,15 @@ function QuizQuestion(props) {
 }
 
 function QuizOption(props) {
-
+    const options = props.options.map((option) => {
+        const transformed = <p>{option}</p>;
+        return transformed;
+    })
+    
     return (
         <section className="options">
             <div>
-                {pAnswerArray};
+                {options};
             </div>
         </section>
     );
@@ -93,8 +112,8 @@ function QuizOption(props) {
 function QuizButton(props) {
     return (
         <section className="buttons">
-            <div className="primary-button">Previous</div>
-            <div className="primary-button" onClick={handleClick}>Next</div>
+            <div className="primary-button" onClick={handleClickPrev}>Previous</div>
+            <div className="primary-button" onClick={handleClickNext}>Next</div>
         </section>
     );
 }
