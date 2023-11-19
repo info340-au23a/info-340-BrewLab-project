@@ -3,11 +3,11 @@ import React from 'react';
 // import { Account } from './Account.js';
 // import { Explore } from './Explore.js';
 // import { Tracker } from './Tracker.js';
-// import { Quiz } from './Quiz.js';
+import { Quiz } from './Quiz.js';
 
 export function NavigationBar(props) {
 
-    const navBarLinks = [{link: '../../project-draft/index.html', linkName: "Home"}, {link: '../../project-draft/explore.html', linkName: "Explore"}, {link: '../../project-draft/tracker.html', linkName: "Tracker"}, {link: '../../project-draft/quiz.html', linkName: "Quiz"}];
+    const navBarLinks = [{link: '../../project-draft/index.html', linkName: "Home"}, {link: '../../project-draft/explore.html', linkName: "Explore"}, {link: '../../project-draft/tracker.html', linkName: "Tracker"}, {link: {Quiz}, linkName: "Quiz"}];
     // const navBarLinks = [{link: {HomePage}, linkName: "Home"}, {link: {Explore}, linkName: "Explore"}, {link: {Tracker}, linkName: "Tracker"}, {link: {Quiz}, linkName: "Quiz"}];
 
     const aLinkArray = navBarLinks.map((navLink) => {
