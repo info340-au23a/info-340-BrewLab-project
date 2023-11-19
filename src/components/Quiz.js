@@ -83,7 +83,7 @@ function QuizAnswers(props) {
     return (
         <section className="options">
             <div>
-                {options};
+                {pAnswersArray};
             </div>
         </section>
     );
