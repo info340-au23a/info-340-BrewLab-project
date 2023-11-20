@@ -2,6 +2,15 @@ import React from 'react';
 
 export function HomePage(props) {
 
+    const homepageButtonLinks = [{link: '../../project-draft/or.html', linkName: "Home"}, {link: '../../project-draft/quiz.html', linkName: "Quiz"}];
+
+    const aLinkArray = navBarLinks.map((navLink) => {
+        const transformed = <a key={navLink.linkName} href={navLink.link} className='nav__link'>{navLink.linkName}</a>;
+        return transformed;
+    });
+
+    const liArray = <li className='nav__item'>{aLinkArray}</li>;
+
     return (
         <main className="main">
             // Section 1: Home
