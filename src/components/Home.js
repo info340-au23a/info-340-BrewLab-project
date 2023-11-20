@@ -1,34 +1,24 @@
 import React from 'react';
 
-export function HomePage(props) {
-
-    const homepageButtonLinks = [{link: '../../project-draft/or.html', linkName: "Home"}, {link: '../../project-draft/quiz.html', linkName: "Quiz"}];
-
-    const aLinkArray = navBarLinks.map((navLink) => {
-        const transformed = <a key={navLink.linkName} href={navLink.link} className='nav__link'>{navLink.linkName}</a>;
-        return transformed;
-    });
-
-    const liArray = <li className='nav__item'>{aLinkArray}</li>;
-
+export function Home() {
     return (
         <main className="main">
-            // Section 1: Home
+            {/* Section 1: Home */}
             <div className="section1">
                 <section className="home">
                     <div className="home-text">
-                        <p>EXPLORE THE WORLD OF COFFEE</p>
-                        <h1>Start Exploring <br> Personalized Coffee</h1>
+                    <p>EXPLORE THE WORLD OF COFFEE</p>
+                        <h1>Start Exploring <br /> Personalized Coffee</h1>
                         <p>Connect with other coffee enthusiasts, discover customized coffee beyond the common menu.</p>
-                        <a href="orders.html" className="home-btn">Get Started</a>
+                        <a href="orders.html" className="home-btn">Get Started</a>  
                     </div>
                     <div className="home-img">
-                        <img src="img/bgvector.png" alt="">
+                        <img src="../public/img/bgvector.png" alt="" />
                     </div>
                 </section>
             </div>
 
-            // Section 2:Custom orders
+            {/* Section 2: Custom Orders */}
             <div className="section2">
                 <section className="orders">
                     <div className="heading">
@@ -37,7 +27,7 @@ export function HomePage(props) {
                 </section>
             </div>
 
-            // Section 3:Tracker
+            {/* Section 3: Tracker */}
             <div className="section3">
                 <section className="tracker">
                     <div className="heading">
@@ -46,15 +36,15 @@ export function HomePage(props) {
                 </section>
             </div>
 
-            // Section 4:Quiz
+            {/* Section 4: Quiz */}
             <div className="section4">
                 <section className="quiz">
                     <div className="quiz-text">
-                        <h1>Want to try something new?<br>Take our Coffee Quiz!</h1>
+                        <h1>Want to try something new?<br />Take our Coffee Quiz!</h1>
                         <a href="quiz.html" className="quiz-btn">Take Quiz</a>
                     </div>
                     <div className="home-img">
-                        <img src="img/yellowcup.png" alt="a yellow cup with coffee">
+                        <img src="../public/img/yellowcup.png" alt="a yellow cup with coffee" /> 
                     </div>
                 </section>
             </div>
