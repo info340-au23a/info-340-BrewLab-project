@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { NavigationBar } from './components/Navigation.js';
-import { Footer } from './components/Footer.js';
+import { NavigationBar } from './Navigation.js';
+import { Footer } from './Footer.js';
 
 export default function App(props) {
     return (
