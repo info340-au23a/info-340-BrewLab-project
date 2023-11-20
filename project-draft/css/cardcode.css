@@ -1,3 +1,60 @@
+:root {
+    
+    font-size: 15px;
+    
+    /* Primary */
+    --var-soft-blue: hsl(215, 51%, 70%);
+    --var-cyan: hsl(178, 100%, 50%);
+    /* Neutral */
+    --var-main-darkest: hsl(217, 54%, 11%);
+    --var-card-dark: hsl(216, 50%, 16%);
+    --var-line-dark: hsl(215, 32%, 27%);
+    --var-lightest: white;
+    
+    /* Fonts */
+    --var-heading: normal normal 600 1.5em/1.6em 'Outfit', sans-serif;
+    --var-small-heading: normal normal 400 1em/1em 'Outfit', sans-serif;
+    --var-para: normal normal 300 1em/1.55em 'Outfit', sans-serif;
+
+    /* basics */
+	--c-white: #fff;
+	--c-black: #000;
+
+	/* // Greys */
+	--c-ash: #eaeef6;
+	--c-charcoal: #a0a0a0;
+	--c-void: #141b22;
+
+	/* // Beige/Browns */
+	--c-fair-pink: #FFEDEC;
+	--c-apricot: #FBC8BE;
+	--c-coffee: #754D42;
+	--c-del-rio: #917072;
+
+	/* // Greens */
+	--c-java: #1FCAC5;
+
+	/* // Purples */
+	--c-titan-white: #f1eeff;
+	--c-cold-purple: #a69fd6;
+	--c-indigo: #6558d3;
+	--c-governor: #4133B7;
+
+	/* coffee style */
+	--dark-roast: #574248;
+    --espresso-brown: #38232A;
+    --cappuccino: #A86846;
+    --caramel: #C7A27A;
+    --milk-foam: #F8F2EB;
+    --creamy-latte: #EFE3C8;
+    --mint: #86C1CF;
+	--cold: #ABEFFF;
+	--colder-blue: #0A5F73;
+	--hot: #FF7C7C;
+}
+
+
+
 /* my version */
 
 .information {
@@ -288,64 +345,6 @@ Variables
 ========================
 */
 
-
-:root {
-    
-    font-size: 15px;
-    
-    /* Primary */
-    --var-soft-blue: hsl(215, 51%, 70%);
-    --var-cyan: hsl(178, 100%, 50%);
-    /* Neutral */
-    --var-main-darkest: hsl(217, 54%, 11%);
-    --var-card-dark: hsl(216, 50%, 16%);
-    --var-line-dark: hsl(215, 32%, 27%);
-    --var-lightest: white;
-    
-    /* Fonts */
-    
-    --var-heading: normal normal 600 1.5em/1.6em 'Outfit', sans-serif;
-    
-    --var-small-heading: normal normal 400 1em/1em 'Outfit', sans-serif;
-    
-    --var-para: normal normal 300 1em/1.55em 'Outfit', sans-serif;
-
-    /* basics */
-	--c-white: #fff;
-	--c-black: #000;
-
-	/* // Greys */
-	--c-ash: #eaeef6;
-	--c-charcoal: #a0a0a0;
-	--c-void: #141b22;
-
-	/* // Beige/Browns */
-	--c-fair-pink: #FFEDEC;
-	--c-apricot: #FBC8BE;
-	--c-coffee: #754D42;
-	--c-del-rio: #917072;
-
-	/* // Greens */
-	--c-java: #1FCAC5;
-
-	/* // Purples */
-	--c-titan-white: #f1eeff;
-	--c-cold-purple: #a69fd6;
-	--c-indigo: #6558d3;
-	--c-governor: #4133B7;
-
-	/* coffee style */
-	--dark-roast: #574248;
-    --espresso-brown: #38232A;
-    --cappuccino: #A86846;
-    --caramel: #C7A27A;
-    --milk-foam: #F8F2EB;
-    --creamy-latte: #EFE3C8;
-    --mint: #86C1CF;
-	--cold: #ABEFFF;
-	--colder-blue: #0A5F73;
-	--hot: #FF7C7C;
-}
 
 /* 
 =======================
