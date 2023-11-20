@@ -11,6 +11,17 @@ const questionsAndAnswers = [
         "Dark",
         "No preference"
     ]},
+    {question: "What type of coffee do you generally drink?",
+    answers: [
+        "Espresso",
+        "Macchiato",
+        "Cappucino",
+        "Mocha",
+        "Flat White",
+        "Americano",
+        "Latte",
+        "I make custom drinks"
+    ]},
     {question: "What milk do you use?",
     answers: [
         "Regular (Whole, skim, 2%, etc.)",
@@ -27,26 +38,33 @@ const questionsAndAnswers = [
         "Hot",
         "Cold",
         "Doesn't matter to me"
+    ]},
+    {question: "How much foam do you add to your drink?",
+    answers: [
+        "Small amount",
+        "Medium amount",
+        "Large amount",
+        "I don't like foam"
     ]}
 ];
 
 export function Quiz(props) {
 
-    // const [questionNum, setQuestionNum] = useState(1);
+    const [questionNum, setQuestionNum] = useState(1);
 
-    // const handleClickNext = (event) => {
-    //     setQuestionNum(questionNum + 1);
-    // }
+    const handleClickNext = (event) => {
+        setQuestionNum(questionNum + 1);
+    }
 
-    // const handleClickPrev = (event) => {
-    //     setQuestionNum(questionNum - 1);
-    // }
+    const handleClickPrev = (event) => {
+        setQuestionNum(questionNum - 1);
+    }
 
     return (
         <div>
-            <QuizQuestion questions={questionsAndAnswers.question} />
+            <QuizQuestion questions={questionsAndAnswers.question} questionNum={questionNum} />
             <QuizAnswers answers={questionsAndAnswers.answers} />
-            {/* <QuizButton /> */}
+            <QuizButton />
             {/* <Footer className="dark-footer" /> */}
             {/* <QuizFooter/> */}
         </div>
@@ -61,9 +79,7 @@ function QuizQuestion(props) {
 
     return (
         <section className="question">
-            <p>Question #/##</p>
-            {/* <p>What generally is your favorite coffee roast?</p> */}
-            {/* <p>Question {questionNum}/##</p> */}
+            <p>Question {props.questionNum}/##</p>
             {pQuestionsArray}
         </section>
     );
@@ -89,14 +105,15 @@ function QuizAnswers(props) {
     );
 }
 
-// function QuizButton(props) {
-//     return (
-//         <section className="buttons">
-//             <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-//             <div className="primary-button" onClick={handleClickNext}>Next</div>
-//         </section>
-//     );
-// }
+function QuizButton(props) {
+    // need state and the event handlers in here as well? or pass it on thru the props arg?
+    return (
+        <section className="buttons">
+            <div className="primary-button" onClick={handleClickPrev}>Previous</div>
+            <div className="primary-button" onClick={handleClickNext}>Next</div>
+        </section>
+    );
+}
 
 // maybe make its own component? Footers can all be the same generally except for quiz (due to color)
 // function QuizFooter(props) {
