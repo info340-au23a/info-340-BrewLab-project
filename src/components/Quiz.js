@@ -66,6 +66,7 @@ export function Quiz(props) {
     })
 
     // find out how to not go past the questions (over questionsAndAnswers.length)
+    // when last question maybe change to submit button instead and then will render a new page with recs
     const handleClickNext = (event) => {
         setQuestionDisplayed(questionsAndAnswers[questionNum].question);
         setAnswersDisplayed(questionsAndAnswers[questionNum].answers);
@@ -73,6 +74,7 @@ export function Quiz(props) {
     }
 
     // find out how to not go before question 1
+    // make the prev button not show up when question 1? 
     const handleClickPrev = (event) => {
         setQuestionDisplayed(questionsAndAnswers[questionNum - 1].question);
         setAnswersDisplayed(questionsAndAnswers[questionNum - 1].answers);
