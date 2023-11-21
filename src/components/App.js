@@ -11,5 +11,5 @@ export default function App(props) {
             {/* <Quiz /> */}
             <Footer />
         </div>
-    )
+    );
 }

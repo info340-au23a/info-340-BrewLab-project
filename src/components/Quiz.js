@@ -52,14 +52,17 @@ export function Quiz(props) {
 
     const [questionNum, setQuestionNum] = useState(1);
     const [questionDisplayed, setQuestionDisplayed] = useState(questionsAndAnswers[1].question);
+    const [answersDisplayed, setAnswersDisplayed] = useState(questionsAndAnswers[1].answers);
 
     const handleClickNext = (event) => {
         setQuestionDisplayed(questionsAndAnswers[questionNum].question);
+        setAnswersDisplayed(questionsAndAnswers[questionNum].answers);
         setQuestionNum(questionNum + 1);
     }
 
     const handleClickPrev = (event) => {
         setQuestionDisplayed(questionsAndAnswers[questionNum].question);
+        setAnswersDisplayed(questionsAndAnswers[questionNum].answers);
         setQuestionNum(questionNum - 1);
     }
 
