@@ -66,7 +66,7 @@ export function Quiz(props) {
 
     // questionsAndAnswers will begin at 0 for the index of the array
     const pAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
-        const transformed = <p key={answerString}>{answerString}</p>;
+        const transformed = <li key={answerString}>{answerString}</li>;
         return transformed;
     })
 
@@ -88,7 +88,7 @@ export function Quiz(props) {
     // make each return its own private function to clean up this section?
     if (questionNum == 1) {
         return (
-            <div className="quiz-page">
+            <main className="quiz-page">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
@@ -98,7 +98,9 @@ export function Quiz(props) {
 
                 <section className="options">
                     <div>
-                        {pAnswersArray}
+                        <ul>
+                            {pAnswersArray}
+                        </ul>
                     </div>
                 </section>
 
@@ -106,12 +108,12 @@ export function Quiz(props) {
                     <div className="primary-button" onClick={handleClickNext}>Next</div>
                 </section>
 
-                {/* <QuizFooter/> */}
-            </div>
+                <QuizFooter/>
+            </main>
         );
     } else if (questionNum > 1 && questionNum < 5) {
         return (
-            <div className="quiz-page">
+            <main className="quiz-page">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
@@ -130,12 +132,12 @@ export function Quiz(props) {
                     <div className="primary-button" onClick={handleClickNext}>Next</div>
                 </section>
 
-                {/* <QuizFooter/> */}
-            </div>
+                <QuizFooter/>
+            </main>
         );
     } else {
         return (
-            <div className="quiz-page">
+            <main className="quiz-page">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
@@ -154,21 +156,8 @@ export function Quiz(props) {
                     <div className="primary-button" onClick={handleClickNext}>Submit</div>
                 </section>
 
-                {/* <QuizFooter/> */}
-            </div>
+                <QuizFooter/>
+            </main>
         );
     }
 }
-/*   <footer className="dark-footer">
-    <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
-  </footer>
-</body> */
-
-// maybe make its own component? Footers can all be the same generally except for quiz (due to color)
-// function QuizFooter(props) {
-//     return (
-//         <footer className="dark-footer">
-//             <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
-//         </footer>
-//     );
-// }

@@ -10,8 +10,8 @@ export function Footer(props) {
 
 export function QuizFooter(props) {
     return (
-        <footer className="dark-footer">
-            <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
+        <footer>
+            <p className="dark-footer">&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
         </footer>
     );
 }
