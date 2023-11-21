@@ -44,7 +44,7 @@ export function Home() {
                         <a href="quiz.html" className="quiz-btn">Take Quiz</a>
                     </div>
                     <div className="home-img">
-                        <img src="../public/img/yellowcup.png" alt="a yellow cup with coffee" /> 
+                        <img src="../img/yellowcup.png" alt="a yellow cup with coffee" /> 
                     </div>
                 </section>
             </div>

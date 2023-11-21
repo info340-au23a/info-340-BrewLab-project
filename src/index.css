@@ -463,7 +463,6 @@ nav a {
 .home {
     width: 100%;
     min-height: 100vh;
-    background: url(../public/img/bgvector.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -535,7 +534,6 @@ nav a {
 .quiz {
     width: 100%;
     min-height: 100vh;
-    background: url(../public/img/yellowcup.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
@@ -832,4 +830,5 @@ div.uploadImg {
         --small-font-size: .875rem;
     }
 }
+
 
