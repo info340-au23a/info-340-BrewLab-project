@@ -50,124 +50,115 @@ const questionsAndAnswers = [
 ];
 
 export function Quiz(props) {
-
     // int
+    // init value = 1
     const [questionNum, setQuestionNum] = useState(1);
 
-    // string
-    const [questionDisplayed, setQuestionDisplayed] = useState(questionsAndAnswers[0].question);
-
-    // array of strings
-    const [answersDisplayed, setAnswersDisplayed] = useState(questionsAndAnswers[0].answers);
-
-    const pAnswersArray = answersDisplayed.map((answerString) => {
+    // questionsAndAnswers will begin at 0 for the index of the array
+    const pAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
         const transformed = <p>{answerString}</p>;
         return transformed;
     })
 
-    // find out how to not go past the questions (over questionsAndAnswers.length)
     // when last question maybe change to submit button instead and then will render a new page with recs
     const handleClickNext = (event) => {
-        setQuestionDisplayed(questionsAndAnswers[questionNum].question);
-        setAnswersDisplayed(questionsAndAnswers[questionNum].answers);
-        setQuestionNum(questionNum + 1);
+        // if question num is 1 or greater and is less than 5 (don't want to be able to click next on question 5, will change to a submit button later)
+        if (questionNum >= 1 && questionNum < questionsAndAnswers.length) {
+            setQuestionNum(questionNum + 1);
+        }
     }
 
-    // find out how to not go before question 1
-    // make the prev button not show up when question 1? 
     const handleClickPrev = (event) => {
-        setQuestionDisplayed(questionsAndAnswers[questionNum - 1].question);
-        setAnswersDisplayed(questionsAndAnswers[questionNum - 1].answers);
-        setQuestionNum(questionNum - 1);
+        // if question num is 5 or less and is greater than 1 (don't want to be able to click prev on question 1, will possibly make it not visible later)
+        if (questionNum <= questionsAndAnswers.length && questionNum > 1) {
+            setQuestionNum(questionNum - 1);
+        }
     }
 
-    return (
-        <div className="quiz-page">
-            <div>
-                {/* <QuizQuestion questions={questionsAndAnswers.question} questionNum={questionNum} />
-                <QuizAnswers answers={questionsAndAnswers.answers} /> */}
-                <h1 className="quiz-header">Coffee Quiz</h1>
-
-                <section className="question">
-                    <p>Question {questionNum}/{questionsAndAnswers.length}</p>
-                    <p>{questionDisplayed}</p>
-                </section>
-
-                <section className="options">
-                    <div>
-                        {pAnswersArray}
-                    </div>
-                </section>
-
-                <section className="buttons">
-                    <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                    <div className="primary-button" onClick={handleClickNext}>Next</div>
-                </section>
-                {/* <Footer className="dark-footer" /> */}
-                {/* <QuizFooter/> */}
+    // make each return its own private function to clean up this section?
+    if (questionNum == 1) {
+        return (
+            <div className="quiz-page">
+                <div>
+                    <h1 className="quiz-header">Coffee Quiz</h1>
+    
+                    <section className="question">
+                        <p>Question {questionNum}/{questionsAndAnswers.length}</p>
+                        <p>{questionsAndAnswers[questionNum - 1].question}</p>
+                    </section>
+    
+                    <section className="options">
+                        <div>
+                            {pAnswersArray}
+                        </div>
+                    </section>
+    
+                    <section className="buttons">
+                        <div className="primary-button" onClick={handleClickNext}>Next</div>
+                    </section>
+                    {/* <Footer className="dark-footer" /> */}
+                    {/* <QuizFooter/> */}
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else if (questionNum > 1 && questionNum < 5) {
+        return (
+            <div className="quiz-page">
+                <div>
+                    <h1 className="quiz-header">Coffee Quiz</h1>
+
+                    <section className="question">
+                        <p>Question {questionNum}/{questionsAndAnswers.length}</p>
+                        <p>{questionsAndAnswers[questionNum - 1].question}</p>
+                    </section>
+
+                    <section className="options">
+                        <div>
+                            {pAnswersArray}
+                        </div>
+                    </section>
+
+                    <section className="buttons">
+                        <div className="primary-button" onClick={handleClickPrev}>Previous</div>
+                        <div className="primary-button" onClick={handleClickNext}>Next</div>
+                    </section>
+                    {/* <Footer className="dark-footer" /> */}
+                    {/* <QuizFooter/> */}
+                </div>
+            </div>
+        );
+    } else {
+        return (
+            <div className="quiz-page">
+                <div>
+                    <h1 className="quiz-header">Coffee Quiz</h1>
+    
+                    <section className="question">
+                        <p>Question {questionNum}/{questionsAndAnswers.length}</p>
+                        <p>{questionsAndAnswers[questionNum - 1].question}</p>
+                    </section>
+    
+                    <section className="options">
+                        <div>
+                            {pAnswersArray}
+                        </div>
+                    </section>
+    
+                    <section className="buttons">
+                        <div className="primary-button" onClick={handleClickPrev}>Previous</div>
+                        <div className="primary-button" onClick={handleClickNext}>Submit</div>
+                    </section>
+                    {/* <Footer className="dark-footer" /> */}
+                    {/* <QuizFooter/> */}
+                </div>
+            </div>
+        );
+    }
 }
-
-/*  
-
-
-/* <body className="quiz-page">
-  
-
-  <main>
-
-  </main>
-
-  <footer className="dark-footer">
+/*   <footer className="dark-footer">
     <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
   </footer>
 </body> */
-
-// function QuizQuestion(props) {
-//     const pQuestionsArray = props.questions.map((questionString) => {
-//         const transformed = <p key={questionString}>{questionString}</p>;
-//         return transformed;
-//     });
-
-//     return (
-//         <section className="question">
-//             <p>Question {props.questionNum}/##</p>
-//             {pQuestionsArray}
-//         </section>
-//     );
-// }
-
-// function QuizAnswers(props) {
-//     // props.answers.map = looping through the whole questionsAndAnswers looking for the answers prop (which will return [ [answers: "..., ..., ..."], [answers: "..., ..."] ] or an array of arrays)
-//     // answerArray.map = looping through the given array determined above and going through each individual array to find the strings, which will return ["...", "...", "..."] or an array of strings
-//     const pAnswersArray = props.answers.map((answerArray) => {
-//         const arrayAnswerStrings = answerArray.map((answerString) => {
-//             const transformed = <p>{answerString}</p>;
-//             return transformed;
-//         });
-//         return arrayAnswerStrings;
-//     });
-    
-//     return (
-//         <section className="options">
-//             <div>
-//                 {pAnswersArray};
-//             </div>
-//         </section>
-//     );
-// }
-
-// function QuizButton(props) {
-//     // need state and the event handlers in here as well? or pass it on thru the props arg?
-//     return (
-//         <section className="buttons">
-//             <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-//             <div className="primary-button" onClick={handleClickNext}>Next</div>
-//         </section>
-//     );
-// }
 
 // maybe make its own component? Footers can all be the same generally except for quiz (due to color)
 // function QuizFooter(props) {
