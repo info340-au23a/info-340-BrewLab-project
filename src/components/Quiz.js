@@ -5,48 +5,58 @@ import { QuizFooter } from './Footer.js';
 
 // make into a json later?
 const questionsAndAnswers = [
-    {question: "What type of coffee do you like?",
-    answers: [
-        "Espresso",
-        "Macchiato",
-        "Cappucino",
-        "Mocha",
-        "Flat White",
-        "Americano",
-        "Latte",
-        "I make custom drinks",
-        "I don't normally drink coffee"
-    ]},
-    {question: "What milk do you use?",
-    answers: [
-        "Regular (Whole, skim, 2%, etc.)",
-        "Soy",
-        "Oat",
-        "Almond",
-        "Coconut",
-        "Hazelnut",
-        "Goat",
-        "I like no milk"
-    ]},
-    {question: "Do you like your coffee hot or cold?",
-    answers: [
-        "Hot",
-        "Cold",
-        "Doesn't matter to me"
-    ]},
-    {question: "Do you like foam?",
-    answers: [
-        "Yes",
-        "No",
-        "I don't care",
-        "I like flavored foam only"
-    ]},
-    {question: "How sweet do you like your coffee?",
-    answers: [
-        "Super sweet (100% sugar)",
-        "Semi-sweet (50% sugar)",
-        "Not sweet at all (0% sugar)"
-    ]}
+    {
+        question: "What type of coffee do you like?",
+        answers: [
+            "Espresso",
+            "Macchiato",
+            "Cappucino",
+            "Mocha",
+            "Flat White",
+            "Americano",
+            "Latte",
+            "I make custom drinks",
+            "I don't normally drink coffee"
+        ]
+    },
+    {
+        question: "What milk do you use?",
+        answers: [
+            "Regular (Whole, skim, 2%, etc.)",
+            "Soy",
+            "Oat",
+            "Almond",
+            "Coconut",
+            "Hazelnut",
+            "Goat",
+            "I like no milk"
+        ]
+    },
+    {
+        question: "Do you like your coffee hot or cold?",
+        answers: [
+            "Hot",
+            "Cold",
+            "Doesn't matter to me"
+        ]
+    },
+    {
+        question: "Do you like foam?",
+        answers: [
+            "Yes",
+            "No",
+            "I don't care",
+            "I like flavored foam only"
+        ]
+    },
+    {
+        question: "How sweet do you like your coffee?",
+        answers: [
+            "Super sweet (100% sugar)",
+            "Semi-sweet (50% sugar)",
+            "Not sweet at all (0% sugar)"
+        ]
+    }
 ];
 
 export function Quiz(props) {
@@ -79,78 +89,72 @@ export function Quiz(props) {
     if (questionNum == 1) {
         return (
             <div className="quiz-page">
-                <div>
-                    <h1 className="quiz-header">Coffee Quiz</h1>
-    
-                    <section className="question">
-                        <p>Question {questionNum}/{questionsAndAnswers.length}</p>
-                        <p>{questionsAndAnswers[questionNum - 1].question}</p>
-                    </section>
-    
-                    <section className="options">
-                        <div>
-                            {pAnswersArray}
-                        </div>
-                    </section>
-    
-                    <section className="buttons">
-                        <div className="primary-button" onClick={handleClickNext}>Next</div>
-                    </section>
+                <h1 className="quiz-header">Coffee Quiz</h1>
 
-                    <QuizFooter/>
-                </div>
+                <section className="question">
+                    <p>Question {questionNum}/{questionsAndAnswers.length}</p>
+                    <p>{questionsAndAnswers[questionNum - 1].question}</p>
+                </section>
+
+                <section className="options">
+                    <div>
+                        {pAnswersArray}
+                    </div>
+                </section>
+
+                <section className="buttons">
+                    <div className="primary-button" onClick={handleClickNext}>Next</div>
+                </section>
+
+                {/* <QuizFooter/> */}
             </div>
         );
     } else if (questionNum > 1 && questionNum < 5) {
         return (
             <div className="quiz-page">
-                <div>
-                    <h1 className="quiz-header">Coffee Quiz</h1>
+                <h1 className="quiz-header">Coffee Quiz</h1>
 
-                    <section className="question">
-                        <p>Question {questionNum}/{questionsAndAnswers.length}</p>
-                        <p>{questionsAndAnswers[questionNum - 1].question}</p>
-                    </section>
+                <section className="question">
+                    <p>Question {questionNum}/{questionsAndAnswers.length}</p>
+                    <p>{questionsAndAnswers[questionNum - 1].question}</p>
+                </section>
 
-                    <section className="options">
-                        <div>
-                            {pAnswersArray}
-                        </div>
-                    </section>
+                <section className="options">
+                    <div>
+                        {pAnswersArray}
+                    </div>
+                </section>
 
-                    <section className="buttons">
-                        <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                        <div className="primary-button" onClick={handleClickNext}>Next</div>
-                    </section>
+                <section className="buttons">
+                    <div className="primary-button" onClick={handleClickPrev}>Previous</div>
+                    <div className="primary-button" onClick={handleClickNext}>Next</div>
+                </section>
 
-                    <QuizFooter/>
-                </div>
+                {/* <QuizFooter/> */}
             </div>
         );
     } else {
         return (
             <div className="quiz-page">
-                <div>
-                    <h1 className="quiz-header">Coffee Quiz</h1>
-    
-                    <section className="question">
-                        <p>Question {questionNum}/{questionsAndAnswers.length}</p>
-                        <p>{questionsAndAnswers[questionNum - 1].question}</p>
-                    </section>
-    
-                    <section className="options">
-                        <div>
-                            {pAnswersArray}
-                        </div>
-                    </section>
-    
-                    <section className="buttons">
-                        <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                        <div className="primary-button" onClick={handleClickNext}>Submit</div>
-                    </section>
+                <h1 className="quiz-header">Coffee Quiz</h1>
 
-                    <QuizFooter/>
-                </div>
+                <section className="question">
+                    <p>Question {questionNum}/{questionsAndAnswers.length}</p>
+                    <p>{questionsAndAnswers[questionNum - 1].question}</p>
+                </section>
+
+                <section className="options">
+                    <div>
+                        {pAnswersArray}
+                    </div>
+                </section>
+
+                <section className="buttons">
+                    <div className="primary-button" onClick={handleClickPrev}>Previous</div>
+                    <div className="primary-button" onClick={handleClickNext}>Submit</div>
+                </section>
+
+                {/* <QuizFooter/> */}
             </div>
         );
     }
