@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // will i need to import navigation bar?
-import { Footer } from './Footer.js';
+import { QuizFooter } from './Footer.js';
 
 // make into a json later?
 const questionsAndAnswers = [
@@ -56,7 +56,7 @@ export function Quiz(props) {
 
     // questionsAndAnswers will begin at 0 for the index of the array
     const pAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
-        const transformed = <p>{answerString}</p>;
+        const transformed = <p key={answerString}>{answerString}</p>;
         return transformed;
     })
 
@@ -96,8 +96,8 @@ export function Quiz(props) {
                     <section className="buttons">
                         <div className="primary-button" onClick={handleClickNext}>Next</div>
                     </section>
-                    {/* <Footer className="dark-footer" /> */}
-                    {/* <QuizFooter/> */}
+
+                    <QuizFooter/>
                 </div>
             </div>
         );
@@ -122,8 +122,8 @@ export function Quiz(props) {
                         <div className="primary-button" onClick={handleClickPrev}>Previous</div>
                         <div className="primary-button" onClick={handleClickNext}>Next</div>
                     </section>
-                    {/* <Footer className="dark-footer" /> */}
-                    {/* <QuizFooter/> */}
+
+                    <QuizFooter/>
                 </div>
             </div>
         );
@@ -148,8 +148,8 @@ export function Quiz(props) {
                         <div className="primary-button" onClick={handleClickPrev}>Previous</div>
                         <div className="primary-button" onClick={handleClickNext}>Submit</div>
                     </section>
-                    {/* <Footer className="dark-footer" /> */}
-                    {/* <QuizFooter/> */}
+
+                    <QuizFooter/>
                 </div>
             </div>
         );
