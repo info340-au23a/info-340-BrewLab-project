@@ -12,11 +12,62 @@
 <body>
     <main> 
         <!-- my style -->
-        <div>
+        <!-- my card -->
+        <div class="card">
+
+          <!-- main content -->
+          <div>
+            <!-- user who posted -->
+            <div class="user-attribute">
+              <img src="" alt="avatar" class="small-avatar1"/>
+              <a href="#">person's username</a>
+            </div>
+
+            <!-- image + title + description -->
+            <div> 
+              <img src="" alt="coffee with iced"/>
+              <h2>Coffee Drink</h2>
+              <p>Short description of the drink</p>
+            </div>
+            
+            <!-- ingredients section -->
+            <div class="ingredients">
+              <p>[#] shots of [coffee type, e.g. espresso]</p>
+              <p>[ounce] of [milk type]</p>
+              <p>sweetness level</p>
+              <p>volume</p>
+              <p>[type of syrup] syrup</p>
+            </div>
+            
+            <!-- tags section -->
+            <div class="tags">
+              <h3>Tags</h3>
+              <span class="tag">Temperature</span>
+              <span class="tag">Milk</span>
+              <span class="tag">Syrup</span>
+            </div>
+          </div>
+
+          <!-- buttons -->
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src="./img/starv4x.png" alt="starpng"/>
+          </button>
+
+        </div>
+
+        <!-- tags: decaf, hot/cold, type of milk, type of syrup, coffee type -->
+        <!-- <div>
           <div class="information [ card ]">
               <div class="main-content"> 
+                <div class="card-attribute">
+                  <img src="https://i.postimg.cc/SQBzNQf1/image-avatar.png" alt="avatar" class="small-avatar"/> -->
+                  <!-- href goes to the person's account -->
+                  <!-- <p>Creation of <span><a href="#">Jules Wyvern</a></span></p>
+                </div>
               <img class="hero-image" src="https://picsum.photos/id/1011/800/450" alt="" />
               <h2 class="title">Coffee Name</h2>
+              </div>
               <div class="tags">
                 <span class="tag">Type of Coffee</span>
                 <span class="tag">Cold Temp</span>
@@ -24,178 +75,9 @@
                 <span class="tag">Coffee Amount</span>
                 <span class="tag">Milk Used</span>
                 <span class="tag">Sweetness</span>
-                </div>
-              </div>
-              <div class="card-attribute">
-                  <img src="https://i.postimg.cc/SQBzNQf1/image-avatar.png" alt="avatar" class="small-avatar"/>
-                  <!-- href goes to the person's account -->
-                  <p>Creation of <span><a href="#">Jules Wyvern</a></span></p>
-              </div>
-
-              <!-- <dl class="details">
-                  <div>
-                      <dt>Satisfaction</dt>
-                      <dd>100%</dd>
-                  </div>
-                  <div>
-                      <dt>Customers</dt>
-                      <dd>4.5K</dd>
-                  </div>
-              </dl> -->
-          </div>
-        </div>
-
-        <div class="card-container">
-            <a href="/" class="hero-image-container">
-              <img class="hero-image" src="https://i.postimg.cc/NfR2yhNs/image-equilibrium.jpg" alt="Spinning glass cube"/>
-            </a>
-            <main class="main-content">
-              <h1><a href="#">Equilibrium #3429</a></h1>
-              <p>Our Equilibrium collection promotes balance and calm.</p>
-              <div class="flex-row">
-                <div class="coin-base">
-                  <img src="https://i.postimg.cc/T1F1K0bW/Ethereum.png" alt="Ethereum" class="small-image"/>
-                  <h2>0.041 ETH</h2>
-                </div>
-                <div class="time-left">
-                  <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock" class="small-image"/>
-                  <p>3 days left</p>
-                </div>
-              </div>
-            </main>
-            <div class="card-attribute">
-              <img src="https://i.postimg.cc/SQBzNQf1/image-avatar.png" alt="avatar" class="small-avatar"/>
-              <p>Creation of <span><a href="#">Jules Wyvern</a></span></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- tag code -->
-        <!-- CSS CODE TAG
-        .tag {
-            display: inline-block;
-            background-color: var(--c-titan-white);
-            color: var(--c-indigo);
-            font-weight: 600;
-            font-size: 0.875rem;
-            padding: 0.5em 0.75em;
-            line-height: 1;
-            border-radius: 6px;
-            & + * {
-                margin-top: 1rem;
-            }
-        }
-         -->
-
-        <section class="articles">
-            <article>
-              <div class="article-wrapper">
-                <figure>
-                  <img src="https://picsum.photos/id/1011/800/450" alt="" />
-                </figure>
-                <div class="article-body">
-                  <h2>This is some title</h2>
-                  <p>
-                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
-                  </p>
-                  <a href="#" class="read-more">
-                    Read more <span class="sr-only">about this is some title</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article>
-              <div class="article-wrapper">
-                <figure>
-                  <img src="https://picsum.photos/id/1005/800/450" alt="" />
-                </figure>
-                <div class="article-body">
-                  <h2>This is some title</h2>
-                  <p>
-                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
-                  </p>
-                  <a href="#" class="read-more">
-                    Read more <span class="sr-only">about this is some title</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-ru
-                      le="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article>
-              <div class="article-wrapper">
-                <figure>
-                  <img src="https://picsum.photos/id/103/800/450" alt="" />
-                </figure>
-                <div class="article-body">
-                  <h2>This is some title</h2>
-                  <p>
-                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
-                  </p>
-                  <a href="#" class="read-more">
-                    Read more <span class="sr-only">about this is some title</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article>
-                <div class="article-wrapper">
-                  <figure>
-                    <img src="https://picsum.photos/id/103/800/450" alt="" />
-                  </figure>
-                  <div class="article-body">
-                    <h2>This is some title</h2>
-                    <p>
-                      Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
-                    </p>
-                    <a href="#" class="read-more">
-                      Read more <span class="sr-only">about this is some title</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-
-          </section>
-
-          <!-- different style -->
-            <div class="card-container">
-                <a href="/" class="hero-image-container">
-                  <img class="hero-image" src="https://i.postimg.cc/NfR2yhNs/image-equilibrium.jpg" alt="Spinning glass cube"/>
-                </a>
-                <main class="main-content">
-                  <h1><a href="#">Equilibrium #3429</a></h1>
-                  <p>Our Equilibrium collection promotes balance and calm.</p>
-                  <div class="flex-row">
-                    <div class="coin-base">
-                      <img src="https://i.postimg.cc/T1F1K0bW/Ethereum.png" alt="Ethereum" class="small-image"/>
-                      <h2>0.041 ETH</h2>
-                    </div>
-                    <div class="time-left">
-                      <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock" class="small-image"/>
-                      <p>3 days left</p>
-                    </div>
-                  </div>
-                </main>
-                <div class="card-attribute">
-                  <img src="https://i.postimg.cc/SQBzNQf1/image-avatar.png" alt="avatar" class="small-avatar"/>
-                  <p>Creation of <span><a href="#">Jules Wyvern</a></span></p>
-                </div>
               </div>
           </div>
+        </div> -->
 
     </main>
 
