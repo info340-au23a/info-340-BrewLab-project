@@ -410,10 +410,11 @@ img.profile-picture {
 }
 
 footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    padding-top: 100px;
+    position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
 }
 
 nav a {
