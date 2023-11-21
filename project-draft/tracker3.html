@@ -6,116 +6,296 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Your Favorited Drinks</title>
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&family=Poppins&display=swap" rel="stylesheet">
-  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="icon" href="./img/favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="tracker">
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">
-                <i class="ri-cup-line"></i> BrewLab
-            </a>
-    
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">Home</a>
-                    </li>
-    
-                    <li class="nav__item">
-                        <a href="orders.html" class="nav__link">Custom Orders</a>
-                    </li>
-    
-                    <li class="nav__item">
-                        <a href="tracker.html" class="nav__link">Tracker</a>
-                    </li>
-    
-                    <li class="nav__item">
-                        <a href="quiz.html" class="nav__link">Quiz</a>
-                    </li>
-                </ul>
-    
-                <a href="account.html" class="nav__button">Account</a>
-    
-                <div class="'nav__close" id="nav-close">
-                    <i class="ri-close-line"></i>
-                </div>
-            </div>
-    
-            <div class="'toggle" id="nav-toggle">
-                <i class="ri-menu-line"></i>
-            </div>
-        </nav>
-        </header>
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <i class="ri-cup-line"></i> BrewLab
+      </a>
 
-<main>
-  <h1 class="trackHeader">Your Favorited Drinks</h1>
+      <div class="nav__menu" class="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Home</a>
+          </li>
 
-  <!-- navigate to other trackers -->
-  <div class="tracker-nav"> 
-    <div class = "tracker-buttons">
-        <div class="t-button"><li class="content-navi"><a href="tracker.html">Track Your Coffee</a></li></div>
-        <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker2.html">Your Frequent Drinks</a></li></div>
-        <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker3.html">Favorited Drinks</a></li></div>
-        <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker4.html">Caffeine Logs</a></li></div>
-    </div>
+          <li class="nav__item">
+            <a href="explore.html" class="nav__link">Explore</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="tracker.html" class="nav__link">Tracker</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="quiz.html" class="nav__link">Quiz</a>
+          </li>
+        </ul>
+
+        <a href="account.html" class="nav__button">Account</a>
+
+        <div class="'nav__close" class="nav-close">
+          <i class="ri-close-line"></i>
+        </div>
+      </div>
+
+      <div class="'toggle" class="nav-toggle">
+        <i class="ri-menu-line"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="trackHeader">Your Favorited Drinks</h1>
+
+    <!-- navigate to other trackers -->
+    <div class="tracker-nav"> 
+      <div class = "tracker-buttons">
+          <div class="t-button"><li class="content-navi"><a href="tracker.html">Log Drink</a></li></div>
+          <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker2.html">Recent Drinks</a></li></div>
+          <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker3.html">Favorited Drinks</a></li></div>
+      </div>
 </div>
 
-  <!-- cards source: bootstrap -->
-  <div class="groupcards row row-cols-1 row-cols-md-2 g-4">
-    <div class="col-sm-6 justify-content-evenly">
+
+    <div class="allCards">
+
+      <!-- card 1 -->
       <div class="card">
-        <img src="img/icedcoffee.jpg" class="card-img-top" alt="iced coffee">
-        <div class="card-body">
-          <h5 class="card-title">Drink 1</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-primary">Log this drink</a>
-          <a href="#" class="btn btn-secondary">Favorited</a>
+        <!-- all contents -->
+        <div>
+          <!-- user who posted -->
+          <div class="user-attribute">
+            <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+            <a href="#" class="avatarUsername">@athenalovescoffee</a>
+          </div>
+
+          <!-- image + title + description -->
+          <div>
+            <img class="coffeeimg" src="./img/dairyfreemocha.jpg" alt="coffee with ice" />
+            <h3>Coffee Drink</h3>
+            <p>Short description of the drink</p>
+          </div>
+
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src="./img/starv4x.png" alt="starpng" />
+          </button>
+        </div>
+      </div>
+
+      <!-- card 2 -->
+      <div class="card">
+        <!-- all contents -->
+        <div>
+          <!-- user who posted -->
+          <div class="user-attribute">
+            <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+            <a href="#" class="avatarUsername">@athenalovescoffee</a>
+          </div>
+
+          <!-- image + title + description -->
+          <div>
+            <img class="coffeeimg" src="./img/dairyfreemocha.jpg" alt="coffee with ice" />
+            <h3>Coffee Drink</h3>
+            <p>Short description of the drink</p>
+          </div>
+
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
+          </button>
+        </div>
+      </div>
+
+      <!-- card 3 -->
+      <div class="card">
+        <!-- all contents -->
+        <div>
+          <!-- user who posted -->
+          <div class="user-attribute">
+            <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+            <a href="#" class="avatarUsername">@athenalovescoffee</a>
+          </div>
+
+          <!-- image + title + description -->
+          <div>
+            <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+            <h3>Coffee Drink</h3>
+            <p>Short description of the drink</p>
+          </div>
+
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
+          </button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+      <div class="card">
+        <!-- all contents -->
+        <div>
+          <!-- user who posted -->
+          <div class="user-attribute">
+            <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+            <a href="#" class="avatarUsername">@athenalovescoffee</a>
+          </div>
+
+          <!-- image + title + description -->
+          <div>
+            <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+            <h3>Coffee Drink</h3>
+            <p>Short description of the drink</p>
+          </div>
+
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
+          </button>
+        </div>
+      </div>
+
+      <!-- card 5 -->
+      <div class="card">
+        <!-- all contents -->
+        <div>
+          <!-- user who posted -->
+          <div class="user-attribute">
+            <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+            <a href="#" class="avatarUsername">@athenalovescoffee</a>
+          </div>
+
+          <!-- image + title + description -->
+          <div>
+            <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+            <h3>Coffee Drink</h3>
+            <p>Short description of the drink</p>
+          </div>
+
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
+          </button>
         </div>
       </div>
     </div>
-    <div class="col-sm-6 justify-content-evenly">
-      <div class="card">
-        <img src="img/icedcoffee.jpg" class="card-img-top" alt="iced coffee">
-        <div class="card-body">
-          <h5 class="card-title">Drink 2</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-primary">Log this drink</a>
-          <a href="#" class="btn btn-secondary">Favorited</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 justify-content-evenly">
-      <div class="card">
-        <img src="img/icedcoffee.jpg" class="card-img-top" alt="iced coffee">
-        <div class="card-body">
-          <h5 class="card-title">Drink 3</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Log this drink</a>
-          <a href="#" class="btn btn-secondary">Favorited</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 justify-content-evenly">
-      <div class="card">
-        <img src="img/icedcoffee.jpg" class="card-img-top" alt="iced coffee">
-        <div class="card-body">
-          <h5 class="card-title">Drink 4</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-primary">Log this drink</a>
-          <a href="#" class="btn btn-secondary">Favorited</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-</main>
-<footer>
-  <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
-</footer>
-<script src="js/main.js"></script> 
+
+  </main>
+  <footer>
+    <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
+  </footer>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

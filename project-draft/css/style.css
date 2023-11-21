@@ -301,27 +301,6 @@ footer p {
     color: var(--espresso-brown);
 }
 
-/* Custom Orders Page */
-.custom-orders {
-    font-family: var(--title-font);
-    color: var(--caramel);
-    margin-top: 60px;
-}
-
-.custom-drinks {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.card img {
-    width: 250px;
-    height: 250px;
-    margin: 70px 10px 0;
-    border-radius: 11%;
-    justify-content: center;
-}
-
 /* profile page */
 img.profile-picture {
     max-width: 200px;
@@ -603,9 +582,6 @@ nav a {
 }
 
 div.tracker-nav{
-    /* margin-left: 90px; */
-    /* display: grid;
-    grid-row: auto; */
     display: flex;
     flex-wrap: wrap;
 }
@@ -706,6 +682,98 @@ div.uploadImg {
     padding-bottom: 20px;
     padding-top: 20px;
    
+}
+
+/* CARDS! */
+
+.sectionTracker {
+    margin-top: 0.5rem;
+}
+.allCards p {
+	margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.allCards {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2.5rem;
+	margin: 5vh auto;
+}
+
+.user-attribute {
+    display: flex;
+	padding-bottom: 1em;
+	border-bottom: 2px solid #C7A27A;
+    width: 100%;
+}
+
+.avatar {
+    width: 3em;
+    border-radius: 150px;
+    margin-right: 1em;
+}
+
+.card h3 {
+    font-size: 2rem;
+}
+
+.avatarUsername {
+    display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card {
+	background-color: #fff;
+	padding: 1.5rem;
+	border-radius: 16px;
+	max-width: 350px;
+}
+
+/* .tags {
+	margin-top: 1rem;
+	margin-bottom: .5rem;
+} */
+
+.tag {
+	display: inline-block;
+	background-color: var(--creamy-latte);
+	color: var(--dark-roast);
+	font-size: 0.875rem;
+	padding: 0.5em 0.75em;
+	line-height: 1;
+	border-radius: 8px;
+	margin-bottom: .5rem;
+}
+
+.coffeeimg {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.allCards .buttons {
+	margin-top: 1rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	width: 100%;
+}
+
+.favbutton {
+	border-radius: 18px;
+	padding: .5rem 1rem;
+	background-color: var(--espresso-brown);
+    color: var(--milk-foam);
+}
+
+.favicon {
+	width: 13px;
+	height: 13px;
 }
 
 /* Quiz Page for bigger screens */
