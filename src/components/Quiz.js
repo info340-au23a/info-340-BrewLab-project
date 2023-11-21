@@ -80,124 +80,47 @@ export function Quiz(props) {
     }
 
     return (
-        <div>
-            {/* <QuizQuestion questions={questionsAndAnswers.question} questionNum={questionNum} />
-            <QuizAnswers answers={questionsAndAnswers.answers} /> */}
-            <h1 class="quiz-header">Coffee Quiz</h1>
+        <div className="quiz-page">
+            <div>
+                {/* <QuizQuestion questions={questionsAndAnswers.question} questionNum={questionNum} />
+                <QuizAnswers answers={questionsAndAnswers.answers} /> */}
+                <h1 className="quiz-header">Coffee Quiz</h1>
 
-            <section class="question">
-                <p>Question {questionNum}/{questionsAndAnswers.length}</p>
-                <p>{questionDisplayed}</p>
-            </section>
+                <section className="question">
+                    <p>Question {questionNum}/{questionsAndAnswers.length}</p>
+                    <p>{questionDisplayed}</p>
+                </section>
 
-            <section class="options">
-                <div>
-                    {pAnswersArray}
-                </div>
-            </section>
+                <section className="options">
+                    <div>
+                        {pAnswersArray}
+                    </div>
+                </section>
 
-            <section className="buttons">
-                <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                <div className="primary-button" onClick={handleClickNext}>Next</div>
-            </section>
-            {/* <Footer className="dark-footer" /> */}
-            {/* <QuizFooter/> */}
+                <section className="buttons">
+                    <div className="primary-button" onClick={handleClickPrev}>Previous</div>
+                    <div className="primary-button" onClick={handleClickNext}>Next</div>
+                </section>
+                {/* <Footer className="dark-footer" /> */}
+                {/* <QuizFooter/> */}
+            </div>
         </div>
     );
 }
 
-/*  <h1 class="quiz-header">Coffee Quiz</h1>
-    <section class="question">
-      <p>Question #/##</p>
-      <p>What generally is your favorite coffee roast?</p>
-    </section>
+/*  
 
-    <section class="options">
-      <div>
-        <p>Light</p>
-        <p>Medium</p>
-        <p>Medium-dark</p>
-        <p>Dark</p>
-        <p>No preference</p>
-      </div>
-    </section>
 
-    <section class="buttons">
-      <div class="primary-button">Previous</div>
-      <div class="primary-button">Next</div>
-    </section> */
-
-/* <body class="quiz-page">
-  <!-- Header -->
-  <header class="header">
-    <nav class="nav container">
-      <a href="index.html" class="nav__logo">
-        <i class="ri-cup-line"></i> BrewLab
-      </a>
-
-      <div class="nav__menu">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="index.html" class="nav__link">Home</a>
-          </li>
-
-          <li class="nav__item">
-            <a href="explore.html" class="nav__link">Explore</a>
-          </li>
-
-          <li class="nav__item">
-            <a href="tracker.html" class="nav__link">Tracker</a>
-          </li>
-
-          <li class="nav__item">
-            <a href="quiz.html" class="nav__link">Quiz</a>
-          </li>
-        </ul>
-
-        <a href="account.html" class="nav__button">Login</a>
-
-        <div class="nav__close">
-          <i class="ri-close-line"></i>
-        </div>
-      </div>
-
-      <div class="'toggle">
-        <i class="ri-menu-line"></i>
-      </div>
-    </nav>
-    <div>
-
-    </div>
-  </header>
+/* <body className="quiz-page">
+  
 
   <main>
-    <h1 class="quiz-header">Coffee Quiz</h1>
-    <section class="question">
-      <p>Question #/##</p>
-      <p>What generally is your favorite coffee roast?</p>
-    </section>
-
-    <section class="options">
-      <div>
-        <p>Light</p>
-        <p>Medium</p>
-        <p>Medium-dark</p>
-        <p>Dark</p>
-        <p>No preference</p>
-      </div>
-    </section>
-
-    <section class="buttons">
-      <div class="primary-button">Previous</div>
-      <div class="primary-button">Next</div>
-    </section>
 
   </main>
 
-  <footer class="dark-footer">
+  <footer className="dark-footer">
     <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
   </footer>
-  <script src="js/main.js"></script>
 </body> */
 
 // function QuizQuestion(props) {
