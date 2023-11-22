@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 // will i need to import navigation bar?
-import { QuizFooter } from './Footer.js';
 
 // make into a json later?
 const questionsAndAnswers = [
@@ -88,7 +86,7 @@ export function Quiz(props) {
     // make each return its own private function to clean up this section?
     if (questionNum == 1) {
         return (
-            <main className="quiz-page">
+            <main className="quiz-page quiz-height">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
@@ -107,13 +105,11 @@ export function Quiz(props) {
                 <section className="buttons">
                     <div className="primary-button" onClick={handleClickNext}>Next</div>
                 </section>
-
-                <QuizFooter/>
             </main>
         );
     } else if (questionNum > 1 && questionNum < 5) {
         return (
-            <main className="quiz-page">
+            <main className="quiz-page quiz-height">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
@@ -131,13 +127,11 @@ export function Quiz(props) {
                     <div className="primary-button" onClick={handleClickPrev}>Previous</div>
                     <div className="primary-button" onClick={handleClickNext}>Next</div>
                 </section>
-
-                <QuizFooter/>
             </main>
         );
     } else {
         return (
-            <main className="quiz-page">
+            <main className="quiz-page quiz-height">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
@@ -155,8 +149,6 @@ export function Quiz(props) {
                     <div className="primary-button" onClick={handleClickPrev}>Previous</div>
                     <div className="primary-button" onClick={handleClickNext}>Submit</div>
                 </section>
-
-                <QuizFooter/>
             </main>
         );
     }

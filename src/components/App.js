@@ -6,19 +6,19 @@ import { Home } from './Home.js';
 // import { Tracker } from './Tracker.js';
 import { Quiz } from './Quiz.js';
 import { Account } from './Account.js';
-import { Footer, QuizFooter } from './Footer.js';
+import { Footer, DarkFooter } from './Footer.js';
 
 export default function App(props) {
     return (
-        <div>
+        <div className="quiz-height">
             <NavigationBar />
             {/* <Home /> */}
             {/* <Explore /> */}
             {/* <Tracker /> */}
             <Quiz />
-            {/* <QuizFooter /> */}
+            {/* <DarkFooter /> */}
             {/* <Account /> */}
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 }

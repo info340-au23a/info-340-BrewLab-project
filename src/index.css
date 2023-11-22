@@ -223,23 +223,9 @@ img {
 /* Quiz Page */
 
 /* FOR QUIZ PAGE TO GET ALL THE WAY TO THE BOTTOM OF THE SCREEN */
-/* 
-html {
+.quiz-height {
     height: 100%;
 }
-
-body {
-    height: 100%;
-}
-
-div {
-    height: 100%;
-}
-
-main {
-    height: 100%;
-}
-*/
 
 .quiz-page {
     background-color: var(--mint);
@@ -324,6 +310,7 @@ footer p {
     color: #EFE3C8;
 }
 
+/* don't neeed if we are doing it with brown border on bottom */
 .dark-footer {
     color: var(--espresso-brown);
 }
@@ -438,9 +425,9 @@ img.profile-picture {
 
 footer {
     position:relative;
-   bottom:0;
-   width:100%;
-   height:60px; 
+    bottom:0;
+    width:100%;
+    height:60px; 
 }
 
 nav a {
