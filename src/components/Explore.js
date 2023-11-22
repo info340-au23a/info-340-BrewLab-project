@@ -97,12 +97,12 @@ function Card(props) {
         <div className="card">
             <div>
                 <div className="user-attribute">
-                    <img src="./img/profile-picture.jpg" alt="avatar" className="avatar" />
+                    <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
                     <a href="#" className="avatarUsername">@athenalovescoffee</a>
                 </div>
 
                 <div>
-                    <img className="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+                    <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
                     <h3>Coffee Drink</h3>
                     <p>Short description of the drink</p>
                 </div>
@@ -127,7 +127,7 @@ function Card(props) {
             <div className="buttons">
                 <button className="primary-button">Add Drink</button>
                 <button className="favbutton">
-                    <img className="favicon" src=".public/img/starv4x.png" alt="starpng" />
+                    <img className="favicon" src="/img/starv4x.png" alt="starpng" />
                 </button>
             </div>
         </div>
@@ -142,12 +142,12 @@ function AllCards(props) {
             <Card />
             <div className="card">
                 <div className="user-attribute">
-                    <img src="./img/profile-picture.jpg" alt="avatar" className="avatar" />
+                    <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
                     <a href="#" className="avatarUsername">@athenalovescoffee</a>
                 </div>
 
                 <div className="coffee-info">
-                    <img className="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+                    <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
                     <h3>Coffee Drink</h3>
                     <p>Short description of the drink</p>
                 </div>
@@ -172,7 +172,7 @@ function AllCards(props) {
                     <div className="buttons">
                         <button className="primary-button">Add Drink</button>
                         <button className="favbutton">
-                            <img className="favicon" src=".public/img/starv4x.png" alt="starpng" />
+                            <img className="favicon" src="/img/starv4x.png" alt="starpng" />
                         </button>
                     </div>
                 </div>
