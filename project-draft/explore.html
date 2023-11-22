@@ -2,255 +2,300 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Rosarivo&family=Poppins&display=swap&family=Material+Icons"
-        rel="stylesheet">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Rosarivo&family=Poppins&display=swap&family=Material+Icons"
+    rel="stylesheet">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
 
-    <link rel="stylesheet" href="css/style.css">
-    <title>Coffee Orders Page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Coffee Orders Page</title>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">
-                <i class="ri-cup-line"></i> BrewLab
-            </a>
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <i class="ri-cup-line"></i> BrewLab
+      </a>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">Home</a>
-                    </li>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Home</a>
+          </li>
 
-                    <li class="nav__item">
-                        <a href="explore.html" class="nav__link">Explore</a>
-                    </li>
+          <li class="nav__item">
+            <a href="explore.html" class="nav__link">Explore</a>
+          </li>
 
-                    <li class="nav__item">
-                        <a href="tracker.html" class="nav__link">Tracker</a>
-                    </li>
+          <li class="nav__item">
+            <a href="tracker.html" class="nav__link">Tracker</a>
+          </li>
 
-                    <li class="nav__item">
-                        <a href="quiz.html" class="nav__link">Quiz</a>
-                    </li>
-                </ul>
+          <li class="nav__item">
+            <a href="quiz.html" class="nav__link">Quiz</a>
+          </li>
+        </ul>
 
-                <a href="account.html" class="nav__button">Account</a>
+        <a href="account.html" class="nav__button">Account</a>
 
-                <div class="'nav__close" id="nav-close">
-                    <i class="ri-close-line"></i>
-                </div>
-            </div>
-
-            <div class="'toggle" id="nav-toggle">
-                <i class="ri-menu-line"></i>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- add otherHeader to index.css! -->
-        <h1 class="otherHeader">Explore New Drinks</h1>
-
-        <div class="filter"> 
-            <div class="filter-container">
-
-                <div class="filtering">
-                  <label for="filtering">Type of Coffee</label>
-                  <select name="coffeetype">
-                    <option value="espresso">Espresso</option>
-                    <option value="macchiato">Macchiato</option>
-                    <option value="cappucino">Cappucino</option>
-                    <option value="mocha">Mocha</option>
-                    <option value="flat-white">Flat White</option>
-                    <option value="americano">Americano</option>
-                    <option value="latte">Latte</option>
-                    <option value="custom">Custom</option>
-                  </select>
-                </div>
-
-                <div class="filtering">
-                  <label for="filtering">Temperature</label>
-                  <select name="temperature">
-                    <option value="hot">Hot</option>
-                    <option value="cold">Cold</option>
-                  </select>
-                </div>
-
-                <div class="filtering">
-                  <label for="filtering">Type of Milk</label>
-                  <select name="milktype">
-                    <option value="whole">Whole</option>
-                    <option value="soy">Soy</option>
-                    <option value="hazelnut">Hazelnut</option>
-                    <option value="almond">Almond</option>
-                    <option value="coconut">Coconut</option>
-                    <option value="oat">Oat</option>
-                    <option value="goat">Goat</option>
-                    <option value="skimmed">Skimmed</option>
-                    <option value="none">None</option>
-                </select>
-                </div>
-                
-                <div class="filtering">
-                  <label class="explanation">Syrup</label>
-                  <input type="text" />
-                </div>
-
-                <div class="filtering">
-                  <button class="primary-button">Apply Filter</button>
-                </div>
-            </div>
+        <div class="'nav__close" id="nav-close">
+          <i class="ri-close-line"></i>
         </div>
-        
-        <div class="allCards">
-            <!-- cards -->
-            <!-- add in color code (var(--espresso-brown) in index.css) -->
-        <div class="card">
-            <!-- all contents -->
-            <div>
-              <!-- user who posted -->
-              <div class="user-attribute">
-                <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
-                <a href="#" class="avatarUsername">@athenalovescoffee</a>
-              </div>
-    
-              <!-- image + title + description -->
-              <div>
-                <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
-                <h3>Coffee Drink</h3>
-                <p>Short description of the drink</p>
-              </div>
-    
-              <!-- ingredients section -->
-              <div class="sectionTracker">
-                <h4 class="h3tracker">Ingredients</h4>
-                <p>[#] shots of [coffee type, e.g. espresso]</p>
-                <p>[ounce] of [milk type]</p>
-                <p>sweetness level</p>
-                <p>volume</p>
-                <p>[type of syrup] syrup</p>
-              </div>
-    
-              <!-- tags section -->
-              <div class="sectionTracker">
-                <h4 class="h3tracker">Tags</h4>
-                <span class="tag">Temperature</span>
-                <span class="tag">Milk</span>
-                <span class="tag">Syrup</span>
-              </div>
-            </div>
-    
-            <!-- buttons -->
-            <div class="buttons">
-              <button class="primary-button">Add Drink</button>
-              <button class="favbutton">
-                <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
-              </button>
-            </div>
+      </div>
+
+      <div class="'toggle" id="nav-toggle">
+        <i class="ri-menu-line"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- add otherHeader to index.css! -->
+    <h1 class="otherHeader">Explore New Drinks</h1>
+
+    <div class="filter">
+      <div class="filter-container">
+
+        <div class="filtering">
+          <label for="filtering">Type of Coffee</label>
+          <select name="coffeetype">
+            <option value="espresso">Espresso</option>
+            <option value="macchiato">Macchiato</option>
+            <option value="cappucino">Cappucino</option>
+            <option value="mocha">Mocha</option>
+            <option value="flat-white">Flat White</option>
+            <option value="americano">Americano</option>
+            <option value="latte">Latte</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+
+        <div class="filtering">
+          <label for="filtering">Temperature</label>
+          <select name="temperature">
+            <option value="hot">Hot</option>
+            <option value="cold">Cold</option>
+          </select>
+        </div>
+
+        <div class="filtering">
+          <label for="filtering">Type of Milk</label>
+          <select name="milktype">
+            <option value="whole">Whole</option>
+            <option value="soy">Soy</option>
+            <option value="hazelnut">Hazelnut</option>
+            <option value="almond">Almond</option>
+            <option value="coconut">Coconut</option>
+            <option value="oat">Oat</option>
+            <option value="goat">Goat</option>
+            <option value="skimmed">Skimmed</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+
+        <div class="filtering">
+          <label class="explanation">Syrup</label>
+          <input type="text" />
+        </div>
+
+        <div class="filtering">
+          <button class="primary-button">Apply Filter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="allCards">
+      <!-- cards -->
+      <!-- add in color code (var(--espresso-brown) in index.css) -->
+      <div class="card">
+        <!-- all contents -->
+        <div>
+          <!-- user who posted -->
+          <div class="user-attribute">
+            <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+            <a href="#" class="avatarUsername">@athenalovescoffee</a>
           </div>
 
-          <div class="card">
-            <!-- all contents -->
-            <div>
-              <!-- user who posted -->
-              <div class="user-attribute">
-                <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
-                <a href="#" class="avatarUsername">@athenalovescoffee</a>
-              </div>
-    
-              <!-- image + title + description -->
-              <div>
-                <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
-                <h3>Coffee Drink</h3>
-                <p>Short description of the drink</p>
-              </div>
-    
-              <!-- ingredients section -->
-              <div class="sectionTracker">
-                <h4 class="h3tracker">Ingredients</h4>
-                <p>[#] shots of [coffee type, e.g. espresso]</p>
-                <p>[ounce] of [milk type]</p>
-                <p>sweetness level</p>
-                <p>volume</p>
-                <p>[type of syrup] syrup</p>
-              </div>
-    
-              <!-- tags section -->
-              <div class="sectionTracker">
-                <h4 class="h3tracker">Tags</h4>
-                <span class="tag">Temperature</span>
-                <span class="tag">Milk</span>
-                <span class="tag">Syrup</span>
-              </div>
-            </div>
-    
-            <!-- buttons -->
-            <div class="buttons">
-              <button class="primary-button">Add Drink</button>
-              <button class="favbutton">
-                <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
-              </button>
-            </div>
+          <!-- image + title + description -->
+          <div>
+            <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+            <h3>Coffee Drink</h3>
+            <p>Short description of the drink</p>
           </div>
 
-          <div class="card">
-            <!-- all contents -->
-            <div>
-              <!-- user who posted -->
-              <div class="user-attribute">
-                <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
-                <a href="#" class="avatarUsername">@athenalovescoffee</a>
-              </div>
-    
-              <!-- image + title + description -->
-              <div>
-                <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
-                <h3>Coffee Drink</h3>
-                <p>Short description of the drink</p>
-              </div>
-    
-              <!-- ingredients section -->
-              <div class="sectionTracker">
-                <h4 class="h3tracker">Ingredients</h4>
-                <p>[#] shots of [coffee type, e.g. espresso]</p>
-                <p>[ounce] of [milk type]</p>
-                <p>sweetness level</p>
-                <p>volume</p>
-                <p>[type of syrup] syrup</p>
-              </div>
-    
-              <!-- tags section -->
-              <div class="sectionTracker">
-                <h4 class="h3tracker">Tags</h4>
-                <span class="tag">Temperature</span>
-                <span class="tag">Milk</span>
-                <span class="tag">Syrup</span>
-              </div>
-            </div>
-    
-            <!-- buttons -->
-            <div class="buttons">
-              <button class="primary-button">Add Drink</button>
-              <button class="favbutton">
-                <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
-              </button>
-            </div>
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
           </div>
         </div>
-        
-    </main>
 
-    <footer>
-        <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
-    </footer>
-    <script src="js/main.js"></script>
+        <!-- buttons -->
+        <div class="buttons">
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <!-- all contents -->
+        <div>
+          <!-- user who posted -->
+          <div class="user-attribute">
+            <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+            <a href="#" class="avatarUsername">@athenalovescoffee</a>
+          </div>
+
+          <!-- image + title + description -->
+          <div>
+            <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+            <h3>Coffee Drink</h3>
+            <p>Short description of the drink</p>
+          </div>
+
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <!-- all contents -->
+        <div>
+          <!-- user who posted -->
+          <div class="user-attribute">
+            <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+            <a href="#" class="avatarUsername">@athenalovescoffee</a>
+          </div>
+
+          <!-- image + title + description -->
+          <div>
+            <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+            <h3>Coffee Drink</h3>
+            <p>Short description of the drink</p>
+          </div>
+
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+          <button class="primary-button">Add Drink</button>
+          <button class="favbutton">
+            <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
+          </button>
+        </div>
+      </div>
+
+      <div class="card" onClick="expand(this)">
+        <!-- all contents -->
+        <!-- user who posted -->
+        <div class="user-attribute">
+          <img src="./img/profile-picture.jpg" alt="avatar" class="avatar" />
+          <a href="#" class="avatarUsername">@athenalovescoffee</a>
+        </div>
+
+        <!-- image + title + description -->
+        <div class="coffee-info">
+          <img class="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+          <h3>Coffee Drink</h3>
+          <p>Short description of the drink</p>
+        </div>
+
+        <div class="drink-data">
+          <!-- ingredients section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Ingredients</h4>
+            <p>[#] shots of [coffee type, e.g. espresso]</p>
+            <p>[ounce] of [milk type]</p>
+            <p>sweetness level</p>
+            <p>volume</p>
+            <p>[type of syrup] syrup</p>
+          </div>
+
+          <!-- tags section -->
+          <div class="sectionTracker">
+            <h4 class="h3tracker">Tags</h4>
+            <span class="tag">Temperature</span>
+            <span class="tag">Milk</span>
+            <span class="tag">Syrup</span>
+          </div>
+
+          <!-- buttons -->
+          <div class="buttons">
+            <button class="primary-button">Add Drink</button>
+            <button class="favbutton">
+              <img class="favicon" src=".public/img/starv4x.png" alt="starpng" />
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Hannah Yi, Grace Suyama, Kayla Doan, Athena Le & INFO 340</p>
+  </footer>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

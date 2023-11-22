@@ -736,6 +736,7 @@ div.uploadImg {
 .sectionTracker {
     margin-top: 0.5rem;
 }
+
 .allCards p {
 	margin-bottom: 0.5rem;
 	margin-top: 0.5rem;
@@ -774,13 +775,14 @@ div.uploadImg {
 	justify-content: center;
 }
 
-.card {
+.card{
 	background-color: #fff;
     color: var(--espresso-brown);
 	padding: 1.5rem;
 	border-radius: 16px;
 	max-width: 350px;
 }
+
 
 /* .tags {
 	margin-top: 1rem;
