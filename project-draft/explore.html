@@ -58,9 +58,12 @@
         <!-- add otherHeader to index.css! -->
         <h1 class="otherHeader">Explore New Drinks</h1>
 
-        <div> 
-            <div>
-                <select name="coffeetype">
+        <div class="filter"> 
+            <div class="filter-container">
+
+                <div class="filtering">
+                  <label for="filtering">Type of Coffee</label>
+                  <select name="coffeetype">
                     <option value="espresso">Espresso</option>
                     <option value="macchiato">Macchiato</option>
                     <option value="cappucino">Cappucino</option>
@@ -69,14 +72,20 @@
                     <option value="americano">Americano</option>
                     <option value="latte">Latte</option>
                     <option value="custom">Custom</option>
-                </select>
+                  </select>
+                </div>
 
-                <select name="temperature">
+                <div class="filtering">
+                  <label for="filtering">Temperature</label>
+                  <select name="temperature">
                     <option value="hot">Hot</option>
                     <option value="cold">Cold</option>
-                </select>
+                  </select>
+                </div>
 
-                <select name="milktype">
+                <div class="filtering">
+                  <label for="filtering">Type of Milk</label>
+                  <select name="milktype">
                     <option value="whole">Whole</option>
                     <option value="soy">Soy</option>
                     <option value="hazelnut">Hazelnut</option>
@@ -87,11 +96,16 @@
                     <option value="skimmed">Skimmed</option>
                     <option value="none">None</option>
                 </select>
+                </div>
+                
+                <div class="filtering">
+                  <label class="explanation">Syrup</label>
+                  <input type="text" />
+                </div>
 
-                <label class="explanation">Syrup You Used</label>
-                <input type="text" />
-
-                <button class="secondary-button">Apply Filter</button>
+                <div class="filtering">
+                  <button class="primary-button">Apply Filter</button>
+                </div>
             </div>
         </div>
         

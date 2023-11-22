@@ -99,6 +99,54 @@ img {
     font-family: var(--title-font);
 }
 
+/* Explore Page */
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-container{
+    background-color: var(--milk-foam);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    max-width: 75%;
+    border-radius: 4px;
+    height: 80px;
+}
+
+div.filtering select {
+    padding: 2px 5px;
+    font-size: 0.9rem;
+}
+
+.otherHeader {
+    margin-top: 100px;
+    margin-left: 90px;
+    margin-bottom: 25px;
+    color: var(--milk-foam);
+}
+
+div.filtering label {
+    color: var(--espresso-brown);
+    font-size: 1rem;
+}
+
+.filtering {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 1em;
+    position: relative;
+
+}
+
 /* Buttons */
 .primary-button {
     border-radius: 48px;
@@ -256,6 +304,7 @@ img {
 }
 
 /* Reference: https://stackoverflow.com/questions/43259704/css-how-to-center-align-a-list-element-with-left-aligned-text#:~:text=I%20would%20suggest%20adding%20text,from%20the%20parent%2C%20as%20desired. */
+
 div {
     display: inline-block;
     text-align: left;
@@ -545,8 +594,6 @@ nav a {
         inset 0 4px 8px hsla(32, 46% 95% .4);
 }
 
-
-
 /* Tracker page */
 .inputs {
     margin: auto;
@@ -572,13 +619,6 @@ nav a {
 .tracker {
     background-color: var(--creamy-latte);
     color: var(--espresso-brown);
-}
-
-.otherHeader {
-    margin-top: 100px;
-    margin-left: 90px;
-    margin-bottom: 25px;
-    color: var(--milk-foam);
 }
 
 .trackHeader {
@@ -834,6 +874,7 @@ div.uploadImg {
         display: flex;
         flex-direction: column;
         transition: right .4s;
+        height: auto;
     }
 
     div.tracker-nav {
@@ -843,6 +884,11 @@ div.uploadImg {
         columns: 2 100px;
     }
 
+    .filter-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 /* BREAKPOINTS */
