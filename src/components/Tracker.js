@@ -218,7 +218,7 @@ function ImageUpload(props) {
 
 function LogDrink(props) {
     return (
-        <div clasName="tracker-buttons">
+        <div className="tracker-buttons">
             <button className="secondary-button">Log Drink</button>
         </div>
     )
