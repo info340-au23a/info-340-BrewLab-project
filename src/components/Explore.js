@@ -54,41 +54,22 @@ export function Explore(props) {
                 <div className="filter-container">
 
                     <div className="filtering">
-                        <label for="filtering">Type of Coffee</label>
+                        <label htmlFor="filtering">Type of Coffee</label>
                         <select name="coffeetype">
-                            {/* <option value="espresso">Espresso</option>
-                            <option value="macchiato">Macchiato</option>
-                            <option value="cappucino">Cappucino</option>
-                            <option value="mocha">Mocha</option>
-                            <option value="flat-white">Flat White</option>
-                            <option value="americano">Americano</option>
-                            <option value="latte">Latte</option>
-                            <option value="custom">Custom</option> */}
                             {optionCoffeeArray}
                         </select>
                     </div>
 
                     <div className="filtering">
-                        <label for="filtering">Temperature</label>
+                        <label htmlFor="filtering">Temperature</label>
                         <select name="temperature">
-                            {/* <option value="hot">Hot</option>
-                            <option value="cold">Cold</option> */}
                             {optionTempArray}
                         </select>
                     </div>
 
                     <div className="filtering">
-                        <label for="filtering">Type of Milk</label>
+                        <label htmlFor="filtering">Type of Milk</label>
                         <select name="milktype">
-                            {/* <option value="whole">Whole</option>
-                            <option value="soy">Soy</option>
-                            <option value="hazelnut">Hazelnut</option>
-                            <option value="almond">Almond</option>
-                            <option value="coconut">Coconut</option>
-                            <option value="oat">Oat</option>
-                            <option value="goat">Goat</option>
-                            <option value="skimmed">Skimmed</option>
-                            <option value="none">None</option> */}
                             {optionMilkArray}
                         </select>
                     </div>
@@ -218,7 +199,8 @@ export function Explore(props) {
                         </button>
                     </div>
                 </div>
-
+                
+                {/* Fix onClick */}
                 <div className="card" onClick="expand(this)">
                     <div className="user-attribute">
                         <img src="./img/profile-picture.jpg" alt="avatar" className="avatar" />
@@ -260,5 +242,97 @@ export function Explore(props) {
 
             </div>
         </main>
+    );
+}
+
+function Card(props) {
+    return (
+        <div className="card">
+            <div>
+                <div className="user-attribute">
+                    <img src="./img/profile-picture.jpg" alt="avatar" className="avatar" />
+                    <a href="#" className="avatarUsername">@athenalovescoffee</a>
+                </div>
+
+                <div>
+                    <img className="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+                    <h3>Coffee Drink</h3>
+                    <p>Short description of the drink</p>
+                </div>
+
+                <div className="sectionTracker">
+                    <h4 className="h3tracker">Ingredients</h4>
+                    <p>[#] shots of [coffee type, e.g. espresso]</p>
+                    <p>[ounce] of [milk type]</p>
+                    <p>sweetness level</p>
+                    <p>volume</p>
+                    <p>[type of syrup] syrup</p>
+                </div>
+
+                <div className="sectionTracker">
+                    <h4 className="h3tracker">Tags</h4>
+                    <span className="tag">Temperature</span>
+                    <span className="tag">Milk</span>
+                    <span className="tag">Syrup</span>
+                </div>
+            </div>
+
+            <div className="buttons">
+                <button className="primary-button">Add Drink</button>
+                <button className="favbutton">
+                    <img className="favicon" src=".public/img/starv4x.png" alt="starpng" />
+                </button>
+            </div>
+        </div>
+    );
+}
+
+function AllCards(props) {
+    return (
+        <div className="allCards">
+            <Card />
+            <Card />
+            <Card />
+            <div className="card">
+                <div className="user-attribute">
+                    <img src="./img/profile-picture.jpg" alt="avatar" className="avatar" />
+                    <a href="#" className="avatarUsername">@athenalovescoffee</a>
+                </div>
+
+                <div className="coffee-info">
+                    <img className="coffeeimg" src=".public/img/dairyfreemocha.jpg" alt="coffee with ice" />
+                    <h3>Coffee Drink</h3>
+                    <p>Short description of the drink</p>
+                </div>
+
+                <div className="drink-data">
+                    <div className="sectionTracker">
+                        <h4 className="h3tracker">Ingredients</h4>
+                        <p>[#] shots of [coffee type, e.g. espresso]</p>
+                        <p>[ounce] of [milk type]</p>
+                        <p>sweetness level</p>
+                        <p>volume</p>
+                        <p>[type of syrup] syrup</p>
+                    </div>
+
+                    <div className="sectionTracker">
+                        <h4 className="h3tracker">Tags</h4>
+                        <span className="tag">Temperature</span>
+                        <span className="tag">Milk</span>
+                        <span className="tag">Syrup</span>
+                    </div>
+
+                    <div className="buttons">
+                        <button className="primary-button">Add Drink</button>
+                        <button className="favbutton">
+                            <img className="favicon" src=".public/img/starv4x.png" alt="starpng" />
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
     );
 }
