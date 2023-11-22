@@ -13,9 +13,9 @@ export default function App(props) {
         <div>
             <NavigationBar />
             {/* <Home /> */}
-            <Explore />
-            {/* <Tracker /> */}
-            <Quiz />
+            {/* <Explore /> */}
+            <Tracker />
+            {/* <Quiz /> */}
             {/* <DarkFooter /> */}
             {/* <Account /> */}
             <Footer />
