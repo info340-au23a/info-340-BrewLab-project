@@ -178,14 +178,14 @@ function ImageUpload(props) {
     
     const handleChange = (e) => {
         console.log(e.target.files);
-        setFile(URL.createObjectURL(e.target.files[0]));
+        setSelectedImage(URL.createObjectURL(e.target.files[0]));
     }
 
     return (
         
         <div class="uploadImg">
             <input type="file" onChange={handleChange} />
-            <img src={file} />
+            <img src={selectedImage} />
             
             {/* {selectedImage && (
                 <div>
