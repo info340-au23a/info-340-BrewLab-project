@@ -4,7 +4,7 @@ import { Footer } from './Footer.js';
 export function Tracker(props) {
 
     return (
-        <div> 
+        <div className="logging"> 
             <DrinkName />
             <CoffeeType />
             <TemperatureDrink />
