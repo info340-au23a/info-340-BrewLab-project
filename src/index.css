@@ -99,6 +99,62 @@ img {
     font-family: var(--title-font);
 }
 
+/* Explore Page */
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-container{
+    background-color: var(--milk-foam);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    max-width: 75%;
+    border-radius: 4px;
+    height: 80px;
+}
+
+div.filtering select {
+    padding: 2px 5px;
+    font-size: 0.9rem;
+}
+
+.otherHeader {
+    margin-top: 100px;
+    margin-left: 90px;
+    margin-bottom: 25px;
+    color: var(--milk-foam);
+}
+
+.trackerHeader {
+    margin-top: 100px;
+    margin-left: 90px;
+    margin-bottom: 25px;
+    color: var(--espresso-brown);
+}
+
+div.filtering label {
+    color: var(--espresso-brown);
+    font-size: 1rem;
+}
+
+.filtering {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 1em;
+    position: relative;
+
+}
+
+
 /* Buttons */
 .primary-button {
     border-radius: 48px;
@@ -679,7 +735,7 @@ p.tracker {
 }
 
 /* Tracker page - logging coffee */
-div.logging {
+.logging {
     display: grid;
     grid-row: auto;
     margin-top: 20px;
