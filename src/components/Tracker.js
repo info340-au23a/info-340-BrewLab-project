@@ -1,6 +1,24 @@
 import React from 'react';
 import { Footer } from './Footer.js';
 
+export function Tracker(props) {
+
+    return (
+        <div> 
+            <DrinkName />
+            <CoffeeType />
+            <TemperatureDrink />
+            <DrinkVolume />
+            <MilkType />
+            <MilkVolume />
+            <FoamVolume />
+            <SweetLevel />
+            <SyrupType />
+            <SyrupPumps />
+        </div>
+    );
+}
+
 function DrinkName(props) {
 
     const [inputValue, setInputValue] = useState ('')
