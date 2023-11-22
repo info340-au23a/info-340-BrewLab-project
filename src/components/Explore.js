@@ -11,10 +11,38 @@ const coffeeTypes = [
     {value: "custom", type: "Custom"}
 ];
 
+const temperature = [
+    {value: "hot", temp: "Hot"},
+    {value: "cold", temp: "Cold"}
+]
+
+const milkTypes = [
+    {value: "whole", type: "Whole"},
+    {value: "soy", type: "Soy"},
+    {value: "hazelnut", type: "Hazelnut"},
+    {value: "almond", type: "Almond"},
+    {value: "coconut", type: "Coconut"},
+    {value: "oat", type: "Oat"},
+    {value: "goat", type: "Goat"},
+    {value: "skimmed", type: "Skimmed"},
+    {value: "none", type: "None"}
+
+]
+
 export function Explore(props) {
 
     const optionCoffeeArray = coffeeTypes.map((coffeeType) => {
-        const transformed = <option value={coffeeType.value}>{coffeeType.type}</option>
+        const transformed = <option key={coffeeType} value={coffeeType.value}>{coffeeType.type}</option>;
+        return transformed;
+    })
+
+    const optionTempArray = temperature.map((temp) => {
+        const transformed = <option key={temp} value={temp.value}>{temp.temp}</option>;
+        return transformed;
+    })
+
+    const optionMilkArray = milkTypes.map((milkType) => {
+        const transformed = <option key={milkType} value={milkType.value}>{milkType.type}</option>;
         return transformed;
     })
 
@@ -43,15 +71,16 @@ export function Explore(props) {
                     <div className="filtering">
                         <label for="filtering">Temperature</label>
                         <select name="temperature">
-                            <option value="hot">Hot</option>
-                            <option value="cold">Cold</option>
+                            {/* <option value="hot">Hot</option>
+                            <option value="cold">Cold</option> */}
+                            {optionTempArray}
                         </select>
                     </div>
 
                     <div className="filtering">
                         <label for="filtering">Type of Milk</label>
                         <select name="milktype">
-                            <option value="whole">Whole</option>
+                            {/* <option value="whole">Whole</option>
                             <option value="soy">Soy</option>
                             <option value="hazelnut">Hazelnut</option>
                             <option value="almond">Almond</option>
@@ -59,7 +88,8 @@ export function Explore(props) {
                             <option value="oat">Oat</option>
                             <option value="goat">Goat</option>
                             <option value="skimmed">Skimmed</option>
-                            <option value="none">None</option>
+                            <option value="none">None</option> */}
+                            {optionMilkArray}
                         </select>
                     </div>
 
