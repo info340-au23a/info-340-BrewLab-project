@@ -21,7 +21,7 @@ export function Tracker(props) {
 
 function DrinkName(props) {
 
-    const [inputValue, setInputValue] = useState ('')
+    const [inputValue, setInputValue] = useState ('');
 
     const handleChange = (event) => {
         let newValue = event.target.value 
@@ -179,3 +179,5 @@ function ImageUpload(props) {
         </section>
     );
 }
+
+// By default, any <button> inside a <form> will submit it. This can be surprising! If you have your own custom Button React component, consider returning <button type="button"> instead of <button>. Then, to be explicit, use <button type="submit"> for buttons that are supposed to submit the form.
