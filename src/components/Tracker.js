@@ -136,7 +136,7 @@ function FoamVolume(props) {
 function SweetLevel(props) {
     return (
         <div className="tracker">
-            <label clasName="explanation">Amount of sweetness level</label>
+            <label className="explanation">Amount of sweetness level</label>
             <select>
               <option value="zero">0% - no sugar</option>
               <option value="25">25% - 1/4 sugar</option>
