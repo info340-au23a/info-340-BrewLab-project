@@ -574,6 +574,13 @@ nav a {
     color: var(--espresso-brown);
 }
 
+.otherHeader {
+    margin-top: 100px;
+    margin-left: 90px;
+    margin-bottom: 25px;
+    color: var(--milk-foam);
+}
+
 .trackHeader {
     margin-top: 100px;
     margin-left: 90px;
@@ -729,6 +736,7 @@ div.uploadImg {
 
 .card {
 	background-color: #fff;
+    color: var(--espresso-brown);
 	padding: 1.5rem;
 	border-radius: 16px;
 	max-width: 350px;
