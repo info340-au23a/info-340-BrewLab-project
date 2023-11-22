@@ -30,7 +30,7 @@ function DrinkName(props) {
 
     return (
         <div className="tracker">
-            <label for="name">Name of Drink</label>
+            <label htmlFor="name">Name of Drink</label>
             <input type="text" onChange={handleChange} value={inputValue}/>
         </div>
     );
@@ -39,7 +39,7 @@ function DrinkName(props) {
 function CoffeeType(props) {
     return (
         <div className="tracker">
-            <label for="tracker">Choose the type of coffee you're drinking</label>
+            <label htmlFor="tracker">Choose the type of coffee you're drinking</label>
             <select>
             <option value="espresso">Espresso</option>
             <option value="macchiato">Macchiato</option>
@@ -59,11 +59,11 @@ function TemperatureDrink(props) {
         <section className="drink-temp">
             <div>
                 <input type="radio" className="hot" value="hot"/>
-                <label for="hot">Hot</label>
+                <label htmlFor="hot">Hot</label>
             </div>
             <div> 
                 <input type="radio" className="iced" value="iced"/>
-                <label for="iced">Iced</label>
+                <label htmlFor="iced">Iced</label>
             </div>
         </section>
     );
@@ -171,7 +171,7 @@ function ImageUpload(props) {
     return (
         <section className="image-upload">
             <div class="uploadImg"> 
-                <label for="photo">Add Photo of Your Drink</label>
+                <label htmlFor="photo">Add Photo of Your Drink</label>
                 <div> 
                     <input type="file" name="photo" accept="image/*"/>
                 </div>
