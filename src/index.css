@@ -400,7 +400,11 @@ img.profile-picture {
       0 1px 3px rgba(0, 0, 0, 0.23);
 }
 
-.posts-title {
+.account-tabs:hover {
+    text-decoration: underline;
+}
+
+.active {
     text-decoration: underline;
 }
 
