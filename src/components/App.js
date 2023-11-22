@@ -13,8 +13,8 @@ export default function App(props) {
         <div>
             <NavigationBar />
             {/* <Home /> */}
-            {/* <Explore /> */}
-            <Tracker />
+            <Explore />
+            {/* <Tracker /> */}
             {/* <Quiz /> */}
             {/* <Account /> */}
             <Footer />
