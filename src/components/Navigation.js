@@ -31,7 +31,7 @@ export function NavigationBar(props) {
             <nav className="nav container">
                 {/* href={Home}? */}
                 <a href={Home} className="nav__logo">
-                    <i className="ri-cup-line"></i> BrewLab
+                    <i className="ri-cup-line" aria-label="Cup Logo"></i> BrewLab
                 </a>
 
                 <div className="nav__menu">
@@ -42,7 +42,7 @@ export function NavigationBar(props) {
                     <a href={Account} className="nav__button">Login</a>
 
                     <div className="nav__close">
-                        <i className="ri-close-line"></i>
+                        <i className="ri-close-line" aria-label="Menu Icon"></i>
                     </div>
                 </div>
 
