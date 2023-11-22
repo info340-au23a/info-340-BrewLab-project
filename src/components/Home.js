@@ -12,9 +12,6 @@ export function Home() {
                         <p>Connect with other coffee enthusiasts, discover customized coffee beyond the common menu.</p>
                         <a href="orders.html" className="home-btn">Get Started</a>  
                     </div>
-                    <div className="home-img">
-                        <img src="../public/img/bgvector.png" alt="cup of coffee with coffee beans around it" />
-                    </div>
                 </section>
             </div>
 

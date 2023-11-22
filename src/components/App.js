@@ -12,10 +12,10 @@ export default function App(props) {
     return (
         <div>
             <NavigationBar />
-            {/* <Home /> */}
-            <Explore />
+            <Home />
+            {/* <Explore /> */}
             {/* <Tracker /> */}
-            <Quiz />
+            {/* <Quiz /> */}
             {/* <DarkFooter /> */}
             {/* <Account /> */}
             <Footer />
