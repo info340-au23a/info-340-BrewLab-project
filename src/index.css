@@ -619,9 +619,6 @@ nav a {
 }
 
 div.tracker-nav{
-    /* margin-left: 90px; */
-    /* display: grid;
-    grid-row: auto; */
     display: flex;
     flex-wrap: wrap;
 }
@@ -768,6 +765,7 @@ div.uploadImg {
 
 .card {
 	background-color: #fff;
+    color: var(--espresso-brown);
 	padding: 1.5rem;
 	border-radius: 16px;
 	max-width: 350px;
