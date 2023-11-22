@@ -6,7 +6,7 @@ export function Tracker(props) {
     return (
         <div className="tracker">
             <h1 className="trackerHeader">Log Your Drink</h1>
-            <div className="logging">
+            <form className="logging">
                 <DrinkName />
                 <CoffeeType />
                 <TemperatureDrink />
@@ -19,7 +19,7 @@ export function Tracker(props) {
                 <SyrupPumps />
                 <ImageUpload />
                 <LogDrink />
-            </div>
+            </form>
         </div>
     );
 }
@@ -182,7 +182,7 @@ function ImageUpload(props) {
     }
 
     return (
-        
+
         <div className="uploadImg">
             <input type="file" onChange={handleChange} />
             <img src={selectedImage} />
@@ -218,7 +218,7 @@ function ImageUpload(props) {
 
 function LogDrink(props) {
     return (
-        <div className="tracker-buttons">
+        <div clasName="tracker-buttons">
             <button className="secondary-button">Log Drink</button>
         </div>
     )
