@@ -1,16 +1,16 @@
 import React from 'react';
 import { Home } from './Home.js';
 import { Account } from './Account.js';
-// import { Explore } from './Explore.js';
-// import { Tracker } from './Tracker.js';
+import { Explore } from './Explore.js';
+import { Tracker } from './Tracker.js';
 import { Quiz } from './Quiz.js';
 
 export function NavigationBar(props) {
 
     const navBarLinks = [
         {link: {Home}, linkName: "Home"}, 
-        {link: '../../project-draft/explore.html', linkName: "Explore"}, 
-        {link: '../../project-draft/tracker.html', linkName: "Tracker"}, 
+        {link: {Explore}, linkName: "Explore"}, 
+        {link: {Tracker}, linkName: "Tracker"}, 
         {link: {Quiz}, linkName: "Quiz"}
     ];
     // const navBarLinks = [{link: {HomePage}, linkName: "Home"}, {link: {Explore}, linkName: "Explore"}, {link: {Tracker}, linkName: "Tracker"}, {link: {Quiz}, linkName: "Quiz"}];

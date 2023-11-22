@@ -6,7 +6,7 @@ import { Explore } from './Explore.js';
 import { Tracker } from './Tracker.js';
 import { Quiz } from './Quiz.js';
 import { Account } from './Account.js';
-import { Footer, DarkFooter } from './Footer.js';
+import { Footer } from './Footer.js';
 
 export default function App(props) {
     return (
@@ -16,7 +16,6 @@ export default function App(props) {
             <Explore />
             {/* <Tracker /> */}
             {/* <Quiz /> */}
-            {/* <DarkFooter /> */}
             {/* <Account /> */}
             <Footer />
         </div>
