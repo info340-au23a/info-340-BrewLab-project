@@ -86,7 +86,7 @@ export function Quiz(props) {
     // make each return its own private function to clean up this section?
     if (questionNum == 1) {
         return (
-            <main className="quiz-page quiz-height">
+            <main className="quiz-page main-quiz-padding">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
@@ -109,7 +109,7 @@ export function Quiz(props) {
         );
     } else if (questionNum > 1 && questionNum < 5) {
         return (
-            <main className="quiz-page quiz-height">
+            <main className="quiz-page main-quiz-padding">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
@@ -131,7 +131,7 @@ export function Quiz(props) {
         );
     } else {
         return (
-            <main className="quiz-page quiz-height">
+            <main className="quiz-page main-quiz-padding">
                 <h1 className="quiz-header">Coffee Quiz</h1>
 
                 <section className="question">
