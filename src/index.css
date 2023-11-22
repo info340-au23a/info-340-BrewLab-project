@@ -388,13 +388,13 @@ footer p {
     justify-content: space-around;
 }
 
-.card img {
+/* .card img  {
     width: 250px;
     height: 250px;
     margin: 70px 10px 0;
     border-radius: 11%;
     justify-content: center;
-}
+} */
 
 /* profile page */
 img.profile-picture {
