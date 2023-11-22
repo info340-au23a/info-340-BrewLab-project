@@ -679,7 +679,7 @@ p.tracker {
 }
 
 /* Tracker page - logging coffee */
-div.logging {
+.logging {
     display: grid;
     grid-row: auto;
     margin-top: 20px;
