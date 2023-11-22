@@ -186,30 +186,6 @@ function ImageUpload(props) {
         <div className="uploadImg">
             <input type="file" onChange={handleChange} />
             <img src={selectedImage} />
-            
-            {/* {selectedImage && (
-                <div>
-                    <img
-                        alt="not found"
-                        width={"250px"}
-                        src={URL.createObjectURL(selectedImage)}
-                    />
-                    <br />
-                    <button onClick={() => setSelectedImage(null)}>Remove</button>
-                </div>
-            )}
-
-            <br />
-            <br />
-
-            <input
-                type="file"
-                name="photo"
-                onChange={(event) => {
-                    console.log(event.target.files[0]);
-                    setSelectedImage(event.target.files[0]);
-                }}
-            /> */}
         </div>
 
     // this code works too for uploading and previewing images: 
