@@ -967,6 +967,11 @@ div.uploadImg {
         columns: 2 100px;
     }
 
+    .filter-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 /* BREAKPOINTS */
