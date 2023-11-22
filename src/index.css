@@ -223,8 +223,12 @@ img {
 /* Quiz Page */
 
 /* FOR QUIZ PAGE TO GET ALL THE WAY TO THE BOTTOM OF THE SCREEN */
-.quiz-height {
+/* .quiz-height {
     height: 100%;
+} */
+
+.main-quiz-padding {
+    padding-bottom: 25%;
 }
 
 .quiz-page {

@@ -10,7 +10,7 @@ import { Footer, DarkFooter } from './Footer.js';
 
 export default function App(props) {
     return (
-        <div className="quiz-height">
+        <div>
             <NavigationBar />
             {/* <Home /> */}
             {/* <Explore /> */}
