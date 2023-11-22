@@ -131,6 +131,13 @@ div.filtering select {
     color: var(--milk-foam);
 }
 
+.trackerHeader {
+    margin-top: 100px;
+    margin-left: 90px;
+    margin-bottom: 25px;
+    color: var(--espresso-brown);
+}
+
 div.filtering label {
     color: var(--espresso-brown);
     font-size: 1rem;
