@@ -221,6 +221,26 @@ img {
 }
 
 /* Quiz Page */
+
+/* FOR QUIZ PAGE TO GET ALL THE WAY TO THE BOTTOM OF THE SCREEN */
+/* 
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+div {
+    height: 100%;
+}
+
+main {
+    height: 100%;
+}
+*/
+
 .quiz-page {
     background-color: var(--mint);
 }
