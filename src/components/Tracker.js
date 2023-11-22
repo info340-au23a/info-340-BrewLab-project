@@ -2,10 +2,18 @@ import React from 'react';
 import { Footer } from './Footer.js';
 
 function DrinkName(props) {
+
+    const [inputValue, setInputValue] = useState ('')
+
+    const handleChange = (event) => {
+        let newValue = event.target.value 
+        setInputValue(newValue);
+    }
+
     return (
         <div className="tracker">
             <label for="name">Name of Drink</label>
-            <input type="text" />
+            <input type="text" onChange={handleChange} value={inputValue}/>
         </div>
     );
 }
