@@ -12,7 +12,7 @@ const questionsAndAnswers = [
             "Macchiato",
             "Cappucino",
             "Mocha",
-            "Flat White",
+            "Flat white",
             "Americano",
             "Latte",
             "I make custom drinks",
