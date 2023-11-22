@@ -183,7 +183,7 @@ function ImageUpload(props) {
 
     return (
         
-        <div class="uploadImg">
+        <div className="uploadImg">
             <input type="file" onChange={handleChange} />
             <img src={selectedImage} />
             
@@ -218,8 +218,8 @@ function ImageUpload(props) {
 
 function LogDrink(props) {
     return (
-        <div class="tracker-buttons">
-            <button class="secondary-button">Log Drink</button>
+        <div className="tracker-buttons">
+            <button className="secondary-button">Log Drink</button>
         </div>
     )
 }

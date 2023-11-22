@@ -30,7 +30,7 @@ export function NavigationBar(props) {
         <header className="header">
             <nav className="nav container">
                 {/* href={Home}? */}
-                <a href="index.html" className="nav__logo">
+                <a href={Home} className="nav__logo">
                     <i className="ri-cup-line"></i> BrewLab
                 </a>
 
