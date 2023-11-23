@@ -936,7 +936,7 @@ div.uploadImg {
 }
 
 /* Navigation for mobile devices */
-@media screen and (min-width: 586px) {
+@media screen and (min-width: 1400px) {
     .nav__menu {
         position: fixed;
         top: 0;
@@ -990,7 +990,7 @@ div.uploadImg {
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 568px) {
     .home {
         display: grid;
         place-content: center;
@@ -998,7 +998,7 @@ div.uploadImg {
 }
 
 /* LG devices */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 992px) {
     .nav {
         height: calc(car(--header-height) + 2rem);
     }
@@ -1037,5 +1037,3 @@ div.uploadImg {
         --small-font-size: .875rem;
     }
 }
-
-
