@@ -936,7 +936,7 @@ div.uploadImg {
 }
 
 /* Navigation for mobile devices */
-@media screen and (max-width: 1023px) {
+@media screen and (min-width: 586px) {
     .nav__menu {
         position: fixed;
         top: 0;
@@ -976,7 +976,7 @@ div.uploadImg {
 
 /* BREAKPOINTS */
 /* S devices */
-@media screen and (max-width: 300px) {
+@media screen and (min-width: 768px) {
     .container {
         margin-inline: 1rem;
     }
@@ -984,13 +984,13 @@ div.uploadImg {
 }
 
 /* M devices */
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
     .nav__menu {
         width: 60%;
     }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 992px) {
     .home {
         display: grid;
         place-content: center;
@@ -998,7 +998,7 @@ div.uploadImg {
 }
 
 /* LG devices */
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1200px) {
     .nav {
         height: calc(car(--header-height) + 2rem);
     }

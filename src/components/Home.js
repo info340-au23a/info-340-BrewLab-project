@@ -8,7 +8,7 @@ export function Home() {
                 <section className="home">
                     <div className="home-text">
                     <p>EXPLORE THE WORLD OF COFFEE</p>
-                        <h1>Start Exploring <br /> Personalized Coffee</h1>
+                        <h1>Start Exploring <div>Personalized Coffee</div></h1>
                         <p>Connect with other coffee enthusiasts, discover customized coffee beyond the common menu.</p>
                         <a href="orders.html" className="home-btn">Get Started</a>  
                     </div>
@@ -37,7 +37,7 @@ export function Home() {
             <div className="section4">
                 <section className="quiz">
                     <div className="quiz-text">
-                        <h1>Want to try something new?<br />Take our Coffee Quiz!</h1>
+                        <h1>Want to try something new?<div>Take our Coffee Quiz!</div></h1>
                         <a href="quiz.html" className="quiz-btn">Take Quiz</a>
                     </div>
                     <div className="home-img">
