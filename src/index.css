@@ -100,7 +100,7 @@ img {
     justify-content: center;
 }
 
-.filter-container{
+/* .filter-container{
     background-color: var(--milk-foam);
     display: flex;
     justify-content: center;
@@ -110,6 +110,19 @@ img {
     max-width: 75%;
     border-radius: 4px;
     height: 80px;
+} */
+
+.filter-container {
+    background-color: var(--milk-foam);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    max-width: 75%;
+    border-radius: 4px;
+    flex-direction: column;
+    height: auto;
 }
 
 div.filtering select {
@@ -971,6 +984,19 @@ div.uploadImg {
     }
 
 } */
+
+@media screen and (min-width: 1023px) {
+    /* .filter-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    } */
+
+    .filter-container{
+        flex-direction: row;
+        height: 80px;
+    }
+}
 
 /* BREAKPOINTS */
 /* M devices */
