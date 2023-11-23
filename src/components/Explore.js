@@ -92,7 +92,7 @@ export function Explore(props) {
     );
 }
 
-function Card(props) {
+export function Card(props) {
     return (
         <div className="card">
             <div>
