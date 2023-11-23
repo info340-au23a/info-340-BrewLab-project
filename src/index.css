@@ -64,10 +64,6 @@ section {
     color: var(--creamy-latte);
 }
 
-ul {
-    list-style: none;
-}
-
 a {
     text-decoration: none;
 }
@@ -247,14 +243,6 @@ div.filtering label {
     align-items: center;
 }
 
-.nav__logo,
-.nav__toggle,
-.nav__close {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .nav__logo {
     color: var(--creamy-latte);
     column-gap: .5rem;
@@ -264,16 +252,6 @@ div.filtering label {
 .nav__logo i {
     font-size: 1.25rem;
     font-weight: initial;
-}
-
-.nav__toggle,
-.nav__close {
-    background-color: var(--espresso-brown);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    font-size: 1.25rem;
-    cursor: pointer;
 }
 
 /* Quiz Page */
@@ -388,13 +366,6 @@ footer p {
     justify-content: space-around;
 }
 
-/* .card img  {
-    width: 250px;
-    height: 250px;
-    margin: 70px 10px 0;
-    border-radius: 11%;
-    justify-content: center;
-} */
 
 /* profile page */
 img.profile-picture {
@@ -494,7 +465,7 @@ footer {
     height:60px; 
 }
 
-nav a {
+/* nav a {
     color: var(--espresso-brown);
     margin-right: .5em;
 }
@@ -524,12 +495,42 @@ nav a {
     border-radius: 4rem;
     color: var(--milk-foam);
     font-weight: var(--font-semi-bold);
+} */
+
+.nav__list {
+        margin-left: auto;
+        flex-direction: row;
+        column-gap: 4.5rem;
+    }
+
+.nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--espresso-brown);
+    width: 80%;
+    height: 100%;
+    box-shadow: 0 0 16px hsla(32, 48%, 95% .2);
+    padding: 6rem 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    transition: right .4s;
 }
 
-.nav__close {
-    position: absolute;
-    top: .75rem;
-    right: 1.5rem;
+.t-navi {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: right .4s;
+}
+
+div.tracker-nav {
+    display: grid;
+    margin: 2rem auto;
+    align-items: center;
+    columns: 2 100px;
 }
 
 /* Show menu */
@@ -936,7 +937,7 @@ div.uploadImg {
 }
 
 /* Navigation for mobile devices */
-@media screen and (min-width: 1400px) {
+/* @media screen and (max-width: 1023px) {
     .nav__menu {
         position: fixed;
         top: 0;
@@ -967,30 +968,17 @@ div.uploadImg {
         columns: 2 100px;
     }
 
-    .filter-container {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-    }
-}
+} */
 
 /* BREAKPOINTS */
-/* S devices */
-@media screen and (min-width: 768px) {
-    .container {
-        margin-inline: 1rem;
-    }
-
-}
-
 /* M devices */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
     .nav__menu {
         width: 60%;
     }
 }
 
-@media screen and (min-width: 568px) {
+@media screen and (min-width: 767px) {
     .home {
         display: grid;
         place-content: center;
@@ -998,13 +986,12 @@ div.uploadImg {
 }
 
 /* LG devices */
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1023px) {
     .nav {
         height: calc(car(--header-height) + 2rem);
     }
 
-    .nav__toggle,
-    .nav__close {
+    i.ri-menu-line {
         display: none;
     }
 
@@ -1015,11 +1002,38 @@ div.uploadImg {
         column-gap: 4.5rem;
     }
 
-    .nav__list {
-        margin-left: auto;
-        flex-direction: row;
-        column-gap: 4.5rem;
+    nav a {
+        color: var(--espresso-brown);
+        margin-right: .5em;
     }
+    
+    .nav__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.5rem;
+    }
+    
+    .nav__link {
+        color: var(--creamy-latte);
+        font-weight: var(--font-semi-bold);
+        transition: color .4s;
+    }
+    
+    .nav__link:hover {
+        color: #F8F2EB;
+    }
+    
+    .nav__button {
+        display: inline-block;
+        width: max-content;
+        background-color: var(--espresso-brown);
+        border: 2px solid var(--creamy-latte);
+        padding: 1rem 3rem;
+        border-radius: 4rem;
+        color: var(--milk-foam);
+        font-weight: var(--font-semi-bold);
+    }
+
 
     @media screen and (min-width: 1152px) {
         .container {
@@ -1037,3 +1051,5 @@ div.uploadImg {
         --small-font-size: .875rem;
     }
 }
+
+
