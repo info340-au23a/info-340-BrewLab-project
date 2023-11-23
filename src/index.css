@@ -244,6 +244,7 @@ div.filtering label {
     color: var(--creamy-latte);
     column-gap: .5rem;
     font-weight: var(--font-semi-bold);
+    display: flex;
 }
 
 .nav__logo i {
