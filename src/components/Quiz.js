@@ -84,7 +84,7 @@ export function Quiz(props) {
     }
 
     // make each return its own private function to clean up this section?
-    if (questionNum == 1) {
+    if (questionNum === 1) {
         return (
             <main className="quiz-page main-quiz-padding">
                 <h1 className="quiz-header">Coffee Quiz</h1>
