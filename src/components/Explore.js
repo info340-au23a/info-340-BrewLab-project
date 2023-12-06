@@ -117,7 +117,7 @@ export function Card(props) {
                 </div>
 
                 <div className="sectionTracker">
-                    <h4 className="h3tracker">Tags</h4>
+                    <h3 className="h3tracker">Tags</h3>
                     <span className="tag">Temperature</span>
                     <span className="tag">Milk</span>
                     <span className="tag">Syrup</span>
@@ -140,43 +140,7 @@ function AllCards(props) {
             <Card />
             <Card />
             <Card />
-            <div className="card">
-                <div className="user-attribute">
-                    <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                    <a href="#" className="avatarUsername">@athenalovescoffee</a>
-                </div>
-
-                <div>
-                    <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
-                    <h2>Coffee Drink</h2>
-                    <p>Short description of the drink</p>
-                </div>
-
-                <div>
-                    <div className="sectionTracker">
-                        <h3 className="h3tracker">Ingredients</h3>
-                        <p>[#] shots of [coffee type, e.g. espresso]</p>
-                        <p>[ounce] of [milk type]</p>
-                        <p>sweetness level</p>
-                        <p>volume</p>
-                        <p>[type of syrup] syrup</p>
-                    </div>
-
-                    <div className="sectionTracker">
-                        <h4 className="h3tracker">Tags</h4>
-                        <span className="tag">Temperature</span>
-                        <span className="tag">Milk</span>
-                        <span className="tag">Syrup</span>
-                    </div>
-
-                    <div className="buttons">
-                        <button className="primary-button">Add Drink</button>
-                        <button className="favbutton">
-                            <img className="favicon" src="/img/starv4x.png" alt="starpng" />
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <Card />
         </div>
     );
 }
