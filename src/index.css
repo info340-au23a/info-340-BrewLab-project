@@ -878,15 +878,6 @@ div.uploadImg {
 	width: 100%;
 }
 
-.card {
-	background-color: #fff;
-    color: var(--espresso-brown);
-	padding: 1.5rem;
-	border-radius: 16px;
-	max-width: 350px;
-}
-
-
 .favbutton {
 	border-radius: 18px;
 	padding: .5rem 1rem;
