@@ -128,7 +128,7 @@ export function Card(props) {
             <div className="buttons">
                 <button className="primary-button">Add Drink</button>
                 <button className="favbutton">
-                    <img className="favicon" src="/img/starv4x.png" alt="starpng" />
+                    <img className="favicon" src="/img/starv4x.png" alt="star icon" />
                 </button>
             </div>
         </div>
