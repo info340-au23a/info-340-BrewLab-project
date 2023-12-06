@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// will i need to import navigation bar?
+import { Card } from './Explore.js';
 
 // make into a json later?
 const questionsAndAnswers = [
@@ -63,7 +63,7 @@ export function Quiz(props) {
     const [questionNum, setQuestionNum] = useState(1);
 
     // questionsAndAnswers will begin at 0 for the index of the array
-    const pAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
+    const liAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
         const transformed = <li key={answerString}>{answerString}</li>;
         return transformed;
     })
@@ -101,7 +101,7 @@ export function Quiz(props) {
                 <section className="options">
                     <div>
                         <ul>
-                            {pAnswersArray}
+                            {liAnswersArray}
                         </ul>
                     </div>
                 </section>
@@ -123,7 +123,7 @@ export function Quiz(props) {
 
                 <section className="options">
                     <div>
-                        {pAnswersArray}
+                        {liAnswersArray}
                     </div>
                 </section>
 
@@ -145,7 +145,7 @@ export function Quiz(props) {
 
                 <section className="options">
                     <div>
-                        {pAnswersArray}
+                        {liAnswersArray}
                     </div>
                 </section>
 
@@ -162,6 +162,12 @@ function QuizResults(props) {
     return (
         <main className="quiz-page main-quiz-padding" >
             <h1 className="quiz-header">Quiz Results</h1>
+            <div className="allCards">
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </div>
         </main>
     );
 }
