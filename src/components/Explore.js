@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const coffeeTypes = [
     {value: "espresso", type: "Espresso"},
@@ -98,7 +99,7 @@ export function Card(props) {
             <div>
                 <div className="user-attribute">
                     <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                    <a href="#" className="avatarUsername">@athenalovescoffee</a>
+                    <Link to="#" className="avatarUsername">@athenalovescoffee</Link>
                 </div>
 
                 <div>

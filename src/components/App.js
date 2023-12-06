@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { NavigationBar } from './Navigation.js';
 import { Home } from './Home.js';
 import { Explore } from './Explore.js';
@@ -19,6 +19,7 @@ export default function App(props) {
                 <Route path="/tracker" element={<Tracker />} />
                 <Route path="/quiz" element={<Quiz />} />
                 <Route path="/account" element={<Account />} />
+                <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
             <Footer />
         </div>
