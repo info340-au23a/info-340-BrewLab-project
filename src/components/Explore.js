@@ -103,12 +103,12 @@ export function Card(props) {
 
                 <div>
                     <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
-                    <h3>Coffee Drink</h3>
+                    <h2>Coffee Drink</h2>
                     <p>Short description of the drink</p>
                 </div>
 
                 <div className="sectionTracker">
-                    <h4 className="h3tracker">Ingredients</h4>
+                    <h3 className="h3tracker">Ingredients</h3>
                     <p>[#] shots of [coffee type, e.g. espresso]</p>
                     <p>[ounce] of [milk type]</p>
                     <p>sweetness level</p>
@@ -117,7 +117,7 @@ export function Card(props) {
                 </div>
 
                 <div className="sectionTracker">
-                    <h4 className="h3tracker">Tags</h4>
+                    <h3 className="h3tracker">Tags</h3>
                     <span className="tag">Temperature</span>
                     <span className="tag">Milk</span>
                     <span className="tag">Syrup</span>
@@ -148,13 +148,13 @@ function AllCards(props) {
 
                 <div className="coffee-info">
                     <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
-                    <h3>Coffee Drink</h3>
+                    <h2>Coffee Drink</h2>
                     <p>Short description of the drink</p>
                 </div>
 
                 <div className="drink-data">
                     <div className="sectionTracker">
-                        <h4 className="h3tracker">Ingredients</h4>
+                        <h3 className="h3tracker">Ingredients</h3>
                         <p>[#] shots of [coffee type, e.g. espresso]</p>
                         <p>[ounce] of [milk type]</p>
                         <p>sweetness level</p>
@@ -163,7 +163,7 @@ function AllCards(props) {
                     </div>
 
                     <div className="sectionTracker">
-                        <h4 className="h3tracker">Tags</h4>
+                        <h3 className="h3tracker">Tags</h3>
                         <span className="tag">Temperature</span>
                         <span className="tag">Milk</span>
                         <span className="tag">Syrup</span>
