@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 // import { Tracker } from './Tracker.js';
 // import { Quiz } from './Quiz.js';
 
+// json later?
+const navBarLinks = [
+    {linkTo: "home", linkName: "Home"}, 
+    {linkTo: "explore", linkName: "Explore"}, 
+    {linkTo: "tracker", linkName: "Tracker"}, 
+    {linkTo: "quiz", linkName: "Quiz"}
+];
+
 export function NavigationBar(props) {
-
-    const navBarLinks = [
-        {linkTo: "home", linkName: "Home"}, 
-        {linkTo: "explore", linkName: "Explore"}, 
-        {linkTo: "tracker", linkName: "Tracker"}, 
-        {linkTo: "quiz", linkName: "Quiz"}
-    ];
-
     const linkArray = navBarLinks.map((navLink) => {
         const transformed = <Link key={navLink.linkName} to={navLink.linkTo} className='nav__link'>{navLink.linkName}</Link>;
         return transformed;

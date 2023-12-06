@@ -83,6 +83,10 @@ export function Quiz(props) {
         }
     }
 
+    const handleClickSubmit = (event) => {
+        <QuizResults />
+    }
+
     // make each return its own private function to clean up this section?
     if (questionNum === 1) {
         return (
@@ -147,9 +151,17 @@ export function Quiz(props) {
 
                 <section className="buttons">
                     <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                    <div className="primary-button" onClick={handleClickNext}>Submit</div>
+                    <div className="primary-button" onClick={handleClickSubmit}>Submit</div>
                 </section>
             </main>
         );
     }
+}
+
+function QuizResults(props) {
+    return (
+        <main className="quiz-page main-quiz-padding" >
+            <h1 className="quiz-header">Quiz Results</h1>
+        </main>
+    );
 }
