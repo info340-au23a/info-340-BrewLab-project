@@ -54,22 +54,22 @@ export function Explore(props) {
                 <div className="filter-container">
 
                     <div className="filtering">
-                        <label htmlFor="filtering">Type of Coffee</label>
+                        <label id="coffeeType" htmlFor="filtering">Type of Coffee</label>
                         <select name="coffeetype">
                             {optionCoffeeArray}
                         </select>
                     </div>
 
                     <div className="filtering">
-                        <label htmlFor="filtering">Temperature</label>
-                        <select name="temperature">
+                        <label id="temperature" htmlFor="filtering">Temperature</label>
+                        <select id="temperature" name="temperature">
                             {optionTempArray}
                         </select>
                     </div>
 
                     <div className="filtering">
-                        <label htmlFor="filtering">Type of Milk</label>
-                        <select name="milktype">
+                        <label id="milktype" htmlFor="filtering">Type of Milk</label>
+                        <select id="milktype" name="milktype">
                             {optionMilkArray}
                         </select>
                     </div>
@@ -108,7 +108,7 @@ export function Card(props) {
                 </div>
 
                 <div className="sectionTracker">
-                    <h3 className="h3tracker">Ingredients</h3>
+                    <h3>Ingredients</h3>
                     <p>[#] shots of [coffee type, e.g. espresso]</p>
                     <p>[ounce] of [milk type]</p>
                     <p>sweetness level</p>
@@ -117,7 +117,7 @@ export function Card(props) {
                 </div>
 
                 <div className="sectionTracker">
-                    <h3 className="h3tracker">Tags</h3>
+                    <h4 className="h3tracker">Tags</h4>
                     <span className="tag">Temperature</span>
                     <span className="tag">Milk</span>
                     <span className="tag">Syrup</span>
@@ -146,13 +146,13 @@ function AllCards(props) {
                     <a href="#" className="avatarUsername">@athenalovescoffee</a>
                 </div>
 
-                <div className="coffee-info">
+                <div>
                     <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
                     <h2>Coffee Drink</h2>
                     <p>Short description of the drink</p>
                 </div>
 
-                <div className="drink-data">
+                <div>
                     <div className="sectionTracker">
                         <h3 className="h3tracker">Ingredients</h3>
                         <p>[#] shots of [coffee type, e.g. espresso]</p>
@@ -163,7 +163,7 @@ function AllCards(props) {
                     </div>
 
                     <div className="sectionTracker">
-                        <h3 className="h3tracker">Tags</h3>
+                        <h4 className="h3tracker">Tags</h4>
                         <span className="tag">Temperature</span>
                         <span className="tag">Milk</span>
                         <span className="tag">Syrup</span>

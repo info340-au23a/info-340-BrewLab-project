@@ -829,7 +829,7 @@ div.uploadImg {
     margin-right: 1em;
 }
 
-.card h3 {
+.card h2 {
     font-size: 2rem;
 }
 
@@ -877,6 +877,15 @@ div.uploadImg {
 	gap: 0.5rem;
 	width: 100%;
 }
+
+.card {
+	background-color: #fff;
+    color: var(--espresso-brown);
+	padding: 1.5rem;
+	border-radius: 16px;
+	max-width: 350px;
+}
+
 
 .favbutton {
 	border-radius: 18px;

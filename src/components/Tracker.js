@@ -3,26 +3,45 @@ import { Footer } from './Footer.js';
 
 export function Tracker(props) {
 
+    // make it interactive: https://www.youtube.com/watch?v=aEj0Wu33hJM&ab_channel=SixMinutes.Smarter. 
+    
     return (
-        <div className="tracker">
-            <h1 className="trackerHeader">Log Your Drink</h1>
-            <form className="logging">
-                <DrinkName />
-                <CoffeeType />
-                <TemperatureDrink />
-                <DrinkVolume />
-                <MilkType />
-                <MilkVolume />
-                <FoamVolume />
-                <SweetLevel />
-                <SyrupType />
-                <SyrupPumps />
-                <ImageUpload />
-                <LogDrink />
-            </form>
-        </div>
+        <div>
+            {/* <Nav /> */}
+            <div className="tracker">
+                <h1 className="trackerHeader">Log Your Drink</h1>
+                <form className="logging">
+                    <DrinkName />
+                    <CoffeeType />
+                    <TemperatureDrink />
+                    <DrinkVolume />
+                    <MilkType />
+                    <MilkVolume />
+                    <FoamVolume />
+                    <SweetLevel />
+                    <SyrupType />
+                    <SyrupPumps />
+                    <ImageUpload />
+                    <LogDrink />
+                </form>
+            </div>
+        </div>    
     );
 }
+
+// function Nav() {
+//     return (
+//         <nav className="tracker-nav">
+//             <div className="tracker-buttons">
+//                 <div className="t-button">
+//                     <li className="content-navi"><NavLink to="/tracker">Log Drink</NavLink></li>
+//                     <li className="content-navi"><NavLink to="/tracker2">Recent Drinks</NavLink></li>
+//                     <li className="content-navi"><NavLink to="/tracker3">Favorited Drinks</NavLink></li>
+//                 </div>
+//             </div>
+//         </nav>
+//     )
+// }
 
 function DrinkName(props) {
 
@@ -182,22 +201,19 @@ function ImageUpload(props) {
     }
 
     return (
-
         <div className="uploadImg">
             <input type="file" onChange={handleChange} />
             <img src={selectedImage} />
         </div>
-
-    // this code works too for uploading and previewing images: 
     );
 }
 
 function LogDrink(props) {
+
+    // By default, any <button> inside a <form> will submit it. This can be surprising! If you have your own custom Button React component, consider returning <button type="button"> instead of <button>. Then, to be explicit, use <button type="submit"> for buttons that are supposed to submit the form.
     return (
         <div className="tracker-buttons">
             <button className="secondary-button">Log Drink</button>
         </div>
     )
 }
-
-// By default, any <button> inside a <form> will submit it. This can be surprising! If you have your own custom Button React component, consider returning <button type="button"> instead of <button>. Then, to be explicit, use <button type="submit"> for buttons that are supposed to submit the form.
