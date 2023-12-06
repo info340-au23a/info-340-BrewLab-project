@@ -13,11 +13,12 @@ export default function App(props) {
         <div>
             <NavigationBar />
             <Routes>
-                <Route path="home" element={<Home />} />
-                <Route path="explore" element={<Explore />} />
-                <Route path="tracker" element={<Tracker />} />
-                <Route path="quiz" element={<Quiz />} />
-                <Route path="account" element={<Account />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/explore" element={<Explore />} />
+                <Route path="/tracker" element={<Tracker />} />
+                <Route path="/quiz" element={<Quiz />} />
+                <Route path="/account" element={<Account />} />
             </Routes>
             <Footer />
         </div>
