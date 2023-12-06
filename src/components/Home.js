@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function Home() {
     return (
@@ -10,7 +11,7 @@ export function Home() {
                     <p>EXPLORE THE WORLD OF COFFEE</p>
                         <h1>Start Exploring <div>Personalized Coffee</div></h1>
                         <p>Connect with other coffee enthusiasts, discover customized coffee beyond the common menu.</p>
-                        <a href="orders.html" className="home-btn">Get Started</a>  
+                        <Link to="/explore" className="home-btn">Get Started</Link>  
                     </div>
                 </section>
             </div>
@@ -38,7 +39,7 @@ export function Home() {
                 <section className="quiz">
                     <div className="quiz-text">
                         <h1>Want to try something new?<div>Take our Coffee Quiz!</div></h1>
-                        <a href="quiz.html" className="quiz-btn">Take Quiz</a>
+                        <Link to="/quiz" className="quiz-btn">Take Quiz</Link>
                     </div>
                     <div className="home-img">
                         <img src="../img/yellowcup.png" alt="a yellow cup with coffee" /> 
