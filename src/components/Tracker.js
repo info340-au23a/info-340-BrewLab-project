@@ -1,27 +1,64 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { Footer } from './Footer.js';
 
 export function Tracker(props) {
 
-    // make it interactive: https://www.youtube.com/watch?v=aEj0Wu33hJM&ab_channel=SixMinutes.Smarter. 
-    
+    const [formData, setFormData] = useState({
+        drinkName: '',
+        coffeeType: '', 
+        temperature: '', 
+        drinkVolume: '', 
+        milkType: '', 
+        foamVolume: '', 
+        sweetnessLevel: '', 
+        syrupType: '', 
+        syrupPumps: '',
+    })
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }))
+    };
+
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const handleImageChange = (event) => {
+        setSelectedImage(URL.createObjectURL(event.target.files[0]));
+    };
+
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        setSubmitted(true);
+    }
+
+    if (submitted) {
+        return <Navigate to="/explore" />;
+    }
+
     return (
         <div>
             {/* <Nav /> */}
             <div className="tracker">
                 <h1 className="trackerHeader">Log Your Drink</h1>
-                <form className="logging">
-                    <DrinkName />
-                    <CoffeeType />
-                    <TemperatureDrink />
-                    <DrinkVolume />
-                    <MilkType />
-                    <MilkVolume />
-                    <FoamVolume />
-                    <SweetLevel />
-                    <SyrupType />
-                    <SyrupPumps />
-                    <ImageUpload />
+                <form id="logDrink" className="logging" onSubmit={handleSubmit}>
+                    <DrinkName onChange={handleChange} />
+                    <CoffeeType onChange={handleChange} />
+                    <TemperatureDrink onChange={handleChange} />
+                    <DrinkVolume onChange={handleChange} />
+                    <MilkType onChange={handleChange} />
+                    <MilkVolume onChange={handleChange} />
+                    <FoamVolume onChange={handleChange} />
+                    <SweetLevel onChange={handleChange} />
+                    <SyrupType onChange={handleChange} />
+                    <SyrupPumps onChange={handleChange} />
+                    <ImageUpload onChange={handleImageChange}/>
                     <LogDrink />
                 </form>
             </div>
@@ -61,10 +98,17 @@ function DrinkName(props) {
 }
 
 function CoffeeType(props) {
+
+    const [selectedCoffee, setSelectedCoffee] = useState('');
+
+    const handleCoffeeChange = (event) => {
+        setSelectedCoffee(event.target.value);
+    };
+
     return (
         <div className="tracker">
             <label htmlFor="tracker">Choose the type of coffee you're drinking</label>
-            <select>
+            <select id="tracker" value={selectedCoffee} onChange={handleCoffeeChange}>
                 <option value="espresso">Espresso</option>
                 <option value="macchiato">Macchiato</option>
                 <option value="cappucino">Cappucino</option>
@@ -82,11 +126,11 @@ function TemperatureDrink(props) {
     return (
         <section className="drink-temp">
             <div>
-                <input type="radio" className="hot" value="hot" />
+                <input type="radio" id="hot" className="hot" value="hot" />
                 <label htmlFor="hot">Hot</label>
             </div>
             <div>
-                <input type="radio" className="iced" value="iced" />
+                <input type="radio" id="iced" className="iced" value="iced" />
                 <label htmlFor="iced">Iced</label>
             </div>
         </section>
@@ -94,10 +138,17 @@ function TemperatureDrink(props) {
 }
 
 function DrinkVolume(props) {
+
+    const [selectedVolume, setSelectedVolume] = useState('');
+
+    const handleVolumeChange = (event) => {
+        setSelectedVolume(event.target.value);
+    };
+
     return (
         <div className="tracker">
             <label className="explanation">Amount of coffee you made</label>
-            <select>
+            <select value={selectedVolume} onChange={handleVolumeChange}>
                 <option value="xsmall">extra small: 4 oz.</option>
                 <option value="small">small: 6 oz.</option>
                 <option value="medium">medium: 8 oz.</option>
@@ -213,7 +264,7 @@ function LogDrink(props) {
     // By default, any <button> inside a <form> will submit it. This can be surprising! If you have your own custom Button React component, consider returning <button type="button"> instead of <button>. Then, to be explicit, use <button type="submit"> for buttons that are supposed to submit the form.
     return (
         <div className="tracker-buttons">
-            <button className="secondary-button">Log Drink</button>
+            <button type="submit" value="Submit" className="secondary-button">Log Drink</button>
         </div>
     )
 }
