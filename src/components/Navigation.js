@@ -1,44 +1,40 @@
 import React from 'react';
-import { Home } from './Home.js';
-import { Account } from './Account.js';
-import { Explore } from './Explore.js';
-import { Tracker } from './Tracker.js';
-import { Quiz } from './Quiz.js';
+import { Link } from 'react-router-dom';
+// import { Home } from './Home.js';
+// import { Account } from './Account.js';
+// import { Explore } from './Explore.js';
+// import { Tracker } from './Tracker.js';
+// import { Quiz } from './Quiz.js';
 
 export function NavigationBar(props) {
 
     const navBarLinks = [
-        {link: {Home}, linkName: "Home"}, 
-        {link: {Explore}, linkName: "Explore"}, 
-        {link: {Tracker}, linkName: "Tracker"}, 
-        {link: {Quiz}, linkName: "Quiz"}
+        {linkTo: "home", linkName: "Home"}, 
+        {linkTo: "explore", linkName: "Explore"}, 
+        {linkTo: "tracker", linkName: "Tracker"}, 
+        {linkTo: "quiz", linkName: "Quiz"}
     ];
-    // const navBarLinks = [{link: {HomePage}, linkName: "Home"}, {link: {Explore}, linkName: "Explore"}, {link: {Tracker}, linkName: "Tracker"}, {link: {Quiz}, linkName: "Quiz"}];
 
-    const aLinkArray = navBarLinks.map((navLink) => {
-        const transformed = <a key={navLink.linkName} href={navLink.link} className='nav__link'>{navLink.linkName}</a>;
+    const linkArray = navBarLinks.map((navLink) => {
+        const transformed = <Link key={navLink.linkName} to={navLink.linkTo} className='nav__link'>{navLink.linkName}</Link>;
         return transformed;
     });
 
-    const liArray = <li className='nav__item'>{aLinkArray}</li>;
-    // liArray = 
-    // <li class="nav__item">
-    //     <a href="quiz.html" class="nav__link">Quiz</a> (aLinkArray, each one of these links for each page)
-    // </li>
+    const liArray = <li className='nav__item'>{linkArray}</li>;
 
     return (
         <header className="header">
             <nav className="nav container">
-                <a href={Home} className="nav__logo">
+                <Link to="home" className="nav__logo">
                     <i className="ri-cup-line" aria-label="Cup Logo"></i> BrewLab
-                </a>
+                </Link>
 
                 <div className="nav__menu">
                     <ul className="nav__list">
                         {liArray}
                     </ul>
 
-                    <a href={Account} className="nav__button">Login</a>
+                    <Link to="account" className="nav__button">Login</Link>
                 </div>
 
                 <div className="'toggle">
