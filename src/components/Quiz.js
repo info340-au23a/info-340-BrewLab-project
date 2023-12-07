@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Card } from './Explore.js';
+// import { useParams, Navigate } from 'react-router-dom';
+// import { Card } from './Explore.js';
 
 // make into a json later?
 const questionsAndAnswers = [
@@ -158,16 +159,16 @@ export function Quiz(props) {
     }
 }
 
-function QuizResults(props) {
-    return (
-        <main className="quiz-page main-quiz-padding" >
-            <h1 className="quiz-header">Quiz Results</h1>
-            <div className="allCards">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-            </div>
-        </main>
-    );
-}
+// function QuizResults(props) {
+//     return (
+//         <main className="quiz-page main-quiz-padding" >
+//             <h1 className="quiz-header">Quiz Results</h1>
+//             <div className="allCards">
+//                 <Card />
+//                 <Card />
+//                 <Card />
+//                 <Card />
+//             </div>
+//         </main>
+//     );
+// }
