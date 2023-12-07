@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { QuizResults } from './QuizResults.js';
+import { Link } from 'react-router-dom';
 // import { useParams, Navigate } from 'react-router-dom';
 // import { Card } from './Explore.js';
 
@@ -85,7 +87,7 @@ export function Quiz(props) {
     }
 
     const handleClickSubmit = (event) => {
-        <QuizResults />
+        <Link to=":results" />
     }
 
     // make each return its own private function to clean up this section?

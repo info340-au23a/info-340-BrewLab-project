@@ -6,6 +6,7 @@ import { Explore } from './Explore.js';
 import { Tracker } from './Tracker.js';
 import { Tracker2 } from './Tracker2.js';
 import { Quiz } from './Quiz.js';
+import { QuizResults } from './QuizResults.js';
 import { Account } from './Account.js';
 import { Footer } from './Footer.js';
 
@@ -20,7 +21,7 @@ export default function App(props) {
                 <Route path="/tracker" element={<Tracker />} />
                 <Route path="/tracker2" element={<Tracker2 />} />
                 <Route path="/quiz" element={<Quiz />}>
-                    <Route path="/results" element={<QuizResults />} />
+                    <Route path=":results" element={<QuizResults />} />
                 </Route>
                 <Route path="/account" element={<Account />} />
                 <Route path="*" element={<Navigate to="/home" />} />
