@@ -14,6 +14,7 @@ import QUIZ_CONTENT from '../data/quiz_content.json';
 import COFFEE_TYPES from '../data/explore_coffee.json';
 import TEMPERATURE from '../data/explore_temperature.json';
 import MILK_TYPES from '../data/explore_milk.json';
+import SignInPage from './SignInPage.js';
 
 export default function App(props) {
     return (
@@ -28,6 +29,7 @@ export default function App(props) {
                 <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />}>
                     <Route path=":results" element={<QuizResults />} />
                 </Route>
+                <Route path="/signin" element={<SignInPage />} />
                 <Route path="/account" element={<Account />} />
                 <Route path="*" element={<Navigate to="/home" />} />
             </Routes>

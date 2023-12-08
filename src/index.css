@@ -518,6 +518,18 @@ footer {
     display: none;
 }
 
+/* sign in page */
+.sign-in {
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+}
+ .sign-in .block-container {
+    padding-top: 0;
+ }
+
+
+
 /* .nav__menu {
     position: fixed;
     top: 0;

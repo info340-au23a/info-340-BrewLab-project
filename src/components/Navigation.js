@@ -34,7 +34,7 @@ export function NavigationBar(props) {
                         {liArray}
                     </ul>
 
-                    <Link to="account" className="nav__button">Login</Link>
+                    <Link to="signin" className="nav__button">Login</Link>
                 </div>
 
                 <div className="'toggle">
