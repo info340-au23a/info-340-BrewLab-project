@@ -10,6 +10,7 @@ export function Tracker(props) {
         temperature: '', 
         drinkVolume: '', 
         milkType: '', 
+        milkVolume: '', 
         foamVolume: '', 
         sweetnessLevel: '', 
         syrupType: '', 
@@ -48,7 +49,7 @@ export function Tracker(props) {
             {/* <Nav /> */}
             <div className="tracker">
                 <h1 className="trackerHeader">Log Your Drink</h1>
-                <form id="logDrink" className="logging" onSubmit={handleSubmit}>
+                <form className="logging" onSubmit={handleSubmit}>
                     <DrinkName onChange={handleChange} />
                     <CoffeeType onChange={handleChange} />
                     <TemperatureDrink onChange={handleChange} />
@@ -69,33 +70,20 @@ export function Tracker(props) {
 
 function DrinkName(props) {
 
-    const [inputValue, setInputValue] = useState('');
-
-    const handleChange = (event) => {
-        let newValue = event.target.value
-        setInputValue(newValue);
-    }
-
     return (
         <div className="tracker">
-            <label htmlFor="name">Name of Drink</label>
-            <input type="text" onChange={handleChange} value={inputValue} />
+            <label htmlFor="drink-name">Name of Drink</label>
+            <input id="drink-name" type="text" onChange={props.onChange} value={formData.drinkName} />
         </div>
     );
 }
 
 function CoffeeType(props) {
 
-    const [selectedCoffee, setSelectedCoffee] = useState('');
-
-    const handleCoffeeChange = (event) => {
-        setSelectedCoffee(event.target.value);
-    };
-
     return (
         <div className="tracker">
-            <label htmlFor="tracker">Choose the type of coffee you're drinking</label>
-            <select id="tracker" value={selectedCoffee} onChange={handleCoffeeChange}>
+            <label htmlFor="coffee-type">Choose the type of coffee you're drinking</label>
+            <select id="coffee-type" value={formData.coffeeType} onChange={props.onChange}>
                 <option value="espresso">Espresso</option>
                 <option value="macchiato">Macchiato</option>
                 <option value="cappucino">Cappucino</option>
@@ -113,12 +101,12 @@ function TemperatureDrink(props) {
     return (
         <section className="drink-temp">
             <div>
-                <input type="radio" id="hot" className="hot" value="hot" />
                 <label htmlFor="hot">Hot</label>
+                <input type="radio" id="hot" name="temperature" className="hot" value="hot" />
             </div>
             <div>
-                <input type="radio" id="iced" className="iced" value="iced" />
                 <label htmlFor="iced">Iced</label>
+                <input type="radio" id="iced" name="temperature" className="iced" value="iced" />
             </div>
         </section>
     );
@@ -126,16 +114,10 @@ function TemperatureDrink(props) {
 
 function DrinkVolume(props) {
 
-    const [selectedVolume, setSelectedVolume] = useState('');
-
-    const handleVolumeChange = (event) => {
-        setSelectedVolume(event.target.value);
-    };
-
     return (
         <div className="tracker">
-            <label className="explanation">Amount of coffee you made</label>
-            <select value={selectedVolume} onChange={handleVolumeChange}>
+            <label htmlFor="drink-volume" className="explanation">Amount of coffee you made</label>
+            <select id="drink-volume" value={formData.drinkVolume} onChange={props.onChange}>
                 <option value="xsmall">extra small: 4 oz.</option>
                 <option value="small">small: 6 oz.</option>
                 <option value="medium">medium: 8 oz.</option>
@@ -150,8 +132,8 @@ function DrinkVolume(props) {
 function MilkType(props) {
     return (
         <div className="tracker">
-            <label className="explanation">Choose the type of milk you used</label>
-            <select name="milk">
+            <label htmlFor="milk-type" className="explanation">Choose the type of milk you used</label>
+            <select id="milk-type" value={formData.milkType} onChange={props.onChange}>
                 <option value="whole">Whole</option>
                 <option value="soy">Soy</option>
                 <option value="hazelnut">Hazelnut</option>
@@ -169,8 +151,8 @@ function MilkType(props) {
 function MilkVolume(props) {
     return (
         <div className="tracker">
-            <label className="explanation">Amount of milk you added</label>
-            <select>
+            <label htmlFor="milk-volume" className="explanation">Amount of milk you added</label>
+            <select id="milk-volume" value={formData.milkVolume} onChange={props.onChange}>
                 <option value="xsmall">extra small: 4 oz.</option>
                 <option value="small">small: 6 oz.</option>
                 <option value="medium">medium: 8 oz.</option>
@@ -198,8 +180,8 @@ function FoamVolume(props) {
 function SweetLevel(props) {
     return (
         <div className="tracker">
-            <label className="explanation">Amount of sweetness level</label>
-            <select>
+            <label htmlFor="sweet-level" className="explanation">Amount of sweetness level</label>
+            <select id="sweet-level" value={formData.sweetnessLevel} onChange={props.onChange}>
                 <option value="zero">0% - no sugar</option>
                 <option value="25">25% - 1/4 sugar</option>
                 <option value="50">50% - 1/2 sugar</option>
@@ -214,8 +196,8 @@ function SweetLevel(props) {
 function SyrupType(props) {
     return (
         <div className="tracker">
-            <label className="explanation">Syrup You Used</label>
-            <input type="text" />
+            <label htmlFor="syrup-type" className="explanation">Syrup You Used</label>
+            <input id="syrup-type" value={formData.syrupType} onChange={props.onChange} type="text" />
         </div>
     );
 }
@@ -223,8 +205,8 @@ function SyrupType(props) {
 function SyrupPumps(props) {
     return (
         <div className="tracker">
-            <label className="explanation">Pumps of Syrup</label>
-            <input type="text" />
+            <label htmlFor="syrup-pump" className="explanation">Pumps of Syrup</label>
+            <input id="syrup-pump" value={formData.syrupPumps} onChange={props.onChange} type="text" />
         </div>
     );
 }
@@ -240,13 +222,13 @@ function ImageUpload(props) {
 
     return (
         <div className="uploadImg">
-            <input type="file" onChange={handleChange} />
+            <input type="file" onChange={props.onChange} />
             <img src={selectedImage} />
         </div>
     );
 }
 
-function LogDrink(props) {
+function LogDrink() {
 
     // By default, any <button> inside a <form> will submit it. This can be surprising! If you have your own custom Button React component, consider returning <button type="button"> instead of <button>. Then, to be explicit, use <button type="submit"> for buttons that are supposed to submit the form.
     return (
