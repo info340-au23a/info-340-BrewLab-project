@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Footer } from './Footer.js';
 
+// import user authentication (adjust path to authentication context)
+
 export function Tracker(props) {
 
     // navigation bar
@@ -42,29 +44,7 @@ export function Tracker(props) {
 
     // logging form
     const renderLoggingContent = () => (
-        <div className="tracker">
-            <div className="tracker-nav">
-                <div className="tracker-buttons">
-
-                    <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}>
-                        <div className="content-navi">
-                            <div className="text-navi">Log Drink</div>
-                        </div>
-                    </div>
-
-                    <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}>
-                        <div className="content-navi">
-                            <div className="text-navi">Posted Drinks</div>
-                        </div>
-                    </div>
-
-                    <div className={`t-button ${activeTab === 'saved' ? 'active' : ''}`} onClick={() => handleTabClick('saved')}>
-                        <div className="content-navi">
-                            <div className="text-navi" href="tracker3.html">Saved Drinks</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div>
             <h1 className="trackerHeader">Log Your Drink</h1>
             <form className="logging" onSubmit={handleSubmit}>
                 <DrinkName onChange={handleChange} formData={formData} />
@@ -109,6 +89,7 @@ export function Tracker(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+
         setSubmitted(true);
     }
 
@@ -119,8 +100,8 @@ export function Tracker(props) {
 
     return (
 
-        <div>
-            {/* navigation
+        <div className="tracker">
+            {/* navigation */}
             <div className="tracker-nav">
                 <div className="tracker-buttons">
 
@@ -142,11 +123,9 @@ export function Tracker(props) {
                         </div>
                     </div>
                 </div>
-            </div> */}
-
-            <div>
-                {renderContent()}
             </div>
+
+            {renderContent()}
 
         </div>
     );
