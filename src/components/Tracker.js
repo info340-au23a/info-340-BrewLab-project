@@ -69,7 +69,6 @@ export function Tracker(props) {
 }
 
 function DrinkName(props) {
-
     return (
         <div className="tracker">
             <label htmlFor="drink-name">Name of Drink</label>
@@ -79,7 +78,6 @@ function DrinkName(props) {
 }
 
 function CoffeeType(props) {
-
     return (
         <div className="tracker">
             <label htmlFor="coffee-type">Choose the type of coffee you're drinking</label>
@@ -113,7 +111,6 @@ function TemperatureDrink(props) {
 }
 
 function DrinkVolume(props) {
-
     return (
         <div className="tracker">
             <label htmlFor="drink-volume" className="explanation">Amount of coffee you made</label>
@@ -212,25 +209,15 @@ function SyrupPumps(props) {
 }
 
 function ImageUpload(props) {
-
-    const [selectedImage, setSelectedImage] = useState(null);
-    
-    const handleChange = (e) => {
-        console.log(e.target.files);
-        setSelectedImage(URL.createObjectURL(e.target.files[0]));
-    }
-
     return (
         <div className="uploadImg">
             <input type="file" onChange={props.onChange} />
-            <img src={selectedImage} />
+            <img src={props.selectedImage} />
         </div>
     );
 }
 
 function LogDrink() {
-
-    // By default, any <button> inside a <form> will submit it. This can be surprising! If you have your own custom Button React component, consider returning <button type="button"> instead of <button>. Then, to be explicit, use <button type="submit"> for buttons that are supposed to submit the form.
     return (
         <div className="tracker-buttons">
             <button type="submit" value="Submit" className="secondary-button">Log Drink</button>
