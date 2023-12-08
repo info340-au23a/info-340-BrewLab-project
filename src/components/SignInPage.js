@@ -27,6 +27,7 @@ export default function SignInPage(props) {
             <div className='sign-in'>
                 <div className="card bg-light">
                     <div className="block-container">
+                        <h1>Sign-in:</h1>
                         <StyledFirebaseAuth firebaseAuth={getAuth()} 
                         uiConfig={firebaseUIConfig} />
                     </div>
