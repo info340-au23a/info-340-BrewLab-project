@@ -96,7 +96,7 @@ export function Tracker(props) {
 
     return (
 
-        <div>
+        <div className="tracker">
             <h1 className="trackerHeader">Log Your Drink</h1>
 
             {/* navigation */}
