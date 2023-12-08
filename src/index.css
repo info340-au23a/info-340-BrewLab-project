@@ -333,7 +333,7 @@ div {
     color: white;
 }
 
-.options li:hover {
+.options li:active {
     background-color: var(--creamy-latte);
     color: var(--espresso-brown);
 }
