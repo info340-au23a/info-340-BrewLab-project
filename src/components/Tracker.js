@@ -17,10 +17,10 @@ export function Tracker(props) {
     })
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { key, userInput } = event.target;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value,
+            [key]: userInput,
         }))
     };
 
@@ -38,6 +38,7 @@ export function Tracker(props) {
         setSubmitted(true);
     }
 
+    // go to 
     if (submitted) {
         return <Navigate to="/explore" />;
     }
@@ -65,20 +66,6 @@ export function Tracker(props) {
         </div>    
     );
 }
-
-// function Nav() {
-//     return (
-//         <nav className="tracker-nav">
-//             <div className="tracker-buttons">
-//                 <div className="t-button">
-//                     <li className="content-navi"><NavLink to="/tracker">Log Drink</NavLink></li>
-//                     <li className="content-navi"><NavLink to="/tracker2">Recent Drinks</NavLink></li>
-//                     <li className="content-navi"><NavLink to="/tracker3">Favorited Drinks</NavLink></li>
-//                 </div>
-//             </div>
-//         </nav>
-//     )
-// }
 
 function DrinkName(props) {
 
@@ -198,8 +185,8 @@ function MilkVolume(props) {
 function FoamVolume(props) {
     return (
         <div className="tracker">
-            <label className="explanation">Amount of foam you added</label>
-            <select>
+            <label htmlFor="foam-volume" className="explanation">Amount of foam you added</label>
+            <select id="foam-volume" value={formData.foamVolume} onChange={props.onChange}>
                 <option value="small">30mL</option>
                 <option value="medium">60mL</option>
                 <option value="large">120mL</option>
