@@ -30,7 +30,6 @@ export function Tracker(props) {
     // logging form
     const renderLoggingContent = () => (
         <div className="tracker">
-            <h1 className="trackerHeader">Log Your Drink</h1>
             <form className="logging" onSubmit={handleSubmit}>
                 <DrinkName onChange={handleChange} formData={formData} />
                 <CoffeeType onChange={handleChange} formData={formData} />
@@ -84,7 +83,9 @@ export function Tracker(props) {
 
     return (
 
-        <div className="tracker">
+        <div>
+            <h1 className="trackerHeader">Log Your Drink</h1>
+
             {/* navigation */}
             <div className="tracker-nav">
                 <div className="tracker-buttons">
