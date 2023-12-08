@@ -721,6 +721,7 @@ div.tracker-nav{
     align-items: center;
     text-align: center;
     flex-grow: 1;
+    padding-top: 75px;
 }
 
 .t-button {
