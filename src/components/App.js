@@ -10,6 +10,11 @@ import { QuizResults } from './QuizResults.js';
 import { Account } from './Account.js';
 import { Footer } from './Footer.js';
 
+import QUIZ_CONTENT from '../data/quiz_content.json';
+import COFFEE_TYPES from '../data/explore_coffee.json';
+import TEMPERATURE from '../data/explore_temperature.json';
+import MILK_TYPES from '../data/explore_milk.json';
+
 export default function App(props) {
     return (
         <div>
@@ -17,10 +22,10 @@ export default function App(props) {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/explore" element={<Explore />} />
+                <Route path="/explore" element={<Explore coffeeTypes={COFFEE_TYPES} temperature={TEMPERATURE} milkTypes={MILK_TYPES} />} />
                 <Route path="/tracker" element={<Tracker />} />
-                <Route path="/tracker2" element={<Tracker2 />} />
-                <Route path="/quiz" element={<Quiz />}>
+                <Route path="/tracker2" element={<Tracker2 />} />   
+                <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />}>
                     <Route path=":results" element={<QuizResults />} />
                 </Route>
                 <Route path="/account" element={<Account />} />

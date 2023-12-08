@@ -1,36 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const coffeeTypes = [
-    {value: "espresso", type: "Espresso"},
-    {value: "macchiato", type: "Macchiato"},
-    {value: "cappucino", type: "Cappucino"},
-    {value: "mocha", type: "Mocha"},
-    {value: "flat-white", type: "Flat White"},
-    {value: "americano", type: "Americano"},
-    {value: "latte", type: "Latte"},
-    {value: "custom", type: "Custom"}
-];
-
-const temperature = [
-    {value: "hot", temp: "Hot"},
-    {value: "cold", temp: "Cold"}
-]
-
-const milkTypes = [
-    {value: "whole", type: "Whole"},
-    {value: "soy", type: "Soy"},
-    {value: "hazelnut", type: "Hazelnut"},
-    {value: "almond", type: "Almond"},
-    {value: "coconut", type: "Coconut"},
-    {value: "oat", type: "Oat"},
-    {value: "goat", type: "Goat"},
-    {value: "skimmed", type: "Skimmed"},
-    {value: "none", type: "None"}
-
-]
-
 export function Explore(props) {
+    const coffeeTypes = props.coffeeTypes;
+    const temperature = props.temperature;
+    const milkTypes = props.milkTypes;
 
     const optionCoffeeArray = coffeeTypes.map((coffeeType) => {
         const transformed = <option key={coffeeType.value} value={coffeeType.value}>{coffeeType.type}</option>;

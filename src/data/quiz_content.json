@@ -1,0 +1,54 @@
+[
+    {
+        "question": "What type of coffee do you like?",
+        "answers": [
+            "Espresso",
+            "Macchiato",
+            "Cappucino",
+            "Mocha",
+            "Flat white",
+            "Americano",
+            "Latte",
+            "I make custom drinks",
+            "I don't normally drink coffee"
+        ]
+    },
+    {
+        "question": "What milk do you use?",
+        "answers": [
+            "Regular (Whole, skim, 2%, etc.)",
+            "Soy",
+            "Oat",
+            "Almond",
+            "Coconut",
+            "Hazelnut",
+            "Goat",
+            "I like no milk"
+        ]
+    },
+    {
+        "question": "Do you like your coffee hot or cold?",
+        "answers": [
+            "Hot",
+            "Cold",
+            "Doesn't matter to me"
+        ]
+    },
+    {
+        "question": "Do you like foam?",
+        "answers": [
+            "Yes",
+            "No",
+            "I don't care",
+            "I like flavored foam only"
+        ]
+    },
+    {
+        "question": "How sweet do you like your coffee?",
+        "answers": [
+            "Super sweet (100% sugar)",
+            "Semi-sweet (50% sugar)",
+            "Not sweet at all (0% sugar)"
+        ]
+    }
+]

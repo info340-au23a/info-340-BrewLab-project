@@ -1,69 +1,14 @@
 import React, { useState } from 'react';
 import { QuizResults } from './QuizResults.js';
 import { Link } from 'react-router-dom';
-// import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 // import { Card } from './Explore.js';
-
-// make into a json later?
-const questionsAndAnswers = [
-    {
-        question: "What type of coffee do you like?",
-        answers: [
-            "Espresso",
-            "Macchiato",
-            "Cappucino",
-            "Mocha",
-            "Flat white",
-            "Americano",
-            "Latte",
-            "I make custom drinks",
-            "I don't normally drink coffee"
-        ]
-    },
-    {
-        question: "What milk do you use?",
-        answers: [
-            "Regular (Whole, skim, 2%, etc.)",
-            "Soy",
-            "Oat",
-            "Almond",
-            "Coconut",
-            "Hazelnut",
-            "Goat",
-            "I like no milk"
-        ]
-    },
-    {
-        question: "Do you like your coffee hot or cold?",
-        answers: [
-            "Hot",
-            "Cold",
-            "Doesn't matter to me"
-        ]
-    },
-    {
-        question: "Do you like foam?",
-        answers: [
-            "Yes",
-            "No",
-            "I don't care",
-            "I like flavored foam only"
-        ]
-    },
-    {
-        question: "How sweet do you like your coffee?",
-        answers: [
-            "Super sweet (100% sugar)",
-            "Semi-sweet (50% sugar)",
-            "Not sweet at all (0% sugar)"
-        ]
-    }
-];
 
 export function Quiz(props) {
     // int
     // init value = 1
     const [questionNum, setQuestionNum] = useState(1);
+    const questionsAndAnswers = props.questionsAndAnswers;
 
     // questionsAndAnswers will begin at 0 for the index of the array
     const liAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
@@ -86,8 +31,10 @@ export function Quiz(props) {
         }
     }
 
+    const quizParams = useParams();
+    const results = quizParams.results;
     const handleClickSubmit = (event) => {
-        <Link to=":results" />
+        
     }
 
     // make each return its own private function to clean up this section?
@@ -154,7 +101,8 @@ export function Quiz(props) {
 
                 <section className="buttons">
                     <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                    <div className="primary-button" onClick={handleClickSubmit}>Submit</div>
+                    {/* <div className="primary-button" onClick={handleClickSubmit}>Submit</div> */}
+                    <Link to={"/chat"+results} className="primary-button">Submit</Link>
                 </section>
             </main>
         );
