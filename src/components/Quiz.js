@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Card } from './Explore.js';
 
 export function Quiz(props) {
@@ -36,7 +36,7 @@ export function Quiz(props) {
     const handleClickSubmit = (event) => {
         return (
             <div>
-                <Link to={"/chat/results"}>Submit</Link>
+                <Link to={"/quiz/results"}>Submit</Link>
                 <QuizResults results={resultsPage} />
             </div>
         );

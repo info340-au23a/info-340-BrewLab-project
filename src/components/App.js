@@ -26,9 +26,7 @@ export default function App(props) {
                 <Route path="/explore" element={<Explore coffeeTypes={COFFEE_TYPES} temperature={TEMPERATURE} milkTypes={MILK_TYPES} />} />
                 <Route path="/tracker" element={<Tracker />} />
                 <Route path="/tracker2" element={<Tracker2 />} />   
-                <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />}>
-                    <Route path="/quiz/:results" element={<QuizResults />} />
-                </Route>
+                <Route path="/quiz/:results?" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />} />
                 <Route path="/signin" element={<SignInPage />} />
                 <Route path="/account" element={<Account />} />
                 <Route path="*" element={<Navigate to="/home" />} />
