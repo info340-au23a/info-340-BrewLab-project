@@ -24,42 +24,36 @@ export function Tracker(props) {
         //     return renderLoggingContent(); 
         // }
 
-        return renderLoggingContent(); 
+        return renderLoggingContent();
     };
 
     // logging form
     const renderLoggingContent = () => (
         <div className="tracker">
-                <h1 className="trackerHeader">Log Your Drink</h1>
-                <form className="logging" onSubmit={handleSubmit}>
-                    <DrinkName onChange={handleChange} formData={formData}/>
-                    <CoffeeType onChange={handleChange} formData={formData}/>
-                    <TemperatureDrink onChange={handleChange} formData={formData}/>
-                    <DrinkVolume onChange={handleChange} formData={formData}/>
-                    <MilkType onChange={handleChange} formData={formData}/>
-                    <MilkVolume onChange={handleChange} formData={formData}/>
-                    <FoamVolume onChange={handleChange} formData={formData}/>
-                    <SweetLevel onChange={handleChange} formData={formData}/>
-                    <SyrupType onChange={handleChange} formData={formData}/>
-                    <SyrupPumps onChange={handleChange} formData={formData}/>
-                    <ImageUpload onChange={handleImageChange}/>
-                    <LogDrink />
-                </form>
-            </div>
+            <h1 className="trackerHeader">Log Your Drink</h1>
+            <form className="logging" onSubmit={handleSubmit}>
+                <DrinkName onChange={handleChange} formData={formData} />
+                <CoffeeType onChange={handleChange} formData={formData} />
+                <TemperatureDrink onChange={handleChange} formData={formData} />
+                <DrinkVolume onChange={handleChange} formData={formData} />
+                <MilkType onChange={handleChange} formData={formData} />
+                <MilkVolume onChange={handleChange} formData={formData} />
+                <FoamVolume onChange={handleChange} formData={formData} />
+                <SweetLevel onChange={handleChange} formData={formData} />
+                <SyrupType onChange={handleChange} formData={formData} />
+                <SyrupPumps onChange={handleChange} formData={formData} />
+                <ImageUpload onChange={handleImageChange} />
+                <LogDrink />
+            </form>
+        </div>
     )
 
-    const [formData, setFormData] = useState({
-        drinkName: '',
-        coffeeType: '', 
-        temperature: '', 
-        drinkVolume: '', 
-        milkType: '', 
-        milkVolume: '', 
-        foamVolume: '', 
-        sweetnessLevel: '', 
-        syrupType: '', 
-        syrupPumps: '',
-    })
+    const renderPostsContent = () => {
+        // show cards of posted drinks here
+    }
+
+    // form data that user submitted 
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -83,55 +77,43 @@ export function Tracker(props) {
         setSubmitted(true);
     }
 
-    // go to 
+    // once user submits, what happens?
     if (submitted) {
         return <Navigate to="/explore" />;
     }
 
-    // navigation 
-    // <div class="tracker-nav"> 
-    //         <div class="tracker-buttons">
-    //             <div class="t-button"><li class="content-navi"><a href="tracker.html">Log Drink</a></li></div>
-    //             <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker2.html">Recent Drinks</a></li></div>
-    //             <div class="t-button"><li class="content-navi"><a class="text-navi" href="tracker3.html">Favorited Drinks</a></li></div>
-    //         </div>
-    // </div>
-
     return (
-        <main>
+
+        <div className="tracker">
             {/* navigation */}
-            <div className="tracker-nav"> 
+            <div className="tracker-nav">
                 <div className="tracker-buttons">
-                    <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}><div className="content-navi">Log Drink</div></div>
 
-                    <div className="t-button"><div className="content-navi"><div className="text-navi" href="tracker2.html">Recent Drinks</div></div></div>
+                    <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}>
+                        <div className="content-navi">
+                            <div className="text-navi">Log Drink</div>
+                        </div>
+                    </div>
 
-                    <div className="t-button"><div className="content-navi"><div className="text-navi" href="tracker3.html">Favorited Drinks</div></div></div>
+                    <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}>
+                        <div className="content-navi">
+                            <div className="text-navi">Posted Drinks</div>
+                        </div>
+                    </div>
 
+                    <div className={`t-button ${activeTab === 'saved' ? 'active' : ''}`} onClick={() => handleTabClick('saved')}>
+                        <div className="content-navi">
+                            <div className="text-navi" href="tracker3.html">Saved Drinks</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div>
-            {renderContent()}
+                {renderContent()}
             </div>
 
-            {/* <div className="tracker">
-                <h1 className="trackerHeader">Log Your Drink</h1>
-                <form className="logging" onSubmit={handleSubmit}>
-                    <DrinkName onChange={handleChange} />
-                    <CoffeeType onChange={handleChange} />
-                    <TemperatureDrink onChange={handleChange} />
-                    <DrinkVolume onChange={handleChange} />
-                    <MilkType onChange={handleChange} />
-                    <MilkVolume onChange={handleChange} />
-                    <FoamVolume onChange={handleChange} />
-                    <SweetLevel onChange={handleChange} />
-                    <SyrupType onChange={handleChange} />
-                    <SyrupPumps onChange={handleChange} />
-                    <ImageUpload onChange={handleImageChange}/>
-                    <LogDrink />
-                </form>
-            </div> */}
-        </main>    
+        </div>
     );
 }
 
@@ -279,7 +261,7 @@ function ImageUpload(props) {
     return (
         <div className="uploadImg">
             <input type="file" onChange={props.onChange} />
-            <img src={props.selectedImage} alt="preview of user's coffee drink"/>
+            <img src={props.selectedImage} alt="preview of user's coffee drink" />
         </div>
     );
 }
