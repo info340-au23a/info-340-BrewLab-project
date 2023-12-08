@@ -27,7 +27,7 @@ export default function App(props) {
                 <Route path="/tracker" element={<Tracker />} />
                 <Route path="/tracker2" element={<Tracker2 />} />   
                 <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />}>
-                    <Route path=":results" element={<QuizResults />} />
+                    <Route path="/quiz/:results" element={<QuizResults />} />
                 </Route>
                 <Route path="/signin" element={<SignInPage />} />
                 <Route path="/account" element={<Account />} />

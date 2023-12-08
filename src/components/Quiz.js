@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { QuizResults } from './QuizResults.js';
 import { Link } from 'react-router-dom';
-import { useParams, Navigate } from 'react-router-dom';
-// import { Card } from './Explore.js';
+import { useParams} from 'react-router-dom';
+import { Card } from './Explore.js';
 
 export function Quiz(props) {
     // int
@@ -32,9 +31,15 @@ export function Quiz(props) {
     }
 
     const quizParams = useParams();
-    const results = quizParams.results;
+    const resultsPage = quizParams.results;
+    
     const handleClickSubmit = (event) => {
-        
+        return (
+            <div>
+                <Link to={"/chat/results"}>Submit</Link>
+                <QuizResults results={resultsPage} />
+            </div>
+        );
     }
 
     // make each return its own private function to clean up this section?
@@ -101,12 +106,25 @@ export function Quiz(props) {
 
                 <section className="buttons">
                     <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                    {/* <div className="primary-button" onClick={handleClickSubmit}>Submit</div> */}
-                    <Link to={"/chat"+results} className="primary-button">Submit</Link>
+                    <div className="primary-button" onClick={handleClickSubmit}>Submit</div>
                 </section>
             </main>
         );
     }
+}
+
+function QuizResults(props) {
+    return (
+        <main className="quiz-page main-quiz-padding" >
+            <h1 className="quiz-header">Quiz Results</h1>
+            <div className="allCards">
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </div>
+        </main>
+    );
 }
 
 // function QuizResults(props) {
