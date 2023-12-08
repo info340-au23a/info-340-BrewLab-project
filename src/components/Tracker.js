@@ -53,18 +53,7 @@ export function Tracker(props) {
     }
 
     // form data that user submitted 
-    const [formData, setFormData] = useState({
-        drinkName: '',
-        coffeeType: '',
-        temperature: '',
-        drinkVolume: '',
-        milkType: '',
-        milkVolume: '',
-        foamVolume: '',
-        sweetnessLevel: '',
-        syrupType: '',
-        syrupPumps: '',
-    })
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -95,7 +84,7 @@ export function Tracker(props) {
 
     return (
 
-        <div>
+        <div className="tracker">
             {/* navigation */}
             <div className="tracker-nav">
                 <div className="tracker-buttons">

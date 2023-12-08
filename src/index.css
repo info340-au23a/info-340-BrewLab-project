@@ -722,9 +722,9 @@ div.tracker-nav{
 .t-button {
     background-color: var(--espresso-brown);
     border-radius: 12px;
-    margin-right: 30px;
+    /* margin-right: 30px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
 }
 
 .t-button:selection {
