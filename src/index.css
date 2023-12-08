@@ -524,10 +524,14 @@ footer {
     justify-content: center;
     padding-top: 200px;
 }
- .sign-in .block-container {
-    padding-top: 0;
- }
 
+.sign-in .block-container {
+padding-top: 0;
+}
+
+.main-signIn {
+    padding-bottom: 275px;
+}
 
 
 /* .nav__menu {
