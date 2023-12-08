@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Footer } from './Footer.js';
 
+// import user authentication (adjust path to authentication context)
+
 export function Tracker(props) {
 
     // navigation bar
@@ -86,6 +88,7 @@ export function Tracker(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
 
         setSubmitted(true);
     }

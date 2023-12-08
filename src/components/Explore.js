@@ -29,29 +29,29 @@ export function Explore(props) {
                 <div className="filter-container">
 
                     <div className="filtering">
-                        <label id="coffeeType" htmlFor="filtering">Type of Coffee</label>
-                        <select name="coffeetype">
+                        <label htmlFor="coffee-type">Type of Coffee</label>
+                        <select id="coffee-type" name="coffeetype">
                             {optionCoffeeArray}
                         </select>
                     </div>
 
                     <div className="filtering">
-                        <label id="temperature" htmlFor="filtering">Temperature</label>
+                        <label htmlFor="temperature">Temperature</label>
                         <select id="temperature" name="temperature">
                             {optionTempArray}
                         </select>
                     </div>
 
                     <div className="filtering">
-                        <label id="milktype" htmlFor="filtering">Type of Milk</label>
-                        <select id="milktype" name="milktype">
+                        <label htmlFor="milk-type">Type of Milk</label>
+                        <select id="milk-type" name="milktype">
                             {optionMilkArray}
                         </select>
                     </div>
 
                     <div className="filtering">
-                        <label className="explanation">Syrup</label>
-                        <input type="text" />
+                        <label htmlFor="syrup" className="explanation">Syrup</label>
+                        <input id="syrup" type="text" />
                     </div>
 
                     <div className="filtering">
