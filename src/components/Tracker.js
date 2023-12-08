@@ -110,6 +110,9 @@ export function Tracker(props) {
 
                 </div>
             </div>
+            <div>
+            {renderContent()}
+            </div>
 
             {/* <div className="tracker">
                 <h1 className="trackerHeader">Log Your Drink</h1>
