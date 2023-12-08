@@ -15,6 +15,10 @@ export function Quiz(props) {
         return transformed;
     })
 
+    // const handleClickAnswer = (event) => {
+
+    // }
+
     // when last question maybe change to submit button instead and then will render a new page with recs
     const handleClickNext = (event) => {
         // if question num is 1 or greater and is less than 5 (don't want to be able to click next on question 5, will change to a submit button later)
