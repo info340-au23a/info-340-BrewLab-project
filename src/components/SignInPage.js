@@ -23,7 +23,7 @@ export default function SignInPage(props) {
     const {currentUser, changeUserFunction} = props;
 
     return (
-        <main>
+        <main className='main-signIn'>
             <div className='sign-in'>
                 <div className="card bg-light">
                     <div className="block-container">
