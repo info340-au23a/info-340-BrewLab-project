@@ -27,6 +27,19 @@ export function Tracker(props) {
         return renderLoggingContent();
     };
 
+    const [formData, setFormData] = useState({
+        drinkName: '',
+        coffeeType: '', 
+        temperature: '', 
+        drinkVolume: '', 
+        milkType: '', 
+        milkVolume: '',
+        foamVolume: '', 
+        sweetnessLevel: '', 
+        syrupType: '', 
+        syrupPumps: '',
+    })
+
     // logging form
     const renderLoggingContent = () => (
         <div className="tracker">
