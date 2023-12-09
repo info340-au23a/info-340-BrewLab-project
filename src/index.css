@@ -139,9 +139,9 @@ div.filtering select {
 
 .trackerHeader {
     margin-top: 100px;
-    margin-left: 90px;
     margin-bottom: 25px;
     color: var(--espresso-brown);
+    
 }
 
 div.filtering label {
