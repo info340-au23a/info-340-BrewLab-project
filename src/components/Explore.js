@@ -67,42 +67,7 @@ export function Explore(props) {
     );
 }
 
-// const drinks = [
-//     {"drinkName": "Caramel Macchiato",
-//     "ingredients": [
-//         "2",
-//         "macchiato",
-//         "12 ounces",
-//         "whole (milk)",
-//         "100% sweet",
-//         "16 ounces", 
-//         "2 pumps",
-//         "Vanilla",
-//         "Hot",
-//         ""]
-//     },
-//     {"drinkName": "Matcha Latte"}
-// ]
-
-
-
 export function Card(props) {
-    // const drink = props.drinks;
-    // const drinkElements = props.drinks.map((drink) => {
-    //     drink.map((ingredients) => {
-    //         const elem = <p key={ingredients}>{ingredients}</p>;
-    //         return elem;
-    //     })
-    //     const transformed = <p key={drink.elem}>{drink.elem}</p>;
-    //     return transformed;
-    // })
-    // const drinkArray = props.drinks.map((drink) => {
-    //     console.log(drink.drinkName);
-    //     drink.ingredients.map((ingredient) => {
-    //         console.log(ingredient);
-    //     })
-    // })
-
     const ingredients = props.ingredients;
 
     return (
@@ -131,7 +96,7 @@ export function Card(props) {
                 <div className="sectionTracker">
                     <h3 className="h3tracker">Tags</h3>
                     <span className="tag">{ingredients.temperature}</span>
-                    <span className="tag">{ingredients.milkType}</span>
+                    <span className="tag">{ingredients.tagMilkType}</span>
                     <span className="tag">{ingredients.syrupType}</span>
                 </div>
             </div>
@@ -148,12 +113,7 @@ export function Card(props) {
 
 function AllCards(props) {
     const drinkArray = props.drinks.map((eachDrink) => {
-        const ingredients = eachDrink.ingredients.map((ingredient) => {
-            console.log(ingredient);
-            const transformed = <p key={ingredient}>{ingredient}</p>;
-            return transformed;
-        })
-        const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={ingredients} />
+        const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} />
         return aDrink;
     })
 
