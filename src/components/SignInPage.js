@@ -20,7 +20,6 @@ const firebaseUIConfig = {
 }
 
 export default function SignInPage(props) {
-
     return (
         <main className='main-signIn'>
             <div className='sign-in'>

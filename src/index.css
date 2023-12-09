@@ -379,6 +379,15 @@ footer p {
 
 
 /* profile page */
+img.profile-picture-edit {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
+
 img.profile-picture {
     max-width: 200px;
     max-height: 200px;
@@ -414,7 +423,15 @@ img.profile-picture {
 }
 
 .account-data {
-    padding: 20px
+    padding: 15px;
+}
+
+.edit-data {
+    padding: 100px;
+}
+
+.hide {
+    display: none;
 }
 
 .account-data p {
@@ -1073,7 +1090,7 @@ div.uploadImg {
         width: max-content;
         background-color: var(--espresso-brown);
         border: 2px solid var(--creamy-latte);
-        padding: 1rem 3rem;
+        padding: 0.75rem 1.75rem;
         border-radius: 4rem;
         color: var(--milk-foam);
         font-weight: var(--font-semi-bold);

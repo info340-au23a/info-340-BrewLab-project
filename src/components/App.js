@@ -32,7 +32,7 @@ export default function App(props) {
                 console.log('logged in', firebaseUser.displayName);
                 firebaseUser.userId = firebaseUser.uid;
                 firebaseUser.userName = firebaseUser.displayName;
-                firebaseUser.userImg = firebaseUser.photoURL || "/img/null.png";
+                firebaseUser.userImg = firebaseUser.photoURL || "/img/profile-picture.jpg";
 
                 setCurrentUser(firebaseUser);
                 setIsAuthenticated(true);
@@ -70,7 +70,7 @@ export default function App(props) {
                 <Route path="/tracker2" element={<Tracker2 />} />   
                 <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />} />
                 <Route path="/quiz/results" element={<QuizResults drinks={DRINKS} />} />
-                <Route path="/account" element={isAuthenticated ? <Account /> : <Navigate to="/signin" />} />
+                <Route path="/account" element={isAuthenticated ? <Account currentUser={currentUser} /> : <Navigate to="/signin" />} />
                 <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
                 <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
