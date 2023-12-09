@@ -73,7 +73,7 @@ export default function App(props) {
                 <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />} />
                 <Route path="/quiz/results" element={<QuizResults drinks={DRINKS} />} />
                 <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
-                <Route path="/account" element={isAuthenticated ? <Account currentUser={currentUser} /> : <Navigate to="/signin" />} />
+                <Route path="/account" element={isAuthenticated ? <Account currentUser={currentUser} drinks={DRINKS} /> : <Navigate to="/signin" />} />
                 <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
             <Footer />

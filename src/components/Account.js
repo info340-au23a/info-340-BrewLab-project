@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Footer } from './Footer.js';
-import { Card } from './Explore.js';
+import { AllCards, Card } from './Explore.js';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getAuth, updateProfile } from 'firebase/auth'
 
@@ -83,12 +83,14 @@ export function Account(props) {
     const renderPostsContent = () => (
         // Render posts content here
         <div className="allCards">
+            <AllCards drinks={props.drinks} />
             {/* <Card /> */}
         </div>
     );
 
     const renderSavedContent = () => (
        <div className="allCards">
+            <AllCards drinks={props.drinks} />
             {/* <Card />
             <Card />
             <Card /> */}
@@ -97,6 +99,7 @@ export function Account(props) {
 
     const renderTastedContent = () => (
         <div className="allCards">
+            <AllCards drinks={props.drinks} />
             {/* <Card />
             <Card />
             <Card />
