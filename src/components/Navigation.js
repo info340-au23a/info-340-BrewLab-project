@@ -34,7 +34,12 @@ export function NavigationBar(props) {
                         {liArray}
                     </ul>
 
-                    <Link to="signin" className="nav__button">Login</Link>
+                    {props ? (
+                        <Link to="/account" className="nav__button">Account</Link>
+                        ) : (
+                        <Link to="signin" className="nav__button">Login</Link>
+                    )}
+                    
                 </div>
 
                 <div className="'toggle">

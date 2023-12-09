@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, GoogleAuthProvider, EmailAuthProvider } from 'firebase/auth';
 import { Footer } from './Footer.js';
 
@@ -20,16 +21,13 @@ const firebaseUIConfig = {
 
 export default function SignInPage(props) {
 
-    const {currentUser, changeUserFunction} = props;
-
     return (
         <main className='main-signIn'>
             <div className='sign-in'>
                 <div className="card bg-light">
                     <div className="block-container">
                         <h1>Sign-in:</h1>
-                        <StyledFirebaseAuth firebaseAuth={getAuth()} 
-                        uiConfig={firebaseUIConfig} />
+                        <StyledFirebaseAuth firebaseAuth={getAuth()} uiConfig={firebaseUIConfig} />
                     </div>
                 </div>
             </div>

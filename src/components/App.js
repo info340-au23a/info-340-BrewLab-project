@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Navigate} from 'react-router-dom';
 import { NavigationBar } from './Navigation.js';
 import { Home } from './Home.js';
 import { Explore } from './Explore.js';
@@ -21,24 +21,37 @@ import DEFAULT_USERS from '../data/users.json';
 export default function App(props) {
 
     const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const auth = getAuth();
+    useEffect(() => {
+        const auth = getAuth();
 
-    onAuthStateChanged(auth, (firebaseUser) => {
-        if(firebaseUser){ //firebaseUser defined: is logged in
-            console.log('logged in', firebaseUser.displayName);
-           firebaseUser.userId = firebaseUser.uid;
-           firebaseUser.userName = firebaseUser.displayName;
-           firebaseUser.userImg = firebaseUser.photoURL || "/img/null.png";
+        const unregisterFunction = onAuthStateChanged(auth, (firebaseUser) => {
+            if(firebaseUser){ //firebaseUser defined: is logged in
+                console.log('logged in', firebaseUser.displayName);
+                firebaseUser.userId = firebaseUser.uid;
+                firebaseUser.userName = firebaseUser.displayName;
+                firebaseUser.userImg = firebaseUser.photoURL || "/img/null.png";
 
-           setCurrentUser(firebaseUser);
+                setCurrentUser(firebaseUser);
+                setIsAuthenticated(true);
+            }
+            else { //firebaseUser is undefined: is not logged in
+                console.log('logged out');
+                setCurrentUser(DEFAULT_USERS[0]);
+                setIsAuthenticated(false);
+            }
+        });
+
+        function cleanup() {
+            console.log('Cleanup is being called...');
+            unregisterFunction(); //call the unregister function
         }
-        else { //firebaseUser is undefined: is not logged in
-            console.log('logged out');
-            setCurrentUser(DEFAULT_USERS[0]);
-        }
-    });
+          
+        return cleanup; //effect hook callback returns the cleanup function
+    })
 
+    
     return (
         <div>
             <NavigationBar />
@@ -50,8 +63,8 @@ export default function App(props) {
                 <Route path="/tracker2" element={<Tracker2 />} />   
                 <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />} />
                 <Route path="/quiz/results" element={<QuizResults />} />
-                <Route path="/signin" element={<SignInPage />} />
-                <Route path="/account" element={<Account />} />
+                <Route path="/account" element={isAuthenticated ? <Account /> : <Navigate to="/signin" />} />
+                <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
                 <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
             <Footer />
