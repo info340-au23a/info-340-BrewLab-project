@@ -161,13 +161,14 @@ function CoffeeType(props) {
 function TemperatureDrink() {
     return (
         <section className="drink-temp">
+            <label htmlFor="temperature">Temperature</label>
             <div>
+                <input type="radio" id="hot" name="drink" value="hot" />
                 <label htmlFor="hot">Hot</label>
-                <input type="radio" id="hot" name="hot-drink" className="hot" value="hot" />
             </div>
             <div>
+                <input type="radio" id="iced" name="drink" value="iced" />
                 <label htmlFor="iced">Iced</label>
-                <input type="radio" id="iced" name="iced-drink" className="iced" value="iced" />
             </div>
         </section>
     );
