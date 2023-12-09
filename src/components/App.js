@@ -14,6 +14,7 @@ import QUIZ_CONTENT from '../data/quiz_content.json';
 import COFFEE_TYPES from '../data/explore_coffee.json';
 import TEMPERATURE from '../data/explore_temperature.json';
 import MILK_TYPES from '../data/explore_milk.json';
+import DRINKS from '../data/explore_cards.json';
 import SignInPage from './SignInPage.js';
 
 export default function App(props) {
@@ -23,7 +24,13 @@ export default function App(props) {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/explore" element={<Explore coffeeTypes={COFFEE_TYPES} temperature={TEMPERATURE} milkTypes={MILK_TYPES} />} />
+                <Route path="/explore" element={
+                    <Explore 
+                    coffeeTypes={COFFEE_TYPES} 
+                    temperature={TEMPERATURE} 
+                    milkTypes={MILK_TYPES} 
+                    drinks={DRINKS} />} 
+                />
                 <Route path="/tracker" element={<Tracker />} />
                 <Route path="/tracker2" element={<Tracker2 />} />   
                 <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />} />

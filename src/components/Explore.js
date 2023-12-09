@@ -61,41 +61,78 @@ export function Explore(props) {
                 </div>
             </div>
 
-            <AllCards />
+            <AllCards drinks={props.drinks} />
 
         </main>
     );
 }
 
+// const drinks = [
+//     {"drinkName": "Caramel Macchiato",
+//     "ingredients": [
+//         "2",
+//         "macchiato",
+//         "12 ounces",
+//         "whole (milk)",
+//         "100% sweet",
+//         "16 ounces", 
+//         "2 pumps",
+//         "Vanilla",
+//         "Hot",
+//         ""]
+//     },
+//     {"drinkName": "Matcha Latte"}
+// ]
+
+
+
 export function Card(props) {
+    // const drink = props.drinks;
+    // const drinkElements = props.drinks.map((drink) => {
+    //     drink.map((ingredients) => {
+    //         const elem = <p key={ingredients}>{ingredients}</p>;
+    //         return elem;
+    //     })
+    //     const transformed = <p key={drink.elem}>{drink.elem}</p>;
+    //     return transformed;
+    // })
+    // const drinkArray = props.drinks.map((drink) => {
+    //     console.log(drink.drinkName);
+    //     drink.ingredients.map((ingredient) => {
+    //         console.log(ingredient);
+    //     })
+    // })
+
+    const ingredients = props.ingredients;
+
     return (
         <div className="card">
             <div>
                 <div className="user-attribute">
                     <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                    <Link to="#" className="avatarUsername">@athenalovescoffee</Link>
+                    <p className="avatarUsername">@athenalovescoffee</p>
                 </div>
 
                 <div>
                     <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
-                    <h2>Coffee Drink</h2>
+                    <h2>{props.drink}</h2>
                     <p>Short description of the drink</p>
                 </div>
 
                 <div className="sectionTracker">
                     <h3>Ingredients</h3>
-                    <p>[#] shots of [coffee type, e.g. espresso]</p>
-                    <p>[ounce] of [milk type]</p>
-                    <p>sweetness level</p>
-                    <p>volume</p>
-                    <p>[type of syrup] syrup</p>
+                    <p>{ingredients.numShots} shots of a {ingredients.coffeeType}</p>
+                    <p>{ingredients.milkVolume} of {ingredients.milkType}</p>
+                    <p>{ingredients.sweetnessLevel}</p>
+                    <p>{ingredients.drinkVolume}</p>
+                    <p>{ingredients.syrupType} syrup</p>
                 </div>
 
                 <div className="sectionTracker">
                     <h3 className="h3tracker">Tags</h3>
-                    <span className="tag">Temperature</span>
-                    <span className="tag">Milk</span>
-                    <span className="tag">Syrup</span>
+                    <span className="tag">{ingredients.temperature}</span>
+                    <span className="tag">{ingredients.milkType}</span>
+                    <span className="tag">{ingredients.syrupType}</span>
                 </div>
             </div>
 
@@ -110,12 +147,19 @@ export function Card(props) {
 }
 
 function AllCards(props) {
+    const drinkArray = props.drinks.map((eachDrink) => {
+        const ingredients = eachDrink.ingredients.map((ingredient) => {
+            console.log(ingredient);
+            const transformed = <p key={ingredient}>{ingredient}</p>;
+            return transformed;
+        })
+        const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={ingredients} />
+        return aDrink;
+    })
+
     return (
         <div className="allCards">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {drinkArray}
         </div>
     );
 }
