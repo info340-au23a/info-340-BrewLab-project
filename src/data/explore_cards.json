@@ -1,0 +1,58 @@
+[
+    {"drinkName": "Caramel Macchiato",
+    "ingredients": 
+        {"numShots": "2",
+        "coffeeType": "macchiato",
+        "milkVolume": "12 ounces",
+        "milkType": "whole (milk)",
+        "sweetnessLevel": "100% sweet",
+        "drinkVolume": "16 ounces", 
+        "syrupPumps": "2 pumps",
+        "syrupType": "Vanilla",
+        "temperature": "Hot",
+        "tagMilkType": "Whole (milk)",
+        "foamVolume": ""}
+    },
+    {"drinkName": "Matcha Latte",
+    "ingredients": 
+        {"numShots": "4",
+        "coffeeType": "latte",
+        "milkVolume": "10 ounces",
+        "milkType": "goat",
+        "sweetnessLevel": "50% sweet",
+        "drinkVolume": "12 ounces", 
+        "syrupPumps": "6 pumps",
+        "syrupType": "Matcha",
+        "temperature": "Cold",
+        "tagMilkType": "Goat",
+        "foamVolume": "2 ounces"}
+    },
+    {"drinkName": "Hot Chocolate",
+    "ingredients": 
+        {"numShots": "5",
+        "coffeeType": "mocha",
+        "milkVolume": "7 ounces",
+        "milkType": "skim",
+        "sweetnessLevel": "0% sweet",
+        "drinkVolume": "18 ounces", 
+        "syrupPumps": "9 pumps",
+        "syrupType": "Chocolate",
+        "temperature": "Hot",
+        "tagMilkType": "Skim",
+        "foamVolume": "13 ounces"}
+    },
+    {"drinkName": "Chai Latte",
+    "ingredients": 
+        {"numShots": "16",
+        "coffeeType": "latte",
+        "milkVolume": "3 ounces",
+        "milkType": "2%",
+        "sweetnessLevel": "75% sweet",
+        "drinkVolume": "14 ounces", 
+        "syrupPumps": "6 pumps",
+        "syrupType": "Chai",
+        "temperature": "Hot",
+        "tagMilkType": "2%",
+        "foamVolume": "10 ounces"}
+    }
+]

@@ -7,10 +7,7 @@ export function QuizResults(props) {
             <main className="quiz-page main-quiz-padding" >
                 <h1 className="quiz-header">Quiz Results</h1>
                 <div className="allCards">
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {/* <Card /> */}
                 </div>
             </main>
         </div>

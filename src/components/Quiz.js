@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
-// import { QuizResults } from './QuizResults.js';
 
 export function Quiz(props) {
     // int
     // init value = 1
     const [questionNum, setQuestionNum] = useState(1);
+    const [userAnswers, setUserAnswers] = useState([]);
+    // if user's answer is this, recommend the ones with that on them
+    /* if (userCoffeeType === espresso) {
+        store in state, send to quiz results, pull cards that have coffeType = state
+    }
+    */
     const questionsAndAnswers = props.questionsAndAnswers;
 
     // questionsAndAnswers will begin at 0 for the index of the array
