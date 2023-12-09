@@ -35,20 +35,20 @@
         ]
     },
     {
+        "question": "How sweet do you like your coffee?",
+        "answers": [
+            "Super sweet (100% sugar)",
+            "Semi-sweet (50% sugar)",
+            "Not sweet at all (0% sugar)"
+        ]
+    },
+    {
         "question": "Do you like foam?",
         "answers": [
             "Yes",
             "No",
             "I don't care",
             "I like flavored foam only"
-        ]
-    },
-    {
-        "question": "How sweet do you like your coffee?",
-        "answers": [
-            "Super sweet (100% sugar)",
-            "Semi-sweet (50% sugar)",
-            "Not sweet at all (0% sugar)"
         ]
     }
 ]
