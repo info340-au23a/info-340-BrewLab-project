@@ -46,8 +46,8 @@ export default function App(props) {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/explore" element={
-                    <Explore 
+                <Route path="/explore" 
+                    element={<Explore 
                     coffeeTypes={COFFEE_TYPES} 
                     temperature={TEMPERATURE} 
                     milkTypes={MILK_TYPES} 
@@ -56,7 +56,7 @@ export default function App(props) {
                 <Route path="/tracker" element={<Tracker />} />
                 <Route path="/tracker2" element={<Tracker2 />} />   
                 <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />} />
-                <Route path="/quiz/results" element={<QuizResults />} />
+                <Route path="/quiz/results" element={<QuizResults drinks={DRINKS} />} />
                 <Route path="/signin" element={<SignInPage />} />
                 <Route path="/account" element={<Account />} />
                 <Route path="*" element={<Navigate to="/home" />} />

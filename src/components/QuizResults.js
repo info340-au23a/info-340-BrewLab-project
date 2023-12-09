@@ -8,9 +8,6 @@ export function QuizResults(props) {
                 <h1 className="quiz-header">Quiz Results</h1>
                 <div className="allCards">
                     <Card />
-                    <Card />
-                    <Card />
-                    <Card />
                 </div>
             </main>
         </div>

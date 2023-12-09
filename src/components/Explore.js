@@ -111,7 +111,7 @@ export function Card(props) {
     );
 }
 
-function AllCards(props) {
+export function AllCards(props) {
     const drinkArray = props.drinks.map((eachDrink) => {
         const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} />
         return aDrink;
