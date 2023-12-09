@@ -14,15 +14,17 @@ export function Quiz(props) {
     */
     const questionsAndAnswers = props.questionsAndAnswers;
 
+    const handleClickAnswer = (event) => {
+        if (questionNum === questionNum - 1) {
+            console.log(questionsAndAnswers[questionNum].answers[1]);
+        }
+    }
+
     // questionsAndAnswers will begin at 0 for the index of the array
     const liAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
-        const transformed = <li key={answerString}>{answerString}</li>;
+        const transformed = <li key={answerString} onClick={handleClickAnswer}>{answerString}</li>;
         return transformed;
     })
-
-    // const handleClickAnswer = (event) => {
-
-    // }
 
     // when last question maybe change to submit button instead and then will render a new page with recs
     const handleClickNext = (event) => {
