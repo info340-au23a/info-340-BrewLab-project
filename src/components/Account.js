@@ -8,8 +8,13 @@ export function Account(props) {
 
     const displayName = props.currentUser.userName;
     const profilePic = props.currentUser.userImg
-    const userName = props.currentUser.userId;
+    const joinedDate = props.currentUser.joinedDate;
+    const formattedJoinedDate = new Date(joinedDate).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+    });
 
+    const [newUsername, setNewUsername] = useState(props.currentUser.userId);
     const [activeTab, setActiveTab] = useState('posts');
     const [editMode, setEditMode] = useState(false);
     const [imageFile, setImageFile] = useState(undefined)
@@ -23,6 +28,7 @@ export function Account(props) {
     const toggleEditMode = () => {
         setEditMode(!editMode);
     };
+      
 
     const renderContent = () => {
         if (activeTab === 'saved') {
@@ -45,12 +51,12 @@ export function Account(props) {
     const renderUserProfile = () => (
         <div className="block-container">
             <div className="account-data">
-                <h2> @{userName} </h2>
+                <h2> @{newUsername} </h2>
             </div>
             <img className="profile-picture" src={profilePic} alt="profile picture" />
             <div className="account-data">
                 <p> {displayName} </p>
-                <p> Joined date xx/xxxx</p>
+                <p> Joined {formattedJoinedDate}</p>
             </div>
             <div className="flex-box">
                 <button className="nav__button" onClick={toggleEditMode}>
@@ -100,6 +106,9 @@ export function Account(props) {
 
     const renderEditProfileForm = () => (
         <div className='block-container'>
+            <div className="account-data">
+                <h2> Edit Profile </h2>
+            </div>
             <div className="edit-data">
                 <div className='flex-box'>
                     <img src={imageUrl} alt="user avatar preview" className="profile-picture-edit"/>
@@ -112,11 +121,18 @@ export function Account(props) {
             </div>
             <div className='flex-box'>
                 <form onSubmit={handleEditProfile}>
-                    
-                    <button type="submit" className='nav__button'>Save Changes</button>
-                    <button type="button" className='nav__button' onClick={toggleEditMode}>
+                    <div className='flex-box'>
+                        <label className='nav__button'>
+                            Username : 
+                            <input type="text" value={newUsername} onChange={(event) => setNewUsername(event.target.value)} />
+                        </label>
+                    </div>
+                    <div className='flex-box'>
+                        <button type="submit" className='nav__button'>Save Changes</button>
+                        <button type="button" className='nav__button' onClick={toggleEditMode}>
                         Cancel
-                    </button>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -130,11 +146,11 @@ export function Account(props) {
     //image uploading!
     const handleChange = (event) => {
         if(event.target.files.length > 0 && event.target.files[0]) {
-        const imageFile = event.target.files[0]
-        setImageFile(imageFile);
-        setImageUrl(URL.createObjectURL(imageFile));
+            const imageFile = event.target.files[0]
+            setImageFile(imageFile);
+            setImageUrl(URL.createObjectURL(imageFile));
         }
-    }
+    };
 
     const handleImageUpload = async (event) => {
         console.log("Uploading", imageFile);
@@ -152,23 +168,7 @@ export function Account(props) {
 
     return (
         <main>
-            {/* <div className="block-container">
-            <div className="account-data">
-                <h2> @Username </h2>
-            </div>
-            <img className="profile-picture" src={profilePic} alt="profile picture"/>
-            <div className="account-data">
-                <p> {displayName} </p>
-                <p> Joined date xx/xxxx</p>
-            </div>
-            <div className="flex-box">
-                <button className="nav__button" onClick={editProfile}> Edit profile </button>
-            </div>
-            </div> */}
-
             {renderProfileContent()}
-
-        
         </main>
 
     )

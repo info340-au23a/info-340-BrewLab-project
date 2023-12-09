@@ -385,7 +385,8 @@ img.profile-picture-edit {
     border-radius: 50%;
     margin-right: 100px;
     margin-left: 100px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    object-fit: cover;
 }
 
 img.profile-picture {
@@ -394,6 +395,7 @@ img.profile-picture {
     border-radius: 50%;
     margin-right: auto;
     margin-left: auto;
+    object-fit: cover;
 }
 
 .block-container {
@@ -427,7 +429,7 @@ img.profile-picture {
 }
 
 .edit-data {
-    padding: 100px;
+    padding: 0 100px 5px ;
 }
 
 .hide {
@@ -469,7 +471,7 @@ img.profile-picture {
 
 .block-container .flex-box{
     justify-content: center;
-    padding: 25px;
+    padding: 15px;
 }
 
 .profile-content {
@@ -1094,6 +1096,9 @@ div.uploadImg {
         border-radius: 4rem;
         color: var(--milk-foam);
         font-weight: var(--font-semi-bold);
+        font-size: 16px;
+        font-family: "Poppins";
+        margin: 5px;
     }
 
 

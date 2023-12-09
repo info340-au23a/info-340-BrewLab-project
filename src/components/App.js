@@ -29,13 +29,15 @@ export default function App(props) {
 
         const unregisterFunction = onAuthStateChanged(auth, (firebaseUser) => {
             if(firebaseUser){ //firebaseUser defined: is logged in
-                console.log('logged in', firebaseUser.displayName);
+                console.log('logged in', firebaseUser);
                 firebaseUser.userId = firebaseUser.uid;
                 firebaseUser.userName = firebaseUser.displayName;
                 firebaseUser.userImg = firebaseUser.photoURL || "/img/profile-picture.jpg";
-
+                firebaseUser.joinedDate = firebaseUser.metadata.creationTime;
+                
                 setCurrentUser(firebaseUser);
                 setIsAuthenticated(true);
+                console.log(setIsAuthenticated);
             }
             else { //firebaseUser is undefined: is not logged in
                 console.log('logged out');
@@ -70,8 +72,8 @@ export default function App(props) {
                 <Route path="/tracker2" element={<Tracker2 />} />   
                 <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />} />
                 <Route path="/quiz/results" element={<QuizResults drinks={DRINKS} />} />
-                <Route path="/account" element={isAuthenticated ? <Account currentUser={currentUser} /> : <Navigate to="/signin" />} />
                 <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
+                <Route path="/account" element={isAuthenticated ? <Account currentUser={currentUser} /> : <Navigate to="/signin" />} />
                 <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
             <Footer />

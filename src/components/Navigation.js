@@ -39,7 +39,7 @@ export function NavigationBar(props) {
                         ) : (
                         <Link to="signin" className="nav__button">Login</Link>
                     )}
-                    
+
                 </div>
 
                 <div className="'toggle">
