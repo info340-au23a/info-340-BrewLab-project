@@ -70,8 +70,9 @@ export default function App(props) {
                 />
                 <Route path="/tracker" element={<Tracker />} />
                 <Route path="/tracker2" element={<Tracker2 />} />   
-                <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} />} />
-                <Route path="/quiz/results" element={<QuizResults drinks={DRINKS} />} />
+                <Route path="/quiz" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} drinks={DRINKS} />}>
+                    <Route path=":results" element={<QuizResults drinks={DRINKS} />} />
+                </Route>
                 <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
                 <Route path="/account" element={isAuthenticated ? <Account currentUser={currentUser} drinks={DRINKS} /> : <Navigate to="/signin" />} />
                 <Route path="*" element={<Navigate to="/home" />} />

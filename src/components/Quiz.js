@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export function Quiz(props) {
     // int
     // init value = 1
     const [questionNum, setQuestionNum] = useState(1);
-    const [userAnswers, setUserAnswers] = useState([]);
+    const [userAnswers, setUserAnswers] = useState({});
     // if user's answer is this, recommend the ones with that on them
     /* if (userCoffeeType === espresso) {
         store in state, send to quiz results, pull cards that have coffeType = state
@@ -15,11 +15,17 @@ export function Quiz(props) {
     const questionsAndAnswers = props.questionsAndAnswers;
 
     const handleClickAnswer = (event, answerString) => {
-        // setUserAnswers([answerString]);
-        // if (questionNum === 1 && userAnswers[0] !== null) {
-        //     setUserAnswers([answerString]);
-        // }
-        setUserAnswers([...userAnswers, answerString]);
+        if (questionNum === 1) {
+            setUserAnswers({...userAnswers, coffeeType: answerString});
+        } else if (questionNum === 2) {
+            setUserAnswers({...userAnswers, milkType: answerString});
+        } else if (questionNum === 3) {
+            setUserAnswers({...userAnswers, temperature: answerString});
+        } else if (questionNum === 4) {
+            setUserAnswers({...userAnswers, sweetness: answerString});
+        } else {
+            setUserAnswers({...userAnswers, foam: answerString});
+        }
         console.log(userAnswers);
     }
 
@@ -44,17 +50,16 @@ export function Quiz(props) {
         }
     }
 
-    // const quizParams = useParams();
-    // const resultsPage = quizParams.results;
+    const quizParams = useParams();
+    const resultsPage = quizParams.results;
     
-    // const handleClickSubmit = (event) => {
-    //     return (
-    //         <div>
-    //             <Link to={"/quiz/results"}>Submit</Link>
-    //             <QuizResults results={resultsPage} />
-    //         </div>
-    //     );
-    // }
+    const handleClickSubmit = (event) => {
+        return (
+            <div>
+                <Link to={resultsPage} />
+            </div>
+        );
+    }
 
     // make each return its own private function to clean up this section?
     if (questionNum === 1) {
@@ -120,8 +125,8 @@ export function Quiz(props) {
 
                 <section className="buttons">
                     <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                    {/* <div className="primary-button" onClick={handleClickSubmit}>Submit</div> */}
-                    <Link to="/quiz/results" className="primary-button">Submit</Link>
+                    <div className="primary-button" onClick={handleClickSubmit}>Submit</div>
+                    {/* <Link to="/quiz/results" className="primary-button">Submit</Link> */}
                 </section>
             </main>
         );
