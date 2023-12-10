@@ -65,12 +65,11 @@ export function Tracker(props) {
         </div>
     )
 
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState('./img/icedcoffee.jpg');
 
     const handleImageChange = (event) => {
         setSelectedImage(URL.createObjectURL(event.target.files[0]));
     };
-
 
     const renderPostsContent = () => {
         // show cards of posted drinks here
@@ -81,9 +80,6 @@ export function Tracker(props) {
 
     const handleChange = (event) => {
         var { name, value } = event.target;
-        console.log(event.target);
-        console.log(name);
-        console.log(value);
 
         if (event.target.classList.contains("temperature")) {
             name = "temperature";
@@ -103,7 +99,6 @@ export function Tracker(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
 
         setSubmitted(true);
     }
@@ -300,7 +295,7 @@ function ImageUpload(props) {
     return (
         <div className="uploadImg">
             <input type="file" onChange={props.onChange} />
-            <img src={props.selectedImage} alt="preview of user's coffee drink" />
+            <img className="imageUpload" src={props.selectedImage} alt="preview of user's coffee drink" />
         </div>
     );
 }
