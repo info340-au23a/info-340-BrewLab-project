@@ -1,4 +1,5 @@
 [
+    {"value": "", "temp": ""},
     {"value": "hot", "temp": "Hot"},
     {"value": "cold", "temp": "Cold"}
 ]
