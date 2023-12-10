@@ -2,6 +2,15 @@ import React from 'react';
 
 export function Card(props) {
     const ingredients = props.ingredients;
+    // const exploreFilter = props.exploreFilter;
+    // console.log(exploreFilter);
+
+// explore page filtering
+// if (ingredients.coffeeType === exploreFilter.coffeeType || 
+//     ingredients.milktype === exploreFilter.milkType || 
+//     ingredients.temperature === exploreFilter.temperature || 
+//     ingredients.syrupType === exploreFilter.syrupType) {
+// }
 
     return (
         <div className="card">
@@ -45,14 +54,14 @@ export function Card(props) {
 }
 
 export function AllCards(props) {
-    const drinkArray = props.drinks.map((eachDrink) => {
+    const cardDrinkArray = props.drinks.map((eachDrink) => {
         const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} />
         return aDrink;
     })
 
     return (
         <div className="allCards">
-            {drinkArray}
+            {cardDrinkArray}
         </div>
     );
 }
