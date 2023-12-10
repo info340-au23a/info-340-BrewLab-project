@@ -184,8 +184,6 @@ function QuizPage(props) {
 }
 
 function ResultsPage(props) {
-    console.log(props.userAnswers);
-
     return (
         <div>
             <main className="quiz-page main-quiz-padding" >

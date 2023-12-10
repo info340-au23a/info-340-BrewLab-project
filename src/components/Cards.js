@@ -1,9 +1,10 @@
+import { updateEmail } from 'firebase/auth';
 import React from 'react';
 
 export function Card(props) {
     const ingredients = props.ingredients;
     const quizFilter = props.quizAnswers;
-    console.log(quizFilter);
+    console.log(ingredients);
     // const exploreFilter = props.exploreFilter;
     // console.log(exploreFilter);
 
@@ -13,8 +14,14 @@ export function Card(props) {
 //     ingredients.temperature === exploreFilter.temperature || 
 //     ingredients.syrupType === exploreFilter.syrupType) {
 // }
+    const quizCoffeeType = quizFilter.coffeeType;
+    const lowercaseQuizCoffeeType = quizCoffeeType.toLowerCase();
+    const quizMilkType = quizFilter.milkType;
+    const lowercaseQuizMilkType = quizMilkType.toLowerCase();
 
-    if (
+    if (ingredients.coffeeType === lowercaseQuizCoffeeType || 
+        ingredients.milktype === lowercaseQuizMilkType || 
+        ingredients.temperature === quizFilter.temperature || 
         ingredients.sweetnessLevel === quizFilter.sweetness) {
             return (
                 <div className="card">
@@ -33,7 +40,7 @@ export function Card(props) {
                         <div className="sectionTracker">
                             <h3>Ingredients</h3>
                             <p>{ingredients.numShots} shots of a {ingredients.coffeeType}</p>
-                            <p>{ingredients.milkVolume} of {ingredients.milkType}</p>
+                            <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
                             <p>{ingredients.drinkVolume}</p>
                             <p>{ingredients.syrupType} syrup</p>
@@ -42,7 +49,7 @@ export function Card(props) {
                         <div className="sectionTracker">
                             <h3 className="h3tracker">Tags</h3>
                             <span className="tag">{ingredients.temperature}</span>
-                            <span className="tag">{ingredients.tagMilkType}</span>
+                            <span className="tag">{ingredients.tagMilkType} Milk</span>
                             <span className="tag">{ingredients.syrupType}</span>
                         </div>
                     </div>

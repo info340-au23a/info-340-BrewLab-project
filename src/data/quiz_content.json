@@ -16,7 +16,7 @@
     {
         "question": "What milk do you use?",
         "answers": [
-            "Regular (Whole, skim, 2%, etc.)",
+            "Regular",
             "Soy",
             "Oat",
             "Almond",
@@ -37,9 +37,9 @@
     {
         "question": "How sweet do you like your coffee?",
         "answers": [
-            "Super sweet (100% sugar)",
-            "Semi-sweet (50% sugar)",
-            "Not sweet at all (0% sugar)"
+            "100% sweet",
+            "50% sweet",
+            "0% sweet"
         ]
     },
     {
