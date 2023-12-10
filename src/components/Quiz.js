@@ -14,15 +14,18 @@ export function Quiz(props) {
     */
     const questionsAndAnswers = props.questionsAndAnswers;
 
-    const handleClickAnswer = (event) => {
-        if (questionNum === questionNum - 1) {
-            console.log(questionsAndAnswers[questionNum].answers[1]);
-        }
+    const handleClickAnswer = (event, answerString) => {
+        // setUserAnswers([answerString]);
+        // if (questionNum === 1 && userAnswers[0] !== null) {
+        //     setUserAnswers([answerString]);
+        // }
+        setUserAnswers([...userAnswers, answerString]);
+        console.log(userAnswers);
     }
 
     // questionsAndAnswers will begin at 0 for the index of the array
     const liAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
-        const transformed = <li key={answerString} onClick={handleClickAnswer}>{answerString}</li>;
+        const transformed = <li key={answerString} onClick={(event) => handleClickAnswer(event, answerString)}>{answerString}</li>;
         return transformed;
     })
 
