@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { AllCards, Card } from './Cards.js';
+import { AllCards } from './Cards.js';
 
 export function Quiz(props) {
     // what the user selects for each question gets save into this object (key is the question thing, value is their answer)
     const [userAnswers, setUserAnswers] = useState({});
-    // if user's answer is this, recommend the ones with that on them
-    /* if (userCoffeeType === espresso) {
-        store in state, send to quiz results, pull cards that have coffeType = state
-    }
-    */
-
-    // json file that was imported and passed in from App.js, quiz content json
-    // const questionsAndAnswers = props.questionsAndAnswers;
 
     // content to be shown whether it's the questions or the recommended drink results for the user
     return (
@@ -103,14 +95,6 @@ function QuizPage(props) {
         }
     }
 
-    // const handleClickSubmit = (event) => {
-    //     return (
-    //         <div>
-    //             <Link to={"/quiz/results"} />
-    //         </div>
-    //     );
-    // }
-
     // returns different screens based on which question it is on (mainly just affects the buttons)
     if (questionNum === 1) {
         return (
@@ -190,7 +174,6 @@ function ResultsPage(props) {
                 <h1 className="quiz-header">Quiz Results</h1>
                 <div className="allCards">
                     <AllCards drinks={props.drinks} quizAnswers={props.userAnswers} />
-                    {/* <Card quizAnswers={props.userAnswers} /> */}
                 </div>
             </main>
         </div>

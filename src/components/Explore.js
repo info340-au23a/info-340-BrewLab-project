@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { AllCards, Card } from './Cards.js';
+import { AllCards } from './Cards.js';
 import { Link } from 'react-router-dom';
 
 export function Explore(props) {
     const [userSelectedFilters, setUserSelectedFilters] = useState({});
+    console.log(userSelectedFilters);
 
     const coffeeTypes = props.coffeeTypes;
     const temperature = props.temperature;
     const milkTypes = props.milkTypes;
 
     const handleChangeCoffee = (event) => {
-        setUserSelectedFilters({...userSelectedFilters, coffeeType: event.target.value});
+        setUserSelectedFilters({...userSelectedFilters, coffeeType: event.target.type});
     }
 
     const handleChangeTemp = (event) => {
@@ -84,7 +85,7 @@ export function Explore(props) {
                 </div>
             </div>
 
-            <AllCards drinks={props.drinks} />
+            <AllCards drinks={props.drinks}/>
 
         </main>
     );

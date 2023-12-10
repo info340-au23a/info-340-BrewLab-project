@@ -4,23 +4,22 @@ import React from 'react';
 export function Card(props) {
     const ingredients = props.ingredients;
     const quizFilter = props.quizAnswers;
-    console.log(ingredients);
-    // const exploreFilter = props.exploreFilter;
-    // console.log(exploreFilter);
+    // const exploreFilters = props.exploreFilters;
 
-// explore page filtering
-// if (ingredients.coffeeType === exploreFilter.coffeeType || 
-//     ingredients.milktype === exploreFilter.milkType || 
-//     ingredients.temperature === exploreFilter.temperature || 
-//     ingredients.syrupType === exploreFilter.syrupType) {
-// }
+    // const exploreCoffeeType = exploreFilters.coffeeType;
+    // explore page filtering
+    // if (ingredients.coffeeType === exploreFilter.coffeeType || 
+    //     ingredients.milktype === exploreFilter.milkType || 
+    //     ingredients.temperature === exploreFilter.temperature || 
+    //     ingredients.syrupType === exploreFilter.syrupType) {
+    // }
+
+    // quiz results based off preference filtering
     const quizCoffeeType = quizFilter.coffeeType;
     const lowercaseQuizCoffeeType = quizCoffeeType.toLowerCase();
-    const quizMilkType = quizFilter.milkType;
-    const lowercaseQuizMilkType = quizMilkType.toLowerCase();
 
     if (ingredients.coffeeType === lowercaseQuizCoffeeType || 
-        ingredients.milktype === lowercaseQuizMilkType || 
+        ingredients.tagMilkType === quizFilter.milkType || 
         ingredients.temperature === quizFilter.temperature || 
         ingredients.sweetnessLevel === quizFilter.sweetness) {
             return (
