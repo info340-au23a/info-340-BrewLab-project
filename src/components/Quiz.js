@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { AllCards } from './Cards.js';
-// import { QuizResults } from './QuizResults.js';
+import { AllCards, Card } from './Cards.js';
 
 export function Quiz(props) {
     // what the user selects for each question gets save into this object (key is the question thing, value is their answer)
