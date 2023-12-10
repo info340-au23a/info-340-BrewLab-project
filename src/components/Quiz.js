@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+// import { AllCards } from './Cards.js';
+// import { useParams } from 'react-router-dom';
+// import { QuizResults } from './QuizResults.js';
 
 export function Quiz(props) {
     // int
@@ -49,16 +51,16 @@ export function Quiz(props) {
         }
     }
 
-    const quizParams = useParams();
-    const resultsPage = quizParams.results;
+    // const quizParams = useParams();
+    // const resultsPage = quizParams.results;
     
-    const handleClickSubmit = (event) => {
-        return (
-            <div>
-                <Link to={resultsPage} />
-            </div>
-        );
-    }
+    // const handleClickSubmit = (event) => {
+    //     return (
+    //         <div>
+    //             <Link to={resultsPage} />
+    //         </div>
+    //     );
+    // }
 
     // make each return its own private function to clean up this section?
     if (questionNum === 1) {
@@ -124,8 +126,9 @@ export function Quiz(props) {
 
                 <section className="buttons">
                     <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                    <div className="primary-button" onClick={handleClickSubmit}>Submit</div>
-                    {/* <Link to="/quiz/results" className="primary-button">Submit</Link> */}
+                    {/* <div className="primary-button" onClick={handleClickSubmit}>Submit</div> */}
+                    <Link to="/quiz/results" className="primary-button">Submit</Link>
+                    {/* <QuizResults userAnswers={userAnswers} className="primary-button">Submit</QuizResults> */}
                 </section>
             </main>
         );
