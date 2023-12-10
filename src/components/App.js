@@ -6,7 +6,6 @@ import { Explore } from './Explore.js';
 import { Tracker } from './Tracker.js';
 import { Tracker2 } from './Tracker2.js';
 import { Quiz } from './Quiz.js';
-import { QuizResults } from './QuizResults.js';
 import { Account } from './Account.js';
 import { Footer } from './Footer.js';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
@@ -15,7 +14,7 @@ import QUIZ_CONTENT from '../data/quiz_content.json';
 import COFFEE_TYPES from '../data/explore_coffee.json';
 import TEMPERATURE from '../data/explore_temperature.json';
 import MILK_TYPES from '../data/explore_milk.json';
-import DRINKS from '../data/explore_cards.json';
+import DRINKS from '../data/drink_cards.json';
 import SignInPage from './SignInPage.js';
 import DEFAULT_USERS from '../data/users.json';
 
