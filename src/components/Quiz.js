@@ -4,45 +4,72 @@ import { AllCards } from './Cards.js';
 // import { QuizResults } from './QuizResults.js';
 
 export function Quiz(props) {
+    // what the user selects for each question gets save into this object (key is the question thing, value is their answer)
     const [userAnswers, setUserAnswers] = useState({});
     // if user's answer is this, recommend the ones with that on them
     /* if (userCoffeeType === espresso) {
         store in state, send to quiz results, pull cards that have coffeType = state
     }
     */
-    const questionsAndAnswers = props.questionsAndAnswers;
 
+    // json file that was imported and passed in from App.js, quiz content json
+    // const questionsAndAnswers = props.questionsAndAnswers;
+
+    // content to be shown whether it's the questions or the recommended drink results for the user
     return (
         <div>
-            <PageContent state={userAnswers} setState={setUserAnswers} questionsAndAnswers={questionsAndAnswers} drinks={props.drinks} />
+            <PageContent 
+            // json file that was imported and passed in from App.js, has each question along with their answers for quiz
+            questionsAndAnswers={props.questionsAndAnswers} 
+
+            // the state and set state for results
+            userAnswers={userAnswers} 
+            setUserAnswers={setUserAnswers} 
+
+            // json file that was imported and passed in from App.js, has each drink along with their ingredients for results 
+            drinks={props.drinks} 
+            />
         </div>
-    )
+    );
 }
 
+// 
 function PageContent(props) {
+    // checks for parameters in the /quiz path
     const quizParams = useParams();
     const currentPage = quizParams.results;
 
+    // if the params has /results at the end, it returns the results page, otherwise the quiz page is shown
     if (currentPage === "results") {
         return (
-            <ResultsPage state={props.state} drinks={props.drinks} />
+            <ResultsPage 
+            // passes user answers and drinks to show out of the users' answers what drinks to show
+            userAnswers={props.userAnswers} 
+            drinks={props.drinks} 
+            />
         )
     } else {
         return (
-            <QuizPage state={props.state} setState={props.setState} questionsAndAnswers={props.questionsAndAnswers}/>
+            <QuizPage 
+            // passes user answers, setting the users answers, and the questions and answers to keep track of what options are selected and saved
+            userAnswers={props.userAnswers} 
+            setUserAnswers={props.setUserAnswers} 
+            questionsAndAnswers={props.questionsAndAnswers}
+            />
         )
     }
 }
 
 function QuizPage(props) {
-    // int
-    // init value = 1
+    // starts the question number at 1 but can go back and forth between 1 and 5, only needed for the quiz portion of content
     const [questionNum, setQuestionNum] = useState(1);
 
+    // all of the props passed as a constant variable
     const questionsAndAnswers = props.questionsAndAnswers;
-    const userAnswers = props.state;
-    const setUserAnswers = props.setState;
+    const userAnswers = props.userAnswers;
+    const setUserAnswers = props.setUserAnswers;
 
+    // handle click event for the user's answers, saves what they select into state in the exported function
     const handleClickAnswer = (event, answerString) => {
         if (questionNum === 1) {
             setUserAnswers({ ...userAnswers, coffeeType: answerString });
@@ -57,37 +84,35 @@ function QuizPage(props) {
         }
     }
 
-    // questionsAndAnswers will begin at 0 for the index of the array
+    // questionsAndAnswers will begin at 0 for the index of the array, all of the answers of one question
     const liAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
         const transformed = <li key={answerString} onClick={(event) => handleClickAnswer(event, answerString)}>{answerString}</li>;
         return transformed;
     })
 
-    // when last question maybe change to submit button instead and then will render a new page with recs
+    // handle click event for the next button (only next, not submit)
     const handleClickNext = (event) => {
-        // if question num is 1 or greater and is less than 5 (don't want to be able to click next on question 5, will change to a submit button later)
         if (questionNum >= 1 && questionNum < questionsAndAnswers.length) {
             setQuestionNum(questionNum + 1);
         }
     }
 
+    // handle click event for the previous button (does not show up on question 1)
     const handleClickPrev = (event) => {
-        // if question num is 5 or less and is greater than 1 (don't want to be able to click prev on question 1, will possibly make it not visible later)
         if (questionNum <= questionsAndAnswers.length && questionNum > 1) {
             setQuestionNum(questionNum - 1);
         }
     }
 
-    const handleClickSubmit = (event) => {
-        return (
-            <div>
-                <Link to={"/quiz/results"} />
-            </div>
-        );
-    }
+    // const handleClickSubmit = (event) => {
+    //     return (
+    //         <div>
+    //             <Link to={"/quiz/results"} />
+    //         </div>
+    //     );
+    // }
 
-
-    // make each return its own private function to clean up this section?
+    // returns different screens based on which question it is on (mainly just affects the buttons)
     if (questionNum === 1) {
         return (
             <main className="quiz-page main-quiz-padding">
@@ -151,9 +176,8 @@ function QuizPage(props) {
 
                 <section className="buttons">
                     <div className="primary-button" onClick={handleClickPrev}>Previous</div>
-                    {/* <div className="primary-button" onClick={handleClickSubmit}>Submit</div> */}
+                    {/* Links to the results params page */}
                     <Link to="/quiz/results" className="primary-button">Submit</Link>
-                    {/* <QuizResults userAnswers={userAnswers} className="primary-button">Submit</QuizResults> */}
                 </section>
             </main>
         );
@@ -161,7 +185,7 @@ function QuizPage(props) {
 }
 
 function ResultsPage(props) {
-    console.log(props.state);
+    console.log(props.userAnswers);
     return (
         <div>
             <main className="quiz-page main-quiz-padding" >
