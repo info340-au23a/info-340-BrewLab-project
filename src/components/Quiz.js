@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-// import { AllCards } from './Cards.js';
-// import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { AllCards } from './Cards.js';
 // import { QuizResults } from './QuizResults.js';
 
 export function Quiz(props) {
-    // int
-    // init value = 1
-    const [questionNum, setQuestionNum] = useState(1);
     const [userAnswers, setUserAnswers] = useState({});
     // if user's answer is this, recommend the ones with that on them
     /* if (userCoffeeType === espresso) {
@@ -16,17 +12,48 @@ export function Quiz(props) {
     */
     const questionsAndAnswers = props.questionsAndAnswers;
 
+    return (
+        <div>
+            <PageContent state={userAnswers} setState={setUserAnswers} questionsAndAnswers={questionsAndAnswers} drinks={props.drinks} />
+        </div>
+    )
+}
+
+function PageContent(props) {
+    const quizParams = useParams();
+    const currentPage = quizParams.results;
+
+    if (currentPage === "results") {
+        return (
+            <ResultsPage state={props.state} drinks={props.drinks} />
+        )
+    } else {
+        return (
+            <QuizPage state={props.state} setState={props.setState} questionsAndAnswers={props.questionsAndAnswers}/>
+        )
+    }
+}
+
+function QuizPage(props) {
+    // int
+    // init value = 1
+    const [questionNum, setQuestionNum] = useState(1);
+
+    const questionsAndAnswers = props.questionsAndAnswers;
+    const userAnswers = props.state;
+    const setUserAnswers = props.setState;
+
     const handleClickAnswer = (event, answerString) => {
         if (questionNum === 1) {
-            setUserAnswers({...userAnswers, coffeeType: answerString});
+            setUserAnswers({ ...userAnswers, coffeeType: answerString });
         } else if (questionNum === 2) {
-            setUserAnswers({...userAnswers, milkType: answerString});
+            setUserAnswers({ ...userAnswers, milkType: answerString });
         } else if (questionNum === 3) {
-            setUserAnswers({...userAnswers, temperature: answerString});
+            setUserAnswers({ ...userAnswers, temperature: answerString });
         } else if (questionNum === 4) {
-            setUserAnswers({...userAnswers, sweetness: answerString});
+            setUserAnswers({ ...userAnswers, sweetness: answerString });
         } else {
-            setUserAnswers({...userAnswers, foam: answerString});
+            setUserAnswers({ ...userAnswers, foam: answerString });
         }
     }
 
@@ -51,16 +78,14 @@ export function Quiz(props) {
         }
     }
 
-    // const quizParams = useParams();
-    // const resultsPage = quizParams.results;
-    
-    // const handleClickSubmit = (event) => {
-    //     return (
-    //         <div>
-    //             <Link to={resultsPage} />
-    //         </div>
-    //     );
-    // }
+    const handleClickSubmit = (event) => {
+        return (
+            <div>
+                <Link to={"/quiz/results"} />
+            </div>
+        );
+    }
+
 
     // make each return its own private function to clean up this section?
     if (questionNum === 1) {
@@ -133,4 +158,19 @@ export function Quiz(props) {
             </main>
         );
     }
+}
+
+function ResultsPage(props) {
+    console.log(props.state);
+    return (
+        <div>
+            <main className="quiz-page main-quiz-padding" >
+                <h1 className="quiz-header">Quiz Results</h1>
+                <div className="allCards">
+                    <AllCards drinks={props.drinks} />
+                    {/* <Card /> */}
+                </div>
+            </main>
+        </div>
+    )
 }
