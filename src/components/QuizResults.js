@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { AllCards } from './Explore.js';
-import { Card } from './Card.js';
+import { AllCards } from './Cards.js';
+import { Card } from './Cards.js';
 
 export function QuizResults(props) {
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Footer } from './Footer.js';
-import { AllCards, Card } from './Explore.js';
+import { AllCards, Card } from './Cards.js';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getAuth, updateProfile } from 'firebase/auth'
 

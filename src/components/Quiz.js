@@ -26,7 +26,6 @@ export function Quiz(props) {
         } else {
             setUserAnswers({...userAnswers, foam: answerString});
         }
-        console.log(userAnswers);
     }
 
     // questionsAndAnswers will begin at 0 for the index of the array
