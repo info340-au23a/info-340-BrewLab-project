@@ -314,7 +314,7 @@ div {
     /* padding: 0.5em 0; */
 }
 
-.options li {
+.options button {
     display: block;
     text-align: center;
     width: 65%;
@@ -324,9 +324,15 @@ div {
     margin: auto;
     margin-bottom: 1rem;
     color: white;
+    font: var(--body-font);
 }
 
-.options li:hover {
+.options button:hover {
+    background-color: var(--creamy-latte);
+    color: var(--espresso-brown);
+}
+
+.options button:focus {
     background-color: var(--creamy-latte);
     color: var(--espresso-brown);
 }
