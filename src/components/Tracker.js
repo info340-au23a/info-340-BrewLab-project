@@ -142,7 +142,6 @@ export function Tracker(props) {
             const storage = getStorage();
             const formImagesRef = storageRef(storage, newDrinkRef.key);
             
-            console.log(imageF);
             uploadBytes(formImagesRef, imageF).then((snapshot) => {
                 console.log('Uploaded a blob or file!');
             });
@@ -245,11 +244,11 @@ function TemperatureDrink(props) {
         <section className="drink-temp">
             <label htmlFor="temperature">Temperature</label>
             <div>
-                <input type="radio" id="hot" className="temperature" name="temperature" value="hot" onChange={props.temp} />
+                <input type="radio" id="iced" className="temperature" name="temperature" value="Hot" onChange={props.temp} />
                 <label htmlFor="hot">Hot</label>
             </div>
             <div>
-                <input type="radio" id="iced" className="temperature" name="temperature" value="iced" onChange={props.temp} />
+                <input type="radio" id="iced" className="temperature" name="temperature" value="Iced" onChange={props.temp} />
                 <label htmlFor="iced">Iced</label>
             </div>
         </section>
@@ -357,7 +356,8 @@ function SyrupPumps(props) {
 function ImageUpload(props) {
     return (
         <div className="uploadImg">
-            <input type="file" onChange={props.onChange} />
+            <label htmlFor="uploadImg">Upload Image of Your Drink</label>
+            <input type="file" id="uploadImg" onChange={props.onChange} />
             <img className="imageUpload" src={props.selectedImage} alt="preview of user's coffee drink" />
         </div>
     );
@@ -377,7 +377,6 @@ export function CreateCards(props) {
         // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {
           const data = snapshot.val();
-          console.log(data);
           if (data) {
             // Convert the data object into an array and set it in the state
             const dataArray = Object.keys(data).map((key) => ({
@@ -386,7 +385,6 @@ export function CreateCards(props) {
             }));
             setDrinkData(dataArray);
             fetchURL();
-            console.log(dataArray);
           } else {
             // Handle the case when there is no data
             setDrinkData([]);
@@ -419,7 +417,7 @@ export function CreateCards(props) {
             </div> */}
 
             <div>
-                <img className="coffeeimg" src={drink.selectedImage} alt="coffee with ice" />
+                <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
                 <h2>{drink.drinkName}</h2>
                 <p>{drink.drinkDescription}</p>
             </div>

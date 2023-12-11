@@ -1,5 +1,5 @@
 import { updateEmail } from 'firebase/auth';
-import { getDatabase, ref, push, set, onValue } from 'firebase/database';
+import { getDatabase, ref, push, set } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import React from 'react';
 
@@ -9,10 +9,22 @@ export function Card(props) {
     const exploreFilters = props.exploreFilters;
     const currentPage = props.pageResult;
 
+
     // add drink: tasted drink
     const addDrink = async (drink) => {
         const db = getDatabase();
         const drinksRef = ref(db, 'tasted drink');
+
+        // get drink image
+        const storage = getStorage();
+        const fetchURL = async () => {
+            const images = await Promise.all(drinksRef.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
+
+            drinksRef((drinks) => drinks.map((drink, idx) => ({
+                ...drink,
+                selectedImage: images[idx]
+            })));
+        }
 
         try {
             const newDrinkRef = push(drinksRef);
@@ -45,7 +57,6 @@ export function Card(props) {
 
     // explore page filtering
     if (currentPage === "explore") {
-        console.log(ingredients);
         const ingredientsTemperature = ingredients.temperature.toLowerCase();
         const ingredientsSyrupType = ingredients.syrupType.toLowerCase();
 
@@ -150,8 +161,6 @@ export function AllCards(props) {
         const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
         return aDrink;
     })
-
-    console.log(cardDrinkArray);
 
     return (
         <div className="allCards">
