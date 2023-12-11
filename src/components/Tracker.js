@@ -362,7 +362,9 @@ export function CreateCards(props) {
         // Fetch data from Firebase when the component mounts
         const db = getDatabase();
 
-        const drinksRef = ref(db, 'users/' + props.tableName);
+        console.log(props.currentUser);
+
+        const drinksRef = ref(db, props.tableName);
     
         // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {

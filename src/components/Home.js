@@ -10,7 +10,7 @@ export function Home() {
                     <div className="home-text">
                     <p>EXPLORE THE WORLD OF COFFEE</p>
                         <h1>Start Exploring <div>Personalized Coffee</div></h1>
-                        <p>Connect with other coffee enthusiasts, discover customized coffee beyond the common menu.</p>
+                        <p>Connect with other coffee enthusiasts, discover customized coffee <div>beyond the common menu.</div></p>
                         <Link to="/explore" className="home-btn">Get Started</Link>  
                     </div>
                 </section>
