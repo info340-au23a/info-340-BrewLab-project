@@ -586,7 +586,13 @@ div.tracker-nav {
     right: 0;
 }
 
-/* HOME */
+/* HOME Main Section */
+.home-section {
+    height: 900px;
+    display: inline-block;
+    width: 100%;
+}
+
 .home {
     width: 100%;
     min-height: 100vh;
@@ -607,7 +613,7 @@ div.tracker-nav {
     letter-spacing: 1px;
 }
 
-.main .home-text {
+.home-text {
     position: absolute;
     top: 13%;
     left: 40%;
@@ -626,13 +632,6 @@ div.tracker-nav {
     color: var(--espresso-brown);
     font-weight: var(--font-semi-bold);
     
-}
-
-/* HOME Main Section */
-.home-section {
-    height: 900px;
-    display: inline-block;
-    width: 100%;
 }
 
 /* HOME Orders Section */
