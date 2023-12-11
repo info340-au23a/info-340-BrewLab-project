@@ -88,7 +88,6 @@ img {
 
 /* Explore Page */
 .explore-page {
-    /* background-color: var(--cappuccino); */
     color: var(--espresso-brown);
 }
 
@@ -662,7 +661,7 @@ div.tracker-nav {
     border-radius: 4rem;
     color: var(--creamy-latte);
     font-weight: var(--font-semi-bold);
-    margin: 10px 0 20px 0;
+    margin: 1rem 0 3rem 0;
 }
 
 /* HOME Tracker Section */
@@ -673,7 +672,7 @@ div.tracker-nav {
 }
 
 .home-tracker-img {
-    max-width: 75%;
+    max-width: 100%;
     height: auto;
     display: block;
     padding-top: 1rem;
