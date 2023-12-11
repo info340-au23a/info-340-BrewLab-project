@@ -4,6 +4,7 @@
 
     /*Color*/
     --espresso-brown: #38232A;
+    --dark-roast: #574248;
     --cappuccino: #A86846;
     --caramel: #C7A27A;
     --milk-foam: #F8F2EB;
@@ -58,13 +59,6 @@ section {
     padding: .5rem;
 }
 
-.orders h1 {
-    justify-content: center;
-    width: 100%;
-    color: var(--creamy-latte);
-}
-
-
 img {
     display: block;
     width: 100%;
@@ -93,6 +87,9 @@ img {
 }
 
 /* Explore Page */
+.explore-page {
+    color: var(--espresso-brown);
+}
 
 .filter {
     display: flex;
@@ -113,14 +110,14 @@ img {
 } */
 
 .filter-container {
-    background-color: var(--milk-foam);
+    background-color: var(--creamy-latte);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-grow: 1;
     max-width: 75%;
-    border-radius: 4px;
+    border-radius: 10px;
     flex-direction: column;
     height: auto;
 }
@@ -138,8 +135,7 @@ div.filtering select {
 }
 
 .trackerHeader {
-    margin-top: 100px;
-    margin-bottom: 25px;
+    margin-top: 30px;
     color: var(--espresso-brown);
     
 }
@@ -163,46 +159,43 @@ div.filtering label {
 
 /* Buttons */
 .primary-button {
-    border-radius: 48px;
-    padding: .5rem 1rem;
-    background-color: var(--espresso-brown);
-    color: var(--milk-foam);
+    background: var(--espresso-brown);
+    padding: 1rem 3rem;
+    border-radius: 4rem;
+    color: var(--creamy-latte);
+    font-weight: var(--font-semi-bold);
 }
 
 .secondary-button {
-    border-radius: 48px;
-    padding: .5rem 1rem;
-    background-color: var(--cappuccino);
-    color: var(--milk-foam);
+    background: var(--espresso-brown);
+    padding: 1rem 3rem;
+    border-radius: 4rem;
+    color: var(--creamy-latte);
+    font-weight: var(--font-semi-bold);
 }
 
 .tertiary-button {
-    border-radius: 48px;
-    border: 4px solid;
-    padding: .5rem 1rem;
-    border-color: var(--espresso-brown);
-    color: var(--milk-foam);
+    background: var(--espresso-brown);
+    padding: 1rem 3rem;
+    border-radius: 4rem;
+    color: var(--creamy-latte);
+    font-weight: var(--font-semi-bold);
 }
 
 .primary-button:hover {
-    border-radius: 48px;
-    padding: .5rem 1rem;
-    background-color: var(--espresso-brown);
-    color: var(--milk-foam);
+    background:var(--creamy-latte);
+    color: var(--espresso-brown);
+
 }
 
 .secondary-button:hover {
-    border-radius: 48px;
-    padding: .5rem 1rem;
-    background-color: var(--cappuccino);
-    color: var(--milk-foam);
+    background:var(--creamy-latte);
+    color: var(--espresso-brown);
 }
 
 .tertiary-button:hover {
-    border-radius: 48px;
-    padding: .5rem 1rem;
-    background-color: var(--espresso-brown);
-    color: var(--milk-foam);
+    background:var(--creamy-latte);
+    color: var(--espresso-brown);
 }
 
 .tabs {
@@ -273,7 +266,7 @@ div.filtering label {
 } */
 
 .main-quiz-padding {
-    padding-bottom: 25%;
+    padding: 3rem;
 }
 
 .quiz-page {
@@ -307,7 +300,7 @@ div.filtering label {
 }
 
 .question p:first-child {
-    font-family: var(--title-font);
+    font-family: var(--body-font);
 }
 
 .question p:last-child {
@@ -321,7 +314,7 @@ div {
     /* padding: 0.5em 0; */
 }
 
-.options li {
+.options button {
     display: block;
     text-align: center;
     width: 65%;
@@ -331,9 +324,15 @@ div {
     margin: auto;
     margin-bottom: 1rem;
     color: white;
+    font: var(--body-font);
 }
 
-.options li:hover {
+.options button:hover {
+    background-color: var(--creamy-latte);
+    color: var(--espresso-brown);
+}
+
+.options button:focus {
     background-color: var(--creamy-latte);
     color: var(--espresso-brown);
 }
@@ -381,7 +380,7 @@ footer p {
 /* profile page */
 img.profile-picture-edit {
     max-width: 200px;
-    height: 200px;
+    max-height: 200px;
     border-radius: 50%;
     margin-right: 100px;
     margin-left: 100px;
@@ -391,7 +390,7 @@ img.profile-picture-edit {
 
 img.profile-picture {
     max-width: 200px;
-    height: 200px;
+    max-height: 200px;
     border-radius: 50%;
     margin-right: auto;
     margin-left: auto;
@@ -620,48 +619,88 @@ div.tracker-nav {
 
 .home-btn {
     display: inline-block;
-    background: linear-gradient(180deg,
-            var(--creamy-latte),
-            var(--caramel));
+    background:var(--creamy-latte);
+    margin: 2rem 0;
     padding: 1rem 3rem;
     border-radius: 4rem;
     color: var(--espresso-brown);
     font-weight: var(--font-semi-bold);
-    box-shadow: 0 8px 32px hsla(340, 23%, 18% .3),
-        inset 0 4px 8px hsla(32, 46% 95% .4);
+    
 }
 
-/* HOME-Order section */
-.section1 {
-    height: 700px;
+/* HOME Main Section */
+.home-section {
+    height: 900px;
     display: inline-block;
     width: 100%;
 }
-.section2 {
-    height: 700px;
+
+/* HOME Orders Section */
+.orders-section {
     background: var(--cappuccino);
-    display: inline-block;
     width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
-.section3 {
-    height: 700px;
+
+.orders h1 {
+    justify-content: center;
+    width: 100%;
+    color: var(--creamy-latte);
+    padding-top: 2rem;
+}
+
+.home-order-img {
+    padding-top: .5rem;
+    max-width: 90%;
+    height: auto;
+    display: inline-block;
+}
+
+.order-btn {
+    display: inline-block;
+    background: var(--espresso-brown);
+    padding: 1rem 3rem;
+    border-radius: 4rem;
+    color: var(--creamy-latte);
+    font-weight: var(--font-semi-bold);
+    margin: 1rem 0 3rem 0;
+}
+
+/* HOME Tracker Section */
+.tracker h1 {
+    justify-content: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.home-tracker-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    padding-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tracker-section {
     background: var(--creamy-latte);
     color: var(--espresso-brown);
-    display: inline-block;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
-.section4 {
-    height: 700px;
-    background: var(--mint);
-    color: var(--espresso-brown);
-    display: inline-block;
-    width: 100%;
-} 
+
 
 /* HOME Quiz Section */
 .quiz {
     width: 100%;
-    min-height: 100vh;
+    min-height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
@@ -677,22 +716,26 @@ div.tracker-nav {
     font-size: 2.5rem;
     letter-spacing: 1px;
     text-align: left;
+    padding: 0 0 0 4rem;
 }
 
 .quiz-btn {
     display: inline-block;
-    background: linear-gradient(180deg,
-            var(--espresso-brown),
-            var(--espresso-brown));
+    background: var(--espresso-brown);
+    margin: 2rem 0 0 4rem;
     padding: 1rem 3rem;
     border-radius: 4rem;
     color: var(--creamy-latte);
     font-weight: var(--font-semi-bold);
-    box-shadow: 0 8px 32px hsla(340, 23%, 18% .3),
-        inset 0 4px 8px hsla(32, 46% 95% .4);
 }
 
-
+.quiz-section {
+    height: 800px;
+    background: var(--mint);
+    color: var(--espresso-brown);
+    display: inline-block;
+    width: 100%;
+} 
 
 /* Tracker page */
 .inputs {
@@ -723,8 +766,8 @@ div.tracker-nav {
 
 .imageUpload {
     display: inline-flex;
-	align-items: center;
-	justify-content: center;
+    align-items: center;
+    justify-content: center;
     height: auto;
     width: 75%;
 }
@@ -845,24 +888,24 @@ div.uploadImg {
     margin-top: 0.5rem;
 }
 .allCards p {
-	margin-bottom: 0.5rem;
-	margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .allCards {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 2.5rem;
-	margin: 5vh auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 5vh auto;
 }
 
 .user-attribute {
     display: flex;
-	padding-bottom: 1em;
-	border-bottom: 2px solid #C7A27A;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #C7A27A;
     width: 100%;
 }
 
@@ -878,59 +921,59 @@ div.uploadImg {
 
 .avatarUsername {
     display: inline-flex;
-	align-items: center;
-	justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
-	background-color: #fff;
+    background-color: #fff;
     color: var(--espresso-brown);
-	padding: 1.5rem;
-	border-radius: 16px;
-	max-width: 350px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    max-width: 350px;
 }
 
 /* .tags {
-	margin-top: 1rem;
-	margin-bottom: .5rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
 } */
 
 .tag {
-	display: inline-block;
-	background-color: var(--creamy-latte);
-	color: var(--dark-roast);
-	font-size: 0.875rem;
-	padding: 0.5em 0.75em;
-	line-height: 1;
-	border-radius: 8px;
-	margin-bottom: .5rem;
+    display: inline-block;
+    background-color: var(--creamy-latte);
+    color: var(--dark-roast);
+    font-size: 0.875rem;
+    padding: 0.5em 0.75em;
+    line-height: 1;
+    border-radius: 8px;
+    margin-bottom: .5rem;
     margin-right: .5rem;
 }
 
 .coffeeimg {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .allCards .buttons {
-	margin-top: 1rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem;
-	width: 100%;
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
 }
 
 .favbutton {
-	border-radius: 18px;
-	padding: .5rem 1rem;
-	background-color: var(--espresso-brown);
+    border-radius: 18px;
+    padding: .5rem 1rem;
+    background-color: var(--espresso-brown);
     color: var(--milk-foam);
 }
 
 .favicon {
-	width: 13px;
-	height: 13px;
+    width: 13px;
+    height: 13px;
 }
 
 

@@ -9,16 +9,16 @@ export function Quiz(props) {
     // content to be shown whether it's the questions or the recommended drink results for the user
     return (
         <div>
-            <PageContent 
-            // json file that was imported and passed in from App.js, has each question along with their answers for quiz
-            questionsAndAnswers={props.questionsAndAnswers} 
+            <PageContent
+                // json file that was imported and passed in from App.js, has each question along with their answers for quiz
+                questionsAndAnswers={props.questionsAndAnswers}
 
-            // the state and set state for results
-            userAnswers={userAnswers} 
-            setUserAnswers={setUserAnswers} 
+                // the state and set state for results
+                userAnswers={userAnswers}
+                setUserAnswers={setUserAnswers}
 
-            // json file that was imported and passed in from App.js, has each drink along with their ingredients for results 
-            drinks={props.drinks} 
+                // json file that was imported and passed in from App.js, has each drink along with their ingredients for results 
+                drinks={props.drinks}
             />
         </div>
     );
@@ -33,19 +33,19 @@ function PageContent(props) {
     // if the params has /results at the end, it returns the results page, otherwise the quiz page is shown
     if (currentPage === "results") {
         return (
-            <ResultsPage 
-            // passes user answers and drinks to show out of the users' answers what drinks to show
-            userAnswers={props.userAnswers} 
-            drinks={props.drinks} 
+            <ResultsPage
+                // passes user answers and drinks to show out of the users' answers what drinks to show
+                userAnswers={props.userAnswers}
+                drinks={props.drinks}
             />
         )
     } else {
         return (
-            <QuizPage 
-            // passes user answers, setting the users answers, and the questions and answers to keep track of what options are selected and saved
-            userAnswers={props.userAnswers} 
-            setUserAnswers={props.setUserAnswers} 
-            questionsAndAnswers={props.questionsAndAnswers}
+            <QuizPage
+                // passes user answers, setting the users answers, and the questions and answers to keep track of what options are selected and saved
+                userAnswers={props.userAnswers}
+                setUserAnswers={props.setUserAnswers}
+                questionsAndAnswers={props.questionsAndAnswers}
             />
         )
     }
@@ -76,8 +76,8 @@ function QuizPage(props) {
     }
 
     // questionsAndAnswers will begin at 0 for the index of the array, all of the answers of one question
-    const liAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
-        const transformed = <li key={answerString} onClick={(event) => handleClickAnswer(event, answerString)}>{answerString}</li>;
+    const buttonAnswersArray = questionsAndAnswers[questionNum - 1].answers.map((answerString) => {
+        const transformed = <button key={answerString} onClick={(event) => handleClickAnswer(event, answerString)}>{answerString}</button>;
         return transformed;
     })
 
@@ -109,7 +109,7 @@ function QuizPage(props) {
                 <section className="options">
                     <div>
                         <ul>
-                            {liAnswersArray}
+                            {buttonAnswersArray}
                         </ul>
                     </div>
                 </section>
@@ -131,7 +131,7 @@ function QuizPage(props) {
 
                 <section className="options">
                     <div>
-                        {liAnswersArray}
+                        {buttonAnswersArray}
                     </div>
                 </section>
 
@@ -153,7 +153,7 @@ function QuizPage(props) {
 
                 <section className="options">
                     <div>
-                        {liAnswersArray}
+                        {buttonAnswersArray}
                     </div>
                 </section>
 
