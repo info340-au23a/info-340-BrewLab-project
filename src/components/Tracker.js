@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
 import { Footer } from './Footer.js';
 import { getDatabase, ref, push, set, onValue } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -119,8 +118,8 @@ export function Tracker(props) {
         };
 
         const db = getDatabase();
-        const drinksRef = ref(db, 'posted drinks');
-
+        // const userRef = ref(db, 'users/' + props.currentUser.userId);
+        const drinksRef = ref(db, 'users/' + props.currentUser.userId + '/posted drinks');
         
         // change image URL for firebase storage
         const imageF = await fetch(selectedImage).then(res => {
@@ -362,7 +361,8 @@ export function CreateCards(props) {
     useEffect(() => {
         // Fetch data from Firebase when the component mounts
         const db = getDatabase();
-        const drinksRef = ref(db, props.tableName);
+
+        const drinksRef = ref(db, 'users/' + props.currentUser.userId + props.tableName);
     
         // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {

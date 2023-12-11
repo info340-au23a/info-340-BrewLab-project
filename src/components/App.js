@@ -62,15 +62,11 @@ export default function App(props) {
                         milkTypes={MILK_TYPES}
                         drinks={DRINKS} />}
                 />
-                <Route path="/tracker"
-                    element={ <Tracker>
-                            {/* Nested Routes for Tracker */}
-                            <Route path="/" element={<Tracker />} />
-                        </Tracker>
-                    }
+                <Route path="/tracker" 
+                    element={ <Tracker currentUser={currentUser}/> }
                 />
 
-                <Route path="/quiz/:results?" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} drinks={DRINKS} />} />
+                <Route path="/quiz/:results?" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} drinks={DRINKS} currentUser={currentUser} />} />
                 <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
                 <Route path="/account" element={<Account currentUser={currentUser} drinks={DRINKS} /> } />
                 <Route path="*" element={<Navigate to="/home" />} />
