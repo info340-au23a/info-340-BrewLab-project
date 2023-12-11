@@ -173,7 +173,7 @@ function ResultsPage(props) {
             <main className="quiz-page main-quiz-padding" >
                 <h1 className="quiz-header">Quiz Results</h1>
                 <div className="allCards">
-                    <AllCards drinks={props.drinks} quizAnswers={props.userAnswers} />
+                    <AllCards drinks={props.drinks} quizAnswers={props.userAnswers} pageResult="quiz" />
                 </div>
             </main>
         </div>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { AllCards } from './Cards.js';
-import { Link } from 'react-router-dom';
 
 export function Explore(props) {
     const [userSelectedFilters, setUserSelectedFilters] = useState({});
-
+    const [finalFilters, setFinalFilters] = useState({});
+    
     const coffeeTypes = props.coffeeTypes;
     const temperature = props.temperature;
     const milkTypes = props.milkTypes;
@@ -25,8 +25,13 @@ export function Explore(props) {
         setUserSelectedFilters({...userSelectedFilters, syrupType: event.target.value});
     }
 
-    const handleClickFilter = (event) => {
-        // console.log(userSelectedFilters);
+    const handleClickFilter = () => {
+        if(userSelectedFilters.syrupType !== undefined){
+            setFinalFilters({...userSelectedFilters, syrupType: userSelectedFilters.syrupType.toLowerCase()});
+        } else {
+            setFinalFilters(userSelectedFilters);
+        }
+        
     }
 
     const optionCoffeeArray = coffeeTypes.map((coffeeType) => {
@@ -84,7 +89,7 @@ export function Explore(props) {
                 </div>
             </div>
 
-            <AllCards drinks={props.drinks} exploreFilters={userSelectedFilters} />
+            <AllCards drinks={props.drinks} exploreFilters={finalFilters} pageResult="explore" />
 
         </main>
     );
