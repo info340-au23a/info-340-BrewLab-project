@@ -44,7 +44,7 @@ export function Account(props) {
 
             // Update the user's profile data in the real-time database
             const userRef = ref(db, 'users/' + props.currentUser.userId);
-            await set(userRef, {
+            await firebaseSet(userRef, {
                 userName: newUsername,
             });
 
@@ -98,9 +98,7 @@ export function Account(props) {
                     </div>
                     <div className='flex-box'>
                         <button type="submit" className='nav__button'>Save Changes</button>
-                        <button type="button" className='nav__button' onClick={toggleEditMode}>
-                        Cancel
-                        </button>
+                        <button type="button" className='nav__button' onClick={toggleEditMode}> Cancel </button>
                     </div>
                 </form>
             </div>
