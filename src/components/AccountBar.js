@@ -5,7 +5,7 @@ import { Menu } from '@mui/base/Menu';
 import { MenuButton} from '@mui/base/MenuButton';
 import { MenuItem, menuItemClasses } from '@mui/base/MenuItem';
 
-export default function MenuIntroduction() {
+export default function MenuIntroduction(props) {
   const createHandleMenuClick = (menuItem) => {
     return () => {
       console.log(`Clicked on ${menuItem}`);
@@ -16,15 +16,31 @@ export default function MenuIntroduction() {
     <Dropdown>
       <MenuButton className='nav__button' >My account</MenuButton>
       <Menu slots={'ul'}>
+      {props ? (
         <Link to="/account">
+                <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
+              </Link>
+        ) : (
+          <Link to="signin">
           <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
         </Link>
+      )}
         <MenuItem onClick={createHandleMenuClick('Log out')}>Log out</MenuItem>
       </Menu>
     </Dropdown>
   );
 }
 
+
+// {props ? (
+//   <Link to="/account">
+//           <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
+//         </Link>
+//   ) : (
+//     <Link to="signin">
+//     <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
+//   </Link>
+// )}
 // <Menu slots={{ listbox: 'ol' }} />
 
 // const Listbox = styled('ul')(

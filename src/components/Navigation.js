@@ -41,7 +41,7 @@ export function NavigationBar(props) {
                         <Link to="signin" className="nav__button">Login</Link>
                     )} */}
 
-                    <MenuIntroduction />
+                    <MenuIntroduction {...props}/>
 
                 </div>
 
