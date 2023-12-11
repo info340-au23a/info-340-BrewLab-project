@@ -964,16 +964,16 @@ div.uploadImg {
 }
 
 .favbutton {
-    border-radius: 18px;
-    padding: .5rem 1rem;
+    border-radius: 48px;
+    padding: .7rem 2rem;
     background-color: var(--espresso-brown);
-    color: var(--milk-foam);
+    color: white;
 }
 
-.favicon {
-    width: 13px;
-    height: 13px;
+.favbutton.active {
+    color: yellow;
 }
+
 
 
 /* Quiz Page for bigger screens */
