@@ -103,10 +103,10 @@ export function Card(props) {
             return (
                 <div className="card">
                     <div>
-                        <div className="user-attribute">
+                        {/* <div className="user-attribute">
                             <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
                             <p className="avatarUsername">@athenalovescoffee</p>
-                        </div>
+                        </div> */}
 
                         <div>
                             <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="user's uploaded drink" />
