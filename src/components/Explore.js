@@ -57,8 +57,11 @@ export function Explore(props) {
     useEffect(() => {
         // Fetch data from Firebase when the component mounts
         const db = getDatabase();
-        const drinksRef = ref(db, 'posted drinks');
-    
+
+        // Update the user's profile data in the real-time database
+        // const drinksRef = ref(db, userRef + '/posted drinks');
+        const drinksRef = ref(db, '/posted drinks');
+
         // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {
           const data = snapshot.val();
