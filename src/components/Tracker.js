@@ -27,8 +27,8 @@ export function Tracker(props) {
 
     const renderPostsContent = () => {
         const tabMapping = {
-            'posts': 'posted drinks',
-            'tasted': 'tasted drink',
+            'posts': 'users/' + props.currentUser.userId + '/posted drinks',
+            'tasted': 'users/' + props.currentUser.userId + '/tasted drinks',
         };
     
         return (
@@ -120,6 +120,7 @@ export function Tracker(props) {
         const db = getDatabase();
         // const userRef = ref(db, 'users/' + props.currentUser.userId);
         const drinksRef = ref(db, 'users/' + props.currentUser.userId + '/posted drinks');
+        const localDrinks = ref(db, 'posted drinks');
         
         // change image URL for firebase storage
         const imageF = await fetch(selectedImage).then(res => {
@@ -128,15 +129,22 @@ export function Tracker(props) {
 
         try {
             const newDrinkRef = push(drinksRef);
+            const newDrinkRef2 = push(localDrinks);
 
             const storage = getStorage();
             const formImagesRef = storageRef(storage, newDrinkRef.key);
+            const formImagesRefLocal = storageRef(storage, newDrinkRef2.key);
             
             uploadBytes(formImagesRef, imageF).then((snapshot) => {
                 console.log('Uploaded a blob or file!');
             });
 
+            uploadBytes(formImagesRefLocal, imageF).then((snapshot) => {
+                console.log('Uploaded a blob or file to local!');
+            });
+
             await set(newDrinkRef, drinkData);
+            await set(newDrinkRef2, drinkData);
 
             setFormData({
                 drinkName: '',
@@ -361,8 +369,6 @@ export function CreateCards(props) {
     useEffect(() => {
         // Fetch data from Firebase when the component mounts
         const db = getDatabase();
-
-        console.log(props.currentUser);
 
         const drinksRef = ref(db, props.tableName);
     

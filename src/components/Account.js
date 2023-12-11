@@ -140,9 +140,9 @@ export function Account(props) {
       
     const renderContent = () => {
         const tabMapping = {
-            'posts': 'posted drinks',
-            'saved': 'saved drink',
-            'tasted': 'tasted drink',
+            'posts': 'users/' + props.currentUser.userId + '/posted drinks',
+            'saved': 'users/' + props.currentUser.userId + '/saved drinks',
+            'tasted': 'users/' + props.currentUser.userId + '/tasted drinks',
         };
     
         return (
