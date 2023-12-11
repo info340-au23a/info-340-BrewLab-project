@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Footer } from './Footer.js';
 import { getDatabase, ref, push, set, onValue } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 // import user authentication (adjust path to authentication context)
 
@@ -125,8 +126,22 @@ export function Tracker(props) {
         const db = getDatabase();
         const drinksRef = ref(db, 'posted drinks');
 
+        
+        // change image URL for firebase storage
+        const imageF = await fetch(selectedImage).then(res => {
+            return res.blob();
+        })
+
         try {
             const newDrinkRef = push(drinksRef);
+
+            const storage = getStorage();
+            const formImagesRef = storageRef(storage, newDrinkRef.key);
+            
+            console.log(imageF);
+            uploadBytes(formImagesRef, imageF).then((snapshot) => {
+                console.log('Uploaded a blob or file!');
+            });
 
             await set(newDrinkRef, drinkData);
 
@@ -344,17 +359,18 @@ function ImageUpload(props) {
     );
 }
 
-// create cards from firebase realtime database
+// create cards from firebase realtime database + storage
 function CreateCards() {
 
     const [drinkData, setDrinkData] = useState([]);
+    const storage = getStorage();
 
-    // fetch data from firebase when the component mounts
     useEffect(() => {
         // Fetch data from Firebase when the component mounts
         const db = getDatabase();
         const drinksRef = ref(db, 'posted drinks');
     
+        // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {
           const data = snapshot.val();
           if (data) {
@@ -364,6 +380,7 @@ function CreateCards() {
               ...data[key],
             }));
             setDrinkData(dataArray);
+            fetchURL();
           } else {
             // Handle the case when there is no data
             setDrinkData([]);
@@ -374,16 +391,26 @@ function CreateCards() {
         return () => {
           fetchData(); // This will unsubscribe from the onValue event
         };
-      }, []);
+    }, []);
+
+        // get drink image
+        const fetchURL = async () => {
+            const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
+
+            setDrinkData((drinks) => drinks.map((drink, idx) => ({
+                ...drink,
+                selectedImage: images[idx]
+            })));
+        }
 
     return (
         <div className="allCards">
             {drinkData.map((drink) => (
             <div key={drink.id} className="card">
-            <div className="user-attribute">
+            {/* <div className="user-attribute">
                 <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
                 <p className="avatarUsername">@athenalovescoffee</p>
-            </div>
+            </div> */}
 
             <div>
                 <img className="coffeeimg" src={drink.selectedImage} alt="coffee with ice" />
@@ -414,33 +441,33 @@ function CreateCards() {
 }
 
 // favorited drinks
-async function FavoriteDrinks (drinkInformation) {
-    const db = getDatabase();
-        const drinksRef = ref(db, 'favorited drinks');
+// async function FavoriteDrinks (drinkInformation) {
+//     const db = getDatabase();
+//         const drinksRef = ref(db, 'favorited drinks');
 
-        try {
-            const newDrinkRef = push(drinksRef);
+//         try {
+//             const newDrinkRef = push(drinksRef);
 
-            await set(newDrinkRef, drinkData);
+//             await set(newDrinkRef, drinkData);
 
-            setFormData({
-                drinkName: '',
-                drinkDescription: '',
-                coffeeType: '',
-                temperature: '',
-                drinkVolume: '',
-                milkType: '',
-                milkVolume: '',
-                foamVolume: '',
-                sweetnessLevel: '',
-                syrupType: '',
-                syrupPumps: '',
-            });
+//             setFormData({
+//                 drinkName: '',
+//                 drinkDescription: '',
+//                 coffeeType: '',
+//                 temperature: '',
+//                 drinkVolume: '',
+//                 milkType: '',
+//                 milkVolume: '',
+//                 foamVolume: '',
+//                 sweetnessLevel: '',
+//                 syrupType: '',
+//                 syrupPumps: '',
+//             });
 
-            setSubmitted(true);
+//             setSubmitted(true);
 
-        } catch (error) {
-            console.error('Error saving drink data to Firebase:', error);
-        }
+//         } catch (error) {
+//             console.error('Error saving drink data to Firebase:', error);
+//         }
     
-}
+// }
