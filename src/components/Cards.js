@@ -16,15 +16,8 @@ export function Card(props) {
         const drinksRef = ref(db, 'tasted drink');
 
         // get drink image
-        const storage = getStorage();
-        const fetchURL = async () => {
-            const images = await Promise.all(drinksRef.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
 
-            drinksRef((drinks) => drinks.map((drink, idx) => ({
-                ...drink,
-                selectedImage: images[idx]
-            })));
-        }
+        
 
         try {
             const newDrinkRef = push(drinksRef);
@@ -73,7 +66,7 @@ export function Card(props) {
                         </div>
 
                         <div>
-                            <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
+                            <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="user's uploaded drink" />
                             <h2>{props.drink}</h2>
                             <p>Short description of the drink</p>
                         </div>

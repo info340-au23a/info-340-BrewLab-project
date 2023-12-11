@@ -17,17 +17,26 @@ export function Tracker(props) {
 
     // logging drink form, drinks i've posted, tasted drinks
     const renderContent = () => {
-        console.log(activeTab);
-        if (activeTab === 'posts') {
+        if (activeTab === 'posts' || activeTab === 'tasted') {
             // render drinks that user logged 
             return renderPostsContent();
-        } else if (activeTab === 'tasted') {
-            // render coffee cards that user has tried 
-            return renderTastedContent();
         } else {
             // render logging form
             return renderLoggingContent(); 
         }
+    };
+
+    const renderPostsContent = () => {
+        const tabMapping = {
+            'posts': 'posted drinks',
+            'tasted': 'tasted drink',
+        };
+    
+        return (
+            <div className="allCards" key={activeTab}>
+                <CreateCards tableName={tabMapping[activeTab]} />
+            </div>
+        );
     };
 
     const [formData, setFormData] = useState({
@@ -71,24 +80,6 @@ export function Tracker(props) {
     const handleImageChange = (event) => {
         setSelectedImage(URL.createObjectURL(event.target.files[0]));
     };
-
-    const renderPostsContent = () => {
-        // show cards of posted drinks here
-        return (
-            <div key="posted">
-                <CreateCards tableName="posted drinks"/>
-            </div>
-        )
-    }
-
-    const renderTastedContent = () => {
-        console.log("tasted content");
-        return (
-            <div key="tasted">
-                <CreateCards tableName="tasted drink"/>
-            </div>
-        )
-    }
 
     const handleChange = (event) => {
         var { name, value } = event.target;
@@ -276,15 +267,14 @@ function MilkType(props) {
         <div className="tracker">
             <label htmlFor="milkType" className="explanation">Choose the type of milk you used</label>
             <select id="milkType" onChange={props.onChange} value={props.formData.milkType}>
-                <option value="whole">Whole</option>
+                <option value="regular">Regular</option>
                 <option value="soy">Soy</option>
                 <option value="hazelnut">Hazelnut</option>
                 <option value="almond">Almond</option>
                 <option value="coconut">Coconut</option>
                 <option value="oat">Oat</option>
                 <option value="goat">Goat</option>
-                <option value="skimmed">Skimmed</option>
-                <option value="skimmed">None</option>
+                <option value="none">None</option>
             </select>
         </div>
     );
@@ -358,7 +348,7 @@ function ImageUpload(props) {
         <div className="uploadImg">
             <label htmlFor="uploadImg">Upload Image of Your Drink</label>
             <input type="file" id="uploadImg" onChange={props.onChange} />
-            <img className="imageUpload" src={props.selectedImage} alt="preview of user's coffee drink" />
+            <img className="imageUpload" src={props.selectedImage} alt="preview of user's uploaded drink" />
         </div>
     );
 }
