@@ -83,3 +83,12 @@ export default function App(props) {
 //         return <Outlet />
 //     }
 // }
+
+// function RequireAuth(props) {
+//     let userIsLoggedIn = true;
+//     if (!userIsLoggedIn) {
+//         return <p> Please Sign in </p>
+//     } else {
+//         return <Outlet />
+//     }
+// }
