@@ -3,25 +3,59 @@ import { Footer } from './Footer.js';
 import { AllCards, Card } from './Cards.js';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getAuth, updateProfile } from 'firebase/auth'
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, set as firebaseSet} from 'firebase/database';
 import { CreateCards } from './Tracker.js';
 
 export function Account(props) {
 
+    let profilePic = props.currentUser.userImg;
     const displayName = props.currentUser.userName;
-    const profilePic = props.currentUser.userImg
     const joinedDate = props.currentUser.joinedDate;
     const formattedJoinedDate = new Date(joinedDate).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
     });
-
-    const [newUsername, setNewUsername] = useState(props.currentUser.userId);
+    const [newUsername, setNewUsername] = useState(props.currentUser.userName);
+    const [userName, setUserName] = useState(newUsername); // State to store the fetched username
     const [activeTab, setActiveTab] = useState('posts');
     const [editMode, setEditMode] = useState(false);
     const [imageFile, setImageFile] = useState(undefined)
-    let initialURL = props.currentUser.userImg;
-    const [imageUrl, setImageUrl] = useState(initialURL)
+    const [imageUrl, setImageUrl] = useState(profilePic)
+
+    const db = getDatabase();
+
+    // Fetch the userName from the database
+    useEffect(() => {
+        const userNameRef = ref(db, "users/" + props.currentUser.userId + "/userName");
+        onValue(userNameRef, (snapshot) => {
+            const userNameFromDatabase = snapshot.val();
+            setUserName(userNameFromDatabase);
+        });
+    }, [props.currentUser.userId, db]);
+
+    const handleEditProfile = async (event) => {
+        event.preventDefault();
+
+        try {
+            // Update the user's display name in Firebase Authentication
+            await updateProfile(props.currentUser, {
+                userName: newUsername,
+            });
+
+            // Update the user's profile data in the real-time database
+            const userRef = ref(db, 'users/' + props.currentUser.userId);
+            await firebaseSet(userRef, {
+                userName: newUsername,
+            });
+
+            // Set edit mode to false
+            setEditMode(false);
+        } catch (error) {
+            console.error('Error updating profile:', error);
+            // Handle errors appropriately
+        }
+    };
+
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
@@ -30,17 +64,6 @@ export function Account(props) {
     const toggleEditMode = () => {
         setEditMode(!editMode);
     };
-      
-
-    const renderContent = () => {
-        if (activeTab === 'saved') {
-          return renderSavedContent();
-        } else if (activeTab === 'tasted') {
-          return renderTastedContent();
-        } else {
-          return renderPostsContent();
-        }
-    };
 
     const renderProfileContent = () => {
         if (editMode) {
@@ -48,63 +71,6 @@ export function Account(props) {
         } else {
             return renderUserProfile();
         }
-    };
-
-    const renderUserProfile = () => (
-        <div className="block-container">
-            <div className="account-data">
-                <h2> @{newUsername} </h2>
-            </div>
-            <img className="profile-picture" src={profilePic} alt="profile picture" />
-            <div className="account-data">
-                <p> {displayName} </p>
-                <p> Joined {formattedJoinedDate}</p>
-            </div>
-            <div className="flex-box">
-                <button className="nav__button" onClick={toggleEditMode}>
-                    Edit Profile
-                </button>
-            </div>
-            <div className="flex-box">
-                <div className={`account-tabs profile-content ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}>
-                    <h2> Posts </h2>
-                </div>
-                <div className={`account-tabs profile-content ${activeTab === 'saved' ? 'active' : ''}`} onClick={() => handleTabClick('saved')}>
-                    <h2> Saved </h2>
-                </div>
-                <div className={`account-tabs profile-content ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}>
-                    <h2> Tasted </h2>
-                </div>
-            </div>
-            <div>
-            {renderContent()}
-            </div>
-        </div> 
-    );
-
-    const renderPostsContent = () => {
-        // Render posts content here
-        return (
-        <div className="allCards" key="posted">
-            <CreateCards tableName="posted drinks"/>
-        </div>
-        )
-    };
-
-    const renderSavedContent = () => {
-        return (
-            <div className="allCards" key="saved" >
-                <CreateCards tableName="saved drink"/>
-            </div>
-        )
-    };
-
-    const renderTastedContent = () => {
-        return (
-            <div className="allCards" key="tasted">
-            <CreateCards tableName="tasted drink"/>
-            </div>
-        )
     };
 
     const renderEditProfileForm = () => (
@@ -132,20 +98,59 @@ export function Account(props) {
                     </div>
                     <div className='flex-box'>
                         <button type="submit" className='nav__button'>Save Changes</button>
-                        <button type="button" className='nav__button' onClick={toggleEditMode}>
-                        Cancel
-                        </button>
+                        <button type="button" className='nav__button' onClick={toggleEditMode}> Cancel </button>
                     </div>
                 </form>
             </div>
         </div>
     );
-    
-    const handleEditProfile = (event) => {
-        event.preventDefault();
-        setEditMode(false);
-    };
 
+    const renderUserProfile = () => (
+        <div className="block-container">
+          <div className="account-data">
+            <h2> @{userName} </h2>
+          </div>
+          <img className="profile-picture" src={profilePic} alt="profile picture" />
+          <div className="account-data">
+            <p> {displayName} </p>
+            <p> Joined {formattedJoinedDate}</p>
+          </div>
+          <div className="flex-box">
+            <button className="nav__button" onClick={toggleEditMode}>
+              Edit Profile
+            </button>
+          </div>
+          <div className="flex-box">
+            {['posts', 'saved', 'tasted'].map(tab => (
+              <div
+                key={tab}
+                className={`account-tabs profile-content ${activeTab === tab ? 'active' : ''}`}
+                onClick={() => handleTabClick(tab)}
+              >
+                <h2> {tab.charAt(0).toUpperCase() + tab.slice(1)} </h2>
+              </div>
+            ))}
+          </div>
+          <div>
+            {renderContent()}
+          </div>
+        </div>
+    );
+      
+    const renderContent = () => {
+        const tabMapping = {
+            'posts': 'posted drinks',
+            'saved': 'saved drink',
+            'tasted': 'tasted drink',
+        };
+    
+        return (
+            <div className="allCards" key={activeTab}>
+            <CreateCards tableName={tabMapping[activeTab]} />
+            </div>
+        );
+    };
+    
     //image uploading!
     const handleChange = (event) => {
         if(event.target.files.length > 0 && event.target.files[0]) {
@@ -174,3 +179,4 @@ export function Account(props) {
         </main>
     )
 }
+

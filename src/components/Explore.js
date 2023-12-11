@@ -36,8 +36,12 @@ export function Explore(props) {
     }
 
     const optionCoffeeArray = coffeeTypes.map((coffeeType) => {
-        const transformed = <option key={coffeeType.value} value={coffeeType.value}>{coffeeType.type}</option>;
-        return transformed;
+        if (coffeeType.type === "Any") {
+            setFinalFilters({...finalFilters, coffeeType: coffeeType.value});
+        } else {
+            const transformed = <option key={coffeeType.value} value={coffeeType.value}>{coffeeType.type}</option>;
+            return transformed;
+        }
     })
 
     const optionTempArray = temperature.map((temp) => {
