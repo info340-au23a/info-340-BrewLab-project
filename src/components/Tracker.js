@@ -17,6 +17,7 @@ export function Tracker(props) {
 
     // logging drink form, drinks i've posted, tasted drinks
     const renderContent = () => {
+        console.log(activeTab);
         if (activeTab === 'posts') {
             // render drinks that user logged 
             return renderPostsContent();
@@ -28,12 +29,6 @@ export function Tracker(props) {
             return renderLoggingContent(); 
         }
     };
-
-    const renderTastedContent = () => (
-        <div>
-
-        </div>
-    )
 
     const [formData, setFormData] = useState({
         drinkName: '',
@@ -81,10 +76,16 @@ export function Tracker(props) {
         // show cards of posted drinks here
         return (
             <div>
-                <CreateCards/>
+                <CreateCards tableName="posted drinks"/>
             </div>
         )
     }
+
+    const renderTastedContent = () => (
+        <div>
+            <CreateCards tableName="tasted drinks"/>
+        </div>
+    )
 
     const handleChange = (event) => {
         var { name, value } = event.target;
@@ -185,7 +186,7 @@ export function Tracker(props) {
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'saved' ? 'active' : ''}`} onClick={() => handleTabClick('saved')}>
+                    <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}>
                         <div className="content-navi">
                             <div className="text-navi" href="tracker3.html">Tasted Drinks</div>
                         </div>
@@ -360,7 +361,7 @@ function ImageUpload(props) {
 }
 
 // create cards from firebase realtime database + storage
-function CreateCards() {
+function CreateCards(props) {
 
     const [drinkData, setDrinkData] = useState([]);
     const storage = getStorage();
@@ -368,7 +369,7 @@ function CreateCards() {
     useEffect(() => {
         // Fetch data from Firebase when the component mounts
         const db = getDatabase();
-        const drinksRef = ref(db, 'posted drinks');
+        const drinksRef = ref(db, props.tableName);
     
         // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {

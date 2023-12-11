@@ -1,4 +1,6 @@
 import { updateEmail } from 'firebase/auth';
+import { getDatabase, ref, push, set, onValue } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import React from 'react';
 
 export function Card(props) {
@@ -7,8 +9,43 @@ export function Card(props) {
     const exploreFilters = props.exploreFilters;
     const currentPage = props.pageResult;
 
+    // add drink: tasted drink
+    const addDrink = async (drink) => {
+        const db = getDatabase();
+        const drinksRef = ref(db, 'tasted drink');
+
+        try {
+            const newDrinkRef = push(drinksRef);
+
+            const storage = getStorage();
+
+            await set(newDrinkRef, drink);
+        
+        }catch (error) {
+            console.error('Error saving drink data to Firebase:', error);
+        }
+    };
+
+    // star button: save drink for future use
+    const savedDrink = async (drink) => {
+        const db = getDatabase();
+        const drinksRef = ref(db, 'saved drink');
+
+        try {
+            const newDrinkRef = push(drinksRef);
+
+            const storage = getStorage();
+
+            await set(newDrinkRef, drink);
+        
+        }catch (error) {
+            console.error('Error saving drink data to Firebase:', error);
+        }
+    };
+
     // explore page filtering
     if (currentPage === "explore") {
+        console.log(ingredients);
         const ingredientsTemperature = ingredients.temperature.toLowerCase();
         const ingredientsSyrupType = ingredients.syrupType.toLowerCase();
 
@@ -48,8 +85,8 @@ export function Card(props) {
                     </div>
 
                     <div className="buttons">
-                        <button className="primary-button">Add Drink</button>
-                        <button className="favbutton">
+                        <button className="primary-button" onClick={()=>addDrink(ingredients)}>Add Drink</button>
+                        <button className="favbutton" onClick={()=>savedDrink(ingredients)}>
                             <img className="favicon" src="/img/starv4x.png" alt="star icon" />
                         </button>
                     </div>
@@ -97,8 +134,8 @@ export function Card(props) {
                     </div>
 
                     <div className="buttons">
-                        <button className="primary-button">Add Drink</button>
-                        <button className="favbutton">
+                        <button className="primary-button" onClick={()=>addDrink(ingredients)}>Add Drink</button>
+                        <button className="favbutton" onClick={()=>savedDrink(ingredients)}>
                             <img className="favicon" src="/img/starv4x.png" alt="star icon" />
                         </button>
                     </div>
@@ -114,9 +151,12 @@ export function AllCards(props) {
         return aDrink;
     })
 
+    console.log(cardDrinkArray);
+
     return (
         <div className="allCards">
             {cardDrinkArray}
         </div>
     );
 }
+

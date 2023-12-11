@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AllCards } from './Cards.js';
+import { getDatabase, ref, push, set, onValue } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export function Explore(props) {
     const [userSelectedFilters, setUserSelectedFilters] = useState({});
@@ -31,7 +33,6 @@ export function Explore(props) {
         } else {
             setFinalFilters(userSelectedFilters);
         }
-        
     }
 
     const optionCoffeeArray = coffeeTypes.map((coffeeType) => {
@@ -48,6 +49,54 @@ export function Explore(props) {
         const transformed = <option key={milkType.value} value={milkType.value}>{milkType.type}</option>;
         return transformed;
     })
+
+    // FIREBASE CODE
+    const [drinkData, setDrinkData] = useState([]);
+    const storage = getStorage();
+
+    useEffect(() => {
+        // Fetch data from Firebase when the component mounts
+        const db = getDatabase();
+        const drinksRef = ref(db, 'posted drinks');
+    
+        // fetch data from realtime database
+        const fetchData = onValue(drinksRef, (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            // Convert the data object into an array and set it in the state
+            const dataArray = Object.keys(data).map((key) => ({
+              id: key,
+              ...data[key],
+            }));
+
+            const cardsArray = dataArray.map((key) => ({
+                drinkName: key.drinkName,
+                ingredients: key
+            }))
+
+            setDrinkData(cardsArray);
+            fetchURL();
+          } else {
+            // Handle the case when there is no data
+            setDrinkData([]);
+          }
+        });
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+          fetchData(); // This will unsubscribe from the onValue event
+        };
+    }, []);
+
+        // get drink image
+        const fetchURL = async () => {
+            const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.ingredients.id))));
+
+            setDrinkData((drinks) => drinks.map((drink, idx) => ({
+                ...drink,
+                selectedImage: images[idx]
+            })));
+        }
 
     return (
         <main>
@@ -89,7 +138,7 @@ export function Explore(props) {
                 </div>
             </div>
 
-            <AllCards drinks={props.drinks} exploreFilters={finalFilters} pageResult="explore" />
+            <AllCards drinks={drinkData} exploreFilters={finalFilters} pageResult="explore" />
 
         </main>
     );
