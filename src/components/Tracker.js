@@ -411,7 +411,7 @@ export function CreateCards(props) {
             <div key={drink.id} className="card">
             {/* <div className="user-attribute">
                 <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                <p className="avatarUsername">@athenalovescoffee</p>
+                <p className="avatarUsername">{props.currentUser.userId}</p>
             </div> */}
 
             <div>

@@ -57,14 +57,13 @@ export default function App(props) {
                 <Route path="/home" element={<Home />} />
                 <Route path="/explore"
                     element={<Explore
+                        currentUser={currentUser}
                         coffeeTypes={COFFEE_TYPES}
                         temperature={TEMPERATURE}
                         milkTypes={MILK_TYPES}
                         drinks={DRINKS} />}
                 />
-                <Route path="/tracker" 
-                    element={ <Tracker currentUser={currentUser}/> }
-                />
+                <Route path="/tracker" element={ <Tracker currentUser={currentUser}/> }/>
 
                 <Route path="/quiz/:results?" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} drinks={DRINKS} />} />
                 {/* <Route element={<RequireAuth />}> */}

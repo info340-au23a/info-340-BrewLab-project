@@ -8,16 +8,13 @@ export function Card(props) {
     const quizFilter = props.quizAnswers;
     const exploreFilters = props.exploreFilters;
     const currentPage = props.pageResult;
+    const userInfo = props.currentUser;
 
 
     // add drink: tasted drink
     const addDrink = async (drink) => {
         const db = getDatabase();
-        const drinksRef = ref(db, 'tasted drink');
-
-        // get drink image
-
-
+        const drinksRef = ref(db, 'users/' + userInfo.userId + '/tasted drinks');
 
         try {
             const newDrinkRef = push(drinksRef);
@@ -34,7 +31,7 @@ export function Card(props) {
     // star button: save drink for future use
     const savedDrink = async (drink) => {
         const db = getDatabase();
-        const drinksRef = ref(db, 'saved drink');
+        const drinksRef = ref(db, 'users/' + props.currentUser.userId + '/saved drinks');
 
         try {
             const newDrinkRef = push(drinksRef);
@@ -156,10 +153,10 @@ export function Card(props) {
             return (
                 <div className="card">
                     <div>
-                        <div className="user-attribute">
+                        {/* <div className="user-attribute">
                             <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                            <p className="avatarUsername">@athenalovescoffee</p>
-                        </div>
+                            <p className="avatarUsername"></p>
+                        </div> */}
 
                         <div>
                             <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
@@ -198,7 +195,7 @@ export function Card(props) {
 
     export function AllCards(props) {
         const cardDrinkArray = props.drinks.map((eachDrink) => {
-            const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
+            const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} currentUser={props.currentUser}/>
             return aDrink;
         })
 
