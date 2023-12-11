@@ -721,6 +721,14 @@ div.tracker-nav {
     color: var(--espresso-brown);
 }
 
+.imageUpload {
+    display: inline-flex;
+	align-items: center;
+	justify-content: center;
+    height: auto;
+    width: 75%;
+}
+
 .trackHeader {
     margin-top: 100px;
     margin-left: 90px;

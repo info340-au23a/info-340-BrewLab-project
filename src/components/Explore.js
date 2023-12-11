@@ -1,10 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { AllCards } from './Cards.js';
+import { getDatabase, ref, push, set, onValue } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export function Explore(props) {
+    const [userSelectedFilters, setUserSelectedFilters] = useState({});
+    const [finalFilters, setFinalFilters] = useState({});
+
     const coffeeTypes = props.coffeeTypes;
     const temperature = props.temperature;
     const milkTypes = props.milkTypes;
+
+    const handleChangeCoffee = (event) => {
+        setUserSelectedFilters({...userSelectedFilters, coffeeType: event.target.value});
+    }
+
+    const handleChangeTemp = (event) => {
+        setUserSelectedFilters({...userSelectedFilters, temperature: event.target.value});
+    }
+
+    const handleChangeMilk = (event) => {
+        setUserSelectedFilters({...userSelectedFilters, milkType: event.target.value});
+    }
+
+    const handleChangeSyrup = (event) => {
+        setUserSelectedFilters({...userSelectedFilters, syrupType: event.target.value});
+    }
+
+    const handleClickFilter = () => {
+        if (userSelectedFilters.syrupType !== undefined) {
+            setFinalFilters({...userSelectedFilters, syrupType: userSelectedFilters.syrupType.toLowerCase()});
+        } else {
+            setFinalFilters(userSelectedFilters);
+        }
+    }
 
     const optionCoffeeArray = coffeeTypes.map((coffeeType) => {
         const transformed = <option key={coffeeType.value} value={coffeeType.value}>{coffeeType.type}</option>;
@@ -21,6 +50,54 @@ export function Explore(props) {
         return transformed;
     })
 
+    // FIREBASE CODE
+    const [drinkData, setDrinkData] = useState([]);
+    const storage = getStorage();
+
+    useEffect(() => {
+        // Fetch data from Firebase when the component mounts
+        const db = getDatabase();
+        const drinksRef = ref(db, 'posted drinks');
+    
+        // fetch data from realtime database
+        const fetchData = onValue(drinksRef, (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            // Convert the data object into an array and set it in the state
+            const dataArray = Object.keys(data).map((key) => ({
+              id: key,
+              ...data[key],
+            }));
+
+            const cardsArray = dataArray.map((key) => ({
+                drinkName: key.drinkName,
+                ingredients: key
+            }))
+
+            setDrinkData(cardsArray);
+            fetchURL();
+          } else {
+            // Handle the case when there is no data
+            setDrinkData([]);
+          }
+        });
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+          fetchData(); // This will unsubscribe from the onValue event
+        };
+    }, []);
+
+        // get drink image
+        const fetchURL = async () => {
+            const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.ingredients.id))));
+
+            setDrinkData((drinks) => drinks.map((drink, idx) => ({
+                ...drink,
+                selectedImage: images[idx]
+            })));
+        }
+
     return (
         <main>
             <h1 className="otherHeader">Explore New Drinks</h1>
@@ -30,96 +107,39 @@ export function Explore(props) {
 
                     <div className="filtering">
                         <label htmlFor="coffee-type">Type of Coffee</label>
-                        <select id="coffee-type" name="coffeetype">
+                        <select id="coffee-type" name="coffeetype" onChange={handleChangeCoffee}>
                             {optionCoffeeArray}
                         </select>
                     </div>
 
                     <div className="filtering">
                         <label htmlFor="temperature">Temperature</label>
-                        <select id="temperature" name="temperature">
+                        <select id="temperature" name="temperature" onChange={handleChangeTemp}>
                             {optionTempArray}
                         </select>
                     </div>
 
                     <div className="filtering">
                         <label htmlFor="milk-type">Type of Milk</label>
-                        <select id="milk-type" name="milktype">
+                        <select id="milk-type" name="milktype" onChange={handleChangeMilk}>
                             {optionMilkArray}
                         </select>
                     </div>
 
                     <div className="filtering">
                         <label htmlFor="syrup" className="explanation">Syrup</label>
-                        <input id="syrup" type="text" />
+                        <input id="syrup" type="text" onChange={handleChangeSyrup} />
                     </div>
 
                     <div className="filtering">
-                        <button className="primary-button">Apply Filter</button>
+                        <button className="primary-button" onClick={handleClickFilter}>Apply Filter</button>
                     </div>
 
                 </div>
             </div>
 
-            <AllCards drinks={props.drinks} />
+            <AllCards drinks={drinkData} exploreFilters={finalFilters} pageResult="explore" />
 
         </main>
-    );
-}
-
-export function Card(props) {
-    const ingredients = props.ingredients;
-
-    return (
-        <div className="card">
-            <div>
-                <div className="user-attribute">
-                    <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                    <p className="avatarUsername">@athenalovescoffee</p>
-                </div>
-
-                <div>
-                    <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
-                    <h2>{props.drink}</h2>
-                    <p>Short description of the drink</p>
-                </div>
-
-                <div className="sectionTracker">
-                    <h3>Ingredients</h3>
-                    <p>{ingredients.numShots} shots of a {ingredients.coffeeType}</p>
-                    <p>{ingredients.milkVolume} of {ingredients.milkType}</p>
-                    <p>{ingredients.sweetnessLevel}</p>
-                    <p>{ingredients.drinkVolume}</p>
-                    <p>{ingredients.syrupType} syrup</p>
-                </div>
-
-                <div className="sectionTracker">
-                    <h3 className="h3tracker">Tags</h3>
-                    <span className="tag">{ingredients.temperature}</span>
-                    <span className="tag">{ingredients.tagMilkType}</span>
-                    <span className="tag">{ingredients.syrupType}</span>
-                </div>
-            </div>
-
-            <div className="buttons">
-                <button className="primary-button">Add Drink</button>
-                <button className="favbutton">
-                    <img className="favicon" src="/img/starv4x.png" alt="star icon" />
-                </button>
-            </div>
-        </div>
-    );
-}
-
-export function AllCards(props) {
-    const drinkArray = props.drinks.map((eachDrink) => {
-        const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} />
-        return aDrink;
-    })
-
-    return (
-        <div className="allCards">
-            {drinkArray}
-        </div>
     );
 }
