@@ -75,13 +75,12 @@ export default function App(props) {
             <Footer />
         </div>
     );
-}
 
-
-function RequireAuth(props) {
-    if (props.currentUser.userId === null) {
-        return <SignInPage />
-    } else {
-        return <Outlet />
+    function RequireAuth(props) {
+        if (props.currentUser.userId === null) {
+            return <SignInPage />
+        } else {
+            return <Outlet />
+        }
     }
 }
