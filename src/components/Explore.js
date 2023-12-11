@@ -141,7 +141,7 @@ export function Explore(props) {
                 </div>
             </div>
 
-            <AllCards drinks={drinkData} exploreFilters={finalFilters} pageResult="explore" />
+            <AllCards currentUser={props.currentUser} drinks={drinkData} exploreFilters={finalFilters} pageResult="explore" />
 
         </main>
     );
