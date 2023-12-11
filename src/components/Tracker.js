@@ -66,7 +66,7 @@ export function Tracker(props) {
         </div>
     )
 
-    const [selectedImage, setSelectedImage] = useState('./img/icedcoffee.jpg');
+    const [selectedImage, setSelectedImage] = useState('./img/uploadphoto.png');
 
     const handleImageChange = (event) => {
         setSelectedImage(URL.createObjectURL(event.target.files[0]));
