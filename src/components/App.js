@@ -22,7 +22,6 @@ import DEFAULT_USERS from '../data/users.json';
 export default function App(props) {
 
     const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
         const auth = getAuth();
@@ -36,13 +35,10 @@ export default function App(props) {
                 firebaseUser.joinedDate = firebaseUser.metadata.creationTime;
 
                 setCurrentUser(firebaseUser);
-                setIsAuthenticated(true);
-                console.log(setIsAuthenticated);
             }
             else { //firebaseUser is undefined: is not logged in
                 console.log('logged out');
                 setCurrentUser(DEFAULT_USERS[0]);
-                setIsAuthenticated(false);
             }
         });
 
@@ -78,7 +74,7 @@ export default function App(props) {
 
                 <Route path="/quiz/:results?" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} drinks={DRINKS} />} />
                 <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
-                <Route path="/account" element={isAuthenticated ? <Account currentUser={currentUser} drinks={DRINKS} /> : <Navigate to="/signin" />} />
+                <Route path="/account" element={<Account currentUser={currentUser} drinks={DRINKS} /> } />
                 <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
             <Footer />
