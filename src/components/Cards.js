@@ -1,5 +1,5 @@
 import { updateEmail } from 'firebase/auth';
-import { getDatabase, ref, push, set, onValue } from 'firebase/database';
+import { getDatabase, ref, push, set } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import React from 'react';
 
@@ -9,10 +9,15 @@ export function Card(props) {
     const exploreFilters = props.exploreFilters;
     const currentPage = props.pageResult;
 
+
     // add drink: tasted drink
     const addDrink = async (drink) => {
         const db = getDatabase();
         const drinksRef = ref(db, 'tasted drink');
+
+        // get drink image
+
+        
 
         try {
             const newDrinkRef = push(drinksRef);
@@ -45,12 +50,13 @@ export function Card(props) {
 
     // explore page filtering
     if (currentPage === "explore") {
-        console.log(ingredients);
+        const ingredientsCoffeeType = ingredients.coffeeType.toLowerCase();
+        const ingredientsMilkType = ingredients.milkType.toLowerCase();
         const ingredientsTemperature = ingredients.temperature.toLowerCase();
         const ingredientsSyrupType = ingredients.syrupType.toLowerCase();
 
-        if (ingredients.coffeeType === exploreFilters.coffeeType ||
-            ingredients.milkType === exploreFilters.milkType ||
+        if (ingredientsCoffeeType === exploreFilters.coffeeType ||
+            ingredientsMilkType === exploreFilters.milkType ||
             ingredientsTemperature === exploreFilters.temperature ||
             ingredientsSyrupType === exploreFilters.syrupType) {
             return (
@@ -62,7 +68,7 @@ export function Card(props) {
                         </div>
 
                         <div>
-                            <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
+                            <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="user's uploaded drink" />
                             <h2>{props.drink}</h2>
                             <p>Short description of the drink</p>
                         </div>
@@ -150,8 +156,6 @@ export function AllCards(props) {
         const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
         return aDrink;
     })
-
-    console.log(cardDrinkArray);
 
     return (
         <div className="allCards">
