@@ -9,14 +9,15 @@ import { CreateCards } from './Tracker.js';
 export function Account(props) {
 
     let profilePic = props.currentUser.userImg;
-    const displayName = props.currentUser.userName;
+    const fullName = props.currentUser.userName;
     const joinedDate = props.currentUser.joinedDate;
     const formattedJoinedDate = new Date(joinedDate).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
     });
-    const [newUsername, setNewUsername] = useState(props.currentUser.userName);
-    const [userName, setUserName] = useState(newUsername); // State to store the fetched username
+
+    // const [newUsername, setNewUsername] = useState(props.currentUser.userName);
+    const [userName, setUserName] = useState(props.currentUser.userName); // State to store the fetched username
     const [activeTab, setActiveTab] = useState('posts');
     const [editMode, setEditMode] = useState(false);
     const [imageFile, setImageFile] = useState(undefined)
@@ -39,13 +40,13 @@ export function Account(props) {
         try {
             // Update the user's display name in Firebase Authentication
             await updateProfile(props.currentUser, {
-                userName: newUsername,
+                userName: userName,
             });
 
             // Update the user's profile data in the real-time database
             const userRef = ref(db, 'users/' + props.currentUser.userId);
             await firebaseSet(userRef, {
-                userName: newUsername,
+                userName: userName,
             });
 
             // Set edit mode to false
@@ -93,7 +94,7 @@ export function Account(props) {
                     <div className='flex-box'>
                         <label className='nav__button'>
                             Username : 
-                            <input type="text" value={newUsername} onChange={(event) => setNewUsername(event.target.value)} />
+                            <input type="text" value={userName} onChange={(event) => setUserName(event.target.value)} />
                         </label>
                     </div>
                     <div className='flex-box'>
@@ -112,7 +113,7 @@ export function Account(props) {
           </div>
           <img className="profile-picture" src={profilePic} alt="profile picture" />
           <div className="account-data">
-            <p> {displayName} </p>
+            <p> {fullName} </p>
             <p> Joined {formattedJoinedDate}</p>
           </div>
           <div className="flex-box">

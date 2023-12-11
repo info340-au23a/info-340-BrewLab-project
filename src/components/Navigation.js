@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MenuIntroduction from './AccountBar';
 // import { Home } from './Home.js';
 // import { Account } from './Account.js';
 // import { Explore } from './Explore.js';
@@ -34,11 +35,13 @@ export function NavigationBar(props) {
                         {liArray}
                     </ul>
 
-                    {props ? (
+                    {/* {props ? (
                         <Link to="/account" className="nav__button">Account</Link>
                         ) : (
                         <Link to="signin" className="nav__button">Login</Link>
-                    )}
+                    )} */}
+
+                    <MenuIntroduction />
 
                 </div>
 
