@@ -379,8 +379,8 @@ footer p {
 
 /* profile page */
 img.profile-picture-edit {
-    max-width: 200px;
-    max-height: 200px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin-right: 100px;
     margin-left: 100px;
@@ -389,8 +389,8 @@ img.profile-picture-edit {
 }
 
 img.profile-picture {
-    max-width: 200px;
-    max-height: 200px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin-right: auto;
     margin-left: auto;
