@@ -1,5 +1,5 @@
 [
-    {"value": "", "type": ""},
+    {"value": "any", "type": "Any"},
     {"value": "espresso", "type": "Espresso"},
     {"value": "macchiato", "type": "Macchiato"},
     {"value": "cappucino", "type": "Cappucino"},

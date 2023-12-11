@@ -1,5 +1,5 @@
 [
-    {"value": "", "type": ""},
+    {"value": "any", "type": "Any"},
     {"value": "regular", "type": "Regular"},
     {"value": "soy", "type": "Soy"},
     {"value": "hazelnut", "type": "Hazelnut"},

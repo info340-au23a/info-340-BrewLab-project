@@ -1,5 +1,5 @@
 [
-    {"value": "", "temp": ""},
+    {"value": "any", "temp": "Any"},
     {"value": "hot", "temp": "Hot"},
     {"value": "cold", "temp": "Cold"}
 ]
