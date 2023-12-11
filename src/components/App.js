@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate} from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet} from 'react-router-dom';
 import { NavigationBar } from './Navigation.js';
 import { Home } from './Home.js';
 import { Explore } from './Explore.js';
@@ -80,3 +80,11 @@ export default function App(props) {
         </div>
     );
 }
+
+// function LoginAccount(props) {
+//     if (props.currentUser.userId !== null) {
+//         return Navigate;
+//     } else {
+//         return <Outlet />
+//     }
+// }
