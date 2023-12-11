@@ -57,11 +57,13 @@ export function Card(props) {
 
     // explore page filtering
     if (currentPage === "explore") {
+        const ingredientsCoffeeType = ingredients.coffeeType.toLowerCase();
+        const ingredientsMilkType = ingredients.milkType.toLowerCase();
         const ingredientsTemperature = ingredients.temperature.toLowerCase();
         const ingredientsSyrupType = ingredients.syrupType.toLowerCase();
 
-        if (ingredients.coffeeType === exploreFilters.coffeeType ||
-            ingredients.milkType === exploreFilters.milkType ||
+        if (ingredientsCoffeeType === exploreFilters.coffeeType ||
+            ingredientsMilkType === exploreFilters.milkType ||
             ingredientsTemperature === exploreFilters.temperature ||
             ingredientsSyrupType === exploreFilters.syrupType) {
             return (
