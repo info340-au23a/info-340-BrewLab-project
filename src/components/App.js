@@ -51,7 +51,7 @@ export default function App(props) {
 
     return (
         <div>
-            <NavigationBar />
+            <NavigationBar currentUser={currentUser}/>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -67,10 +67,10 @@ export default function App(props) {
                 />
 
                 <Route path="/quiz/:results?" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} drinks={DRINKS} />} />
-                {/* <Route element={<RequireAuth />}> */}
+                <Route element={<RequireAuth currentUser={currentUser}/>}>
                     <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
                     <Route path="/account" element={<Account currentUser={currentUser} drinks={DRINKS} /> } />
-                {/* </Route> */}
+                </Route>
                 <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
             <Footer />
@@ -79,11 +79,10 @@ export default function App(props) {
 }
 
 
-// function RequireAuth(currentUser !== null) {
-//     let userIsLoggedIn = true;
-//     if (!userIsLoggedIn) {
-//         return <p> Please Sign in </p>
-//     } else {
-//         return <Outlet />
-//     }
-// }
+function RequireAuth(props) {
+    if (props.currentUser.userId === null) {
+        return <SignInPage />
+    } else {
+        return <Outlet />
+    }
+}

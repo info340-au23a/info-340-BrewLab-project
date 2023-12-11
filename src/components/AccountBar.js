@@ -4,6 +4,7 @@ import { Dropdown } from '@mui/base/Dropdown';
 import { Menu } from '@mui/base/Menu';
 import { MenuButton} from '@mui/base/MenuButton';
 import { MenuItem, menuItemClasses } from '@mui/base/MenuItem';
+import { getAuth, signOut } from 'firebase/auth';
 
 export default function MenuIntroduction(props) {
   const createHandleMenuClick = (menuItem) => {
@@ -12,24 +13,27 @@ export default function MenuIntroduction(props) {
     };
   };
 
+  const handleSignOut = (event) => {
+    signOut(getAuth());
+  }
+
   return (
     <Dropdown>
-      <MenuButton className='nav__button' >My account</MenuButton>
+      <MenuButton className='nav__button' >Account</MenuButton>
       <Menu slots={'ul'}>
-      {props ? (
-        <Link to="/account">
-                <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
-              </Link>
-        ) : (
-          <Link to="signin">
-          <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
-        </Link>
-      )}
-        <MenuItem onClick={createHandleMenuClick('Log out')}>Log out</MenuItem>
+        <MenuItem>
+          {props ? (
+            <Link to="/account">Profile</Link>
+          ) : (
+            <Link to="/signin">Profile</Link>
+          )}
+        </MenuItem>
+        <MenuItem onClick={handleSignOut}>Log out</MenuItem>
       </Menu>
     </Dropdown>
   );
 }
+
 
 
 // {props ? (
