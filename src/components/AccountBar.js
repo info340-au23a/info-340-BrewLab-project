@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { Dropdown } from '@mui/base/Dropdown';
 import { Menu } from '@mui/base/Menu';
 import { MenuButton} from '@mui/base/MenuButton';
@@ -15,7 +16,9 @@ export default function MenuIntroduction() {
     <Dropdown>
       <MenuButton className='nav__button' >My account</MenuButton>
       <Menu slots={'ul'}>
-        <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
+        <Link to="/account">
+          <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
+        </Link>
         <MenuItem onClick={createHandleMenuClick('Log out')}>Log out</MenuItem>
       </Menu>
     </Dropdown>
