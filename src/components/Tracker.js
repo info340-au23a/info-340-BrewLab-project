@@ -75,17 +75,20 @@ export function Tracker(props) {
     const renderPostsContent = () => {
         // show cards of posted drinks here
         return (
-            <div>
+            <div key="posted">
                 <CreateCards tableName="posted drinks"/>
             </div>
         )
     }
 
-    const renderTastedContent = () => (
-        <div>
-            <CreateCards tableName="tasted drinks"/>
-        </div>
-    )
+    const renderTastedContent = () => {
+        console.log("tasted content");
+        return (
+            <div key="tasted">
+                <CreateCards tableName="tasted drink"/>
+            </div>
+        )
+    }
 
     const handleChange = (event) => {
         var { name, value } = event.target;
@@ -361,7 +364,7 @@ function ImageUpload(props) {
 }
 
 // create cards from firebase realtime database + storage
-function CreateCards(props) {
+export function CreateCards(props) {
 
     const [drinkData, setDrinkData] = useState([]);
     const storage = getStorage();
@@ -374,6 +377,7 @@ function CreateCards(props) {
         // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {
           const data = snapshot.val();
+          console.log(data);
           if (data) {
             // Convert the data object into an array and set it in the state
             const dataArray = Object.keys(data).map((key) => ({
@@ -382,6 +386,7 @@ function CreateCards(props) {
             }));
             setDrinkData(dataArray);
             fetchURL();
+            console.log(dataArray);
           } else {
             // Handle the case when there is no data
             setDrinkData([]);
@@ -440,35 +445,3 @@ function CreateCards(props) {
         </div>
     );
 }
-
-// favorited drinks
-// async function FavoriteDrinks (drinkInformation) {
-//     const db = getDatabase();
-//         const drinksRef = ref(db, 'favorited drinks');
-
-//         try {
-//             const newDrinkRef = push(drinksRef);
-
-//             await set(newDrinkRef, drinkData);
-
-//             setFormData({
-//                 drinkName: '',
-//                 drinkDescription: '',
-//                 coffeeType: '',
-//                 temperature: '',
-//                 drinkVolume: '',
-//                 milkType: '',
-//                 milkVolume: '',
-//                 foamVolume: '',
-//                 sweetnessLevel: '',
-//                 syrupType: '',
-//                 syrupPumps: '',
-//             });
-
-//             setSubmitted(true);
-
-//         } catch (error) {
-//             console.error('Error saving drink data to Firebase:', error);
-//         }
-    
-// }

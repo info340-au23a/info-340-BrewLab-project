@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Footer } from './Footer.js';
 import { AllCards, Card } from './Cards.js';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getAuth, updateProfile } from 'firebase/auth'
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { CreateCards } from './Tracker.js';
 
 export function Account(props) {
 
@@ -80,32 +82,30 @@ export function Account(props) {
         </div> 
     );
 
-    const renderPostsContent = () => (
+    const renderPostsContent = () => {
         // Render posts content here
-        <div className="allCards">
-            <AllCards drinks={props.drinks} />
-            {/* <Card /> */}
+        return (
+        <div className="allCards" key="posted">
+            <CreateCards tableName="posted drinks"/>
         </div>
-    );
+        )
+    };
 
-    const renderSavedContent = () => (
-       <div className="allCards">
-            <AllCards drinks={props.drinks} />
-            {/* <Card />
-            <Card />
-            <Card /> */}
-        </div>
-    );
+    const renderSavedContent = () => {
+        return (
+            <div className="allCards" key="saved" >
+                <CreateCards tableName="saved drink"/>
+            </div>
+        )
+    };
 
-    const renderTastedContent = () => (
-        <div className="allCards">
-            <AllCards drinks={props.drinks} />
-            {/* <Card />
-            <Card />
-            <Card />
-            <Card /> */}
-        </div>
-    );
+    const renderTastedContent = () => {
+        return (
+            <div className="allCards" key="tasted">
+            <CreateCards tableName="tasted drink"/>
+            </div>
+        )
+    };
 
     const renderEditProfileForm = () => (
         <div className='block-container'>
@@ -168,11 +168,9 @@ export function Account(props) {
     
     }
 
-
     return (
         <main>
             {renderProfileContent()}
         </main>
-
     )
 }
