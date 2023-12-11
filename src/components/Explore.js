@@ -4,7 +4,7 @@ import { AllCards } from './Cards.js';
 export function Explore(props) {
     const [userSelectedFilters, setUserSelectedFilters] = useState({});
     const [finalFilters, setFinalFilters] = useState({});
-    
+
     const coffeeTypes = props.coffeeTypes;
     const temperature = props.temperature;
     const milkTypes = props.milkTypes;
@@ -26,7 +26,7 @@ export function Explore(props) {
     }
 
     const handleClickFilter = () => {
-        if(userSelectedFilters.syrupType !== undefined){
+        if (userSelectedFilters.syrupType !== undefined) {
             setFinalFilters({...userSelectedFilters, syrupType: userSelectedFilters.syrupType.toLowerCase()});
         } else {
             setFinalFilters(userSelectedFilters);

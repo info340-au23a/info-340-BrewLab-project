@@ -13,7 +13,7 @@ export function Card(props) {
         const ingredientsSyrupType = ingredients.syrupType.toLowerCase();
 
         if (ingredients.coffeeType === exploreFilters.coffeeType ||
-            ingredients.milktype === exploreFilters.milkType ||
+            ingredients.milkType === exploreFilters.milkType ||
             ingredientsTemperature === exploreFilters.temperature ||
             ingredientsSyrupType === exploreFilters.syrupType) {
             return (
