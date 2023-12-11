@@ -1,12 +1,11 @@
 [
     {"value": "", "type": ""},
-    {"value": "whole", "type": "Whole"},
+    {"value": "regular", "type": "Regular"},
     {"value": "soy", "type": "Soy"},
     {"value": "hazelnut", "type": "Hazelnut"},
     {"value": "almond", "type": "Almond"},
     {"value": "coconut", "type": "Coconut"},
     {"value": "oat", "type": "Oat"},
     {"value": "goat", "type": "Goat"},
-    {"value": "skimmed", "type": "Skimmed"},
     {"value": "none", "type": "None"}
 ]

@@ -4,7 +4,7 @@
     {"value": "macchiato", "type": "Macchiato"},
     {"value": "cappucino", "type": "Cappucino"},
     {"value": "mocha", "type": "Mocha"},
-    {"value": "flat-white", "type": "Flat White"},
+    {"value": "flat white", "type": "Flat White"},
     {"value": "americano", "type": "Americano"},
     {"value": "latte", "type": "Latte"},
     {"value": "custom", "type": "Custom"}
