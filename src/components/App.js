@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { NavigationBar } from './Navigation.js';
 import { Home } from './Home.js';
 import { Explore } from './Explore.js';
 import { Tracker } from './Tracker.js';
 import { Tracker2 } from './Tracker2.js';
+import { Tracker3 } from './Tracker3';
 import { Quiz } from './Quiz.js';
 import { Account } from './Account.js';
 import { Footer } from './Footer.js';
@@ -27,13 +28,13 @@ export default function App(props) {
         const auth = getAuth();
 
         const unregisterFunction = onAuthStateChanged(auth, (firebaseUser) => {
-            if(firebaseUser){ //firebaseUser defined: is logged in
+            if (firebaseUser) { //firebaseUser defined: is logged in
                 console.log('logged in', firebaseUser);
                 firebaseUser.userId = firebaseUser.uid;
                 firebaseUser.userName = firebaseUser.displayName;
                 firebaseUser.userImg = firebaseUser.photoURL || "/img/profile-picture.jpg";
                 firebaseUser.joinedDate = firebaseUser.metadata.creationTime;
-                
+
                 setCurrentUser(firebaseUser);
                 setIsAuthenticated(true);
                 console.log(setIsAuthenticated);
@@ -49,26 +50,32 @@ export default function App(props) {
             console.log('Cleanup is being called...');
             unregisterFunction(); //call the unregister function
         }
-          
+
         return cleanup; //effect hook callback returns the cleanup function
     })
 
-    
+
     return (
         <div>
             <NavigationBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/explore" 
-                    element={<Explore 
-                    coffeeTypes={COFFEE_TYPES} 
-                    temperature={TEMPERATURE} 
-                    milkTypes={MILK_TYPES} 
-                    drinks={DRINKS} />} 
+                <Route path="/explore"
+                    element={<Explore
+                        coffeeTypes={COFFEE_TYPES}
+                        temperature={TEMPERATURE}
+                        milkTypes={MILK_TYPES}
+                        drinks={DRINKS} />}
                 />
-                <Route path="/tracker" element={<Tracker />} />
-                <Route path="/tracker2" element={<Tracker2 />} />   
+                <Route path="/tracker"
+                    element={ <Tracker>
+                            {/* Nested Routes for Tracker */}
+                            <Route path="/" element={<Tracker />} />
+                        </Tracker>
+                    }
+                />
+
                 <Route path="/quiz/:results?" element={<Quiz questionsAndAnswers={QUIZ_CONTENT} drinks={DRINKS} />} />
                 <Route path="/signin" element={<SignInPage currentUser={currentUser} />} />
                 <Route path="/account" element={isAuthenticated ? <Account currentUser={currentUser} drinks={DRINKS} /> : <Navigate to="/signin" />} />

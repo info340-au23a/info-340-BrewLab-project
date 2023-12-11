@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
 
-function Tracker2(props) {
+export function Tracker3(props) {
     const [drinkData, setDrinkData] = useState([]);
-
+    
     // fetch data from firebase when the component mounts
     useEffect(() => {
         // Fetch data from Firebase when the component mounts
