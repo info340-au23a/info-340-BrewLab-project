@@ -152,9 +152,11 @@ export function Card(props) {
     }
     // quiz filtering
     else if (currentPage === "quiz") {
+        console.log(ingredients);
+        console.log(quizFilter);
         const quizCoffeeType = quizFilter.coffeeType;
         const lowercaseQuizCoffeeType = quizCoffeeType.toLowerCase();
-
+        
         if (ingredients.coffeeType === lowercaseQuizCoffeeType ||
             ingredients.tagMilkType === quizFilter.milkType ||
             ingredients.temperature === quizFilter.temperature ||
@@ -178,8 +180,12 @@ export function Card(props) {
                             <p>{ingredients.numShots} shots of {ingredients.coffeeType}</p>
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
+<<<<<<< HEAD
                             <p>{ingredients.drinkShots}</p>
+=======
+>>>>>>> 645f98419003cf8b21ddc2d40542fb1b75bf83cd
                             <p>{ingredients.syrupType} syrup</p>
+                            <p>{ingredients.foamVolume} of foam</p>
                         </div>
 
                         <div className="sectionTracker">

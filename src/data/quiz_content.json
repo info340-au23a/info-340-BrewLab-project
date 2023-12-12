@@ -30,16 +30,19 @@
         "question": "Do you like your coffee hot or cold?",
         "answers": [
             "Hot",
-            "Cold",
+            "Iced",
             "Doesn't matter to me"
         ]
     },
     {
         "question": "How sweet do you like your coffee?",
         "answers": [
-            "100% sweet",
-            "50% sweet",
-            "0% sweet"
+            "150% - more sugar",
+            "100% - normal sugar",
+            "75% - less sugar",
+            "50% - 1/2 sugar",
+            "25% - 1/4 sugar",
+            "0% - no sugar"
         ]
     },
     {
@@ -47,8 +50,7 @@
         "answers": [
             "Yes",
             "No",
-            "I don't care",
-            "I like flavored foam only"
+            "I don't care"
         ]
     }
 ]
