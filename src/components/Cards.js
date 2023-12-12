@@ -118,7 +118,7 @@ export function Card(props) {
                 <div className="card">
                     <div>
                         <div>
-                            <img className="coffeeimg" src={} alt="user's uploaded drink" />
+                            <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="user's uploaded drink" />
                             <h2>{props.drink}</h2>
                             <p>Short description of the drink</p>
                         </div>
@@ -180,10 +180,6 @@ export function Card(props) {
                             <p>{ingredients.numShots} shots of {ingredients.coffeeType}</p>
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
-<<<<<<< HEAD
-                            <p>{ingredients.drinkShots}</p>
-=======
->>>>>>> 645f98419003cf8b21ddc2d40542fb1b75bf83cd
                             <p>{ingredients.syrupType} syrup</p>
                             <p>{ingredients.foamVolume} of foam</p>
                         </div>
