@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Dropdown } from '@mui/base/Dropdown';
 import { Menu } from '@mui/base/Menu';
 import { MenuButton} from '@mui/base/MenuButton';
-import { MenuItem, menuItemClasses } from '@mui/base/MenuItem';
-import MenuIntroduction from './AccountBar';
+import { MenuItem } from '@mui/base/MenuItem';
+
 
 const MenuBar = ({ navBarLinks, currentUser }) => {
     const linkArray = navBarLinks.map((navLink) => (
