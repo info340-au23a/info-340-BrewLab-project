@@ -9,8 +9,9 @@ export function Home() {
                 <section className="home">
                     <div className="home-text">
                     <p>EXPLORE THE WORLD OF COFFEE</p>
-                        <h1>Start Exploring<span>Personalized Coffee</span></h1>
-                        <p>Connect with other coffee enthusiasts, discover<span>customized coffee beyond the common menu.</span></p>
+                        <h1>Start Exploring</h1>
+                        <h1>Personalized Coffee</h1>
+                        <p>Connect with other coffee enthusiasts,discover<span> customized coffee beyond the common menu.</span></p>
                         <Link to="/explore" className="home-btn">Get Started</Link>  
                     </div>
                 </section>
