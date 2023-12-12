@@ -12,13 +12,9 @@ export function Tracker(props) {
 
     // logging drink form, drinks i've posted, tasted drinks
     const renderContent = () => {
-        if (activeTab === 'posts' || activeTab === 'tasted') {
-            // render drinks that user logged 
-            return renderPostsContent();
-        } else {
-            // render logging form
-            return renderLoggingContent();
-        }
+        return activeTab === 'posts' || activeTab === 'tasted'
+            ? renderPostsContent()
+            : renderLoggingContent();
     };
 
     const renderPostsContent = () => {
@@ -31,7 +27,7 @@ export function Tracker(props) {
             <div>
                 <p className="logging">Drinks that you have logged (posted) or tasted (added) will show here!</p>
                 <div className="allCards" key={activeTab}>
-                <CreateCards tableName={tabMapping[activeTab]} />
+                    <CreateCards tableName={tabMapping[activeTab]} />
                 </div>
             </div>
         );
@@ -78,7 +74,7 @@ export function Tracker(props) {
     const [selectedImage, setSelectedImage] = useState('./img/uploadphoto.png');
 
     const handleImageChange = (event) => {
-       if(event.target.files.length > 0 && event.target.files[0]) {
+        if (event.target.files.length > 0 && event.target.files[0]) {
             const imageFile = event.target.files[0]
             setImageFile(imageFile);
             setSelectedImage(URL.createObjectURL(imageFile));
@@ -164,7 +160,7 @@ export function Tracker(props) {
                 syrupPumps: '',
             });
             setSubmitted(true);
-            
+
         } catch (error) {
             console.error('Error saving drink data to Firebase:', error);
         }
@@ -177,19 +173,19 @@ export function Tracker(props) {
             <div className="tracker-nav">
                 <div className="tracker-buttons">
 
-                    <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}>
+                    <div className={'t-button ' + (activeTab === 'logging' ? 'active' : '')} onClick={() => handleTabClick('logging')}>
                         <div className="content-navi">
                             <div className="text-navi">Log Drink</div>
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}>
+                    <div className={'t-button ' + (activeTab === 'logging' ? 'active' : '')} onClick={() => handleTabClick('posts')}>
                         <div className="content-navi">
                             <div className="text-navi">Posted Drinks</div>
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}>
+                    <div className={'t-button ' + (activeTab === 'logging' ? 'active' : '')} onClick={() => handleTabClick('tasted')}>
                         <div className="content-navi">
                             <div className="text-navi" href="tracker3.html">Tasted Drinks</div>
                         </div>
@@ -357,23 +353,18 @@ function ImageUpload(props) {
     );
 }
 
-// create cards from firebase realtime database + storage
 export function CreateCards(props) {
 
     const [drinkData, setDrinkData] = useState([]);
     const storage = getStorage();
 
     useEffect(() => {
-        // Fetch data from Firebase when the component mounts
         const db = getDatabase();
-
         const drinksRef = ref(db, props.tableName);
 
-        // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                // Convert the data object into an array and set it in the state
                 const dataArray = Object.keys(data).map((key) => ({
                     id: key,
                     ...data[key],
@@ -381,56 +372,65 @@ export function CreateCards(props) {
                 setDrinkData(dataArray);
                 fetchURL();
             } else {
-                // Handle the case when there is no data
                 setDrinkData([]);
             }
         });
 
-        // Clean up the event listener when the component unmounts
         return () => {
-            fetchData(); // This will unsubscribe from the onValue event
+            fetchData();
         };
     }, []);
 
-    // get drink image
     const fetchURL = async () => {
-        const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
+        const images = await Promise.all(
+            drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id)))
+        );
 
-        setDrinkData((drinks) => drinks.map((drink, idx) => ({
-            ...drink,
-            selectedImage: images[idx]
-        })));
-    }
+        setDrinkData((drinks) =>
+            drinks.map((drink, idx) => ({
+                ...drink,
+                selectedImage: images[idx],
+            }))
+        );
+    };
+
+    const renderCard = (drink) => (
+        <div key={drink.id} className="card">
+            <div>
+                <img
+                    className="coffeeimg"
+                    src={drink.selectedImage}
+                    alt="user's chosen image for their drink"
+                />
+                <h2>{drink.drinkName}</h2>
+                <p>{drink.drinkDescription}</p>
+            </div>
+
+            <div className="sectionTracker">
+                <h3>Ingredients</h3>
+                <p>
+                    {drink.drinkShots} shots of a {drink.coffeeType}
+                </p>
+                <p>
+                    {drink.milkVolume} of {drink.milkType} milk
+                </p>
+                <p>{drink.sweetnessLevel}</p>
+                <p>{drink.syrupType} syrup</p>
+                <p>{drink.foamVolume} of foam</p>
+            </div>
+
+            <div className="sectionTracker">
+                <h3 className="h3tracker">Tags</h3>
+                <span className="tag">{drink.temperature}</span>
+                <span className="tag">{drink.milkType}</span>
+                <span className="tag">{drink.syrupType}</span>
+            </div>
+        </div>
+    );
 
     return (
         <div className="allCards">
-            {drinkData.map((drink) => (
-                <div key={drink.id} className="card">
-
-                    <div>
-                        <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
-                        <h2>{drink.drinkName}</h2>
-                        <p>{drink.drinkDescription}</p>
-                    </div>
-
-                    <div className="sectionTracker">
-                        <h3>Ingredients</h3>
-                        <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
-                        <p>{drink.milkVolume} of {drink.milkType} milk</p>
-                        <p>{drink.sweetnessLevel}</p>
-                        <p>{drink.syrupType} syrup</p>
-                        <p>{drink.foamVolume} of foam</p>
-                    </div>
-
-                    <div className="sectionTracker">
-                        <h3 className="h3tracker">Tags</h3>
-                        <span className="tag">{drink.temperature}</span>
-                        <span className="tag">{drink.milkType}</span>
-                        <span className="tag">{drink.syrupType}</span>
-                    </div>
-
-                </div>
-            ))}
+            {drinkData.map(renderCard)}
         </div>
     );
 }
