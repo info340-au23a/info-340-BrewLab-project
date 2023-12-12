@@ -376,6 +376,9 @@ footer p {
     justify-content: space-around;
 }
 
+.main-explore-padding {
+    padding-bottom: 10rem;
+}
 
 /* profile page */
 img.profile-picture-edit {
