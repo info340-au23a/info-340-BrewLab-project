@@ -404,7 +404,7 @@ export function CreateCards(props) {
                 <div key={drink.id} className="card">
 
                     <div>
-                        <img className="coffeeimg" src={drink.selectedImage} alt="user's drink" />
+                        <img className="coffeeimg" src={drink.selectedImage} alt="user's uploaded drink" />
                         <h2>{drink.drinkName}</h2>
                         <p>{drink.drinkDescription}</p>
                     </div>
