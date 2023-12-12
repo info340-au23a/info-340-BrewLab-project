@@ -16,7 +16,6 @@ export function Account(props) {
         month: 'long',
     });
 
-    // const [newUsername, setNewUsername] = useState(props.currentUser.userName);
     const [userName, setUserName] = useState(props.currentUser.userName); // State to store the fetched username
     const [activeTab, setActiveTab] = useState('posts');
     const [editMode, setEditMode] = useState(false);
