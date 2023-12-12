@@ -12,13 +12,9 @@ export function Tracker(props) {
 
     // logging drink form, drinks i've posted, tasted drinks
     const renderContent = () => {
-        if (activeTab === 'posts' || activeTab === 'tasted') {
-            // render drinks that user logged 
-            return renderPostsContent();
-        } else {
-            // render logging form
-            return renderLoggingContent();
-        }
+        return activeTab === 'posts' || activeTab === 'tasted'
+            ? renderPostsContent()
+            : renderLoggingContent();
     };
 
     const renderPostsContent = () => {
@@ -177,19 +173,19 @@ export function Tracker(props) {
             <div className="tracker-nav">
                 <div className="tracker-buttons">
 
-                    <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}>
+                    <div className={'t-button ' + (activeTab === 'logging' ? 'active' : '')} onClick={() => handleTabClick('logging')}>
                         <div className="content-navi">
                             <div className="text-navi">Log Drink</div>
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}>
+                    <div className={'t-button ' + (activeTab === 'logging' ? 'active' : '')} onClick={() => handleTabClick('posts')}>
                         <div className="content-navi">
                             <div className="text-navi">Posted Drinks</div>
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}>
+                    <div className={'t-button ' + (activeTab === 'logging' ? 'active' : '')} onClick={() => handleTabClick('tasted')}>
                         <div className="content-navi">
                             <div className="text-navi" href="tracker3.html">Tasted Drinks</div>
                         </div>
