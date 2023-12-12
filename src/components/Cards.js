@@ -30,7 +30,7 @@ export function Card(props) {
     // star button: save drink for future use
     const savedDrink = async (drink) => {
         const db = getDatabase();
-        const drinksRef = ref(db, 'saved drink');
+        const drinksRef = ref(db, 'users/' + userInfo.userId + '/saved drinks');
 
         try {
             const newDrinkRef = push(drinksRef);
