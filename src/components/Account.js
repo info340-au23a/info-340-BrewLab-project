@@ -16,7 +16,7 @@ export function Account(props) {
         month: 'long',
     });
 
-    const [userName, setUserName] = useState(props.currentUser.userName); // State to store the fetched username
+    const [userName, setUserName] = useState(props.currentUser.userId);
     const [activeTab, setActiveTab] = useState('posts');
     const [editMode, setEditMode] = useState(false);
     const [imageFile, setImageFile] = useState(undefined)
@@ -37,11 +37,6 @@ export function Account(props) {
         event.preventDefault();
 
         try {
-            // Update the user's display name in Firebase Authentication
-            await updateProfile(props.currentUser, {
-                userName: userName,
-            });
-
             // Update the user's profile data in the real-time database
             const userRef = ref(db, 'users/' + props.currentUser.userId);
             await firebaseSet(userRef, {
@@ -52,7 +47,6 @@ export function Account(props) {
             setEditMode(false);
         } catch (error) {
             console.error('Error updating profile:', error);
-            // Handle errors appropriately
         }
     };
 
