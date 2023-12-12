@@ -61,7 +61,7 @@ export function Tracker(props) {
                 <DrinkDescription onChange={handleChange} formData={formData} />
                 <CoffeeType onChange={handleChange} formData={formData} />
                 <TemperatureDrink temp={handleChange} formData={formData} />
-                <DrinkShots onChange={handleChange} formData={formData} />
+                <DrinkVolume onChange={handleChange} formData={formData} />
                 <MilkType onChange={handleChange} formData={formData} />
                 <MilkVolume onChange={handleChange} formData={formData} />
                 <FoamVolume onChange={handleChange} formData={formData} />
@@ -74,10 +74,15 @@ export function Tracker(props) {
         </div>
     )
 
+    const [imageFile, setImageFile] = useState(undefined)
     const [selectedImage, setSelectedImage] = useState('./img/uploadphoto.png');
 
     const handleImageChange = (event) => {
-        setSelectedImage(URL.createObjectURL(event.target.files[0]));
+       if(event.target.files.length > 0 && event.target.files[0]) {
+            const imageFile = event.target.files[0]
+            setImageFile(imageFile);
+            setSelectedImage(URL.createObjectURL(imageFile));
+        }
     };
 
     const handleChange = (event) => {
@@ -108,7 +113,7 @@ export function Tracker(props) {
             drinkDescription: formData.drinkDescription,
             coffeeType: formData.coffeeType,
             temperature: formData.temperature,
-            drinkShots: formData.drinkShots,
+            drinkVolume: formData.drinkVolume,
             milkType: formData.milkType,
             milkVolume: formData.milkVolume,
             foamVolume: formData.foamVolume,
@@ -119,8 +124,7 @@ export function Tracker(props) {
 
         const db = getDatabase();
         // const userRef = ref(db, 'users/' + props.currentUser.userId);
-        const drinksRef = ref(db, 'users/' + props.currentUser.userId + '/posted drinks');
-        const localDrinks = ref(db, 'posted drinks');
+        // const drinksRef = ref(db, 'users/' + props.currentUser.userId + '/posted drinks');
         
         // change image URL for firebase storage
         const imageF = await fetch(selectedImage).then(res => {
@@ -128,30 +132,25 @@ export function Tracker(props) {
         })
 
         try {
-            const newDrinkRef = push(drinksRef);
-            const newDrinkRef2 = push(localDrinks);
+            const newDrinkRef = "drinkImages/"+ props.currentUser.userId + ".png";
 
             const storage = getStorage();
-            const formImagesRef = storageRef(storage, newDrinkRef.key);
-            const formImagesRefLocal = storageRef(storage, newDrinkRef2.key);
+            const formImagesRef = storageRef(storage, newDrinkRef);
             
-            uploadBytes(formImagesRef, imageF).then((snapshot) => {
+           await uploadBytes(formImagesRef, imageF)
+           .then((snapshot) => {
                 console.log('Uploaded a blob or file!');
             });
 
-            uploadBytes(formImagesRefLocal, imageF).then((snapshot) => {
-                console.log('Uploaded a blob or file to local!');
-            });
-
+            const url = await getDownloadURL(formImagesRef)
             await set(newDrinkRef, drinkData);
-            await set(newDrinkRef2, drinkData);
 
             setFormData({
                 drinkName: '',
                 drinkDescription: '',
                 coffeeType: '',
                 temperature: '',
-                drinkShots: '',
+                drinkVolume: '',
                 milkType: '',
                 milkVolume: '',
                 foamVolume: '',
@@ -174,22 +173,19 @@ export function Tracker(props) {
             <div className="tracker-nav">
                 <div className="tracker-buttons">
 
-                    {/* <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}> */}
-                    <div className="t-button" onClick={() => handleTabClick('logging')}>
+                    <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}>
                         <div className="content-navi">
                             <div className="text-navi">Log Drink</div>
                         </div>
                     </div>
 
-                    {/* <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}> */}
-                    <div className="t-button" onClick={() => handleTabClick('posts')}>
+                    <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}>
                         <div className="content-navi">
                             <div className="text-navi">Posted Drinks</div>
                         </div>
                     </div>
 
-                    {/* <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}> */}
-                    <div className="t-button" onClick={() => handleTabClick('tasted')}>
+                    <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}>
                         <div className="content-navi">
                             <div className="text-navi" href="tracker3.html">Tasted Drinks</div>
                         </div>
@@ -256,11 +252,18 @@ function TemperatureDrink(props) {
     );
 }
 
-function DrinkShots(props) {
+function DrinkVolume(props) {
     return (
         <div className="tracker">
-            <label htmlFor="drinkShots" className="explanation">Shots of Coffee</label>
-            <input id="drinkShots" onChange={props.onChange} type="number" min="0" value={props.formData.drinkShots}/>
+            <label htmlFor="drinkVolume" className="explanation">Amount of coffee you made</label>
+            <select id="drinkVolume" onChange={props.onChange} value={props.formData.drinkVolume}>
+                <option value="xsmall">extra small: 4 oz.</option>
+                <option value="small">small: 6 oz.</option>
+                <option value="medium">medium: 8 oz.</option>
+                <option value="large">large: 16 oz.</option>
+                <option value="xlarge">extra large: 24 oz.</option>
+                <option value="xxlarge">2x large: 32oz.</option>
+            </select>
         </div>
     );
 }
@@ -341,12 +344,13 @@ function SyrupPumps(props) {
     return (
         <div className="tracker">
             <label htmlFor="syrupPumps" className="explanation">Pumps of Syrup</label>
-            <input id="syrupPumps" onChange={props.onChange}  type="number" min="0" value={props.formData.syrupPumps}/>
+            <input id="syrupPumps" onChange={props.onChange} type="text" value={props.formData.syrupPumps}/>
         </div>
     );
 }
 
 function ImageUpload(props) {
+
     return (
         <div className="uploadImg">
             <label htmlFor="uploadImg">Upload Image of Your Drink</label>
@@ -366,7 +370,7 @@ export function CreateCards(props) {
         // Fetch data from Firebase when the component mounts
         const db = getDatabase();
 
-        const drinksRef = ref(db, props.tableName);
+        const drinksRef = ref(db, 'users/' + props.tableName);
     
         // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {
@@ -393,7 +397,7 @@ export function CreateCards(props) {
 
         // get drink image
         const fetchURL = async () => {
-            const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
+            const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, "drinkImages/" + drink.id + ".png"))));
 
             setDrinkData((drinks) => drinks.map((drink, idx) => ({
                 ...drink,
@@ -407,7 +411,7 @@ export function CreateCards(props) {
             <div key={drink.id} className="card">
             {/* <div className="user-attribute">
                 <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                <p className="avatarUsername">{props.currentUser.userId}</p>
+                <p className="avatarUsername">@athenalovescoffee</p>
             </div> */}
 
             <div>
@@ -418,11 +422,11 @@ export function CreateCards(props) {
 
             <div className="sectionTracker">
                 <h3>Ingredients</h3>
-                <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
-                <p>{drink.milkVolume} of {drink.milkType} milk</p>
+                <p>{drink.numShots} shots of a {drink.coffeeType}</p>
+                <p>{drink.milkVolume} of {drink.milkType}</p>
                 <p>{drink.sweetnessLevel}</p>
+                <p>{drink.drinkVolume}</p>
                 <p>{drink.syrupType} syrup</p>
-                <p>{drink.foamVolume} of foam</p>
             </div>
 
             <div className="sectionTracker">
