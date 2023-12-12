@@ -46,6 +46,18 @@ export function Card(props) {
             console.error('Error saving drink data to Firebase:', error);
         }
     };
+    
+    const storage = getStorage();
+
+     // get drink image
+     const fetchURL = async () => {
+        const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
+
+        setDrinkData((drinks) => drinks.map((drink, idx) => ({
+            ...drink,
+            selectedImage: images[idx]
+        })));
+    }
 
     // explore page filtering
     if (currentPage === "explore") {
@@ -105,13 +117,8 @@ export function Card(props) {
             return (
                 <div className="card">
                     <div>
-                        {/* <div className="user-attribute">
-                            <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                            <p className="avatarUsername">@athenalovescoffee</p>
-                        </div> */}
-
                         <div>
-                            <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="user's uploaded drink" />
+                            <img className="coffeeimg" src={} alt="user's uploaded drink" />
                             <h2>{props.drink}</h2>
                             <p>Short description of the drink</p>
                         </div>
@@ -171,7 +178,7 @@ export function Card(props) {
                             <p>{ingredients.numShots} shots of {ingredients.coffeeType}</p>
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
-                            <p>{ingredients.drinkVolume}</p>
+                            <p>{ingredients.drinkShots}</p>
                             <p>{ingredients.syrupType} syrup</p>
                         </div>
 
@@ -197,7 +204,7 @@ export function Card(props) {
 
     export function AllCards(props) {
         const cardDrinkArray = props.drinks.map((eachDrink) => {
-            const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
+            const aDrink = <Card currentUser={props.currentUser} key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
             return aDrink;
         })
 
