@@ -48,7 +48,6 @@ export default function App(props) {
         return cleanup; //effect hook callback returns the cleanup function
     })
 
-
     return (
         <div>
             <NavigationBar currentUser={currentUser}/>
