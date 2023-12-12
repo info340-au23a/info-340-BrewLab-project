@@ -52,7 +52,6 @@ export function Explore(props) {
 
     // FIREBASE CODE
     const [drinkData, setDrinkData] = useState([]);
-    const storage = getStorage();
 
     useEffect(() => {
         // Fetch data from Firebase when the component mounts
@@ -78,7 +77,6 @@ export function Explore(props) {
             }))
 
             setDrinkData(cardsArray);
-            fetchURL();
           } else {
             // Handle the case when there is no data
             setDrinkData([]);
@@ -90,16 +88,6 @@ export function Explore(props) {
           fetchData(); // This will unsubscribe from the onValue event
         };
     }, []);
-
-        // get drink image
-        const fetchURL = async () => {
-            const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.ingredients.id))));
-
-            setDrinkData((drinks) => drinks.map((drink, idx) => ({
-                ...drink,
-                selectedImage: images[idx]
-            })));
-        }
 
     return (
         <main>
