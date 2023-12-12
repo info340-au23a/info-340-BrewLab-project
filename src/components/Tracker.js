@@ -28,8 +28,11 @@ export function Tracker(props) {
         };
 
         return (
-            <div className="allCards" key={activeTab}>
+            <div>
+                <p className="logging">Drinks that you have logged (posted) or tasted (added) will show here!</p>
+                <div className="allCards" key={activeTab}>
                 <CreateCards tableName={tabMapping[activeTab]} />
+                </div>
             </div>
         );
     };
@@ -52,6 +55,7 @@ export function Tracker(props) {
     const renderLoggingContent = () => (
         <div>
             <h1 className="trackerHeader">Log Your Drink</h1>
+            <p className="logging">Log your drink to see drinks in your 'Posted Drinks'</p>
             <form className="logging" onSubmit={handleSubmit}>
                 <DrinkName onChange={handleChange} formData={formData} />
                 <DrinkDescription onChange={handleChange} formData={formData} />
