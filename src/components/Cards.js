@@ -145,9 +145,11 @@ export function Card(props) {
     }
     // quiz filtering
     else if (currentPage === "quiz") {
+        console.log(ingredients);
+        console.log(quizFilter);
         const quizCoffeeType = quizFilter.coffeeType;
         const lowercaseQuizCoffeeType = quizCoffeeType.toLowerCase();
-
+        
         if (ingredients.coffeeType === lowercaseQuizCoffeeType ||
             ingredients.tagMilkType === quizFilter.milkType ||
             ingredients.temperature === quizFilter.temperature ||
