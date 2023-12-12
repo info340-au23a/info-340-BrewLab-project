@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AllCards } from './Cards.js';
-import { getDatabase, ref, push, set, onValue } from 'firebase/database';
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 export function Explore(props) {
     const [userSelectedFilters, setUserSelectedFilters] = useState({});

@@ -1,7 +1,5 @@
 import { updateEmail } from 'firebase/auth';
 import { getDatabase, ref, push, set } from 'firebase/database';
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { CreateCardsExplore } from './Tracker.js';
 import React from 'react';
 
 export function Card(props) {
@@ -11,7 +9,6 @@ export function Card(props) {
     const currentPage = props.pageResult;
 
     const userInfo = props.currentUser;
-    const storage = getStorage();
 
     // Define state to keep track of button click
     const [isStarred, setIsStarred] = React.useState(false);
@@ -23,8 +20,7 @@ export function Card(props) {
 
         try {
             const newDrinkRef = push(drinksRef);
-            const storage = getStorage();
-            
+
             await set(newDrinkRef, drink);
 
         } catch (error) {
@@ -39,7 +35,6 @@ export function Card(props) {
 
         try {
             const newDrinkRef = push(drinksRef);
-            const storage = getStorage();
             
             if (isStarred) {
                 setIsStarred(false);

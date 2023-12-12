@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Footer } from './Footer.js';
 import { getDatabase, ref, push, set, onValue } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-
-// import user authentication (adjust path to authentication context)
 
 export function Tracker(props) {
     // navigation bar
