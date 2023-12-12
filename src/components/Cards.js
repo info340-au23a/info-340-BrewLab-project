@@ -1,6 +1,7 @@
 import { updateEmail } from 'firebase/auth';
 import { getDatabase, ref, push, set } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { CreateCardsExplore } from './Tracker.js';
 import React from 'react';
 
 export function Card(props) {
@@ -8,7 +9,9 @@ export function Card(props) {
     const quizFilter = props.quizAnswers;
     const exploreFilters = props.exploreFilters;
     const currentPage = props.pageResult;
+
     const userInfo = props.currentUser;
+    const storage = getStorage();
 
     // Define state to keep track of button click
     const [isStarred, setIsStarred] = React.useState(false);
@@ -153,6 +156,7 @@ export function Card(props) {
             ingredients.temperature === quizFilter.temperature ||
             ingredients.sweetnessLevel === quizFilter.sweetness) {
             return (
+                // <CreateCardsExplore/>
                 <div className="card">
                     <div>
                         {/* <div className="user-attribute">
@@ -172,7 +176,6 @@ export function Card(props) {
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
                             <p>{ingredients.syrupType} syrup</p>
-                            <p>{ingredients.foamVolume} of foam</p>
                         </div>
 
                         <div className="sectionTracker">
@@ -196,8 +199,11 @@ export function Card(props) {
 }
 
     export function AllCards(props) {
+        const db = getDatabase();
+        const drinksRef = ref(db, 'posted drinks');
+
         const cardDrinkArray = props.drinks.map((eachDrink) => {
-            const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
+            const aDrink = <Card currentUser={props.currentUser} key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
             return aDrink;
         })
 

@@ -21,7 +21,7 @@ export function Tracker(props) {
             return renderPostsContent();
         } else {
             // render logging form
-            return renderLoggingContent(); 
+            return renderLoggingContent();
         }
     };
 
@@ -30,7 +30,7 @@ export function Tracker(props) {
             'posts': 'users/' + props.currentUser.userId + '/posted drinks',
             'tasted': 'users/' + props.currentUser.userId + '/tasted drinks',
         };
-    
+
         return (
             <div className="allCards" key={activeTab}>
                 <CreateCards tableName={tabMapping[activeTab]} />
@@ -43,7 +43,7 @@ export function Tracker(props) {
         drinkDescription: '',
         coffeeType: 'Espresso',
         temperature: '',
-        drinkShots: 'extra small: 4 oz.',
+        drinkShots: '',
         milkType: 'Whole',
         milkVolume: 'extra small: 4 oz.',
         foamVolume: '30 mL',
@@ -69,7 +69,7 @@ export function Tracker(props) {
                 <SyrupType onChange={handleChange} formData={formData} />
                 <SyrupPumps onChange={handleChange} formData={formData} />
                 <ImageUpload selectedImage={selectedImage} onChange={handleImageChange} />
-                <button type="submit" value="Submit" className="secondary-button"> { submitted ? "Logged!" : "Log Drink" } </button>
+                <button type="submit" value="Submit" className="secondary-button"> {submitted ? "Logged!" : "Log Drink"} </button>
             </form>
         </div>
     )
@@ -124,8 +124,9 @@ export function Tracker(props) {
 
         const db = getDatabase();
         // const userRef = ref(db, 'users/' + props.currentUser.userId);
-        // const drinksRef = ref(db, 'users/' + props.currentUser.userId + '/posted drinks');
-        
+        const drinksRef = ref(db, 'users/' + props.currentUser.userId + '/posted drinks');
+        const localDrinks = ref(db, 'posted drinks');
+
         // change image URL for firebase storage
         const imageF = await fetch(selectedImage).then(res => {
             return res.blob();
@@ -135,10 +136,10 @@ export function Tracker(props) {
             const newDrinkRef = "drinkImages/"+ props.currentUser.userId + ".png";
 
             const storage = getStorage();
-            const formImagesRef = storageRef(storage, newDrinkRef);
-            
-           await uploadBytes(formImagesRef, imageF)
-           .then((snapshot) => {
+            const formImagesRef = storageRef(storage, newDrinkRef.key);
+            const formImagesRefLocal = storageRef(storage, newDrinkRef2.key);
+
+            uploadBytes(formImagesRef, imageF).then((snapshot) => {
                 console.log('Uploaded a blob or file!');
             });
 
@@ -204,7 +205,7 @@ function DrinkName(props) {
     return (
         <div className="tracker">
             <label htmlFor="drinkName">Name of Drink</label>
-            <input id="drinkName" type="text" onChange={props.onChange} value={props.formData.drinkName}/>
+            <input id="drinkName" type="text" onChange={props.onChange} value={props.formData.drinkName} />
         </div>
     );
 }
@@ -213,7 +214,7 @@ function DrinkDescription(props) {
     return (
         <div className="tracker">
             <label htmlFor="drinkDescription">Describe Your Drink</label>
-            <input id="drinkDescription" type="text" onChange={props.onChange} value={props.formData.drinkDescription}/>
+            <input id="drinkDescription" type="text" onChange={props.onChange} value={props.formData.drinkDescription} />
         </div>
     );
 }
@@ -255,15 +256,8 @@ function TemperatureDrink(props) {
 function DrinkVolume(props) {
     return (
         <div className="tracker">
-            <label htmlFor="drinkVolume" className="explanation">Amount of coffee you made</label>
-            <select id="drinkVolume" onChange={props.onChange} value={props.formData.drinkVolume}>
-                <option value="xsmall">extra small: 4 oz.</option>
-                <option value="small">small: 6 oz.</option>
-                <option value="medium">medium: 8 oz.</option>
-                <option value="large">large: 16 oz.</option>
-                <option value="xlarge">extra large: 24 oz.</option>
-                <option value="xxlarge">2x large: 32oz.</option>
-            </select>
+            <label htmlFor="drinkShots" className="explanation">Shots of Coffee</label>
+            <input id="drinkShots" onChange={props.onChange} type="number" min="0" value={props.formData.drinkShots} />
         </div>
     );
 }
@@ -291,7 +285,7 @@ function MilkVolume(props) {
         <div className="tracker">
             <label htmlFor="milkVolume" className="explanation">Amount of milk you added</label>
             <select id="milkVolume" onChange={props.onChange} value={props.formData.milkVolume}>
-                <option value="xsmall">extra small: 4 oz.</option>
+                <option value="xsmall">xsmall: 4 oz.</option>
                 <option value="small">small: 6 oz.</option>
                 <option value="medium">medium: 8 oz.</option>
                 <option value="large">large: 16 oz.</option>
@@ -335,7 +329,7 @@ function SyrupType(props) {
     return (
         <div className="tracker">
             <label htmlFor="syrupType" className="explanation">Syrup You Used</label>
-            <input id="syrupType" onChange={props.onChange} type="text" value={props.formData.syrupType}/>
+            <input id="syrupType" onChange={props.onChange} type="text" value={props.formData.syrupType} />
         </div>
     );
 }
@@ -344,7 +338,7 @@ function SyrupPumps(props) {
     return (
         <div className="tracker">
             <label htmlFor="syrupPumps" className="explanation">Pumps of Syrup</label>
-            <input id="syrupPumps" onChange={props.onChange} type="text" value={props.formData.syrupPumps}/>
+            <input id="syrupPumps" onChange={props.onChange} type="number" min="0" value={props.formData.syrupPumps} />
         </div>
     );
 }
@@ -370,74 +364,191 @@ export function CreateCards(props) {
         // Fetch data from Firebase when the component mounts
         const db = getDatabase();
 
-        const drinksRef = ref(db, 'users/' + props.tableName);
-    
+        const drinksRef = ref(db, props.tableName);
+
         // fetch data from realtime database
         const fetchData = onValue(drinksRef, (snapshot) => {
-          const data = snapshot.val();
-          if (data) {
-            // Convert the data object into an array and set it in the state
-            const dataArray = Object.keys(data).map((key) => ({
-              id: key,
-              ...data[key],
-            }));
-            setDrinkData(dataArray);
-            fetchURL();
-          } else {
-            // Handle the case when there is no data
-            setDrinkData([]);
-          }
+            const data = snapshot.val();
+            if (data) {
+                // Convert the data object into an array and set it in the state
+                const dataArray = Object.keys(data).map((key) => ({
+                    id: key,
+                    ...data[key],
+                }));
+                setDrinkData(dataArray);
+                fetchURL();
+            } else {
+                // Handle the case when there is no data
+                setDrinkData([]);
+            }
         });
-    
+
         // Clean up the event listener when the component unmounts
         return () => {
-          fetchData(); // This will unsubscribe from the onValue event
+            fetchData(); // This will unsubscribe from the onValue event
         };
     }, []);
 
-        // get drink image
-        const fetchURL = async () => {
-            const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, "drinkImages/" + drink.id + ".png"))));
+    // get drink image
+    const fetchURL = async () => {
+        const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
 
-            setDrinkData((drinks) => drinks.map((drink, idx) => ({
-                ...drink,
-                selectedImage: images[idx]
-            })));
-        }
+        setDrinkData((drinks) => drinks.map((drink, idx) => ({
+            ...drink,
+            selectedImage: images[idx]
+        })));
+    }
 
     return (
         <div className="allCards">
             {drinkData.map((drink) => (
-            <div key={drink.id} className="card">
-            {/* <div className="user-attribute">
-                <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                <p className="avatarUsername">@athenalovescoffee</p>
-            </div> */}
+                <div key={drink.id} className="card">
 
-            <div>
-                <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
-                <h2>{drink.drinkName}</h2>
-                <p>{drink.drinkDescription}</p>
-            </div>
+                    <div>
+                        <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
+                        <h2>{drink.drinkName}</h2>
+                        <p>{drink.drinkDescription}</p>
+                    </div>
 
-            <div className="sectionTracker">
-                <h3>Ingredients</h3>
-                <p>{drink.numShots} shots of a {drink.coffeeType}</p>
-                <p>{drink.milkVolume} of {drink.milkType}</p>
-                <p>{drink.sweetnessLevel}</p>
-                <p>{drink.drinkVolume}</p>
-                <p>{drink.syrupType} syrup</p>
-            </div>
+                    <div className="sectionTracker">
+                        <h3>Ingredients</h3>
+                        <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
+                        <p>{drink.milkVolume} of {drink.milkType} milk</p>
+                        <p>{drink.sweetnessLevel}</p>
+                        <p>{drink.syrupType} syrup</p>
+                        <p>{drink.foamVolume} of foam</p>
+                    </div>
 
-            <div className="sectionTracker">
-                <h3 className="h3tracker">Tags</h3>
-                <span className="tag">{drink.temperature}</span>
-                <span className="tag">{drink.milkType}</span>
-                <span className="tag">{drink.syrupType}</span>
-            </div>
+                    <div className="sectionTracker">
+                        <h3 className="h3tracker">Tags</h3>
+                        <span className="tag">{drink.temperature}</span>
+                        <span className="tag">{drink.milkType}</span>
+                        <span className="tag">{drink.syrupType}</span>
+                    </div>
 
-            </div>
-        ))}
+                </div>
+            ))}
+        </div>
+    );
+}
+
+export function CreateCardsExplore(props) {
+
+    const [drinkData, setDrinkData] = useState([]);
+    const userInfo = props.currentUser;
+    const storage = getStorage();
+
+    // Define state to keep track of button click
+    const [isStarred, setIsStarred] = React.useState(false);
+
+    // add drink: tasted drink
+    const addDrink = async (drink) => {
+        const db = getDatabase();
+        const drinksRef = ref(db, 'users/' + userInfo.userId + '/tasted drinks');
+
+        try {
+            const newDrinkRef = push(drinksRef);
+            const storage = getStorage();
+            await set(newDrinkRef, drink);
+        } catch (error) {
+            console.error('Error saving drink data to Firebase:', error);
+        }
+    };
+
+    // star button: save drink for future use
+    const savedDrink = async (drink) => {
+        const db = getDatabase();
+        const drinksRef = ref(db, 'users/' + userInfo.userId + '/saved drinks');
+
+        try {
+            const newDrinkRef = push(drinksRef);
+            const storage = getStorage();
+            
+            if (isStarred) {
+                setIsStarred(false);
+            } else {
+                await set(newDrinkRef, drink);
+                setIsStarred(true);
+            }
+        } catch (error) {
+            console.error('Error saving drink data to Firebase:', error);
+        }
+    };
+
+    useEffect(() => {
+        // Fetch data from Firebase when the component mounts
+        const db = getDatabase();
+
+        const drinksRef = ref(db, props.tableName);
+
+        // fetch data from realtime database
+        const fetchData = onValue(drinksRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                // Convert the data object into an array and set it in the state
+                const dataArray = Object.keys(data).map((key) => ({
+                    id: key,
+                    ...data[key],
+                }));
+                setDrinkData(dataArray);
+                fetchURL();
+            } else {
+                // Handle the case when there is no data
+                setDrinkData([]);
+            }
+        });
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            fetchData(); // This will unsubscribe from the onValue event
+        };
+    }, []);
+
+    // get drink image
+    const fetchURL = async () => {
+        const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
+
+        setDrinkData((drinks) => drinks.map((drink, idx) => ({
+            ...drink,
+            selectedImage: images[idx]
+        })));
+    }
+
+    return (
+        <div className="allCards">
+            {drinkData.map((drink) => (
+                <div key={drink.id} className="card">
+
+                    <div>   
+                        <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
+                        <h2>{drink.drinkName}</h2>
+                        <p>{drink.drinkDescription}</p>
+                    </div>
+
+                    <div className="sectionTracker">
+                        <h3>Ingredients</h3>
+                        <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
+                        <p>{drink.milkVolume} of {drink.milkType} milk</p>
+                        <p>{drink.sweetnessLevel}</p>
+                        <p>{drink.syrupType} syrup</p>
+                        <p>{drink.foamVolume} of foam</p>
+                    </div>
+
+                    <div className="sectionTracker">
+                        <h3 className="h3tracker">Tags</h3>
+                        <span className="tag">{drink.temperature}</span>
+                        <span className="tag">{drink.milkType}</span>
+                        <span className="tag">{drink.syrupType}</span>
+                    </div>
+
+                    <div className="buttons">
+                        <button className="primary-button" onClick={() => addDrink(drink)}>Add Drink</button>
+                        <button className={`favbutton ${isStarred ? 'active' : ''}`} onClick={() => savedDrink(drink)}>
+                            <span className="material-icons"> star </span>
+                        </button>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }
