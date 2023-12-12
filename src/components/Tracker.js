@@ -358,79 +358,158 @@ function ImageUpload(props) {
 }
 
 // create cards from firebase realtime database + storage
+// export function CreateCards(props) {
+
+//     const [drinkData, setDrinkData] = useState([]);
+//     const storage = getStorage();
+
+//     useEffect(() => {
+//         // Fetch data from Firebase when the component mounts
+//         const db = getDatabase();
+
+//         const drinksRef = ref(db, props.tableName);
+
+//         // fetch data from realtime database
+//         const fetchData = onValue(drinksRef, (snapshot) => {
+//             const data = snapshot.val();
+//             if (data) {
+//                 // Convert the data object into an array and set it in the state
+//                 const dataArray = Object.keys(data).map((key) => ({
+//                     id: key,
+//                     ...data[key],
+//                 }));
+//                 setDrinkData(dataArray);
+//                 fetchURL();
+//             } else {
+//                 // Handle the case when there is no data
+//                 setDrinkData([]);
+//             }
+//         });
+
+//         // Clean up the event listener when the component unmounts
+//         return () => {
+//             fetchData(); // This will unsubscribe from the onValue event
+//         };
+//     }, []);
+
+//     // get drink image
+//     const fetchURL = async () => {
+//         const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
+
+//         setDrinkData((drinks) => drinks.map((drink, idx) => ({
+//             ...drink,
+//             selectedImage: images[idx]
+//         })));
+//     }
+
+//     return (
+//         <div className="allCards">
+//             {drinkData.map((drink) => (
+//                 <div key={drink.id} className="card">
+
+//                     <div>
+//                         <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
+//                         <h2>{drink.drinkName}</h2>
+//                         <p>{drink.drinkDescription}</p>
+//                     </div>
+
+//                     <div className="sectionTracker">
+//                         <h3>Ingredients</h3>
+//                         <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
+//                         <p>{drink.milkVolume} of {drink.milkType} milk</p>
+//                         <p>{drink.sweetnessLevel}</p>
+//                         <p>{drink.syrupType} syrup</p>
+//                         <p>{drink.foamVolume} of foam</p>
+//                     </div>
+
+//                     <div className="sectionTracker">
+//                         <h3 className="h3tracker">Tags</h3>
+//                         <span className="tag">{drink.temperature}</span>
+//                         <span className="tag">{drink.milkType}</span>
+//                         <span className="tag">{drink.syrupType}</span>
+//                     </div>
+
+//                 </div>
+//             ))}
+//         </div>
+//     );
+// }
+
 export function CreateCards(props) {
 
     const [drinkData, setDrinkData] = useState([]);
-    const storage = getStorage();
+  const storage = getStorage();
 
-    useEffect(() => {
-        // Fetch data from Firebase when the component mounts
-        const db = getDatabase();
+  useEffect(() => {
+    const db = getDatabase();
+    const drinksRef = ref(db, props.tableName);
 
-        const drinksRef = ref(db, props.tableName);
+    const fetchData = onValue(drinksRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const dataArray = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
+        }));
+        setDrinkData(dataArray);
+        fetchURL();
+      } else {
+        setDrinkData([]);
+      }
+    });
 
-        // fetch data from realtime database
-        const fetchData = onValue(drinksRef, (snapshot) => {
-            const data = snapshot.val();
-            if (data) {
-                // Convert the data object into an array and set it in the state
-                const dataArray = Object.keys(data).map((key) => ({
-                    id: key,
-                    ...data[key],
-                }));
-                setDrinkData(dataArray);
-                fetchURL();
-            } else {
-                // Handle the case when there is no data
-                setDrinkData([]);
-            }
-        });
+    return () => {
+      fetchData();
+    };
+  }, []);
 
-        // Clean up the event listener when the component unmounts
-        return () => {
-            fetchData(); // This will unsubscribe from the onValue event
-        };
-    }, []);
-
-    // get drink image
-    const fetchURL = async () => {
-        const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
-
-        setDrinkData((drinks) => drinks.map((drink, idx) => ({
-            ...drink,
-            selectedImage: images[idx]
-        })));
-    }
-
-    return (
-        <div className="allCards">
-            {drinkData.map((drink) => (
-                <div key={drink.id} className="card">
-
-                    <div>
-                        <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
-                        <h2>{drink.drinkName}</h2>
-                        <p>{drink.drinkDescription}</p>
-                    </div>
-
-                    <div className="sectionTracker">
-                        <h3>Ingredients</h3>
-                        <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
-                        <p>{drink.milkVolume} of {drink.milkType} milk</p>
-                        <p>{drink.sweetnessLevel}</p>
-                        <p>{drink.syrupType} syrup</p>
-                        <p>{drink.foamVolume} of foam</p>
-                    </div>
-
-                    <div className="sectionTracker">
-                        <h3 className="h3tracker">Tags</h3>
-                        <span className="tag">{drink.temperature}</span>
-                        <span className="tag">{drink.milkType}</span>
-                        <span className="tag">{drink.syrupType}</span>
-                    </div>
-
-                </div>
-            ))}
-        </div>
+  const fetchURL = async () => {
+    const images = await Promise.all(
+      drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id)))
     );
+
+    setDrinkData((drinks) =>
+      drinks.map((drink, idx) => ({
+        ...drink,
+        selectedImage: images[idx],
+      }))
+    );
+  };
+
+  const renderCard = (drink) => (
+    <div key={drink.id} className="card">
+      <div>
+        <img
+          className="coffeeimg"
+          src={drink.selectedImage}
+          alt="user's chosen image for their drink"
+        />
+        <h2>{drink.drinkName}</h2>
+        <p>{drink.drinkDescription}</p>
+      </div>
+
+      <div className="sectionTracker">
+        <h3>Ingredients</h3>
+        <p>
+          {drink.drinkShots} shots of a {drink.coffeeType}
+        </p>
+        <p>
+          {drink.milkVolume} of {drink.milkType} milk
+        </p>
+        <p>{drink.sweetnessLevel}</p>
+        <p>{drink.syrupType} syrup</p>
+        <p>{drink.foamVolume} of foam</p>
+      </div>
+
+      <div className="sectionTracker">
+        <h3 className="h3tracker">Tags</h3>
+        <span className="tag">{drink.temperature}</span>
+        <span className="tag">{drink.milkType}</span>
+        <span className="tag">{drink.syrupType}</span>
+      </div>
+    </div>
+  );
+
+  return <div className="allCards">{drinkData.map(renderCard)}</div>;
+
 }
