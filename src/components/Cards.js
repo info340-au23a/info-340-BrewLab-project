@@ -10,6 +10,8 @@ export function Card(props) {
     const currentPage = props.pageResult;
     const userInfo = props.currentUser;
 
+    // Define state to keep track of button click
+    const [isStarred, setIsStarred] = React.useState(false);
 
     // add drink: tasted drink
     const addDrink = async (drink) => {
@@ -18,11 +20,8 @@ export function Card(props) {
 
         try {
             const newDrinkRef = push(drinksRef);
-
             const storage = getStorage();
-
             await set(newDrinkRef, drink);
-
         } catch (error) {
             console.error('Error saving drink data to Firebase:', error);
         }
@@ -31,15 +30,18 @@ export function Card(props) {
     // star button: save drink for future use
     const savedDrink = async (drink) => {
         const db = getDatabase();
-        const drinksRef = ref(db, 'users/' + props.currentUser.userId + '/saved drinks');
+        const drinksRef = ref(db, 'saved drink');
 
         try {
             const newDrinkRef = push(drinksRef);
-
             const storage = getStorage();
-
-            await set(newDrinkRef, drink);
-
+            
+            if (isStarred) {
+                setIsStarred(false);
+            } else {
+                await set(newDrinkRef, drink);
+                setIsStarred(true);
+            }
         } catch (error) {
             console.error('Error saving drink data to Firebase:', error);
         }
@@ -132,9 +134,9 @@ export function Card(props) {
                     </div>
 
                     <div className="buttons">
-                        <button className="primary-button" onClick={() => addDrink(ingredients)}>Add Drink</button>
-                        <button className="favbutton" onClick={() => savedDrink(ingredients)}>
-                            <img className="favicon" src="/img/starv4x.png" alt="star icon" />
+                        <button className="primary-button" onClick={()=>addDrink(ingredients)}>Add Drink</button>
+                        <button className={`favbutton ${isStarred ? 'active' : ''}`} onClick={() => savedDrink(ingredients)}>
+                            <span className="material-icons"> star </span>
                         </button>
                     </div>
                 </div>
@@ -182,9 +184,9 @@ export function Card(props) {
                     </div>
 
                     <div className="buttons">
-                        <button className="primary-button" onClick={() => addDrink(ingredients)}>Add Drink</button>
-                        <button className="favbutton" onClick={() => savedDrink(ingredients)}>
-                            <img className="favicon" src="/img/starv4x.png" alt="star icon" />
+                        <button className="primary-button" onClick={()=>addDrink(ingredients)}>Add Drink</button>
+                        <button className="favbutton" onClick={()=>savedDrink(ingredients)}>
+                            <span className="material-icons"> star </span>
                         </button>
                     </div>
                 </div>
@@ -195,7 +197,7 @@ export function Card(props) {
 
     export function AllCards(props) {
         const cardDrinkArray = props.drinks.map((eachDrink) => {
-            const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} currentUser={props.currentUser}/>
+            const aDrink = <Card key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
             return aDrink;
         })
 

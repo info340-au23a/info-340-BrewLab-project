@@ -613,6 +613,11 @@ div.tracker-nav {
     letter-spacing: 1px;
 }
 
+.home-text p {
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+}
+
 .home-text {
     position: absolute;
     top: 13%;
@@ -626,11 +631,13 @@ div.tracker-nav {
 .home-btn {
     display: inline-block;
     background:var(--creamy-latte);
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     padding: 1rem 3rem;
     border-radius: 4rem;
     color: var(--espresso-brown);
     font-weight: var(--font-semi-bold);
+    font-size: 1.4rem;
+
     
 }
 
@@ -667,6 +674,7 @@ div.tracker-nav {
     color: var(--creamy-latte);
     font-weight: var(--font-semi-bold);
     margin: 1rem 0 3rem 0;
+    font-size: 1.4rem;
 }
 
 /* HOME Tracker Section */
@@ -726,6 +734,7 @@ div.tracker-nav {
     border-radius: 4rem;
     color: var(--creamy-latte);
     font-weight: var(--font-semi-bold);
+    font-size: 1.4rem;
 }
 
 .quiz-section {
@@ -964,16 +973,16 @@ div.uploadImg {
 }
 
 .favbutton {
-    border-radius: 18px;
-    padding: .5rem 1rem;
+    border-radius: 48px;
+    padding: .7rem 2rem;
     background-color: var(--espresso-brown);
-    color: var(--milk-foam);
+    color: white;
 }
 
-.favicon {
-    width: 13px;
-    height: 13px;
+.favbutton.active {
+    color: yellow;
 }
+
 
 
 /* Quiz Page for bigger screens */

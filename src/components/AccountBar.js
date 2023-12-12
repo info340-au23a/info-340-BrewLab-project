@@ -7,11 +7,6 @@ import { MenuItem, menuItemClasses } from '@mui/base/MenuItem';
 import { getAuth, signOut } from 'firebase/auth';
 
 export default function MenuIntroduction(props) {
-  const createHandleMenuClick = (menuItem) => {
-    return () => {
-      console.log(`Clicked on ${menuItem}`);
-    };
-  };
 
   const handleSignOut = (event) => {
     signOut(getAuth());
@@ -22,7 +17,7 @@ export default function MenuIntroduction(props) {
       <MenuButton className='nav__button' >Account</MenuButton>
       <Menu slots={'ul'}>
         <MenuItem>
-          {props ? (
+          {props.currentUser ? (
             <Link to="/account">Profile</Link>
           ) : (
             <Link to="/signin">Profile</Link>

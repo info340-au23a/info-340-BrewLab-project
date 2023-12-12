@@ -125,7 +125,7 @@ export function Account(props) {
             {['posts', 'saved', 'tasted'].map(tab => (
               <div
                 key={tab}
-                className={`account-tabs profile-content ${activeTab === tab ? 'active' : ''}`}
+                className={'account-tabs profile-content ' + (activeTab === tab ? 'active' : '')}
                 onClick={() => handleTabClick(tab)}
               >
                 <h2> {tab.charAt(0).toUpperCase() + tab.slice(1)} </h2>
