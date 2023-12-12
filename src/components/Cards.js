@@ -116,7 +116,7 @@ export function Card(props) {
 
                         <div className="sectionTracker">
                             <h3>Ingredients</h3>
-                            <p>{ingredients.numShots} shots of a {ingredients.coffeeType}</p>
+                            <p>{ingredients.numShots} shots of {ingredients.coffeeType}</p>
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
                             <p>{ingredients.drinkVolume}</p>
@@ -166,7 +166,7 @@ export function Card(props) {
 
                         <div className="sectionTracker">
                             <h3>Ingredients</h3>
-                            <p>{ingredients.numShots} shots of a {ingredients.coffeeType}</p>
+                            <p>{ingredients.numShots} shots of {ingredients.coffeeType}</p>
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
                             <p>{ingredients.drinkVolume}</p>
