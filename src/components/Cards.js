@@ -63,7 +63,6 @@ export function Card(props) {
                 <div className="card">
                     <div>
                         <div>
-                            <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="user's uploaded drink" />
                             <h2>{props.drink}</h2>
                             <p>Short description of the drink</p>
                         </div>
@@ -108,7 +107,6 @@ export function Card(props) {
                 <div className="card">
                     <div>
                         <div>
-                            <img className="coffeeimg" src={props.drinkImg} alt="coffee with ice" />
                             <h2>{props.drink}</h2>
                             <p>{props.drinkDescript}</p>
                         </div>
