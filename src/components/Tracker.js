@@ -3,7 +3,6 @@ import { getDatabase, ref, push, set, onValue } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export function Tracker(props) {
-
     // navigation bar
     const [activeTab, setActiveTab] = useState('logging');
 
