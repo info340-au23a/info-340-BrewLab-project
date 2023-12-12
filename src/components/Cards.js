@@ -64,7 +64,7 @@ export function Card(props) {
                     <div>
                         <div>
                             <h2>{props.drink}</h2>
-                            <p>Short description of the drink</p>
+                            <p>{ingredients.drinkDescription}</p>
                         </div>
 
                         <div className="sectionTracker">
