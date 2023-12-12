@@ -108,7 +108,7 @@ export function Tracker(props) {
             drinkDescription: formData.drinkDescription,
             coffeeType: formData.coffeeType,
             temperature: formData.temperature,
-            drinkShots: formData.drinkVolume,
+            drinkShots: formData.drinkShots,
             milkType: formData.milkType,
             milkVolume: formData.milkVolume,
             foamVolume: formData.foamVolume,
@@ -151,7 +151,7 @@ export function Tracker(props) {
                 drinkDescription: '',
                 coffeeType: '',
                 temperature: '',
-                drinkVolume: '',
+                drinkShots: '',
                 milkType: '',
                 milkVolume: '',
                 foamVolume: '',
@@ -418,7 +418,7 @@ export function CreateCards(props) {
 
             <div className="sectionTracker">
                 <h3>Ingredients</h3>
-                <p>{drink.DrinkShots} shots of a {drink.coffeeType}</p>
+                <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
                 <p>{drink.milkVolume} of {drink.milkType} milk</p>
                 <p>{drink.sweetnessLevel}</p>
                 <p>{drink.syrupType} syrup</p>
