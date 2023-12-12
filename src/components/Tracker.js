@@ -139,10 +139,7 @@ export function Tracker(props) {
                 console.log('Uploaded a blob or file!');
             });
 
-            uploadBytes(formImagesRefLocal, imageF).then((snapshot) => {
-                console.log('Uploaded a blob or file to local!');
-            });
-
+            const url = await getDownloadURL(formImagesRef)
             await set(newDrinkRef, drinkData);
             await set(newDrinkRef2, drinkData);
 
@@ -159,9 +156,8 @@ export function Tracker(props) {
                 syrupType: '',
                 syrupPumps: '',
             });
-
             setSubmitted(true);
-
+            
         } catch (error) {
             console.error('Error saving drink data to Firebase:', error);
         }

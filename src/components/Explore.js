@@ -90,7 +90,7 @@ export function Explore(props) {
     }, []);
 
     return (
-        <main>
+        <main className="main-explore-padding">
             <h1 className="otherHeader">Explore New Drinks</h1>
 
             <div className="filter">

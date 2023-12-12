@@ -202,8 +202,8 @@ export function Card(props) {
         const db = getDatabase();
         const drinksRef = ref(db, 'posted drinks');
 
-        const cardDrinkArray = props.drinks.map((eachDrink) => {
-            const aDrink = <Card currentUser={props.currentUser} key={eachDrink.drinkName} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
+        const cardDrinkArray = props.drinks.map((eachDrink, index) => {
+            const aDrink = <Card currentUser={props.currentUser} key={index} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
             return aDrink;
         })
 
