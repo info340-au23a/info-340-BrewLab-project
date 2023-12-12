@@ -12,7 +12,7 @@
         "syrupType": "Vanilla",
         "temperature": "Hot",
         "tagMilkType": "Soy",
-        "foamVolume": "10 mL"}
+        "foamVolume": "30 mL"}
     },
     {"drinkName": "Matcha Latte",
     "drinkImg": "/img/matcha-latte.jpg",
@@ -20,14 +20,14 @@
     "ingredients": 
         {"numShots": "4",
         "coffeeType": "custom",
-        "milkVolume": "Medium: 10 oz.",
+        "milkVolume": "Medium: 8 oz.",
         "milkType": "goat",
         "sweetnessLevel": "100% - normal sugar",
         "syrupPumps": "6 pumps",
         "syrupType": "Matcha",
         "temperature": "Iced",
         "tagMilkType": "Goat",
-        "foamVolume": "0 mL"}
+        "foamVolume": "60 mL"}
     },
     {"drinkName": "Hot Chocolate",
     "drinkImg": "/img/hot-chocolate.jpg",
@@ -42,7 +42,7 @@
         "syrupType": "Chocolate",
         "temperature": "Hot",
         "tagMilkType": "Regular",
-        "foamVolume": "13 mL"}
+        "foamVolume": "120 mL"}
     },
     {"drinkName": "Chai Latte",
     "drinkImg": "/img/chai-latte.jpg",
@@ -57,6 +57,81 @@
         "syrupType": "Chai",
         "temperature": "Hot",
         "tagMilkType": "Oat",
-        "foamVolume": "10 mL"}
+        "foamVolume": "60 mL"}
+    },
+    {"drinkName": "Strawberry Frappuccino",
+    "drinkImg": "/img/strawberry-frappuccino.jpg",
+    "drinkDescription": "Strawberries take center stage in a frosty ballet of sweetness. It's like a dance party for your taste buds, complete with a swirl of whipped cream that's the grand finale to this fruity fiesta.",
+    "ingredients": 
+        {"numShots": "5",
+        "coffeeType": "espresso",
+        "milkVolume": "Extra large: 24 oz.",
+        "milkType": "oat",
+        "sweetnessLevel": "150% - more sugar",
+        "syrupPumps": "8 pumps",
+        "syrupType": "Strawberry",
+        "temperature": "Iced",
+        "tagMilkType": "Oat",
+        "foamVolume": "30 mL"}
+    },
+    {"drinkName": "Peppermint Cappuccino",
+    "drinkImg": "/img/peppermint-cappuccino.jpg",
+    "drinkDescription": "A magical concoction that transforms your coffee break into a winter wonderland. The warm embrace of cappuccino meets the cool, invigorating swirl of peppermint, creating a symphony of flavors that's like a sip of Christmas cheer.",
+    "ingredients": 
+        {"numShots": "7",
+        "coffeeType": "cappucino",
+        "milkVolume": "Extra small: 4 oz.",
+        "milkType": "almond",
+        "sweetnessLevel": "25% - 1/4 sugar",
+        "syrupPumps": "5 pumps",
+        "syrupType": "Peppermint",
+        "temperature": "Hot",
+        "tagMilkType": "Almond",
+        "foamVolume": "30 mL"}
+    },
+    {"drinkName": "Chocolate Hazelnut Mocha",
+    "drinkImg": "/img/hazelnut-mocha.jpg",
+    "drinkDescription": "A velvety elixir that blends the richness of chocolate with the nutty embrace of hazelnut. It's a decadent dance of flavors that will have you waltzing through your day with a cocoa-infused smile.",
+    "ingredients": 
+        {"numShots": "6",
+        "coffeeType": "mocha",
+        "milkVolume": "Large: 16 oz.",
+        "milkType": "hazelnut",
+        "sweetnessLevel": "50% - half sugar",
+        "syrupPumps": "3 pumps",
+        "syrupType": "Chocolate",
+        "temperature": "Hot",
+        "tagMilkType": "Hazelnut",
+        "foamVolume": "120 mL"}
+    },
+    {"drinkName": "Goat Milk Flat White",
+    "drinkImg": "/img/goat-milk-flat-white.jpg",
+    "drinkDescription": "A drink so frothy and velvety, it's like a cozy sweater for your taste buds. The distinctive taste of goat milk adds a touch of rustic charm, making each sip an adventurous journey through creamy pastures.",
+    "ingredients": 
+        {"numShots": "20",
+        "coffeeType": "flat white",
+        "milkVolume": "Medium: 8 oz.",
+        "milkType": "goat",
+        "sweetnessLevel": "50% - half sugar",
+        "syrupPumps": "2 pumps",
+        "syrupType": "Vanilla",
+        "temperature": "Hot",
+        "tagMilkType": "Goat",
+        "foamVolume": "60 mL"}
+    },
+    {"drinkName": "Coconut Americano",
+    "drinkImg": "/img/coconut-americano.jpg",
+    "drinkDescription": "A sip of sunshine in a cup. The robust simplicity of Americano meets the exotic twist of coconut, creating a harmonious blend that's like a beach vacation for your palate.",
+    "ingredients": 
+        {"numShots": "15",
+        "coffeeType": "americano",
+        "milkVolume": "2x large: 32 oz.",
+        "milkType": "coconut",
+        "sweetnessLevel": "50% - half sugar",
+        "syrupPumps": "4 pumps",
+        "syrupType": "Coconut",
+        "temperature": "Iced",
+        "tagMilkType": "Coconut",
+        "foamVolume": "120 mL"}
     }
 ]
