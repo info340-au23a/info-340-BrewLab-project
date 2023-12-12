@@ -54,49 +54,7 @@ export function Card(props) {
         const ingredientsTemperature = ingredients.temperature.toLowerCase();
         const ingredientsSyrupType = ingredients.syrupType.toLowerCase();
 
-        // if (exploreFilters === null ||
-        //     exploreFilters.coffeeType === "any" &&
-        //     exploreFilters.milkType === "any" &&
-        //     exploreFilters.temperature === "any") {
-        //     return (
-        //         <div className="card">
-        //             <div>
-        //                 <div className="user-attribute">
-        //                     <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-        //                     <p className="avatarUsername">@athenalovescoffee</p>
-        //                 </div>
-
-        //                 <div>
-        //                     <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="user's uploaded drink" />
-        //                     <h2>{props.drink}</h2>
-        //                     <p>Short description of the drink</p>
-        //                 </div>
-
-        //                 <div className="sectionTracker">
-        //                     <h3>Ingredients</h3>
-        //                     <p>{ingredients.numShots} shots of a {ingredients.coffeeType}</p>
-        //                     <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
-        //                     <p>{ingredients.sweetnessLevel}</p>
-        //                     <p>{ingredients.drinkVolume}</p>
-        //                     <p>{ingredients.syrupType} syrup</p>
-        //                 </div>
-
-        //                 <div className="sectionTracker">
-        //                     <h3 className="h3tracker">Tags</h3>
-        //                     <span className="tag">{ingredients.temperature}</span>
-        //                     <span className="tag">{ingredients.tagMilkType} Milk</span>
-        //                     <span className="tag">{ingredients.syrupType}</span>
-        //                 </div>
-        //             </div>
-
-        //             <div className="buttons">
-        //                 <button className="primary-button" onClick={() => addDrink(ingredients)}>Add Drink</button>
-        //                 <button className="favbutton" onClick={() => savedDrink(ingredients)}>
-        //                     <img className="favicon" src="/img/starv4x.png" alt="star icon" />
-        //                 </button>
-        //             </div>
-        //         </div>
-        //     );
+        
         if (ingredientsCoffeeType === exploreFilters.coffeeType ||
             ingredientsMilkType === exploreFilters.milkType ||
             ingredientsTemperature === exploreFilters.temperature ||
@@ -104,11 +62,6 @@ export function Card(props) {
             return (
                 <div className="card">
                     <div>
-                        {/* <div className="user-attribute">
-                            <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                            <p className="avatarUsername">@athenalovescoffee</p>
-                        </div> */}
-
                         <div>
                             <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="user's uploaded drink" />
                             <h2>{props.drink}</h2>
@@ -152,18 +105,12 @@ export function Card(props) {
             ingredients.temperature === quizFilter.temperature ||
             ingredients.sweetnessLevel === quizFilter.sweetness) {
             return (
-                // <CreateCardsExplore/>
                 <div className="card">
                     <div>
-                        {/* <div className="user-attribute">
-                            <img src="/img/profile-picture.jpg" alt="avatar" className="avatar" />
-                            <p className="avatarUsername"></p>
-                        </div> */}
-
                         <div>
-                            <img className="coffeeimg" src="/img/dairyfreemocha.jpg" alt="coffee with ice" />
+                            <img className="coffeeimg" src={props.drinkImg} alt="coffee with ice" />
                             <h2>{props.drink}</h2>
-                            <p>Short description of the drink</p>
+                            <p>{props.drinkDescript}</p>
                         </div>
 
                         <div className="sectionTracker">
@@ -199,7 +146,7 @@ export function Card(props) {
         const drinksRef = ref(db, 'posted drinks');
 
         const cardDrinkArray = props.drinks.map((eachDrink, index) => {
-            const aDrink = <Card currentUser={props.currentUser} key={index} drink={eachDrink.drinkName} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
+            const aDrink = <Card currentUser={props.currentUser} key={index} drink={eachDrink.drinkName} drinkImg={eachDrink.drinkImg} drinkDescript={eachDrink.drinkDescription} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
             return aDrink;
         })
 

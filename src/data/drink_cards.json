@@ -1,5 +1,7 @@
 [
     {"drinkName": "Caramel Macchiato",
+    "drinkImg": "/img/caramel-macchiato.jpeg",
+    "drinkDescription": "An espresso-based drink featuring a harmonious blend of espresso, steamed milk, and vanilla syrup, with a drizzle of caramel on top.",
     "ingredients": 
         {"numShots": "2",
         "coffeeType": "macchiato",
@@ -7,15 +9,17 @@
         "milkType": "regular",
         "sweetnessLevel": "100% - normal sugar",
         "syrupPumps": "2 pumps",
-        "syrupType": "Vanilla",
+        "syrupType": "Caramel",
         "temperature": "Hot",
         "tagMilkType": "Regular",
         "foamVolume": "10 mL"}
     },
     {"drinkName": "Matcha Latte",
+    "drinkImg": "/img/matcha-latte.jpg",
+    "drinkDescription": "A vibrant and earthy Japanese-inspired beverage made by whisking powdered green tea, known as matcha, with steamed milk.",
     "ingredients": 
         {"numShots": "4",
-        "coffeeType": "latte",
+        "coffeeType": "custom",
         "milkVolume": "Medium: 10 oz.",
         "milkType": "goat",
         "sweetnessLevel": "100% - normal sugar",
@@ -26,9 +30,11 @@
         "foamVolume": "0 mL"}
     },
     {"drinkName": "Hot Chocolate",
+    "drinkImg": "/img/hot-chocolate.jpg",
+    "drinkDescription": "A classic and comforting drink made by mixing cocoa powder or chocolate with hot milk or water.",
     "ingredients": 
         {"numShots": "5",
-        "coffeeType": "mocha",
+        "coffeeType": "custom",
         "milkVolume": "Extra small: 4 oz.",
         "milkType": "regular",
         "sweetnessLevel": "0% - no sugar",
@@ -39,6 +45,8 @@
         "foamVolume": "13 mL"}
     },
     {"drinkName": "Chai Latte",
+    "drinkImg": "/img/chai-latte.jpg",
+    "drinkDescription": "A spiced tea beverage that originated in India consisted of black tea infused with a blend of aromatic spices like cinnamon, cardamom, ginger, and cloves, combined with steamed milk.",
     "ingredients": 
         {"numShots": "16",
         "coffeeType": "latte",
