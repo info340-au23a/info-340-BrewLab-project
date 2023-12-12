@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuIntroduction from './AccountBar';
-import MenuBar from './menuBar';
+import MenuBar from './MenuBar';
 // import { Home } from './Home.js';
 // import { Account } from './Account.js';
 // import { Explore } from './Explore.js';
