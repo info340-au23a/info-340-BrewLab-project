@@ -6,53 +6,49 @@
         "milkVolume": "Large: 16 oz.",
         "milkType": "regular",
         "sweetnessLevel": "100% - normal sugar",
-        "drinkVolume": "16 ounces", 
         "syrupPumps": "2 pumps",
         "syrupType": "Vanilla",
         "temperature": "Hot",
         "tagMilkType": "Regular",
-        "foamVolume": ""}
+        "foamVolume": "10 mL"}
     },
     {"drinkName": "Matcha Latte",
     "ingredients": 
         {"numShots": "4",
         "coffeeType": "latte",
-        "milkVolume": "10 ounces",
+        "milkVolume": "Medium: 10 oz.",
         "milkType": "goat",
-        "sweetnessLevel": "100% sweet",
-        "drinkVolume": "12 ounces", 
+        "sweetnessLevel": "100% - normal sugar",
         "syrupPumps": "6 pumps",
         "syrupType": "Matcha",
-        "temperature": "Cold",
+        "temperature": "Iced",
         "tagMilkType": "Goat",
-        "foamVolume": "2 ounces"}
+        "foamVolume": "2 mL"}
     },
     {"drinkName": "Hot Chocolate",
     "ingredients": 
         {"numShots": "5",
         "coffeeType": "mocha",
-        "milkVolume": "7 ounces",
+        "milkVolume": "Extra small: 4 oz.",
         "milkType": "regular",
-        "sweetnessLevel": "0% sweet",
-        "drinkVolume": "18 ounces", 
+        "sweetnessLevel": "0% - no sugar",
         "syrupPumps": "9 pumps",
         "syrupType": "Chocolate",
         "temperature": "Hot",
         "tagMilkType": "Regular",
-        "foamVolume": "13 ounces"}
+        "foamVolume": "13 mL"}
     },
     {"drinkName": "Chai Latte",
     "ingredients": 
         {"numShots": "16",
         "coffeeType": "latte",
-        "milkVolume": "3 ounces",
+        "milkVolume": "Small: 6 oz.",
         "milkType": "regular",
-        "sweetnessLevel": "50% sweet",
-        "drinkVolume": "14 ounces", 
+        "sweetnessLevel": "50% - half sugar",
         "syrupPumps": "6 pumps",
         "syrupType": "Chai",
         "temperature": "Hot",
         "tagMilkType": "Regular",
-        "foamVolume": "10 ounces"}
+        "foamVolume": "10 mL"}
     }
 ]
