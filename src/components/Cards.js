@@ -135,6 +135,12 @@ export function Card(props) {
                     </div>
                 </div>
             );
+        } else {
+            return (
+                <div>
+                    <p>No drinks to recommend! Go to explore page to discover more!</p>
+                </div>
+            );
         }
     }
 }
@@ -147,6 +153,8 @@ export function Card(props) {
             const aDrink = <Card currentUser={props.currentUser} key={index} drink={eachDrink.drinkName} drinkImg={eachDrink.drinkImg} drinkDescript={eachDrink.drinkDescription} ingredients={eachDrink.ingredients} quizAnswers={props.quizAnswers} exploreFilters={props.exploreFilters} pageResult={props.pageResult} />
             return aDrink;
         })
+
+        console.log(cardDrinkArray);
 
         return (
             <div className="allCards">
