@@ -133,7 +133,8 @@ export function Tracker(props) {
         })
 
         try {
-            const newDrinkRef = "drinkImages/"+ props.currentUser.userId + ".png";
+            const newDrinkRef = push(drinksRef);
+            const newDrinkRef2 = push(localDrinks);
 
             const storage = getStorage();
             const formImagesRef = storageRef(storage, newDrinkRef.key);
@@ -143,15 +144,18 @@ export function Tracker(props) {
                 console.log('Uploaded a blob or file!');
             });
 
-            const url = await getDownloadURL(formImagesRef)
+            uploadBytes(formImagesRefLocal, imageF).then((snapshot) => {
+                console.log('Uploaded a blob or file to local!');
+            });
             await set(newDrinkRef, drinkData);
+            await set(newDrinkRef2, drinkData);
 
             setFormData({
                 drinkName: '',
                 drinkDescription: '',
                 coffeeType: '',
                 temperature: '',
-                drinkVolume: '',
+                drinkShots: '',
                 milkType: '',
                 milkVolume: '',
                 foamVolume: '',
@@ -159,9 +163,8 @@ export function Tracker(props) {
                 syrupType: '',
                 syrupPumps: '',
             });
-
             setSubmitted(true);
-
+            
         } catch (error) {
             console.error('Error saving drink data to Firebase:', error);
         }
