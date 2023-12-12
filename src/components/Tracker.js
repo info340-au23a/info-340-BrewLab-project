@@ -60,7 +60,7 @@ export function Tracker(props) {
                 <DrinkDescription onChange={handleChange} formData={formData} />
                 <CoffeeType onChange={handleChange} formData={formData} />
                 <TemperatureDrink temp={handleChange} formData={formData} />
-                <DrinkVolume onChange={handleChange} formData={formData} />
+                <DrinkShots onChange={handleChange} formData={formData} />
                 <MilkType onChange={handleChange} formData={formData} />
                 <MilkVolume onChange={handleChange} formData={formData} />
                 <FoamVolume onChange={handleChange} formData={formData} />
@@ -112,7 +112,7 @@ export function Tracker(props) {
             drinkDescription: formData.drinkDescription,
             coffeeType: formData.coffeeType,
             temperature: formData.temperature,
-            drinkVolume: formData.drinkVolume,
+            drinkShots: formData.drinkShots,
             milkType: formData.milkType,
             milkVolume: formData.milkVolume,
             foamVolume: formData.foamVolume,
@@ -255,7 +255,7 @@ function TemperatureDrink(props) {
     );
 }
 
-function DrinkVolume(props) {
+function DrinkShots(props) {
     return (
         <div className="tracker">
             <label htmlFor="drinkShots" className="explanation">Shots of Coffee</label>
@@ -428,127 +428,6 @@ export function CreateCards(props) {
                         <span className="tag">{drink.syrupType}</span>
                     </div>
 
-                </div>
-            ))}
-        </div>
-    );
-}
-
-export function CreateCardsExplore(props) {
-
-    const [drinkData, setDrinkData] = useState([]);
-    const userInfo = props.currentUser;
-    const storage = getStorage();
-
-    // Define state to keep track of button click
-    const [isStarred, setIsStarred] = React.useState(false);
-
-    // add drink: tasted drink
-    const addDrink = async (drink) => {
-        const db = getDatabase();
-        const drinksRef = ref(db, 'users/' + userInfo.userId + '/tasted drinks');
-
-        try {
-            const newDrinkRef = push(drinksRef);
-            const storage = getStorage();
-            await set(newDrinkRef, drink);
-        } catch (error) {
-            console.error('Error saving drink data to Firebase:', error);
-        }
-    };
-
-    // star button: save drink for future use
-    const savedDrink = async (drink) => {
-        const db = getDatabase();
-        const drinksRef = ref(db, 'users/' + userInfo.userId + '/saved drinks');
-
-        try {
-            const newDrinkRef = push(drinksRef);
-            const storage = getStorage();
-            
-            if (isStarred) {
-                setIsStarred(false);
-            } else {
-                await set(newDrinkRef, drink);
-                setIsStarred(true);
-            }
-        } catch (error) {
-            console.error('Error saving drink data to Firebase:', error);
-        }
-    };
-
-    useEffect(() => {
-        // Fetch data from Firebase when the component mounts
-        const db = getDatabase();
-
-        const drinksRef = ref(db, props.tableName);
-
-        // fetch data from realtime database
-        const fetchData = onValue(drinksRef, (snapshot) => {
-            const data = snapshot.val();
-            if (data) {
-                // Convert the data object into an array and set it in the state
-                const dataArray = Object.keys(data).map((key) => ({
-                    id: key,
-                    ...data[key],
-                }));
-                setDrinkData(dataArray);
-                fetchURL();
-            } else {
-                // Handle the case when there is no data
-                setDrinkData([]);
-            }
-        });
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            fetchData(); // This will unsubscribe from the onValue event
-        };
-    }, []);
-
-    // get drink image
-    const fetchURL = async () => {
-        const images = await Promise.all(drinkData.map((drink) => getDownloadURL(storageRef(storage, drink.id))));
-
-        setDrinkData((drinks) => drinks.map((drink, idx) => ({
-            ...drink,
-            selectedImage: images[idx]
-        })));
-    }
-
-    return (
-        <div className="allCards">
-            {drinkData.map((drink) => (
-                <div key={drink.id} className="card">
-
-                    <div>   
-                        <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
-                        <h2>{drink.drinkName}</h2>
-                        <p>{drink.drinkDescription}</p>
-                    </div>
-
-                    <div className="sectionTracker">
-                        <h3>Ingredients</h3>
-                        <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
-                        <p>{drink.milkVolume} of {drink.milkType} milk</p>
-                        <p>{drink.sweetnessLevel}</p>
-                        <p>{drink.syrupType} syrup</p>
-                        <p>{drink.foamVolume} of foam</p>
-                    </div>
-
-                    <div className="sectionTracker">
-                        <h3 className="h3tracker">Tags</h3>
-                        <span className="tag">{drink.temperature}</span>
-                        <span className="tag">{drink.milkType}</span>
-                        <span className="tag">{drink.syrupType}</span>
-                    </div>
-
-                    <div className="buttons">
-                        <button className="primary-button" onClick={() => addDrink(drink)}>Add Drink</button>
-                        <button className={`favbutton ${isStarred ? 'active' : ''}`} onClick={() => savedDrink(drink)}>
-                            <span className="material-icons"> star </span>
-                        </button>
-                    </div>
                 </div>
             ))}
         </div>

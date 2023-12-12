@@ -24,7 +24,9 @@ export function Card(props) {
         try {
             const newDrinkRef = push(drinksRef);
             const storage = getStorage();
+            
             await set(newDrinkRef, drink);
+
         } catch (error) {
             console.error('Error saving drink data to Firebase:', error);
         }
