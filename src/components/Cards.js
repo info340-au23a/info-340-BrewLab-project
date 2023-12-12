@@ -86,7 +86,7 @@ export function Card(props) {
 
                     <div className="buttons">
                         <button className="primary-button" onClick={()=>addDrink(ingredients)}>Add Drink</button>
-                        <button className={`favbutton ${isStarred ? 'active' : ''}`} onClick={() => savedDrink(ingredients)}>
+                        <button className={'favbutton ' + (isStarred ? 'active' : '')} onClick={() => savedDrink(ingredients)}>
                             <span className="material-icons"> star </span>
                         </button>
                     </div>

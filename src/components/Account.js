@@ -104,7 +104,7 @@ export function Account(props) {
           <div className="account-data">
             <h2> @{userName} </h2>
           </div>
-          <img className="profile-picture" src={profilePic} alt="profile picture" />
+          <img className="profile-picture" src={profilePic} alt="user avatar" />
           <div className="account-data">
             <p> {fullName} </p>
             <p> Joined {formattedJoinedDate}</p>
