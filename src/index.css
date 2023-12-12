@@ -351,6 +351,15 @@ footer p {
     padding-bottom: 10rem;
 }
 
+.explore-instructions-section {
+    padding: 1rem;
+}
+
+.explore-instructions {
+    text-align: center;
+    font-size: var(--normal-font-size);
+}
+
 /* profile page */
 img.profile-picture-edit {
     width: 200px;

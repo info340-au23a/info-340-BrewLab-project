@@ -6,12 +6,12 @@
         {"numShots": "2",
         "coffeeType": "macchiato",
         "milkVolume": "Large: 16 oz.",
-        "milkType": "regular",
-        "sweetnessLevel": "100% - normal sugar",
+        "milkType": "soy",
+        "sweetnessLevel": "75% - less sugar",
         "syrupPumps": "2 pumps",
-        "syrupType": "Caramel",
+        "syrupType": "Vanilla",
         "temperature": "Hot",
-        "tagMilkType": "Regular",
+        "tagMilkType": "Soy",
         "foamVolume": "10 mL"}
     },
     {"drinkName": "Matcha Latte",
@@ -51,12 +51,12 @@
         {"numShots": "16",
         "coffeeType": "latte",
         "milkVolume": "Small: 6 oz.",
-        "milkType": "regular",
+        "milkType": "oat",
         "sweetnessLevel": "50% - half sugar",
         "syrupPumps": "6 pumps",
         "syrupType": "Chai",
         "temperature": "Hot",
-        "tagMilkType": "Regular",
+        "tagMilkType": "Oat",
         "foamVolume": "10 mL"}
     }
 ]

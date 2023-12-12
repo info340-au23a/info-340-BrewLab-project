@@ -128,6 +128,10 @@ export function Explore(props) {
                 </div>
             </div>
 
+            <div className="explore-instructions-section">
+                <p className="explore-instructions">Select filters and click apply filter to explore for drinks!</p>
+            </div>
+
             <AllCards currentUser={props.currentUser} drinks={drinkData} exploreFilters={finalFilters} pageResult="explore" />
 
         </main>
