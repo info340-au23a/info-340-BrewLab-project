@@ -35,12 +35,6 @@ export function NavigationBar(props) {
                         {liArray}
                     </ul>
 
-                    {/* {props ? (
-                        <Link to="/account" className="nav__button">Account</Link>
-                        ) : (
-                        <Link to="signin" className="nav__button">Login</Link>
-                    )} */}
-
                     <MenuIntroduction {...props}/>
 
                 </div>
