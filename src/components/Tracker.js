@@ -43,7 +43,7 @@ export function Tracker(props) {
         drinkDescription: '',
         coffeeType: 'Espresso',
         temperature: '',
-        drinkVolume: 'extra small: 4 oz.',
+        drinkShots: 'extra small: 4 oz.',
         milkType: 'Whole',
         milkVolume: 'extra small: 4 oz.',
         foamVolume: '30 mL',
@@ -61,7 +61,7 @@ export function Tracker(props) {
                 <DrinkDescription onChange={handleChange} formData={formData} />
                 <CoffeeType onChange={handleChange} formData={formData} />
                 <TemperatureDrink temp={handleChange} formData={formData} />
-                <DrinkVolume onChange={handleChange} formData={formData} />
+                <DrinkShots onChange={handleChange} formData={formData} />
                 <MilkType onChange={handleChange} formData={formData} />
                 <MilkVolume onChange={handleChange} formData={formData} />
                 <FoamVolume onChange={handleChange} formData={formData} />
@@ -108,7 +108,7 @@ export function Tracker(props) {
             drinkDescription: formData.drinkDescription,
             coffeeType: formData.coffeeType,
             temperature: formData.temperature,
-            drinkVolume: formData.drinkVolume,
+            drinkShots: formData.drinkShots,
             milkType: formData.milkType,
             milkVolume: formData.milkVolume,
             foamVolume: formData.foamVolume,
@@ -151,7 +151,7 @@ export function Tracker(props) {
                 drinkDescription: '',
                 coffeeType: '',
                 temperature: '',
-                drinkVolume: '',
+                drinkShots: '',
                 milkType: '',
                 milkVolume: '',
                 foamVolume: '',
@@ -174,19 +174,22 @@ export function Tracker(props) {
             <div className="tracker-nav">
                 <div className="tracker-buttons">
 
-                    <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}>
+                    {/* <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}> */}
+                    <div className="t-button" onClick={() => handleTabClick('logging')}>
                         <div className="content-navi">
                             <div className="text-navi">Log Drink</div>
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}>
+                    {/* <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}> */}
+                    <div className="t-button" onClick={() => handleTabClick('posts')}>
                         <div className="content-navi">
                             <div className="text-navi">Posted Drinks</div>
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}>
+                    {/* <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}> */}
+                    <div className="t-button" onClick={() => handleTabClick('tasted')}>
                         <div className="content-navi">
                             <div className="text-navi" href="tracker3.html">Tasted Drinks</div>
                         </div>
@@ -253,18 +256,11 @@ function TemperatureDrink(props) {
     );
 }
 
-function DrinkVolume(props) {
+function DrinkShots(props) {
     return (
         <div className="tracker">
-            <label htmlFor="drinkVolume" className="explanation">Amount of coffee you made</label>
-            <select id="drinkVolume" onChange={props.onChange} value={props.formData.drinkVolume}>
-                <option value="xsmall">extra small: 4 oz.</option>
-                <option value="small">small: 6 oz.</option>
-                <option value="medium">medium: 8 oz.</option>
-                <option value="large">large: 16 oz.</option>
-                <option value="xlarge">extra large: 24 oz.</option>
-                <option value="xxlarge">2x large: 32oz.</option>
-            </select>
+            <label htmlFor="drinkShots" className="explanation">Shots of Coffee</label>
+            <input id="drinkShots" onChange={props.onChange} type="number" min="0" value={props.formData.drinkShots}/>
         </div>
     );
 }
@@ -345,7 +341,7 @@ function SyrupPumps(props) {
     return (
         <div className="tracker">
             <label htmlFor="syrupPumps" className="explanation">Pumps of Syrup</label>
-            <input id="syrupPumps" onChange={props.onChange} type="text" value={props.formData.syrupPumps}/>
+            <input id="syrupPumps" onChange={props.onChange}  type="number" min="0" value={props.formData.syrupPumps}/>
         </div>
     );
 }
@@ -422,11 +418,11 @@ export function CreateCards(props) {
 
             <div className="sectionTracker">
                 <h3>Ingredients</h3>
-                <p>{drink.numShots} shots of a {drink.coffeeType}</p>
-                <p>{drink.milkVolume} of {drink.milkType}</p>
+                <p>{drink.drinkShots} shots of a {drink.coffeeType}</p>
+                <p>{drink.milkVolume} of {drink.milkType} milk</p>
                 <p>{drink.sweetnessLevel}</p>
-                <p>{drink.drinkVolume}</p>
                 <p>{drink.syrupType} syrup</p>
+                <p>{drink.foamVolume} of foam</p>
             </div>
 
             <div className="sectionTracker">

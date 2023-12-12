@@ -30,7 +30,7 @@ export function Card(props) {
     // star button: save drink for future use
     const savedDrink = async (drink) => {
         const db = getDatabase();
-        const drinksRef = ref(db, 'saved drink');
+        const drinksRef = ref(db, 'users/' + userInfo.userId + '/saved drinks');
 
         try {
             const newDrinkRef = push(drinksRef);
@@ -118,11 +118,11 @@ export function Card(props) {
 
                         <div className="sectionTracker">
                             <h3>Ingredients</h3>
-                            <p>{ingredients.numShots} shots of a {ingredients.coffeeType}</p>
+                            <p>{ingredients.numShots} shots of {ingredients.coffeeType}</p>
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
-                            <p>{ingredients.drinkVolume}</p>
                             <p>{ingredients.syrupType} syrup</p>
+                            <p>{ingredients.foamVolume} of foam</p>
                         </div>
 
                         <div className="sectionTracker">
@@ -168,11 +168,11 @@ export function Card(props) {
 
                         <div className="sectionTracker">
                             <h3>Ingredients</h3>
-                            <p>{ingredients.numShots} shots of a {ingredients.coffeeType}</p>
+                            <p>{ingredients.numShots} shots of {ingredients.coffeeType}</p>
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
-                            <p>{ingredients.drinkVolume}</p>
                             <p>{ingredients.syrupType} syrup</p>
+                            <p>{ingredients.foamVolume} of foam</p>
                         </div>
 
                         <div className="sectionTracker">
