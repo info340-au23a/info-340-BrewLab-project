@@ -97,18 +97,6 @@ img {
     justify-content: center;
 }
 
-/* .filter-container{
-    background-color: var(--milk-foam);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-grow: 1;
-    max-width: 75%;
-    border-radius: 4px;
-    height: 80px;
-} */
-
 .filter-container {
     background-color: var(--creamy-latte);
     display: flex;
@@ -261,9 +249,7 @@ div.filtering label {
 /* Quiz Page */
 
 /* FOR QUIZ PAGE TO GET ALL THE WAY TO THE BOTTOM OF THE SCREEN */
-/* .quiz-height {
-    height: 100%;
-} */
+
 
 .main-quiz-padding {
     padding: 3rem;
@@ -272,16 +258,6 @@ div.filtering label {
 .quiz-page {
     background-color: var(--mint);
 }
-
-/* .displayed-nav {
-    display: none;
-}
-
-.dropdown-nav {
-    display: flex;
-    position: absolute;
-    right: 0;
-} */
 
 .quiz-header {
     font-family: var(--title-font);
@@ -343,11 +319,6 @@ div {
     justify-content: space-evenly;
     color: var(--espresso-brown);
 }
-
-/* .next:hover,
-.previous:hover {
-    color: white;
-} */
 
 footer p {
     display: block;
@@ -514,29 +485,6 @@ footer {
     width:100%;
     height:60px; 
 }
-
-/* nav a {
-    color: var(--espresso-brown);
-    margin-right: .5em;
-}
-
-.nav__list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 2.5rem;
-}
-
-.nav__link {
-    color: var(--creamy-latte);
-    font-weight: var(--font-semi-bold);
-    transition: color .4s;
-}
-
-.nav__link:hover {
-    color: #F8F2EB;
-}
-
- */
 
 .nav__button {
     display: inline-block;
@@ -939,11 +887,6 @@ div.uploadImg {
     max-width: 350px;
 }
 
-/* .tags {
-    margin-top: 1rem;
-    margin-bottom: .5rem;
-} */
-
 .tag {
     display: inline-block;
     background-color: var(--creamy-latte);
@@ -985,15 +928,6 @@ div.uploadImg {
 
 /* Quiz Page for bigger screens */
 @media (min-width: 576px) {
-    /* .displayed-nav {
-        display: flex;
-        position: absolute;
-        right: 0;
-    }
-
-    .dropdown-nav {
-        display: none;
-    } */
 
     .quiz-nav a {
         font-size: 15px;
@@ -1043,46 +977,7 @@ div.uploadImg {
     }
 }
 
-/* Navigation for mobile devices */
-/* @media screen and (max-width: 1023px) {
-    .nav__menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        background-color: var(--espresso-brown);
-        width: 80%;
-        height: 100%;
-        box-shadow: 0 0 16px hsla(32, 48%, 95% .2);
-        padding: 6rem 3rem;
-        display: flex;
-        flex-direction: column;
-        row-gap: 2.5rem;
-        transition: right .4s;
-    }
-    
-    .t-navi {
-        width: 80%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        transition: right .4s;
-    }
-
-    div.tracker-nav {
-        display: grid;
-        margin: 2rem auto;
-        align-items: center;
-        columns: 2 100px;
-    }
-
-} */
-
 @media screen and (min-width: 1023px) {
-    /* .filter-container {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-    } */
 
     .filter-container{
         flex-direction: row;
