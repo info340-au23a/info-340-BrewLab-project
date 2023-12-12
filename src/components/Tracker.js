@@ -400,7 +400,7 @@ export function CreateCards(props) {
                 <img
                     className="coffeeimg"
                     src={drink.selectedImage}
-                    alt="user's chosen image for their drink"
+                    alt="user's upload for their drink"
                 />
                 <h2>{drink.drinkName}</h2>
                 <p>{drink.drinkDescription}</p>
