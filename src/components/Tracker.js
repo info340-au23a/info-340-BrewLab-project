@@ -437,6 +437,7 @@ export function CreateCards(props) {
 export function CreateCardsExplore(props) {
 
     const [drinkData, setDrinkData] = useState([]);
+    const userInfo = props.currentUser;
     const storage = getStorage();
 
     // Define state to keep track of button click
@@ -520,7 +521,7 @@ export function CreateCardsExplore(props) {
             {drinkData.map((drink) => (
                 <div key={drink.id} className="card">
 
-                    <div>
+                    <div>   
                         <img className="coffeeimg" src={drink.selectedImage} alt="user's chosen image for their drink" />
                         <h2>{drink.drinkName}</h2>
                         <p>{drink.drinkDescription}</p>
@@ -543,8 +544,8 @@ export function CreateCardsExplore(props) {
                     </div>
 
                     <div className="buttons">
-                        <button className="primary-button" onClick={() => addDrink(ingredients)}>Add Drink</button>
-                        <button className={`favbutton ${isStarred ? 'active' : ''}`} onClick={() => savedDrink(ingredients)}>
+                        <button className="primary-button" onClick={() => addDrink(drink)}>Add Drink</button>
+                        <button className={`favbutton ${isStarred ? 'active' : ''}`} onClick={() => savedDrink(drink)}>
                             <span className="material-icons"> star </span>
                         </button>
                     </div>
