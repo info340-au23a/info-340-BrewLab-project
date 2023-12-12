@@ -147,7 +147,7 @@ export function Account(props) {
     
         return (
             <div className="allCards" key={activeTab}>
-            <CreateCards tableName={tabMapping[activeTab]} />
+                <CreateCards tableName={tabMapping[activeTab]} />
             </div>
         );
     };
