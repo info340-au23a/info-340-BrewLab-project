@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuIntroduction from './AccountBar';
+import MenuBar from './menuBar';
 // import { Home } from './Home.js';
 // import { Account } from './Account.js';
 // import { Explore } from './Explore.js';
 // import { Tracker } from './Tracker.js';
 // import { Quiz } from './Quiz.js';
+
 
 // json later?
 const navBarLinks = [
@@ -16,6 +18,7 @@ const navBarLinks = [
 ];
 
 export function NavigationBar(props) {
+
     const linkArray = navBarLinks.map((navLink) => {
         const transformed = <Link key={navLink.linkName} to={navLink.linkTo} className='nav__link'>{navLink.linkName}</Link>;
         return transformed;
@@ -38,9 +41,10 @@ export function NavigationBar(props) {
                     <MenuIntroduction {...props}/>
 
                 </div>
-
-                <div className="'toggle">
-                    <i className="ri-menu-line" aria-label="Menu Icon"></i>
+                
+                <div className='toggle'>
+                    <MenuIntroduction {...props}/>
+                    <MenuBar navBarLinks={navBarLinks}/>
                 </div>
             </nav>
         </header>

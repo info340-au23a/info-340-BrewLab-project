@@ -58,7 +58,7 @@ export function Tracker(props) {
                 <DrinkDescription onChange={handleChange} formData={formData} />
                 <CoffeeType onChange={handleChange} formData={formData} />
                 <TemperatureDrink temp={handleChange} formData={formData} />
-                <DrinkVolume onChange={handleChange} formData={formData} />
+                <DrinkShots onChange={handleChange} formData={formData} />
                 <MilkType onChange={handleChange} formData={formData} />
                 <MilkVolume onChange={handleChange} formData={formData} />
                 <FoamVolume onChange={handleChange} formData={formData} />
@@ -71,15 +71,10 @@ export function Tracker(props) {
         </div>
     )
 
-    const [imageFile, setImageFile] = useState(undefined)
     const [selectedImage, setSelectedImage] = useState('./img/uploadphoto.png');
 
     const handleImageChange = (event) => {
-       if(event.target.files.length > 0 && event.target.files[0]) {
-            const imageFile = event.target.files[0]
-            setImageFile(imageFile);
-            setSelectedImage(URL.createObjectURL(imageFile));
-        }
+        setSelectedImage(URL.createObjectURL(event.target.files[0]));
     };
 
     const handleChange = (event) => {
@@ -110,7 +105,7 @@ export function Tracker(props) {
             drinkDescription: formData.drinkDescription,
             coffeeType: formData.coffeeType,
             temperature: formData.temperature,
-            drinkVolume: formData.drinkVolume,
+            drinkShots: formData.drinkShots,
             milkType: formData.milkType,
             milkVolume: formData.milkVolume,
             foamVolume: formData.foamVolume,
@@ -141,9 +136,7 @@ export function Tracker(props) {
                 console.log('Uploaded a blob or file!');
             });
 
-            uploadBytes(formImagesRefLocal, imageF).then((snapshot) => {
-                console.log('Uploaded a blob or file to local!');
-            });
+            const url = await getDownloadURL(formImagesRef)
             await set(newDrinkRef, drinkData);
             await set(newDrinkRef2, drinkData);
 
@@ -174,19 +167,22 @@ export function Tracker(props) {
             <div className="tracker-nav">
                 <div className="tracker-buttons">
 
-                    <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}>
+                    {/* <div className={`t-button ${activeTab === 'logging' ? 'active' : ''}`} onClick={() => handleTabClick('logging')}> */}
+                    <div className="t-button" onClick={() => handleTabClick('logging')}>
                         <div className="content-navi">
                             <div className="text-navi">Log Drink</div>
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}>
+                    {/* <div className={`t-button ${activeTab === 'posts' ? 'active' : ''}`} onClick={() => handleTabClick('posts')}> */}
+                    <div className="t-button" onClick={() => handleTabClick('posts')}>
                         <div className="content-navi">
                             <div className="text-navi">Posted Drinks</div>
                         </div>
                     </div>
 
-                    <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}>
+                    {/* <div className={`t-button ${activeTab === 'tasted' ? 'active' : ''}`} onClick={() => handleTabClick('tasted')}> */}
+                    <div className="t-button" onClick={() => handleTabClick('tasted')}>
                         <div className="content-navi">
                             <div className="text-navi" href="tracker3.html">Tasted Drinks</div>
                         </div>
@@ -253,7 +249,7 @@ function TemperatureDrink(props) {
     );
 }
 
-function DrinkVolume(props) {
+function DrinkShots(props) {
     return (
         <div className="tracker">
             <label htmlFor="drinkShots" className="explanation">Shots of Coffee</label>
@@ -344,7 +340,6 @@ function SyrupPumps(props) {
 }
 
 function ImageUpload(props) {
-
     return (
         <div className="uploadImg">
             <label htmlFor="uploadImg">Upload Image of Your Drink</label>
