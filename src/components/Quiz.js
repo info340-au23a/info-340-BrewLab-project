@@ -108,9 +108,9 @@ function QuizPage(props) {
 
                 <section className="options">
                     <div>
-                        <ul>
+                        <div>
                             {buttonAnswersArray}
-                        </ul>
+                        </div>
                     </div>
                 </section>
 
