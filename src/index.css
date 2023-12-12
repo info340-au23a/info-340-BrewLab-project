@@ -439,6 +439,24 @@ img.profile-picture {
     text-align: center;
 }
 
+.menu_dropdown {
+    font-size: 0.875rem;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 6px;
+    margin: 12px 0;
+    width: 100px;
+    border-radius: 12px;
+    overflow: auto;
+    outline: 0px;
+    background-color: white;
+    color:black;
+}
+
+.menu_dropdown a:visited {
+    color: black;
+}
+
 .post-cards div {
     display: flex;
     flex-wrap: wrap;

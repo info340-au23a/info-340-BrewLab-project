@@ -169,7 +169,6 @@ export function Account(props) {
 
         await uploadBytes(imageRef, imageFile)
         const url = await getDownloadURL(imageRef)
-        console.log(url);
         updateProfile(props.currentUser, {photoURL: url})
     
     }
