@@ -52,7 +52,6 @@ export function Card(props) {
 
     // explore page filtering
     if (currentPage === "explore") {
-        console.log(exploreFilters);
         const ingredientsCoffeeType = ingredients.coffeeType.toLowerCase();
         const ingredientsMilkType = ingredients.milkType.toLowerCase();
         const ingredientsTemperature = ingredients.temperature.toLowerCase();

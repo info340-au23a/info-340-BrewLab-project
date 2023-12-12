@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Footer } from './Footer.js';
 import { getDatabase, ref, push, set, onValue } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-
-// import user authentication (adjust path to authentication context)
 
 export function Tracker(props) {
 
@@ -164,7 +161,7 @@ export function Tracker(props) {
                 syrupPumps: '',
             });
             setSubmitted(true);
-            
+
         } catch (error) {
             console.error('Error saving drink data to Firebase:', error);
         }

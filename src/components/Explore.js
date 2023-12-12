@@ -70,7 +70,7 @@ export function Explore(props) {
               id: key,
               ...data[key],
             }));
-
+            
             const cardsArray = dataArray.map((key) => ({
                 drinkName: key.drinkName,
                 ingredients: key
