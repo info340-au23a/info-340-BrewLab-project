@@ -114,7 +114,7 @@ export function Card(props) {
 
                         <div className="sectionTracker">
                             <h3>Ingredients</h3>
-                            <p>{ingredients.drinkShots} shots of {ingredients.coffeeType}</p>
+                            <p>{ingredients.numShots} shots of {ingredients.coffeeType}</p>
                             <p>{ingredients.milkVolume} of {ingredients.milkType} milk</p>
                             <p>{ingredients.sweetnessLevel}</p>
                             <p>{ingredients.syrupType} syrup</p>
